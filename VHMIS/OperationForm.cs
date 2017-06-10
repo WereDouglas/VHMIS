@@ -95,7 +95,7 @@ namespace VHMIS
             }
 
             string id = Guid.NewGuid().ToString();
-            _operation = new Operations(id, departmentCbx.Text, codeTxt.Text, serviceTxt.Text, costTxt.Text, otherTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+            _operation = new Operations(id, departmentCbx.Text, codeTxt.Text, serviceTxt.Text, costTxt.Text, otherTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
             if (DBConnect.Insert(_operation) != "")
             {
@@ -172,7 +172,7 @@ namespace VHMIS
             if (updateID == "") { return; }
             if (MessageBox.Show("YES or No?", "Are you sure you want to update this information? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                _operation = new Operations(updateID, departmentCbx.Text, codeTxt.Text, serviceTxt.Text, costTxt.Text, otherTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+                _operation = new Operations(updateID, departmentCbx.Text, codeTxt.Text, serviceTxt.Text, costTxt.Text, otherTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
                 DBConnect.Update(_operation, updateID);
                 Global._operations.RemoveAll(x => x.Id == updateID);
@@ -203,7 +203,7 @@ namespace VHMIS
         private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             updateID = dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
-            _operation = new Operations(updateID, dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[6].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[7].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[8].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+            _operation = new Operations(updateID, dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[6].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[7].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[8].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
             //Operations(2, 4, 5,6,7, 8, string created)
             DBConnect.Update(_operation, updateID);
             Global._operations.RemoveAll(x => x.Id == updateID);

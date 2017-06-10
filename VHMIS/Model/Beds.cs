@@ -18,7 +18,7 @@ namespace VHMIS.Model
         private string status;
         private string category;       
         private string created;
-
+        private string orgID;
         public string Id
         {
             get
@@ -123,7 +123,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Beds(string id, string wardID, string no, string acc, string rate, string status, string category, string created)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Beds(string id, string wardID, string no, string acc, string rate, string status, string category, string created, string orgID)
         {
             this.Id = id;
             this.WardID = wardID;
@@ -133,6 +146,7 @@ namespace VHMIS.Model
             this.Status = status;
             this.Category = category;
             this.Created = created;
+            this.OrgID = orgID;
         }
 
         public static List<Beds> ListBeds()
@@ -144,7 +158,7 @@ namespace VHMIS.Model
             NpgsqlDataReader Reader = command.ExecuteReader();
             while (Reader.Read())
             {
-                Beds p = new Beds(Reader["id"].ToString(), Reader["wardID"].ToString(), Reader["no"].ToString(), Reader["acc"].ToString(), Reader["rate"].ToString(), Reader["status"].ToString(), Reader["category"].ToString(),Reader["created"].ToString());
+                Beds p = new Beds(Reader["id"].ToString(), Reader["wardID"].ToString(), Reader["no"].ToString(), Reader["acc"].ToString(), Reader["rate"].ToString(), Reader["status"].ToString(), Reader["category"].ToString(),Reader["created"].ToString(), Reader["orgid"].ToString());
                 wards.Add(p);
             }
             DBConnect.CloseConn();

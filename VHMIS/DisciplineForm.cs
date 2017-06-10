@@ -89,7 +89,7 @@ namespace VHMIS
             }
 
             string id = Guid.NewGuid().ToString();
-            _discipline = new Discipline(id, nameTxt.Text, codeTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+            _discipline = new Discipline(id, nameTxt.Text, codeTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
             if (DBConnect.Insert(_discipline) != "")
             {
@@ -167,7 +167,7 @@ namespace VHMIS
             if (MessageBox.Show("YES or No?", "Are you sure you want to update this information? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 //string SQL = "UPDATE disciplines SET name = '" + nameTxt.Text + "',mins='" + minTxt.Text + "',maxs= '" + maxTxt.Text + "' WHERE id= '" + updateID + "'";
-                _discipline = new Discipline(updateID, nameTxt.Text, codeTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+                _discipline = new Discipline(updateID, nameTxt.Text, codeTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
                 DBConnect.Update(_discipline, updateID);
                 Global._disciplines.RemoveAll(x => x.Id == updateID);
@@ -198,7 +198,7 @@ namespace VHMIS
         private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             updateID = dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
-            _discipline = new Discipline(dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+            _discipline = new Discipline(dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
             DBConnect.Update(_discipline, updateID);
             Global._disciplines.RemoveAll(x => x.Id == updateID);

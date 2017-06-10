@@ -19,7 +19,7 @@ namespace VHMIS.Model
         private string wing;
         private string period;
         private string created;
-
+        private string orgID;
         public string Id
         {
             get
@@ -137,7 +137,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Wards(string id, string name, string code, string capacity, string cost, string deposit, string wing, string period, string created)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Wards(string id, string name, string code, string capacity, string cost, string deposit, string wing, string period, string created, string orgID)
         {
             this.Id = id;
             this.Name = name;
@@ -148,6 +161,7 @@ namespace VHMIS.Model
             this.Wing = wing;
             this.Period = period;
             this.Created = created;
+            this.OrgID = orgID;
         }
 
         public static List<Wards> ListWards()
@@ -161,7 +175,7 @@ namespace VHMIS.Model
 
             while (Reader.Read())
             {
-                Wards p = new Wards(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["capacity"].ToString(), Reader["cost"].ToString(), Reader["deposit"].ToString(), Reader["wing"].ToString(), Reader["period"].ToString(), Reader["created"].ToString());
+                Wards p = new Wards(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["capacity"].ToString(), Reader["cost"].ToString(), Reader["deposit"].ToString(), Reader["wing"].ToString(), Reader["period"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
                 wards.Add(p);
 
             }

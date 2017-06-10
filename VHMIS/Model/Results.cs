@@ -20,7 +20,7 @@ namespace VHMIS.Model
         private string deduction;
         private string image;
         private string created;
-
+        private string orgID;
         public string Id
         {
             get
@@ -151,7 +151,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Results(string id, string queueID, string patientID, string labID, string userID, string notes, string examination, string deduction, string image, string created)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Results(string id, string queueID, string patientID, string labID, string userID, string notes, string examination, string deduction, string image, string created, string orgID)
         {
             this.Id = id;
             this.QueueID = queueID;
@@ -163,6 +176,7 @@ namespace VHMIS.Model
             this.Deduction = deduction;
             this.Image = image;
             this.Created = created;
+            this.OrgID = orgID;
         }
 
         public static List<Results> ListResults(string visitID)
@@ -175,7 +189,7 @@ namespace VHMIS.Model
 
             while (Reader.Read())
             {
-                Results p = new Results(Reader["id"].ToString(), Reader["queueID"].ToString(), Reader["patientID"].ToString(), Reader["labID"].ToString(), Reader["userID"].ToString(), Reader["notes"].ToString(), Reader["examination"].ToString(), Reader["deduction"].ToString(), Reader["image"].ToString(), Reader["created"].ToString());
+                Results p = new Results(Reader["id"].ToString(), Reader["queueID"].ToString(), Reader["patientID"].ToString(), Reader["labID"].ToString(), Reader["userID"].ToString(), Reader["notes"].ToString(), Reader["examination"].ToString(), Reader["deduction"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
                 clinics.Add(p);
             }
             DBConnect.CloseConn();

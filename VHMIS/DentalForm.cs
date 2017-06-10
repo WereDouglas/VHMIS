@@ -275,8 +275,8 @@ namespace VHMIS
             dtLab.DataSource = tb;
 
             dtLab.AllowUserToAddRows = false;
-            dtLab.Columns[3].DefaultCellStyle.BackColor = Color.OrangeRed;
-            dtLab.Columns[0].Visible = false;
+            dtLab.Columns["Cancel"].DefaultCellStyle.BackColor = Color.OrangeRed;
+            dtLab.Columns["id"].Visible = false;
             // dtLab.Columns[3].Width = 20;
 
 
@@ -298,8 +298,8 @@ namespace VHMIS
             dtDiag.DataSource = tb;
 
             dtDiag.AllowUserToAddRows = false;
-            dtDiag.Columns[4].DefaultCellStyle.BackColor = Color.OrangeRed;
-            dtDiag.Columns[0].Visible = false;
+            dtDiag.Columns["Cancel"].DefaultCellStyle.BackColor = Color.OrangeRed;
+            dtDiag.Columns["id"].Visible = false;
         }
         private void LoadServices(string visitID)
         {
@@ -324,8 +324,8 @@ namespace VHMIS
             dtServices.DataSource = tb;
 
             dtServices.AllowUserToAddRows = false;
-            dtServices.Columns[8].DefaultCellStyle.BackColor = Color.OrangeRed;
-            dtServices.Columns[0].Visible = false;
+            dtServices.Columns["Cancel"].DefaultCellStyle.BackColor = Color.OrangeRed;
+            dtServices.Columns["id"].Visible = false;
         }
 
         private void panel1_MouseClick(object sender, MouseEventArgs e)
@@ -364,6 +364,65 @@ namespace VHMIS
                     LoadLabs(VisitID);
                     LoadServices(VisitID);
                 }
+            }
+        }
+
+        private void queueNo_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void queueNo_Click(object sender, EventArgs e)
+        {
+            queueNo.Text = "VHMIS-" + DateTime.Now.ToString("dd-MM-yyyy") + "/";
+        }
+
+        private void queueNo_TextChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                 VisitID = Global._queues.First(p => p.No.Contains(queueNo.Text)).Id;
+                PatientID = Global._queues.First(d => d.No.Contains(queueNo.Text)).PatientID;
+                if (!String.IsNullOrEmpty(VisitID))
+                {
+                    LoadPatient(PatientID);
+                    LoadLabs(VisitID);
+                    LoadDiagnosis(VisitID);
+                    LoadServices(VisitID);
+                }
+            }
+            catch { }
+        }
+
+        private void dtServices_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (dtLab.Rows[e.RowIndex].Cells["Cancel"].Value.ToString() == "Cancel")
+            {
+                if (MessageBox.Show("YES or No?", "Cancel this Lab request ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    DBConnect.Delete("lab", dtLab.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                    MessageBox.Show("Information deleted");
+                    LoadLabs(VisitID);
+
+                }
+
+            }
+        }
+
+        private void dtLab_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dtLab.Rows[e.RowIndex].Cells["Cancel"].Value.ToString() == "Cancel")
+            {
+                if (MessageBox.Show("YES or No?", "Cancel this Lab request ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    DBConnect.Delete("lab", dtLab.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                    MessageBox.Show("Information deleted");
+                    LoadLabs(VisitID);
+
+                }
+
             }
         }
     }

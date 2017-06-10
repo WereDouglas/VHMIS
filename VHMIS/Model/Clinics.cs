@@ -14,7 +14,7 @@ namespace VHMIS.Model
         private string maxs;
         private string mins;
         private string created;
-
+        private string orgID;
         public string Id
         {
             get
@@ -80,13 +80,27 @@ namespace VHMIS.Model
             }
         }
 
-        public Clinics(string id, string name, string maxs, string mins, string created)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Clinics(string id, string name, string maxs, string mins, string created, string orgID)
         {
             this.Id = id;
             this.Name = name;
             this.Maxs = maxs;
             this.Mins = mins;
             this.Created = created;
+            this.OrgID = orgID;
         }
 
         public static List<Clinics> ListClinic()
@@ -100,7 +114,7 @@ namespace VHMIS.Model
 
             while (Reader.Read())
             {
-                Clinics p = new Clinics(Reader["id"].ToString(), Reader["name"].ToString(), Reader["maxs"].ToString(), Reader["mins"].ToString(), Reader["created"].ToString());
+                Clinics p = new Clinics(Reader["id"].ToString(), Reader["name"].ToString(), Reader["maxs"].ToString(), Reader["mins"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
                 clinics.Add(p);
             }
             DBConnect.CloseConn();

@@ -120,7 +120,7 @@ namespace VHMIS
                 if (Global._items.Where(t=>t.Id.Contains(ItemID)).ToList().Count()<1) {
                     MemoryStream stream = ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
                     string fullimage = ImageToBase64(stream);
-                    _item = new Item(ItemID, nameTxt.Text, codeTxt.Text, descriptionTxt.Text, mannufacturerTxt.Text, ctryTxt.Text, batchTxt.Text, purchaseTxt.Text, saleTxt.Text, compositionTxt.Text, Convert.ToDateTime(expireDate.Text).ToString("dd-MM-yyyy"), categoryCbx.Text, packageCbx.Text, barcodeTxt.Text, fullimage, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), departmentCbx.Text,Convert.ToDateTime(manufactureDate.Text).ToString("dd-MM-yyyy"),genericTxt.Text,strengthTxt.Text);
+                    _item = new Item(ItemID, nameTxt.Text, codeTxt.Text, descriptionTxt.Text, mannufacturerTxt.Text, ctryTxt.Text, batchTxt.Text, purchaseTxt.Text, saleTxt.Text, compositionTxt.Text, Convert.ToDateTime(expireDate.Text).ToString("dd-MM-yyyy"), categoryCbx.Text, packageCbx.Text, barcodeTxt.Text, fullimage, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), departmentCbx.Text,Convert.ToDateTime(manufactureDate.Text).ToString("dd-MM-yyyy"),genericTxt.Text,strengthTxt.Text, Helper.orgID);
 
                     if (DBConnect.Insert(_item) != "")
                     {
@@ -139,7 +139,7 @@ namespace VHMIS
                         {
                             double totalQty = Convert.ToDouble(purchaseTxt.Text) * Convert.ToDouble(qtyTxt.Text);
                             string id = Guid.NewGuid().ToString();
-                            _stock = new Stock(id, ItemID, qtyTxt.Text, descriptionTxt.Text,DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),saleTxt.Text,purchaseTxt.Text,purchaseTxt.Text,purchaseTxt.Text,totalQty.ToString());
+                            _stock = new Stock(id, ItemID, qtyTxt.Text, descriptionTxt.Text,DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),saleTxt.Text,purchaseTxt.Text,purchaseTxt.Text,purchaseTxt.Text,totalQty.ToString(), Helper.orgID);
                             DBConnect.Insert(_stock);
                             Global._stocks.Add(_stock);
                         }
@@ -149,7 +149,7 @@ namespace VHMIS
                             MemoryStream streams = ImageToStream(pictureBox1.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
                             string fullimages = ImageToBase64(streams);
                             string id = Guid.NewGuid().ToString();
-                            _transactor = new Transactor(id, supplierNoTxt.Text, contactTxt.Text, supplierTxt.Text, emailTxt.Text, addressTxt.Text, fullimages, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), "Supplier");
+                            _transactor = new Transactor(id, supplierNoTxt.Text, contactTxt.Text, supplierTxt.Text, emailTxt.Text, addressTxt.Text, fullimages, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), "Supplier", Helper.orgID);
                             DBConnect.Insert(_transactor);
                             SupplierID = id;
                         }
@@ -158,17 +158,17 @@ namespace VHMIS
                         if (!String.IsNullOrEmpty(noTxt.Text) && !String.IsNullOrEmpty(SupplierID)) {
 
                             string id = Guid.NewGuid().ToString();
-                            _bill = new Bill(id, noTxt.Text,SupplierID,remarksTxt.Text,purchaseDate.Text,purchaseTxt.Text,balanceTxt.Text,methodCbx.Text,paidCbx.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),departmentCbx.Text, Convert.ToDateTime(dueDate.Text).ToString("dd-MM-yyyy"),chqTxt.Text,bankTxt.Text,"Purchase","","");
+                            _bill = new Bill(id, noTxt.Text,SupplierID,remarksTxt.Text,purchaseDate.Text,purchaseTxt.Text,balanceTxt.Text,methodCbx.Text,paidCbx.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),departmentCbx.Text, Convert.ToDateTime(dueDate.Text).ToString("dd-MM-yyyy"),chqTxt.Text,bankTxt.Text,"Purchase","","", Helper.orgID);
                             DBConnect.Insert(_bill);
                             string id2 = Guid.NewGuid().ToString();
-                            _transaction = new Transaction(id2, noTxt.Text,ItemID, qtyTxt.Text,Convert.ToDateTime(purchaseDate.Text).ToString("dd-MM-yyyy"),purchaseTxt.Text,"Purchase", DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+                            _transaction = new Transaction(id2, noTxt.Text,ItemID, qtyTxt.Text,Convert.ToDateTime(purchaseDate.Text).ToString("dd-MM-yyyy"),purchaseTxt.Text,"Purchase", DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
                             DBConnect.Insert(_transaction);
                         }
 
                         if (Global._dosages.Where(t => t.ItemID.Contains(ItemID)).Count() < 0)
                         {
                             string id = Guid.NewGuid().ToString();
-                            _dosage = new Dosage(id, ItemID,doseTxt.Text,prescriptionTxt.Text,dosageQtyTxt.Text,minTxt.Text,maxTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+                            _dosage = new Dosage(id, ItemID,doseTxt.Text,prescriptionTxt.Text,dosageQtyTxt.Text,minTxt.Text,maxTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
                             DBConnect.Insert(_dosage);
                         }
 

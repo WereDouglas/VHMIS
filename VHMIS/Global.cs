@@ -15,6 +15,7 @@ namespace VHMIS
         public static List<Events> _events;
         public static List<Clinics> _clinics;
         public static List<Queue> _queues;
+        public static List<Admission> _admit;
         public static List<Wards> _wards;
         public static List<Departments> _departments;
         public static List<Procedures> _procedures;
@@ -31,6 +32,9 @@ namespace VHMIS
         public static List<Item> _items;
         public static List<Stock> _stocks;
         public static List<Dosage> _dosages;
+        public static List<Room> _rooms;
+        public static List<Vitals> _vitals;
+        public static List<Organisation> _org;
 
         public static void LoadData() {
 
@@ -40,6 +44,7 @@ namespace VHMIS
             _events = new List<Events>(Events.ListEvents());
             _clinics = new List<Clinics>(Clinics.ListClinic());
             _queues = new List<Queue>(Queue.ListQueue());
+            _admit = new List<Admission>(Admission.ListAdmission());
             _wards = new List<Wards>(Wards.ListWards());
             _departments = new List<Departments>(Departments.ListDepartment());
             _procedures = new List<Procedures>(Procedures.ListProcedures());
@@ -56,6 +61,9 @@ namespace VHMIS
             _transactors = new List<Transactor>(Transactor.ListTransactors());
             // _services = new List<Services>(Services.ListServices());
             // _diagnosis = new List<Diagnosis>(Diagnosis.ListDiagnosis());
+            _rooms = new List<Room>(Room.ListRoom());
+            // _vitals = new List<Vitals>(Vitals.ListVitals());
+            _org = new List<Organisation>(Organisation.ListOrganisation());
 
         }
     }

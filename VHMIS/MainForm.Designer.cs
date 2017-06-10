@@ -39,10 +39,10 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.registerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,6 +82,9 @@
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.billingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chargeSlipsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSplitButton8 = new System.Windows.Forms.ToolStripSplitButton();
             this.doctorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nursesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,6 +99,7 @@
             this.departmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.clinicsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wardsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.operationsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.proceduresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -106,9 +110,6 @@
             this.specimensToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cD10DiagnosisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.billingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chargeSlipsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.prgLevel = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripSplitButton15 = new System.Windows.Forms.ToolStripSplitButton();
@@ -156,19 +157,22 @@
             // 
             // toolStrip1
             // 
-            this.toolStrip1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton3,
             this.toolStripSeparator1,
             this.toolStripButton4,
             this.toolStripSeparator2,
-            this.toolStripButton2,
-            this.toolStripSeparator8,
             this.toolStripButton1,
             this.toolStripSeparator4,
+            this.toolStripButton2,
+            this.toolStripSeparator8,
             this.toolStripDropDownButton2,
             this.toolStripSeparator3,
+            this.toolStripSplitButton11,
+            this.toolStripSeparator11,
             this.toolStripButton5,
             this.toolStripSeparator5,
             this.toolStripSplitButton5,
@@ -180,22 +184,20 @@
             this.toolStripSplitButton7,
             this.toolStripSeparator10,
             this.toolStripSplitButton1,
-            this.toolStripSeparator11,
-            this.toolStripSplitButton11,
             this.toolStripSeparator12,
             this.toolStripSplitButton12,
             this.toolStripSeparator13,
+            this.toolStripDropDownButton3,
             this.toolStripSplitButton8,
             this.toolStripSeparator14,
             this.toolStripDropDownButton1,
             this.toolStripSeparator15,
             this.toolStripSplitButton10,
             this.toolStripSeparator16,
-            this.toolStripSplitButton14,
-            this.toolStripDropDownButton3});
+            this.toolStripSplitButton14});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1312, 42);
+            this.toolStrip1.Size = new System.Drawing.Size(1312, 41);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
@@ -203,18 +205,21 @@
             // toolStripButton3
             // 
             this.toolStripButton3.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripButton3.Image = global::VHMIS.Properties.Resources.Navigation_Pane_32;
+            this.toolStripButton3.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButton3.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripButton3.Image = global::VHMIS.Properties.Resources.Stethoscope_04_32__1_;
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Margin = new System.Windows.Forms.Padding(4, 1, 0, 2);
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(65, 39);
-            this.toolStripButton3.Text = "Visitations";
+            this.toolStripButton3.Size = new System.Drawing.Size(36, 38);
+            this.toolStripButton3.Text = "VISIT";
             this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.AutoSize = false;
+            this.toolStripSeparator1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(195)))), ((int)(((byte)(241)))));
             this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
@@ -222,55 +227,64 @@
             // toolStripButton4
             // 
             this.toolStripButton4.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripButton4.Image = global::VHMIS.Properties.Resources.Date_32__2_;
+            this.toolStripButton4.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButton4.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripButton4.Image = global::VHMIS.Properties.Resources.Brick_32;
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(58, 39);
-            this.toolStripButton4.Text = "Calendar";
+            this.toolStripButton4.Size = new System.Drawing.Size(64, 38);
+            this.toolStripButton4.Text = "SCHEDULE";
             this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.AutoSize = false;
+            this.toolStripSeparator2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(195)))), ((int)(((byte)(241)))));
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripButton2.Image = global::VHMIS.Properties.Resources.Doctor_Nurse_32;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(61, 39);
-            this.toolStripButton2.Text = "In Patient";
-            this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.AutoSize = false;
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
-            // 
             // toolStripButton1
             // 
-            this.toolStripButton1.Image = global::VHMIS.Properties.Resources.Syringe_02_32;
+            this.toolStripButton1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButton1.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripButton1.Image = global::VHMIS.Properties.Resources.Syringe_01_32;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(71, 39);
-            this.toolStripButton1.Text = "Out patient";
+            this.toolStripButton1.Size = new System.Drawing.Size(33, 38);
+            this.toolStripButton1.Text = "OPD";
             this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.AutoSize = false;
+            this.toolStripSeparator4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(195)))), ((int)(((byte)(241)))));
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripButton2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButton2.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripButton2.Image = global::VHMIS.Properties.Resources.Sleep_01_32;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(28, 38);
+            this.toolStripButton2.Text = "IPD";
+            this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.AutoSize = false;
+            this.toolStripSeparator8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(195)))), ((int)(((byte)(241)))));
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripDropDownButton2
             // 
@@ -279,12 +293,14 @@
             this.viewAllToolStripMenuItem1,
             this.referalsToolStripMenuItem,
             this.bokingToolStripMenuItem});
-            this.toolStripDropDownButton2.Image = global::VHMIS.Properties.Resources.User_Group_32;
+            this.toolStripDropDownButton2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripDropDownButton2.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripDropDownButton2.Image = global::VHMIS.Properties.Resources.User_Group_32__4_;
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(62, 39);
-            this.toolStripDropDownButton2.Text = "Patients";
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(66, 38);
+            this.toolStripDropDownButton2.Text = "PATIENTS";
             this.toolStripDropDownButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // registerToolStripMenuItem1
@@ -318,17 +334,20 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.AutoSize = false;
+            this.toolStripSeparator3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(195)))), ((int)(((byte)(241)))));
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripButton5
             // 
-            this.toolStripButton5.Image = global::VHMIS.Properties.Resources.Medicine_32;
+            this.toolStripButton5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButton5.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripButton5.Image = global::VHMIS.Properties.Resources.Medicine_32__1_;
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(64, 39);
-            this.toolStripButton5.Text = "Pharmacy";
+            this.toolStripButton5.Size = new System.Drawing.Size(68, 38);
+            this.toolStripButton5.Text = "PHARMACY";
             this.toolStripButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.toolStripButton5.ToolTipText = "Pharmacy";
             this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
@@ -336,6 +355,7 @@
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.AutoSize = false;
+            this.toolStripSeparator5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(195)))), ((int)(((byte)(241)))));
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
             // 
@@ -345,36 +365,39 @@
             this.waitingListsQueueToolStripMenuItem,
             this.diagnosisToolStripMenuItem,
             this.patientVisitToolStripMenuItem});
-            this.toolStripSplitButton5.Image = global::VHMIS.Properties.Resources.Instrument_Microscope_32;
+            this.toolStripSplitButton5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripSplitButton5.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripSplitButton5.Image = global::VHMIS.Properties.Resources.Instrument_Microscope_32__4_;
             this.toolStripSplitButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton5.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripSplitButton5.Name = "toolStripSplitButton5";
-            this.toolStripSplitButton5.Size = new System.Drawing.Size(42, 39);
-            this.toolStripSplitButton5.Text = "Lab";
+            this.toolStripSplitButton5.Size = new System.Drawing.Size(42, 38);
+            this.toolStripSplitButton5.Text = "LAB";
             this.toolStripSplitButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // waitingListsQueueToolStripMenuItem
             // 
             this.waitingListsQueueToolStripMenuItem.Name = "waitingListsQueueToolStripMenuItem";
-            this.waitingListsQueueToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.waitingListsQueueToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.waitingListsQueueToolStripMenuItem.Text = "Waiting Lists/Queue";
             // 
             // diagnosisToolStripMenuItem
             // 
             this.diagnosisToolStripMenuItem.Name = "diagnosisToolStripMenuItem";
-            this.diagnosisToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.diagnosisToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.diagnosisToolStripMenuItem.Text = "Diagnosis";
             // 
             // patientVisitToolStripMenuItem
             // 
             this.patientVisitToolStripMenuItem.Name = "patientVisitToolStripMenuItem";
-            this.patientVisitToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.patientVisitToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.patientVisitToolStripMenuItem.Text = "Patient Visit";
             this.patientVisitToolStripMenuItem.Click += new System.EventHandler(this.patientVisitToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.AutoSize = false;
+            this.toolStripSeparator6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(195)))), ((int)(((byte)(241)))));
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
             // 
@@ -385,75 +408,84 @@
             this.dentalToolStripMenuItem,
             this.urinalysisToolStripMenuItem,
             this.vitalsToolStripMenuItem});
-            this.toolStripSplitButton6.Image = global::VHMIS.Properties.Resources.Heart_ECG_32;
+            this.toolStripSplitButton6.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripSplitButton6.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripSplitButton6.Image = global::VHMIS.Properties.Resources.Heart_ECG_32__1_;
             this.toolStripSplitButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton6.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripSplitButton6.Name = "toolStripSplitButton6";
-            this.toolStripSplitButton6.Size = new System.Drawing.Size(74, 39);
-            this.toolStripSplitButton6.Text = "Diagnosis";
+            this.toolStripSplitButton6.Size = new System.Drawing.Size(80, 38);
+            this.toolStripSplitButton6.Text = "DIAGNOSIS";
             this.toolStripSplitButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // imagingToolStripMenuItem
             // 
             this.imagingToolStripMenuItem.Name = "imagingToolStripMenuItem";
-            this.imagingToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.imagingToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.imagingToolStripMenuItem.Text = "Imaging";
             // 
             // dentalToolStripMenuItem
             // 
             this.dentalToolStripMenuItem.Name = "dentalToolStripMenuItem";
-            this.dentalToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.dentalToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.dentalToolStripMenuItem.Text = "Dental";
             // 
             // urinalysisToolStripMenuItem
             // 
             this.urinalysisToolStripMenuItem.Name = "urinalysisToolStripMenuItem";
-            this.urinalysisToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.urinalysisToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.urinalysisToolStripMenuItem.Text = "Urinalysis";
             // 
             // vitalsToolStripMenuItem
             // 
             this.vitalsToolStripMenuItem.Name = "vitalsToolStripMenuItem";
-            this.vitalsToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.vitalsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.vitalsToolStripMenuItem.Text = "Vitals";
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.AutoSize = false;
+            this.toolStripSeparator7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(195)))), ((int)(((byte)(241)))));
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripSplitButton9
             // 
-            this.toolStripSplitButton9.Image = global::VHMIS.Properties.Resources.Dental_32;
+            this.toolStripSplitButton9.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripSplitButton9.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripSplitButton9.Image = global::VHMIS.Properties.Resources.Dental_32__1_;
             this.toolStripSplitButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton9.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripSplitButton9.Name = "toolStripSplitButton9";
-            this.toolStripSplitButton9.Size = new System.Drawing.Size(57, 39);
-            this.toolStripSplitButton9.Text = "Dental";
+            this.toolStripSplitButton9.Size = new System.Drawing.Size(62, 38);
+            this.toolStripSplitButton9.Text = "DENTAL";
             this.toolStripSplitButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.toolStripSplitButton9.ButtonClick += new System.EventHandler(this.toolStripSplitButton9_ButtonClick);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.AutoSize = false;
+            this.toolStripSeparator9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(195)))), ((int)(((byte)(241)))));
             this.toolStripSeparator9.Name = "toolStripSeparator9";
             this.toolStripSeparator9.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripSplitButton7
             // 
             this.toolStripSplitButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(242)))));
-            this.toolStripSplitButton7.Image = global::VHMIS.Properties.Resources.Eye_Hospital_32;
+            this.toolStripSplitButton7.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripSplitButton7.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripSplitButton7.Image = global::VHMIS.Properties.Resources.Flow_Cart_32;
             this.toolStripSplitButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton7.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripSplitButton7.Name = "toolStripSplitButton7";
-            this.toolStripSplitButton7.Size = new System.Drawing.Size(61, 39);
-            this.toolStripSplitButton7.Text = "Optical";
+            this.toolStripSplitButton7.Size = new System.Drawing.Size(64, 38);
+            this.toolStripSplitButton7.Text = "OPTICAL";
             this.toolStripSplitButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.AutoSize = false;
+            this.toolStripSeparator10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(195)))), ((int)(((byte)(241)))));
             this.toolStripSeparator10.Name = "toolStripSeparator10";
             this.toolStripSeparator10.Size = new System.Drawing.Size(6, 25);
             // 
@@ -465,41 +497,44 @@
             this.operationsToolStripMenuItem,
             this.proceduresToolStripMenuItem,
             this.surgeryToolStripMenuItem});
-            this.toolStripSplitButton1.Image = global::VHMIS.Properties.Resources.Instrument_Microscope_32__3_;
+            this.toolStripSplitButton1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripSplitButton1.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripSplitButton1.Image = global::VHMIS.Properties.Resources.Book_Shelf_32;
             this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton1.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(63, 39);
-            this.toolStripSplitButton1.Text = "Theatre";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(68, 38);
+            this.toolStripSplitButton1.Text = "THEATRE";
             this.toolStripSplitButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // bookingsToolStripMenuItem
             // 
             this.bookingsToolStripMenuItem.Name = "bookingsToolStripMenuItem";
-            this.bookingsToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.bookingsToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.bookingsToolStripMenuItem.Text = "Bookings";
             // 
             // operationsToolStripMenuItem
             // 
             this.operationsToolStripMenuItem.Name = "operationsToolStripMenuItem";
-            this.operationsToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.operationsToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.operationsToolStripMenuItem.Text = "Operations";
             // 
             // proceduresToolStripMenuItem
             // 
             this.proceduresToolStripMenuItem.Name = "proceduresToolStripMenuItem";
-            this.proceduresToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.proceduresToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.proceduresToolStripMenuItem.Text = "Procedures";
             // 
             // surgeryToolStripMenuItem
             // 
             this.surgeryToolStripMenuItem.Name = "surgeryToolStripMenuItem";
-            this.surgeryToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.surgeryToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.surgeryToolStripMenuItem.Text = "Surgery";
             // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.AutoSize = false;
+            this.toolStripSeparator11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(195)))), ((int)(((byte)(241)))));
             this.toolStripSeparator11.Name = "toolStripSeparator11";
             this.toolStripSeparator11.Size = new System.Drawing.Size(6, 25);
             // 
@@ -510,41 +545,45 @@
             this.dischargesToolStripMenuItem,
             this.bedOccupancyToolStripMenuItem,
             this.reservationsToolStripMenuItem});
-            this.toolStripSplitButton11.Image = global::VHMIS.Properties.Resources.Wheelchair_32;
+            this.toolStripSplitButton11.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripSplitButton11.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripSplitButton11.Image = global::VHMIS.Properties.Resources.Wheelchair_32__1_;
             this.toolStripSplitButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton11.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripSplitButton11.Name = "toolStripSplitButton11";
-            this.toolStripSplitButton11.Size = new System.Drawing.Size(84, 39);
-            this.toolStripSplitButton11.Text = "Admissions";
+            this.toolStripSplitButton11.Size = new System.Drawing.Size(82, 38);
+            this.toolStripSplitButton11.Text = "ADMISSION";
             this.toolStripSplitButton11.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(157, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem3.Text = "View";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // dischargesToolStripMenuItem
             // 
             this.dischargesToolStripMenuItem.Name = "dischargesToolStripMenuItem";
-            this.dischargesToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.dischargesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.dischargesToolStripMenuItem.Text = "Discharges";
             // 
             // bedOccupancyToolStripMenuItem
             // 
             this.bedOccupancyToolStripMenuItem.Name = "bedOccupancyToolStripMenuItem";
-            this.bedOccupancyToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.bedOccupancyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.bedOccupancyToolStripMenuItem.Text = "Bed Occupancy";
             // 
             // reservationsToolStripMenuItem
             // 
             this.reservationsToolStripMenuItem.Name = "reservationsToolStripMenuItem";
-            this.reservationsToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.reservationsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.reservationsToolStripMenuItem.Text = "Reservations";
             // 
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.AutoSize = false;
+            this.toolStripSeparator12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(195)))), ((int)(((byte)(241)))));
             this.toolStripSeparator12.Name = "toolStripSeparator12";
             this.toolStripSeparator12.Size = new System.Drawing.Size(6, 25);
             // 
@@ -553,31 +592,60 @@
             this.toolStripSplitButton12.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem5,
             this.toolStripMenuItem6});
-            this.toolStripSplitButton12.Image = global::VHMIS.Properties.Resources.Baby_32;
+            this.toolStripSplitButton12.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripSplitButton12.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripSplitButton12.Image = global::VHMIS.Properties.Resources.Bill_32__1_;
             this.toolStripSplitButton12.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton12.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripSplitButton12.Name = "toolStripSplitButton12";
-            this.toolStripSplitButton12.Size = new System.Drawing.Size(74, 39);
-            this.toolStripSplitButton12.Text = "Antenatal";
+            this.toolStripSplitButton12.Size = new System.Drawing.Size(81, 38);
+            this.toolStripSplitButton12.Text = "ANTENATAL";
             this.toolStripSplitButton12.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(116, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(115, 22);
             this.toolStripMenuItem5.Text = "Register";
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(116, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(115, 22);
             this.toolStripMenuItem6.Text = "Nurses";
             // 
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.AutoSize = false;
+            this.toolStripSeparator13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(195)))), ((int)(((byte)(241)))));
             this.toolStripSeparator13.Name = "toolStripSeparator13";
             this.toolStripSeparator13.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripDropDownButton3
+            // 
+            this.toolStripDropDownButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.billingToolStripMenuItem,
+            this.chargeSlipsToolStripMenuItem});
+            this.toolStripDropDownButton3.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripDropDownButton3.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripDropDownButton3.Image = global::VHMIS.Properties.Resources.Desktop_32;
+            this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
+            this.toolStripDropDownButton3.Size = new System.Drawing.Size(59, 38);
+            this.toolStripDropDownButton3.Text = "BILLING";
+            this.toolStripDropDownButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            // 
+            // billingToolStripMenuItem
+            // 
+            this.billingToolStripMenuItem.Name = "billingToolStripMenuItem";
+            this.billingToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.billingToolStripMenuItem.Text = "OPBilling";
+            // 
+            // chargeSlipsToolStripMenuItem
+            // 
+            this.chargeSlipsToolStripMenuItem.Name = "chargeSlipsToolStripMenuItem";
+            this.chargeSlipsToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.chargeSlipsToolStripMenuItem.Text = "Charge slips";
             // 
             // toolStripSplitButton8
             // 
@@ -585,45 +653,51 @@
             this.toolStripSplitButton8.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.doctorsToolStripMenuItem,
             this.nursesToolStripMenuItem});
+            this.toolStripSplitButton8.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripSplitButton8.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripSplitButton8.Image = global::VHMIS.Properties.Resources.Hospital_32;
             this.toolStripSplitButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton8.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripSplitButton8.Name = "toolStripSplitButton8";
-            this.toolStripSplitButton8.Size = new System.Drawing.Size(70, 39);
-            this.toolStripSplitButton8.Text = "Registers";
+            this.toolStripSplitButton8.Size = new System.Drawing.Size(78, 38);
+            this.toolStripSplitButton8.Text = "REGISTERS";
             this.toolStripSplitButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // doctorsToolStripMenuItem
             // 
             this.doctorsToolStripMenuItem.Name = "doctorsToolStripMenuItem";
-            this.doctorsToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.doctorsToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.doctorsToolStripMenuItem.Text = "Birth";
             // 
             // nursesToolStripMenuItem
             // 
             this.nursesToolStripMenuItem.Name = "nursesToolStripMenuItem";
-            this.nursesToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.nursesToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.nursesToolStripMenuItem.Text = "Death";
             // 
             // toolStripSeparator14
             // 
             this.toolStripSeparator14.AutoSize = false;
+            this.toolStripSeparator14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(195)))), ((int)(((byte)(241)))));
             this.toolStripSeparator14.Name = "toolStripSeparator14";
             this.toolStripSeparator14.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripDropDownButton1
             // 
+            this.toolStripDropDownButton1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripDropDownButton1.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripDropDownButton1.Image = global::VHMIS.Properties.Resources.Payments_32__1_;
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(61, 39);
-            this.toolStripDropDownButton1.Text = "Finance";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(64, 38);
+            this.toolStripDropDownButton1.Text = "FINANCE";
             this.toolStripDropDownButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // toolStripSeparator15
             // 
             this.toolStripSeparator15.AutoSize = false;
+            this.toolStripSeparator15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(195)))), ((int)(((byte)(241)))));
             this.toolStripSeparator15.Name = "toolStripSeparator15";
             this.toolStripSeparator15.Size = new System.Drawing.Size(6, 25);
             // 
@@ -632,31 +706,34 @@
             this.toolStripSplitButton10.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registerToolStripMenuItem,
             this.viewAllToolStripMenuItem});
+            this.toolStripSplitButton10.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripSplitButton10.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripSplitButton10.Image = global::VHMIS.Properties.Resources.Student_Laptop_32;
             this.toolStripSplitButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton10.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripSplitButton10.Name = "toolStripSplitButton10";
-            this.toolStripSplitButton10.Size = new System.Drawing.Size(47, 39);
-            this.toolStripSplitButton10.Text = "Staff";
+            this.toolStripSplitButton10.Size = new System.Drawing.Size(53, 38);
+            this.toolStripSplitButton10.Text = "STAFF";
             this.toolStripSplitButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // registerToolStripMenuItem
             // 
             this.registerToolStripMenuItem.Name = "registerToolStripMenuItem";
-            this.registerToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.registerToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.registerToolStripMenuItem.Text = "Register";
             this.registerToolStripMenuItem.Click += new System.EventHandler(this.registerToolStripMenuItem_Click);
             // 
             // viewAllToolStripMenuItem
             // 
             this.viewAllToolStripMenuItem.Name = "viewAllToolStripMenuItem";
-            this.viewAllToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.viewAllToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.viewAllToolStripMenuItem.Text = "View all";
             this.viewAllToolStripMenuItem.Click += new System.EventHandler(this.viewAllToolStripMenuItem_Click);
             // 
             // toolStripSeparator16
             // 
             this.toolStripSeparator16.AutoSize = false;
+            this.toolStripSeparator16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(195)))), ((int)(((byte)(241)))));
             this.toolStripSeparator16.Name = "toolStripSeparator16";
             this.toolStripSeparator16.Size = new System.Drawing.Size(6, 25);
             // 
@@ -666,6 +743,7 @@
             this.departmentsToolStripMenuItem,
             this.toolStripMenuItem10,
             this.clinicsToolStripMenuItem,
+            this.roomsToolStripMenuItem,
             this.wardsToolStripMenuItem,
             this.operationsToolStripMenuItem1,
             this.proceduresToolStripMenuItem1,
@@ -676,128 +754,113 @@
             this.specimensToolStripMenuItem,
             this.cD10DiagnosisToolStripMenuItem,
             this.profileToolStripMenuItem});
+            this.toolStripSplitButton14.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripSplitButton14.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripSplitButton14.Image = global::VHMIS.Properties.Resources.Branch_Engineering_32;
             this.toolStripSplitButton14.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton14.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripSplitButton14.Name = "toolStripSplitButton14";
-            this.toolStripSplitButton14.Size = new System.Drawing.Size(56, 39);
-            this.toolStripSplitButton14.Text = " Setup";
+            this.toolStripSplitButton14.Size = new System.Drawing.Size(58, 38);
+            this.toolStripSplitButton14.Text = " SETUP";
             this.toolStripSplitButton14.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // departmentsToolStripMenuItem
             // 
             this.departmentsToolStripMenuItem.Name = "departmentsToolStripMenuItem";
-            this.departmentsToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.departmentsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.departmentsToolStripMenuItem.Text = "Departments";
             this.departmentsToolStripMenuItem.Click += new System.EventHandler(this.departmentsToolStripMenuItem_Click);
             // 
             // toolStripMenuItem10
             // 
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(156, 22);
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(151, 22);
             this.toolStripMenuItem10.Text = "Roles";
             this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
             // 
             // clinicsToolStripMenuItem
             // 
             this.clinicsToolStripMenuItem.Name = "clinicsToolStripMenuItem";
-            this.clinicsToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.clinicsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.clinicsToolStripMenuItem.Text = "Clinics";
             this.clinicsToolStripMenuItem.Click += new System.EventHandler(this.clinicsToolStripMenuItem_Click);
+            // 
+            // roomsToolStripMenuItem
+            // 
+            this.roomsToolStripMenuItem.Name = "roomsToolStripMenuItem";
+            this.roomsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.roomsToolStripMenuItem.Text = "Rooms";
+            this.roomsToolStripMenuItem.Click += new System.EventHandler(this.roomsToolStripMenuItem_Click);
             // 
             // wardsToolStripMenuItem
             // 
             this.wardsToolStripMenuItem.Name = "wardsToolStripMenuItem";
-            this.wardsToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.wardsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.wardsToolStripMenuItem.Text = "Wards";
             this.wardsToolStripMenuItem.Click += new System.EventHandler(this.wardsToolStripMenuItem_Click);
             // 
             // operationsToolStripMenuItem1
             // 
             this.operationsToolStripMenuItem1.Name = "operationsToolStripMenuItem1";
-            this.operationsToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
+            this.operationsToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
             this.operationsToolStripMenuItem1.Text = "Operations";
             this.operationsToolStripMenuItem1.Click += new System.EventHandler(this.operationsToolStripMenuItem1_Click);
             // 
             // proceduresToolStripMenuItem1
             // 
             this.proceduresToolStripMenuItem1.Name = "proceduresToolStripMenuItem1";
-            this.proceduresToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
+            this.proceduresToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
             this.proceduresToolStripMenuItem1.Text = "Procedures";
             this.proceduresToolStripMenuItem1.Click += new System.EventHandler(this.proceduresToolStripMenuItem1_Click);
             // 
             // testsToolStripMenuItem
             // 
             this.testsToolStripMenuItem.Name = "testsToolStripMenuItem";
-            this.testsToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.testsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.testsToolStripMenuItem.Text = "Tests";
             this.testsToolStripMenuItem.Click += new System.EventHandler(this.testsToolStripMenuItem_Click);
             // 
             // disciplinesToolStripMenuItem
             // 
             this.disciplinesToolStripMenuItem.Name = "disciplinesToolStripMenuItem";
-            this.disciplinesToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.disciplinesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.disciplinesToolStripMenuItem.Text = "Disciplines";
             this.disciplinesToolStripMenuItem.Click += new System.EventHandler(this.disciplinesToolStripMenuItem_Click);
             // 
             // bedsToolStripMenuItem
             // 
             this.bedsToolStripMenuItem.Name = "bedsToolStripMenuItem";
-            this.bedsToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.bedsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.bedsToolStripMenuItem.Text = "Beds";
             this.bedsToolStripMenuItem.Click += new System.EventHandler(this.bedsToolStripMenuItem_Click);
             // 
             // categoryToolStripMenuItem
             // 
             this.categoryToolStripMenuItem.Name = "categoryToolStripMenuItem";
-            this.categoryToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.categoryToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.categoryToolStripMenuItem.Text = "Category";
             this.categoryToolStripMenuItem.Click += new System.EventHandler(this.categoryToolStripMenuItem_Click);
             // 
             // specimensToolStripMenuItem
             // 
             this.specimensToolStripMenuItem.Name = "specimensToolStripMenuItem";
-            this.specimensToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.specimensToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.specimensToolStripMenuItem.Text = "Specimens";
             this.specimensToolStripMenuItem.Click += new System.EventHandler(this.specimensToolStripMenuItem_Click);
             // 
             // cD10DiagnosisToolStripMenuItem
             // 
             this.cD10DiagnosisToolStripMenuItem.Name = "cD10DiagnosisToolStripMenuItem";
-            this.cD10DiagnosisToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.cD10DiagnosisToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.cD10DiagnosisToolStripMenuItem.Text = "CD10 Diagnosis";
             this.cD10DiagnosisToolStripMenuItem.Click += new System.EventHandler(this.cD10DiagnosisToolStripMenuItem_Click);
             // 
             // profileToolStripMenuItem
             // 
             this.profileToolStripMenuItem.Name = "profileToolStripMenuItem";
-            this.profileToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.profileToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.profileToolStripMenuItem.Text = "Profile";
             this.profileToolStripMenuItem.Click += new System.EventHandler(this.profileToolStripMenuItem_Click);
-            // 
-            // toolStripDropDownButton3
-            // 
-            this.toolStripDropDownButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.billingToolStripMenuItem,
-            this.chargeSlipsToolStripMenuItem});
-            this.toolStripDropDownButton3.Image = global::VHMIS.Properties.Resources.Desktop_32;
-            this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
-            this.toolStripDropDownButton3.Size = new System.Drawing.Size(53, 39);
-            this.toolStripDropDownButton3.Text = "Billing";
-            this.toolStripDropDownButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            // 
-            // billingToolStripMenuItem
-            // 
-            this.billingToolStripMenuItem.Name = "billingToolStripMenuItem";
-            this.billingToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.billingToolStripMenuItem.Text = "OPBilling";
-            // 
-            // chargeSlipsToolStripMenuItem
-            // 
-            this.chargeSlipsToolStripMenuItem.Name = "chargeSlipsToolStripMenuItem";
-            this.chargeSlipsToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.chargeSlipsToolStripMenuItem.Text = "Charge slips";
             // 
             // statusStrip1
             // 
@@ -855,6 +918,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.DimGray;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "MainForm";
@@ -957,5 +1021,6 @@
         private System.Windows.Forms.ToolStripMenuItem bedOccupancyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reservationsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem surgeryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem roomsToolStripMenuItem;
     }
 }

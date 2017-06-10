@@ -89,7 +89,7 @@ namespace VHMIS
             }
 
             string id = Guid.NewGuid().ToString();
-            _clinic = new Clinics(id, nameTxt.Text, maxTxt.Text, minTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+            _clinic = new Clinics(id, nameTxt.Text, maxTxt.Text, minTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
             if (DBConnect.Insert(_clinic) != "")
             {
@@ -167,7 +167,7 @@ namespace VHMIS
             if (MessageBox.Show("YES or No?", "Are you sure you want to update this information? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 //string SQL = "UPDATE clinics SET name = '" + nameTxt.Text + "',mins='" + minTxt.Text + "',maxs= '" + maxTxt.Text + "' WHERE id= '" + updateID + "'";
-                _clinic = new Clinics(updateID, nameTxt.Text, maxTxt.Text, minTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+                _clinic = new Clinics(updateID, nameTxt.Text, maxTxt.Text, minTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
                 DBConnect.Update(_clinic, updateID);
                 Global._clinics.RemoveAll(x => x.Id == updateID);
@@ -198,7 +198,7 @@ namespace VHMIS
         private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             updateID = dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
-            _clinic = new Clinics(dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[6].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+            _clinic = new Clinics(dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[6].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
             DBConnect.Update(_clinic, updateID);
             Global._clinics.RemoveAll(x => x.Id == updateID);

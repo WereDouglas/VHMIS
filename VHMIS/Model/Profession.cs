@@ -17,7 +17,7 @@ namespace VHMIS
         private string boardReg;
         private string boardExp;
         private string created;
-
+        private string orgID;
         public string Id
         {
             get
@@ -122,7 +122,20 @@ namespace VHMIS
             }
         }
 
-        public Profession(string id, string title, string userID, string licence, string licenseExp, string boardReg, string boardExp, string created)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Profession(string id, string title, string userID, string licence, string licenseExp, string boardReg, string boardExp, string created, string orgID)
         {
             this.Id = id;
             this.Title = title;
@@ -132,6 +145,7 @@ namespace VHMIS
             this.BoardReg = boardReg;
             this.BoardExp = boardExp;
             this.Created = created;
+            this.OrgID = orgID;
         }
 
         public static List<Profession> ListProfession()
@@ -144,7 +158,7 @@ namespace VHMIS
 
             while (Reader.Read())
             {
-                Profession p = new Profession(Reader["id"].ToString(), Reader["title"].ToString(), Reader["userID"].ToString(), Reader["license"].ToString(), Reader["licenseExp"].ToString(), Reader["boardReg"].ToString(), Reader["boardExp"].ToString(), Reader["created"].ToString());
+                Profession p = new Profession(Reader["id"].ToString(), Reader["title"].ToString(), Reader["userID"].ToString(), Reader["license"].ToString(), Reader["licenseExp"].ToString(), Reader["boardReg"].ToString(), Reader["boardExp"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
                 lists.Add(p);
             }
             DBConnect.CloseConn();

@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VHMIS</RootNamespace>
     <AssemblyName>VHMIS</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,8 +50,8 @@
       <HintPath>..\..\Casepro\Casepro\bin\x86\Debug\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Npgsql, Version=3.2.2.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Npgsql.3.2.2\lib\net451\Npgsql.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\EstateManager\EstateManager\bin\Debug\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="PDUConverter">
       <HintPath>..\..\CaseProfessional\CaseProfessional\bin\Debug\PDUConverter.dll</HintPath>
@@ -86,6 +87,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdmissionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdmissionDialog.Designer.cs">
+      <DependentUpon>AdmissionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdmissionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdmissionForm.Designer.cs">
+      <DependentUpon>AdmissionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BedForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +203,7 @@
     <Compile Include="Messaging\Messenger.cs" />
     <Compile Include="Model\Dosage.cs" />
     <Compile Include="Model\Bill.cs" />
+    <Compile Include="Model\Admission.cs" />
     <Compile Include="Model\Transactor.cs" />
     <Compile Include="Model\Transaction.cs" />
     <Compile Include="Model\Stock.cs" />
@@ -204,6 +218,7 @@
     <Compile Include="Model\Message.cs" />
     <Compile Include="Model\Results.cs" />
     <Compile Include="Model\Diagnosis.cs" />
+    <Compile Include="Model\Organisation.cs" />
     <Compile Include="Model\Vitals.cs" />
     <Compile Include="Model\Queue.cs" />
     <Compile Include="Model\Profession.cs" />
@@ -216,6 +231,7 @@
     <Compile Include="Model\Operations.cs" />
     <Compile Include="Model\Beds.cs" />
     <Compile Include="Model\Notes.cs" />
+    <Compile Include="Model\Room.cs" />
     <Compile Include="Model\Wards.cs" />
     <Compile Include="Model\Departments.cs" />
     <Compile Include="Model\Clinics.cs" />
@@ -280,6 +296,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueueDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueueDialog.Designer.cs">
+      <DependentUpon>QueueDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="QueueForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -303,6 +325,12 @@
     </Compile>
     <Compile Include="RoleForm.Designer.cs">
       <DependentUpon>RoleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoomForm.Designer.cs">
+      <DependentUpon>RoomForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SpecimenForm.cs">
       <SubType>Form</SubType>
@@ -348,6 +376,12 @@
       <DependentUpon>WardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WebCam.cs" />
+    <EmbeddedResource Include="AdmissionDialog.resx">
+      <DependentUpon>AdmissionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdmissionForm.resx">
+      <DependentUpon>AdmissionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BedForm.resx">
       <DependentUpon>BedForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -433,6 +467,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="QueueDialog.resx">
+      <DependentUpon>QueueDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QueueForm.resx">
       <DependentUpon>QueueForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -441,6 +478,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RoleForm.resx">
       <DependentUpon>RoleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomForm.resx">
+      <DependentUpon>RoomForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SpecimenForm.resx">
       <DependentUpon>SpecimenForm.cs</DependentUpon>
@@ -569,6 +609,29 @@
     </Content>
     <None Include="Resources\aco_bot.jpg" />
     <None Include="Resources\Desktop-32.png" />
+    <None Include="Resources\User-Lock-24.png" />
+    <None Include="Resources\Date-24 %283%29.png" />
+    <None Include="Resources\Calendar-Date-24.png" />
+    <None Include="Resources\Note-01-24.png" />
+    <None Include="Resources\Date-24 %282%29.png" />
+    <None Include="Resources\Logout-32 %281%29.png" />
+    <None Include="Resources\Stethoscope-04-32 %281%29.png" />
+    <None Include="Resources\Calendar-32.png" />
+    <None Include="Resources\Sleep-01-32.png" />
+    <None Include="Resources\Syringe-01-32.png" />
+    <None Include="Resources\Medicine-32 %281%29.png" />
+    <None Include="Resources\Instrument-Microscope-32 %284%29.png" />
+    <None Include="Resources\Dental-32 %282%29.png" />
+    <None Include="Resources\User-Group-32 %284%29.png" />
+    <None Include="Resources\Wheelchair-32 %281%29.png" />
+    <None Include="Resources\Heart-ECG-32 %281%29.png" />
+    <None Include="Resources\logo.JPG" />
+    <None Include="Resources\Dental-32 %281%29.png" />
+    <None Include="Resources\Brick-32.png" />
+    <None Include="Resources\Flow-Cart-32.png" />
+    <None Include="Resources\Syringe-01-321.png" />
+    <None Include="Resources\Book-Shelf-32.png" />
+    <None Include="Resources\Bill-32 %281%29.png" />
     <Content Include="vhmis.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

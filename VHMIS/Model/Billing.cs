@@ -30,7 +30,7 @@ namespace VHMIS.Model
         private string due;
         private string chq;
         private string bank;
-
+        private string orgID;
         public string Id
         {
             get
@@ -278,7 +278,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Billing(string id, string queueID, string details, string qty, string amount, string account, string bypatient, string bycorporate, string patient, string consultant, string discount, string total, string remarks, string method, string created, string balance, string due, string chq, string bank)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Billing(string id, string queueID, string details, string qty, string amount, string account, string bypatient, string bycorporate, string patient, string consultant, string discount, string total, string remarks, string method, string created, string balance, string due, string chq, string bank, string orgID)
         {
             this.Id = id;
             this.QueueID = queueID;
@@ -299,6 +312,7 @@ namespace VHMIS.Model
             this.Due = due;
             this.Chq = chq;
             this.Bank = bank;
+            this.OrgID = orgID;
         }
 
         public static List<Billing> ListBilling()
@@ -310,7 +324,7 @@ namespace VHMIS.Model
             NpgsqlDataReader Reader = command.ExecuteReader();
             while (Reader.Read())
             {
-                Billing p = new Billing(Reader["id"].ToString(), Reader["queueid"].ToString(), Reader["details"].ToString(), Reader["qty"].ToString(), Reader["amount"].ToString(), Reader["account"].ToString(), Reader["bypatient"].ToString(),Reader["bycorporate"].ToString(), Reader["patient"].ToString(), Reader["consultant"].ToString(), Reader["discount"].ToString(), Reader["total"].ToString(), Reader["remarks"].ToString(), Reader["method"].ToString(), Reader["created"].ToString(), Reader["balance"].ToString(), Reader["due"].ToString(), Reader["chq"].ToString(), Reader["bank"].ToString());
+                Billing p = new Billing(Reader["id"].ToString(), Reader["queueid"].ToString(), Reader["details"].ToString(), Reader["qty"].ToString(), Reader["amount"].ToString(), Reader["account"].ToString(), Reader["bypatient"].ToString(),Reader["bycorporate"].ToString(), Reader["patient"].ToString(), Reader["consultant"].ToString(), Reader["discount"].ToString(), Reader["total"].ToString(), Reader["remarks"].ToString(), Reader["method"].ToString(), Reader["created"].ToString(), Reader["balance"].ToString(), Reader["due"].ToString(), Reader["chq"].ToString(), Reader["bank"].ToString(), Reader["orgid"].ToString());
                 wards.Add(p);
             }
             DBConnect.CloseConn();

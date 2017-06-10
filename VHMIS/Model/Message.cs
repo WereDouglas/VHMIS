@@ -28,7 +28,7 @@ namespace VHMIS.Model
         private string _contact;
         private string _email;
         private string _taskID;
-
+        private string orgID;
         public string MessageID
         {
             get
@@ -203,6 +203,19 @@ namespace VHMIS.Model
             set
             {
                 _taskID = value;
+            }
+        }
+
+        public string OrgID1
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
             }
         }
     }

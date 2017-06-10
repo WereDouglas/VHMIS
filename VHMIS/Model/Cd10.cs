@@ -16,7 +16,7 @@ namespace VHMIS.Model
         private string other;
         private string department;
         private string created;
-
+        private string orgID;
         public string Id
         {
             get
@@ -95,7 +95,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Cd10(string id, string code, string description, string other, string department, string created)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Cd10(string id, string code, string description, string other, string department, string created, string orgID)
         {
             this.Id = id;
             this.Code = code;
@@ -103,6 +116,7 @@ namespace VHMIS.Model
             this.Other = other;
             this.Department = department;
             this.Created = created;
+            this.OrgID = orgID;
         }
 
         public static List<Cd10> ListCd10()
@@ -114,7 +128,7 @@ namespace VHMIS.Model
             NpgsqlDataReader Reader = command.ExecuteReader();
             while (Reader.Read())
             {
-                Cd10 p = new Cd10(Reader["id"].ToString(), Reader["code"].ToString(), Reader["description"].ToString(), Reader["other"].ToString(), Reader["department"].ToString(),Reader["created"].ToString());
+                Cd10 p = new Cd10(Reader["id"].ToString(), Reader["code"].ToString(), Reader["description"].ToString(), Reader["other"].ToString(), Reader["department"].ToString(),Reader["created"].ToString(), Reader["orgid"].ToString());
                 wards.Add(p);
             }
             DBConnect.CloseConn();

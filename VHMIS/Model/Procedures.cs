@@ -20,7 +20,7 @@ namespace VHMIS
         private string gender;     
         private string description;       
         private string created;
-
+        private string orgID;
         public string Id
         {
             get
@@ -164,7 +164,20 @@ namespace VHMIS
             }
         }
 
-        public Procedures(string id, string name, string category, string roleID, string cost, string departmentID, string duration, string code, string gender, string description, string created)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Procedures(string id, string name, string category, string roleID, string cost, string departmentID, string duration, string code, string gender, string description, string created, string orgID)
         {
             this.Id = id;
             this.Name = name;
@@ -177,6 +190,7 @@ namespace VHMIS
             this.Gender = gender;
             this.Description = description;
             this.Created = created;
+            this.OrgID = orgID;
         }
 
         public static List<Procedures> ListProcedures()
@@ -190,7 +204,7 @@ namespace VHMIS
 
             while (Reader.Read())
             {
-                Procedures p = new Procedures(Reader["id"].ToString(), Reader["name"].ToString(), Reader["category"].ToString(), Reader["roleID"].ToString(), Reader["cost"].ToString(), Reader["departmentID"].ToString(), Reader["duration"].ToString(), Reader["code"].ToString(), Reader["gender"].ToString(), Reader["description"].ToString(), Reader["created"].ToString());
+                Procedures p = new Procedures(Reader["id"].ToString(), Reader["name"].ToString(), Reader["category"].ToString(), Reader["roleID"].ToString(), Reader["cost"].ToString(), Reader["departmentID"].ToString(), Reader["duration"].ToString(), Reader["code"].ToString(), Reader["gender"].ToString(), Reader["description"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
                 patients.Add(p);
             }
             DBConnect.CloseConn();

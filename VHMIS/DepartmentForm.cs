@@ -91,7 +91,7 @@ namespace VHMIS
             }
 
             string id = Guid.NewGuid().ToString();
-            _department = new Departments(id, nameTxt.Text, regTxt.Text, licenseTxt.Text,Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy"),codeTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+            _department = new Departments(id, nameTxt.Text, regTxt.Text, licenseTxt.Text,Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy"),codeTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
             if (DBConnect.Insert(_department) != "")
             {
@@ -169,7 +169,7 @@ namespace VHMIS
             if (MessageBox.Show("YES or No?", "Are you sure you want to update this information? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 //string SQL = "UPDATE departments SET name = '" + nameTxt.Text + "',mins='" + minTxt.Text + "',maxs= '" + maxTxt.Text + "' WHERE id= '" + updateID + "'";
-                _department = new Departments(updateID, nameTxt.Text, regTxt.Text, licenseTxt.Text,Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy"), codeTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+                _department = new Departments(updateID, nameTxt.Text, regTxt.Text, licenseTxt.Text,Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy"), codeTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
                 DBConnect.Update(_department, updateID);
                 Global._departments.RemoveAll(x => x.Id == updateID);
@@ -200,8 +200,8 @@ namespace VHMIS
         private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             updateID = dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
-            _department = new Departments(updateID, dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[6].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[7].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[8].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
-                                                 //Departments(2, 4, 5,6,7, 8, string created)
+            _department = new Departments(updateID, dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[6].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[7].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[8].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
+            //Departments(2, 4, 5,6,7, 8, string created)
             DBConnect.Update(_department, updateID);
             Global._departments.RemoveAll(x => x.Id == updateID);
             Global._departments.Add(_department);

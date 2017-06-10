@@ -99,7 +99,7 @@ namespace VHMIS
 
             }
             string id = Guid.NewGuid().ToString();
-            _role = new Roles(id, titleTxt.Text, viewTxt.Text, actionTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+            _role = new Roles(id, titleTxt.Text, viewTxt.Text, actionTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
 
             if (DBConnect.Insert(_role) != "")
@@ -205,7 +205,7 @@ namespace VHMIS
         private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             updateID = dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
-            _role = new Roles(dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[6].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+            _role = new Roles(dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[6].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
             DBConnect.Update(_role, updateID);
             Global._roles.RemoveAll(x => x.Id == updateID);

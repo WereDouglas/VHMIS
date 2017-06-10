@@ -14,7 +14,7 @@ namespace VHMIS.Model
         private string name;
         private string service;
         private string created;
-
+        private string orgID;
         public string Id
         {
             get
@@ -80,13 +80,27 @@ namespace VHMIS.Model
             }
         }
 
-        public Specimens(string id, string code, string name, string service, string created)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Specimens(string id, string code, string name, string service, string created, string orgID)
         {
             this.Id = id;
             this.Code = code;
             this.Name = name;
             this.Service = service;
             this.Created = created;
+            this.OrgID = orgID;
         }
 
         public static List<Specimens> ListSpecimens()
@@ -100,8 +114,8 @@ namespace VHMIS.Model
 
             while (Reader.Read())
             {                  
-                    Specimens p = new Specimens(Reader["id"].ToString(), Reader["code"].ToString(), Reader["name"].ToString(),Reader["service"].ToString(), Reader["created"].ToString());
-                    spec.Add(p);   
+                    Specimens p = new Specimens(Reader["id"].ToString(), Reader["code"].ToString(), Reader["name"].ToString(),Reader["service"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                spec.Add(p);   
             }
             DBConnect.CloseConn();
 

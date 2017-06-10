@@ -47,6 +47,22 @@ namespace VHMIS
                 labCbx.Items.Add(t.Parameter);
                 testCost.Add(t.Parameter, t.Cost);
             }
+            autocompleteCD();
+        }
+        Dictionary<string, string> cdDictionary = new Dictionary<string, string>();
+        private void autocompleteCD()
+        {
+            AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
+            foreach (Cd10 p in Global._cds)
+            {
+                AutoItem.Add(p.Description);
+                cdDictionary.Add(p.Code, p.Description);
+            }
+
+            diagnosisCbx.AutoCompleteMode = AutoCompleteMode.Suggest;
+            diagnosisCbx.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            diagnosisCbx.AutoCompleteCustomSource = AutoItem;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -72,7 +88,7 @@ namespace VHMIS
             try
             {
                 opCostTxt.Text = operationCost[operationCbx.Text];
-                serviceTotal = Convert.ToDouble(opCostTxt.Text) * Convert.ToDouble(opCostTxt.Text);
+                serviceTotal = Convert.ToDouble(opCostTxt.Text) * Convert.ToDouble(serviceQty.Text);
                 serviceLbl.Text = serviceTotal.ToString("n0");
             }
             catch { }
@@ -90,7 +106,7 @@ namespace VHMIS
             id = Guid.NewGuid().ToString();
             if (!String.IsNullOrEmpty(operationCbx.Text))
             {
-                _service = new Services(id, operationCbx.Text, VisitID, "Dental", "procedureID", PatientID, "userID", "code", "userID", opCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), toothTxt.Text, statusCbx.Text,serviceQty.Text,serviceTotal.ToString("n0"));
+                _service = new Services(id, operationCbx.Text, VisitID, "Dental", "procedureID", PatientID, "userID", "code", "userID", opCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), toothTxt.Text, statusCbx.Text,serviceQty.Text,serviceTotal.ToString("n0"),"No", Helper.orgID);
                 DBConnect.Insert(_service);
                 MessageBox.Show("Information added/Saved");
             }
@@ -103,7 +119,7 @@ namespace VHMIS
             id = Guid.NewGuid().ToString();
             if (!String.IsNullOrEmpty(labCbx.Text))
             {
-                _lab = new Lab(id, VisitID, PatientID, labCbx.Text, labCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), labQty.Text, LabTotal.ToString("n0"));
+                _lab = new Lab(id, VisitID, PatientID, labCbx.Text, labCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), labQty.Text, LabTotal.ToString("n0"), Helper.orgID);
                 DBConnect.Insert(_lab);
                 MessageBox.Show("Information added/Saved");
 
@@ -117,7 +133,7 @@ namespace VHMIS
             id = Guid.NewGuid().ToString();
             if (!String.IsNullOrEmpty(operationCbx.Text))
             {
-                _diag = new Diagnosis(id, diagnosisCbx.Text, VisitID, "Dental", "procedureID", PatientID, "userID", "code", "userID", diagCostTxt.Text, noteTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+                _diag = new Diagnosis(id, diagnosisCbx.Text, VisitID, "Dental", "procedureID", PatientID, "userID", codeTxt.Text, "userID", diagCostTxt.Text, noteTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
                 DBConnect.Insert(_diag);
                 MessageBox.Show("Information added/Saved");
 
@@ -153,6 +169,24 @@ namespace VHMIS
         }
 
         private void diagnosisQty_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void diagnosisCbx_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                var value = cdDictionary.FirstOrDefault(x => x.Value.Contains(diagnosisCbx.Text)).Key;
+                codeTxt.Text = value;// cdDictionary[diagnosisCbx.Text];
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void label46_Click(object sender, EventArgs e)
         {
 
         }

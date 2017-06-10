@@ -55,7 +55,7 @@ namespace VHMIS
                             descriptions = descriptions +" "+ sections[i];
                         }
                         string id = Guid.NewGuid().ToString();
-                        _cd10 = new Cd10(id, sections[0],Helper.CleanString(descriptions)," "," ", DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+                        _cd10 = new Cd10(id, sections[0],Helper.CleanString(descriptions)," "," ", DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
                         if (Global._cds.Where(h => h.Code.Contains(sections[0])).Count() < 1)
                         {
                             DBConnect.Insert(_cd10);
@@ -143,7 +143,7 @@ namespace VHMIS
         private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             updateID = dtGrid.Rows[e.RowIndex].Cells[1].Value.ToString();
-            _cd10 = new Cd10(dtGrid.Rows[e.RowIndex].Cells[1].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[3].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+            _cd10 = new Cd10(dtGrid.Rows[e.RowIndex].Cells[1].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[3].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
             DBConnect.Update(_cd10, updateID);
             Global._cds.RemoveAll(x => x.Id == updateID);

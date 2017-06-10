@@ -31,12 +31,13 @@ namespace VHMIS
         string queueID;
         string PatientID;
         DataTable tb;
+        DataTable bb;
         string userID;
         string wardID;
         string clinicID;
         string today;
 
-        public OutPatient(string QueueID,string patientID,string UserID)
+        public OutPatient(string QueueID, string patientID, string UserID)
         {
             _patientList = Global._patients;
             userID = UserID;
@@ -44,7 +45,6 @@ namespace VHMIS
             InitializeComponent();
 
             autocompleteNumber();
-
             autocompleteID();
             autocompleteUsers();
             autocompletePatient();
@@ -59,7 +59,8 @@ namespace VHMIS
                 PatientID = patientID;
                 LoadPatient(patientID);
             }
-            else {
+            else
+            {
                 queueID = Guid.NewGuid().ToString();
             }
             labCbx.Items.Add("");
@@ -86,7 +87,7 @@ namespace VHMIS
             {
                 roomCbx.Items.Add(d.Name);
             }
-
+          
         }
         private void autocompleteUsers()
         {
@@ -195,10 +196,12 @@ namespace VHMIS
 
             foreach (Services r in _services)
             {
-                tb.Rows.Add(new object[] { r.Id, r.Parameter, r.Name, r.DepartmentID, r.ProcedureID, r.Price, r.Code, r.Status,r.Qty,r.Total, "Cancel" });
+                tb.Rows.Add(new object[] { r.Id, r.Parameter, r.Name, r.DepartmentID, r.ProcedureID, r.Price, r.Code, r.Status, r.Qty, r.Total, "Cancel" });
+
+                
             }
             dtServices.DataSource = tb;
-
+            billGrid.DataSource = bb;
             dtServices.AllowUserToAddRows = false;
             dtServices.Columns[10].DefaultCellStyle.BackColor = Color.OrangeRed;
             dtServices.Columns[0].Visible = false;
@@ -209,7 +212,7 @@ namespace VHMIS
 
             _labs = Lab.ListLab(visitID);
             tb = new DataTable();
-        
+
             tb.Columns.Add("id");//2 
             tb.Columns.Add("Test");//2
             tb.Columns.Add("Cost");//
@@ -218,7 +221,7 @@ namespace VHMIS
             tb.Columns.Add("Cancel");//
             foreach (Lab r in _labs)
             {
-                tb.Rows.Add(new object[] { r.Id, r.Test, r.Cost,r.Qty,r.Total, "Cancel" });
+                tb.Rows.Add(new object[] { r.Id, r.Test, r.Cost, r.Qty, r.Total, "Cancel" });
             }
             dtLab.DataSource = tb;
 
@@ -244,7 +247,7 @@ namespace VHMIS
             id = Guid.NewGuid().ToString();
             if (!String.IsNullOrEmpty(labCbx.Text))
             {
-                _lab = new Lab(id, queueID, PatientID, labCbx.Text, labCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), labQty.Text, LabTotal.ToString("n0"));
+                _lab = new Lab(id, queueID, PatientID, labCbx.Text, labCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), labQty.Text, LabTotal.ToString("n0"), Helper.orgID);
                 DBConnect.Insert(_lab);
                 LoadLabs(queueID);
             }
@@ -264,7 +267,7 @@ namespace VHMIS
             id = Guid.NewGuid().ToString();
             if (!String.IsNullOrEmpty(operationCbx.Text))
             {
-                _service = new Services(id, operationCbx.Text, queueID, "Dental", "procedureID", PatientID, "userID", "code", "userID", opCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), parameterTxt.Text, statusCbx.Text, serviceQty.Text, serviceTotal.ToString("n0"));
+                _service = new Services(id, operationCbx.Text, queueID, "Dental", "procedureID", PatientID, "userID", "code", "userID", opCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), parameterTxt.Text, statusCbx.Text, serviceQty.Text, serviceTotal.ToString("n0"), "No", Helper.orgID);
                 DBConnect.Insert(_service);
                 MessageBox.Show("Information added/Saved");
                 LoadServices(queueID);
@@ -324,7 +327,7 @@ namespace VHMIS
             }
             string id = Guid.NewGuid().ToString();
 
-            _queue = new Queue(id, next.ToString(), PatientID, userID, roomCbx.Text, clinicCbx.Text, priorityCbx.Text, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),departmentCbx.Text);
+            _queue = new Queue(id, next.ToString(), PatientID, userID, roomCbx.Text, clinicCbx.Text, priorityCbx.Text, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), departmentCbx.Text, "", "", "", "", "", "", "", "", "", Helper.orgID);
 
             if (DBConnect.Insert(_queue) != "")
             {
@@ -332,7 +335,7 @@ namespace VHMIS
                 patientTxt.Text = "";
                 practitionerTxt.Text = "";
                 MessageBox.Show("Information Saved");
-              
+
 
             }
             else
@@ -348,7 +351,7 @@ namespace VHMIS
             try
             {
                 opCostTxt.Text = operationCost[operationCbx.Text];
-                serviceTotal = Convert.ToDouble(opCostTxt.Text) * Convert.ToDouble(opCostTxt.Text);
+                serviceTotal = Convert.ToDouble(opCostTxt.Text) * Convert.ToDouble(serviceQty.Text);
                 serviceLbl.Text = serviceTotal.ToString("n0");
             }
             catch { }
@@ -379,7 +382,7 @@ namespace VHMIS
 
         private void button5_Click(object sender, EventArgs e)
         {
-           PatientProfile frm = new PatientProfile(PatientID);
+            PatientProfile frm = new PatientProfile(PatientID);
             frm.MdiParent = MainForm.ActiveForm;
             frm.Dock = DockStyle.Fill;
             frm.Show();
@@ -442,15 +445,15 @@ namespace VHMIS
             {
                 notify = "true";
             }
-            _event = new Events(ID, Helper.CleanString(this.detailsTxt.Text), start, end, practitionerTxt.Text, patientTxt.Text, DateTime.Now.Date.ToString("yyyy-MM-dd"), PatientID, "due", userID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), notify, priorityCbx.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), "f", contactTxt.Text, emailTxt.Text, departmentCbx.Text, clinicCbx.Text);
+            _event = new Events(ID, Helper.CleanString(this.detailsTxt.Text), start, end, practitionerTxt.Text, patientTxt.Text, DateTime.Now.Date.ToString("yyyy-MM-dd"), PatientID, "due", userID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), notify, priorityCbx.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), "f", contactTxt.Text, emailTxt.Text, departmentCbx.Text, clinicCbx.Text, Helper.orgID);
 
             Global._events.Add(_event);
 
             string Query2 = "INSERT INTO events (id, details, starts, ends, users, patient, created, patientID, status, userID, dated,notif,priority, sync,cal,contact,email) VALUES ('" + ID + "','" + Helper.CleanString(this.detailsTxt.Text) + "','" + start + "','" + end + "','" + practitionerTxt.Text + "','" + patientTxt.Text + "','" + DateTime.Now.Date.ToString("yyyy-MM-dd") + "','" + PatientID + "','due','" + userID + "','" + Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "','" + notify + "','" + priorityCbx.Text + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','f','" + contactTxt.Text + "','" + emailTxt.Text + "');";
             DBConnect.Execute(Query2);
             MessageBox.Show("Information saved");
-           
-        
+
+
 
         }
 
@@ -494,7 +497,7 @@ namespace VHMIS
             id = Guid.NewGuid().ToString();
             if (!String.IsNullOrEmpty(procTotal.Text))
             {
-                _service = new Services(id, procTxt.Text, queueID, "Dental", "procedureID", PatientID, "userID", "code", "userID", procCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), parameterTxt.Text, statusCbx.Text, procQty.Text, procsTotal.ToString("n0"));
+                _service = new Services(id, procTxt.Text, queueID, "Dental", "procedureID", PatientID, "userID", "code", "userID", procCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), parameterTxt.Text, statusCbx.Text, procQty.Text, procsTotal.ToString("n0"), "No", Helper.orgID);
                 DBConnect.Insert(_service);
                 MessageBox.Show("Information added/Saved");
                 LoadServices(queueID);
@@ -506,7 +509,7 @@ namespace VHMIS
             try
             {
                 procsTotal = Convert.ToDouble(procCostTxt.Text) * Convert.ToDouble(procQty.Text);
-                procTotal.Text =procsTotal.ToString("n0");
+                procTotal.Text = procsTotal.ToString("n0");
             }
             catch { }
 
@@ -515,6 +518,61 @@ namespace VHMIS
         private void button7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void queueNo_TextChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                string QueueID = Global._queues.First(p => p.No.Contains(queueNo.Text)).Id;
+                string patientID = Global._queues.First(d => d.No.Contains(queueNo.Text)).PatientID;
+                if (!String.IsNullOrEmpty(QueueID))
+                {
+                    queueID = QueueID;
+                    LoadServices(queueID);
+                    LoadLabs(queueID);
+                    PatientID = patientID;
+                    LoadPatient(patientID);
+                }
+            }
+            catch { }
+        }
+
+        private void queueNo_Click(object sender, EventArgs e)
+        {
+            queueNo.Text = "VHMIS-" + DateTime.Now.ToString("dd-MM-yyyy") + "/";
+        }
+
+        private void dtServices_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dtServices.Rows[e.RowIndex].Cells["Cancel"].Value.ToString() == "Cancel")
+            {
+                if (MessageBox.Show("YES or No?", "Cancel service ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    DBConnect.Delete("services", dtServices.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                    MessageBox.Show("Information deleted");
+                    LoadServices(queueID);
+
+                }
+
+            }
+        }
+
+        private void dtLab_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (dtLab.Rows[e.RowIndex].Cells["Cancel"].Value.ToString() == "Cancel")
+            {
+                if (MessageBox.Show("YES or No?", "Cancel this Lab request ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    DBConnect.Delete("lab", dtLab.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                    MessageBox.Show("Information deleted");
+                    LoadLabs(queueID);
+
+                }
+
+            }
         }
     }
 }

@@ -27,9 +27,10 @@ namespace VHMIS
         private BackgroundWorker bw_upload = new BackgroundWorker();
         public MainForm()
         {
+            Helper.orgID = "test";
             InitializeComponent();
             Global.LoadData();
-           
+
             LoadVoice();
 
 
@@ -38,7 +39,7 @@ namespace VHMIS
             timer.Interval = 1 * 60 * 100;
             timer.Elapsed += timer_Elapsed;
             timer.Start();
-           
+
             bw_message.DoWork += backgroundWorker1_DoWork;
             bw_message.ProgressChanged += backgroundWorker1_ProgressChanged;
             bw_message.WorkerReportsProgress = true;
@@ -58,7 +59,7 @@ namespace VHMIS
             {
                 Invoke((MethodInvoker)delegate
                 {
-                   
+
                     // onlineLbl.Text = "Last:  " + Helper.lastSync;
                     processLbl.Text = processLbl.Text + text + "\r\n";
                     processLbl.ForeColor = Color.Black;
@@ -89,7 +90,7 @@ namespace VHMIS
                 this.s.NewLine = System.Environment.NewLine;
                 this.s.WriteLine("AT" + (char)(13));
                 string tt = s.ReadLine();
-                 if(s.ReadLine()!="AT/r/r")
+                if (s.ReadLine() != "AT/r/r")
                 {
                     Thread.Sleep(2000);
                     this.s.WriteLine("AT+CMGF=1" + (char)(13));
@@ -105,7 +106,7 @@ namespace VHMIS
                 }
             }
         }
-      
+
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             Form1 frm = new Form1();
@@ -116,7 +117,7 @@ namespace VHMIS
 
         private void registrationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void toolStripSplitButton3_ButtonClick(object sender, EventArgs e)
@@ -135,7 +136,7 @@ namespace VHMIS
 
         private void toolStripButton1_Click_1(object sender, EventArgs e)
         {
-            OutPatient frm = new OutPatient(null,null,null);
+            OutPatient frm = new OutPatient(null, null, null);
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
             frm.Show();
@@ -153,7 +154,7 @@ namespace VHMIS
 
         private void queueWaitingListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          
+
 
         }
 
@@ -164,7 +165,7 @@ namespace VHMIS
 
         private void patientVisitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          PatientVisit frm = new PatientVisit(null,null,null);
+            PatientVisit frm = new PatientVisit(null, null, null);
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
             frm.Show();
@@ -172,7 +173,7 @@ namespace VHMIS
 
         private void listToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void registerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -194,7 +195,7 @@ namespace VHMIS
 
         private void viewAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           ViewUsers frm = new ViewUsers();
+            ViewUsers frm = new ViewUsers();
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
             frm.Show();
@@ -291,18 +292,18 @@ namespace VHMIS
                 // create the engine
                 speechRecognitionEngine = createSpeechEngine("en-GB");
 
-            // hook to events
-            speechRecognitionEngine.AudioLevelUpdated += new EventHandler<AudioLevelUpdatedEventArgs>(engine_AudioLevelUpdated);
-            speechRecognitionEngine.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(engine_SpeechRecognized);
+                // hook to events
+                speechRecognitionEngine.AudioLevelUpdated += new EventHandler<AudioLevelUpdatedEventArgs>(engine_AudioLevelUpdated);
+                speechRecognitionEngine.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(engine_SpeechRecognized);
 
-            // load dictionary
-            loadGrammarAndCommands();
+                // load dictionary
+                loadGrammarAndCommands();
 
-            // use the system's default microphone
-            speechRecognitionEngine.SetInputToDefaultAudioDevice();
+                // use the system's default microphone
+                speechRecognitionEngine.SetInputToDefaultAudioDevice();
 
-            // start listening
-            speechRecognitionEngine.RecognizeAsync(RecognizeMode.Multiple);
+                // start listening
+                speechRecognitionEngine.RecognizeAsync(RecognizeMode.Multiple);
             }
             catch (Exception ex)
             {
@@ -419,9 +420,9 @@ namespace VHMIS
         void engine_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
             string cmd = getKnownTextOrExecute(e.Result.Text);
-           
+
             try
-            {  
+            {
                 //var said = getKnownTextOrExecute(e.Result.Text);
                 //if (said=="calendar") {
                 //    CalenderForm frm = new CalenderForm();
@@ -462,7 +463,7 @@ namespace VHMIS
             }
             catch
             {
-              
+
             }
 
         }
@@ -474,7 +475,7 @@ namespace VHMIS
         /// <param name="e">The <see cref="System.Speech.Recognition.AudioLevelUpdatedEventArgs"/> instance containing the event data.</param>
         void engine_AudioLevelUpdated(object sender, AudioLevelUpdatedEventArgs e)
         {
-          //  prgLevel.Value = e.AudioLevel;
+            //  prgLevel.Value = e.AudioLevel;
         }
 
         #endregion
@@ -513,7 +514,7 @@ namespace VHMIS
             }
 
         }
-        
+
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             //Messenger.connect();
@@ -567,7 +568,7 @@ namespace VHMIS
 
         private void toolStripSplitButton9_ButtonClick(object sender, EventArgs e)
         {
-            DentalForm frm = new DentalForm(null,null,null);
+            DentalForm frm = new DentalForm(null, null, null);
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
             frm.Show();
@@ -627,9 +628,9 @@ namespace VHMIS
 
         private void profileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ProfileForm frm = new ProfileForm();
+            ProfileForm frm = new ProfileForm("");
             frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
+            //frm.Dock = DockStyle.Fill;
             frm.Show();
         }
 
@@ -651,9 +652,49 @@ namespace VHMIS
                 }
             }
         }
-
+        Roles _role;
         private void MainForm_Load(object sender, EventArgs e)
         {
+           
+            Global.LoadData();
+            if (Global._org.Count() < 1)
+            {
+
+                using (ProfileForm form = new ProfileForm(""))
+                {
+                    // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
+                    DialogResult dr = form.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        // MessageBox.Show(form.state);
+
+                    }
+                }
+
+            }
+            else
+            {
+
+                Helper.orgID = Global._org.FirstOrDefault().Id;              
+                Helper.orgName = Global._org.First().Name;
+            }
+            if (Global._users.Count() < 1)
+            {
+                string ids = Guid.NewGuid().ToString();
+                _role = new Roles(ids, "Administrator", "All item pos daily purchases merchandise inventory expenses cash flow suppliers users suppliers catgories transactions ledgers logs profile ", "create update delete log ", DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
+
+                DBConnect.Insert(_role);
+                using (PractitionerRegistration form = new PractitionerRegistration())
+                {
+                    // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
+                    DialogResult dr = form.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        // MessageBox.Show(form.state);
+
+                    }
+                }
+            }
             using (LoginForm form = new LoginForm())
             {
                 // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
@@ -661,9 +702,25 @@ namespace VHMIS
                 if (dr == DialogResult.OK)
                 {
                     // MessageBox.Show(form.state);
-
+                    
                 }
             }
+        }
+
+        private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RoomForm frm = new RoomForm();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            AdmissionForm frm = new AdmissionForm();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
         }
     }
 }

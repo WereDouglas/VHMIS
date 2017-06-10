@@ -17,7 +17,7 @@ namespace VHMIS.Model
         private string min_age;
         private string max_age;
         private string created;
-
+        private string orgID;
         public string Id
         {
             get
@@ -122,7 +122,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Dosage(string id, string itemID, string dose, string prescription, string qty, string min_age, string max_age, string created)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Dosage(string id, string itemID, string dose, string prescription, string qty, string min_age, string max_age, string created, string orgID)
         {
             this.Id = id;
             this.ItemID = itemID;
@@ -132,6 +145,7 @@ namespace VHMIS.Model
             this.Min_age = min_age;
             this.Max_age = max_age;
             this.Created = created;
+            this.OrgID = orgID;
         }
 
         public static List<Dosage> ListDosage()
@@ -144,7 +158,7 @@ namespace VHMIS.Model
 
             while (Reader.Read())
             {
-                Dosage p = new Dosage(Reader["id"].ToString(), Reader["itemid"].ToString(), Reader["dose"].ToString(), Reader["prescription"].ToString(), Reader["qty"].ToString(), Reader["min_age"].ToString(), Reader["max_age"].ToString(), Reader["created"].ToString());
+                Dosage p = new Dosage(Reader["id"].ToString(), Reader["itemid"].ToString(), Reader["dose"].ToString(), Reader["prescription"].ToString(), Reader["qty"].ToString(), Reader["min_age"].ToString(), Reader["max_age"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
                 clinics.Add(p);
             }
             DBConnect.CloseConn();

@@ -17,7 +17,7 @@ namespace VHMIS.Model
         private string cost;
         private string other;               
         private string created;
-
+        private string orgID;
         public string Id
         {
             get
@@ -108,7 +108,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Operations(string id, string departmentID, string code, string service, string cost, string other, string created)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Operations(string id, string departmentID, string code, string service, string cost, string other, string created, string orgID)
         {
             this.Id = id;
             this.DepartmentID = departmentID;
@@ -117,6 +130,7 @@ namespace VHMIS.Model
             this.Cost = cost;
             this.Other = other;
             this.Created = created;
+            this.OrgID = orgID;
         }
         public static List<Operations> ListOperations()
         {
@@ -127,7 +141,7 @@ namespace VHMIS.Model
             NpgsqlDataReader Reader = command.ExecuteReader();
             while (Reader.Read())
             {
-                Operations p = new Operations(Reader["id"].ToString(), Reader["departmentID"].ToString(), Reader["code"].ToString(), Reader["service"].ToString(), Reader["cost"].ToString(), Reader["other"].ToString(),Reader["created"].ToString());
+                Operations p = new Operations(Reader["id"].ToString(), Reader["departmentID"].ToString(), Reader["code"].ToString(), Reader["service"].ToString(), Reader["cost"].ToString(), Reader["other"].ToString(),Reader["created"].ToString(), Reader["orgid"].ToString());
                 wards.Add(p);
             }
             DBConnect.CloseConn();

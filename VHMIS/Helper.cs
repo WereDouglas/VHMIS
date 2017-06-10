@@ -12,6 +12,12 @@ namespace VHMIS
 {
    public static class Helper
     {
+        public static string orgID;
+        public static string userID;
+        public static string userName;
+        public static string orgName;
+        public static string orgAddress;
+        public static string userContact;
         public static string CalculateYourAge(DateTime Dob)
         {
             DateTime Now = DateTime.Now;

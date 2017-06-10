@@ -25,7 +25,7 @@ namespace VHMIS.Model
         private string created;
         private string cost;
         private string departmentID;
-
+        private string orgID;
         public string Id
         {
             get
@@ -234,7 +234,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Tests(string id, string specimenID, string type, string parameter, string upper, string lower, string unit, string disciplineid, string code, string gender, string phrase, string description, string comment, string created,string cost,string departmentID)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Tests(string id, string specimenID, string type, string parameter, string upper, string lower, string unit, string disciplineid, string code, string gender, string phrase, string description, string comment, string created,string cost,string departmentID, string orgID)
         {
             this.Id = id;
             this.SpecimenID = specimenID;
@@ -252,6 +265,7 @@ namespace VHMIS.Model
             this.Created = created;
             this.Cost = cost;
             this.DepartmentID = departmentID;
+            this.OrgID = orgID;
         }
 
         public static List<Tests> ListTests()
@@ -265,7 +279,7 @@ namespace VHMIS.Model
 
             while (Reader.Read())
             {
-                Tests p = new Tests(Reader["id"].ToString(), Reader["specimenID"].ToString(), Reader["type"].ToString(), Reader["parameter"].ToString(), Reader["upper"].ToString(), Reader["lower"].ToString(), Reader["unit"].ToString(), Reader["disciplineid"].ToString(), Reader["code"].ToString(), Reader["gender"].ToString(), Reader["phrase"].ToString(), Reader["description"].ToString(), Reader["comment"].ToString(), Reader["created"].ToString(), Reader["cost"].ToString(), Reader["departmentID"].ToString());
+                Tests p = new Tests(Reader["id"].ToString(), Reader["specimenID"].ToString(), Reader["type"].ToString(), Reader["parameter"].ToString(), Reader["upper"].ToString(), Reader["lower"].ToString(), Reader["unit"].ToString(), Reader["disciplineid"].ToString(), Reader["code"].ToString(), Reader["gender"].ToString(), Reader["phrase"].ToString(), Reader["description"].ToString(), Reader["comment"].ToString(), Reader["created"].ToString(), Reader["cost"].ToString(), Reader["departmentID"].ToString(), Reader["orgid"].ToString());
                 patients.Add(p);
             }
             DBConnect.CloseConn();

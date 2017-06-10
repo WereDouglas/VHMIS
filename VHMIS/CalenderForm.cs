@@ -66,7 +66,7 @@ namespace VHMIS
             {
                 AutoItem.Add(p.Surname + " " + p.Lastname);
                 patientDictionary.Add(p.Surname + " " + p.Lastname, p.Id);
-                contactDictionary.Add(p.Id,p.Contact);
+                contactDictionary.Add(p.Id, p.Contact);
                 emailDictionary.Add(p.Id, p.Email);
             }
 
@@ -98,11 +98,11 @@ namespace VHMIS
             {
                 notify = "true";
             }
-            _event = new Events(ID, Helper.CleanString(this.detailsTxt.Text), start, end, practitionerTxt.Text, patientTxt.Text, DateTime.Now.Date.ToString("yyyy-MM-dd"), patientID, "due", userID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), notify, priorityCbx.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), "f",contact,email,departmentCbx.Text,clinicCbx.Text);
+            _event = new Events(ID, Helper.CleanString(this.detailsTxt.Text), start, end, practitionerTxt.Text, patientTxt.Text, DateTime.Now.Date.ToString("yyyy-MM-dd"), patientID, "due", userID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), notify, priorityCbx.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), "f", contact, email, departmentCbx.Text, clinicCbx.Text, Helper.orgID);
 
             Global._events.Add(_event);
 
-            string Query2 = "INSERT INTO events (id, details, starts, ends, users, patient, created, patientID, status, userID, dated,notif,priority, sync,cal,contact,email) VALUES ('" + ID + "','" + Helper.CleanString(this.detailsTxt.Text) + "','" + start + "','" + end + "','" + practitionerTxt.Text + "','" + patientTxt.Text + "','" + DateTime.Now.Date.ToString("yyyy-MM-dd") + "','" + patientID + "','due','" + userID + "','" + Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "','" + notify + "','" + priorityCbx.Text + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','f','"+contact+"','"+email+"');";
+            string Query2 = "INSERT INTO events (id, details, starts, ends, users, patient, created, patientID, status, userID, dated,notif,priority, sync,cal,contact,email) VALUES ('" + ID + "','" + Helper.CleanString(this.detailsTxt.Text) + "','" + start + "','" + end + "','" + practitionerTxt.Text + "','" + patientTxt.Text + "','" + DateTime.Now.Date.ToString("yyyy-MM-dd") + "','" + patientID + "','due','" + userID + "','" + Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "','" + notify + "','" + priorityCbx.Text + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','f','" + contact + "','" + email + "');";
             DBConnect.Execute(Query2);
             MessageBox.Show("Information saved");
             // LoadingCalendarLite();
@@ -198,8 +198,8 @@ namespace VHMIS
             _items.Clear();
             List<ItemInfo> lst = new List<ItemInfo>();
             string state = "";
-            List <Events> events = new List<Events>(Global._events);
-          
+            List<Events> events = new List<Events>(Global._events);
+
             if (!String.IsNullOrEmpty(departmentCbx.Text)) { events.Clear(); events = Global._events.Where(k => k.Department.Contains(departmentCbx.Text)).ToList(); }
             if (!String.IsNullOrEmpty(clinicCbx.Text)) { events.Clear(); events = Global._events.Where(k => k.Clinic.Contains(clinicCbx.Text)).ToList(); }
             if (!String.IsNullOrEmpty(practitionerTxt.Text)) { events.Clear(); events = Global._events.Where(k => k.Users.Contains(practitionerTxt.Text)).ToList(); }
@@ -237,7 +237,8 @@ namespace VHMIS
         }
         private void calendar1_ItemCreated(object sender, CalendarItemCancelEventArgs e)
         {
-            if (e.Item.Text == "") {
+            if (e.Item.Text == "")
+            {
                 MessageBox.Show("No Information");
                 return;
             }
@@ -247,13 +248,18 @@ namespace VHMIS
                 return;
             }
             _items.Add(e.Item);
+            string priority = "Medium";
+            if (!String.IsNullOrEmpty(priorityCbx.Text))
+            {
+                priority = priorityCbx.Text;
+            }
             string ID = Guid.NewGuid().ToString();
             var start = Convert.ToDateTime(e.Item.Date).ToString("yyyy-MM-dd") + "T" + Convert.ToDateTime(e.Item.Date).ToString("HH:mm:ss");
             var end = Convert.ToDateTime(e.Item.EndDate).ToString("yyyy-MM-dd") + "T" + Convert.ToDateTime(e.Item.EndDate).ToString("HH:mm:ss");
-            _event = new Events(ID, Helper.CleanString(e.Item.Text), start, end, practitionerTxt.Text, patientTxt.Text, DateTime.Now.Date.ToString("yyyy-MM-dd"), patientID, "due", userID, Convert.ToDateTime(e.Item.Date).ToString("yyyy-MM-dd"), "false", "Medium", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), "f",contact,email,departmentCbx.Text,clinicCbx.Text);
+            _event = new Events(ID, Helper.CleanString(e.Item.Text), start, end, practitionerTxt.Text, patientTxt.Text, DateTime.Now.Date.ToString("yyyy-MM-dd"), patientID, "due", userID, Convert.ToDateTime(e.Item.Date).ToString("yyyy-MM-dd"), "false", priority, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), "f", contact, email, departmentCbx.Text, clinicCbx.Text, Helper.orgID);
 
             Global._events.Add(_event);
-            string Query2 = "INSERT INTO events (id, details, starts, ends, users, patient, created, patientID, status, userID, dated,notif,priority, sync,cal,contact,email) VALUES ('" + ID + "','" + Helper.CleanString(e.Item.Text) + "','" + start + "','" + end + "','" + practitionerTxt.Text + "','" + patientTxt.Text + "','" + DateTime.Now.Date.ToString("yyyy-MM-dd") + "','"+patientID+"','due','"+userID+"','" + Convert.ToDateTime(e.Item.Date).ToString("yyyy-MM-dd") + "','false','Medium','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','f','"+contact+ "','" + email + "');";
+            string Query2 = "INSERT INTO events (id, details, starts, ends, users, patient, created, patientID, status, userID, dated,notif,priority, sync,cal,contact,email) VALUES ('" + ID + "','" + Helper.CleanString(e.Item.Text) + "','" + start + "','" + end + "','" + practitionerTxt.Text + "','" + patientTxt.Text + "','" + DateTime.Now.Date.ToString("yyyy-MM-dd") + "','" + patientID + "','due','" + userID + "','" + Convert.ToDateTime(e.Item.Date).ToString("yyyy-MM-dd") + "','false','"+priority+"','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','f','" + contact + "','" + email + "');";
 
             DBConnect.Execute(Query2);
             MessageBox.Show("Information saved" + start + " to" + end);
@@ -458,7 +464,7 @@ namespace VHMIS
                 calendar1.Invalidate(item);
             }
         }
-     
+
 
         private void northToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -519,7 +525,7 @@ namespace VHMIS
 
         private void calendar1_ItemsPositioned(object sender, EventArgs e)
         {
-          //  MessageBox.Show("");
+            //  MessageBox.Show("");
         }
 
         private void clinicCbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -530,6 +536,11 @@ namespace VHMIS
         private void departmentCbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadingCalendarLite();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

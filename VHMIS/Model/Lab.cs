@@ -17,6 +17,7 @@ namespace VHMIS.Model
         private string created;
         private string qty;
         private string total;
+        private string orgID;
         public string Id
         {
             get
@@ -120,7 +121,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Lab(string id, string queueID, string patientID, string test, string cost, string created, string qty, string total)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Lab(string id, string queueID, string patientID, string test, string cost, string created, string qty, string total, string orgID)
         {
             this.Id = id;
             this.QueueID = queueID;
@@ -130,6 +144,7 @@ namespace VHMIS.Model
             this.Created = created;
             this.Qty = qty;
             this.Total = total;
+            this.OrgID = orgID;
         }
 
         public static List<Lab> ListLab(string visitID)
@@ -141,7 +156,7 @@ namespace VHMIS.Model
             NpgsqlDataReader Reader = command.ExecuteReader();
             while (Reader.Read())
             {
-                Lab p = new Lab(Reader["id"].ToString(), Reader["queueID"].ToString(), Reader["patientID"].ToString(), Reader["test"].ToString(),Reader["cost"].ToString(), Reader["created"].ToString(), Reader["qty"].ToString(), Reader["total"].ToString());
+                Lab p = new Lab(Reader["id"].ToString(), Reader["queueID"].ToString(), Reader["patientID"].ToString(), Reader["test"].ToString(),Reader["cost"].ToString(), Reader["created"].ToString(), Reader["qty"].ToString(), Reader["total"].ToString(), Reader["orgid"].ToString());
                 clinics.Add(p);
             }
             DBConnect.CloseConn();

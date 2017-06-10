@@ -24,7 +24,8 @@ namespace VHMIS.Model
         private string status;
         private string qty;
         private string total;
-
+        private string paid;
+        private string orgID;
         public string Id
         {
             get
@@ -220,7 +221,33 @@ namespace VHMIS.Model
             }
         }
 
-        public Services(string id, string name, string queueID, string departmentID, string procedureID, string patientID, string userID, string code, string doneBy, string price, string created,string parameter,string status,string qty,string total)
+        public string Paid
+        {
+            get
+            {
+                return paid;
+            }
+
+            set
+            {
+                paid = value;
+            }
+        }
+
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Services(string id, string name, string queueID, string departmentID, string procedureID, string patientID, string userID, string code, string doneBy, string price, string created,string parameter,string status,string qty,string total,string paid, string orgID)
         {
             this.Id = id;
             this.Name = name;
@@ -237,6 +264,8 @@ namespace VHMIS.Model
             this.Status = status;
             this.Qty = qty;
             this.Total = total;
+            this.Paid = paid;
+            this.OrgID = orgID;
         }
 
         public static List<Services> ListServices(string queueID)
@@ -250,7 +279,7 @@ namespace VHMIS.Model
 
             while (Reader.Read())
             {
-                Services p = new Services(Reader["id"].ToString(), Reader["name"].ToString(), Reader["queueID"].ToString(), Reader["departmentID"].ToString(), Reader["procedureID"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["code"].ToString(), Reader["doneby"].ToString(), Reader["price"].ToString(),Reader["created"].ToString(), Reader["parameter"].ToString(), Reader["status"].ToString(),Reader["qty"].ToString(),Reader["total"].ToString());
+                Services p = new Services(Reader["id"].ToString(), Reader["name"].ToString(), Reader["queueID"].ToString(), Reader["departmentID"].ToString(), Reader["procedureID"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["code"].ToString(), Reader["doneby"].ToString(), Reader["price"].ToString(),Reader["created"].ToString(), Reader["parameter"].ToString(), Reader["status"].ToString(),Reader["qty"].ToString(),Reader["total"].ToString(), Reader["paid"].ToString(), Reader["orgid"].ToString());
                 patients.Add(p);
 
             }

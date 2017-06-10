@@ -14,7 +14,7 @@ namespace VHMIS.Model
         private string description;
         private string patientID;
         private string created;
-
+        private string orgID;
         public string Id
         {
             get
@@ -80,13 +80,27 @@ namespace VHMIS.Model
             }
         }
 
-        public Chronic(string id, string name, string description, string patientID, string created)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Chronic(string id, string name, string description, string patientID, string created, string orgID)
         {
             this.Id = id;
             this.Name = name;
             this.Description = description;
             this.PatientID = patientID;
             this.Created = created;
+            this.OrgID = orgID;
         }
 
         public static List<Chronic> ListChronic(string PatientID)
@@ -99,7 +113,7 @@ namespace VHMIS.Model
 
             while (Reader.Read())
             {
-                Chronic p = new Chronic(Reader["id"].ToString(), Reader["name"].ToString(), Reader["description"].ToString(), Reader["patientID"].ToString(), Reader["created"].ToString());
+                Chronic p = new Chronic(Reader["id"].ToString(), Reader["name"].ToString(), Reader["description"].ToString(), Reader["patientID"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
                 clinics.Add(p);
             }
             DBConnect.CloseConn();

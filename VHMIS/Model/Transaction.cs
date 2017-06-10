@@ -18,7 +18,7 @@ namespace VHMIS.Model
         private string price;
         private string type;//Purchase or Sale
         private string created;
-
+        private string orgID;
         public string Id
         {
             get
@@ -123,7 +123,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Transaction(string id, string no, string itemID, string quantity, string date, string price, string type,string created)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Transaction(string id, string no, string itemID, string quantity, string date, string price, string type,string created, string orgID)
         {
             this.Id = id;
             this.No = no;
@@ -133,6 +146,7 @@ namespace VHMIS.Model
             this.Price = price;
             this.Type = type;//Purchase or Sale
             this.Created = created;
+            this.OrgID = orgID;
         }
 
         public static List<Transaction> ListTransaction()
@@ -144,7 +158,7 @@ namespace VHMIS.Model
             NpgsqlDataReader Reader = command.ExecuteReader();
             while (Reader.Read())
             {
-                Transaction p = new Transaction(Reader["id"].ToString(), Reader["no"].ToString(), Reader["itemid"].ToString(), Reader["quantity"].ToString(), Reader["date"].ToString(), Reader["price"].ToString(), Reader["type"].ToString(), Reader["created"].ToString());
+                Transaction p = new Transaction(Reader["id"].ToString(), Reader["no"].ToString(), Reader["itemid"].ToString(), Reader["quantity"].ToString(), Reader["date"].ToString(), Reader["price"].ToString(), Reader["type"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
                 wards.Add(p);
             }
             DBConnect.CloseConn();

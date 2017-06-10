@@ -14,6 +14,7 @@ namespace VHMIS.Model
         private string docfee;
         private string hosfee;
         private string created;
+        private string orgID;
         public string Id
         {
             get
@@ -79,13 +80,27 @@ namespace VHMIS.Model
             }
         }
 
-        public Category(string id, string title, string docfee, string hosfee, string created)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Category(string id, string title, string docfee, string hosfee, string created, string orgID)
         {
             this.Id = id;
             this.Title = title;
             this.Docfee = docfee;
             this.Hosfee = hosfee;
             this.Created = created;
+            this.OrgID = orgID;
         }
 
         public static List<Category> ListCategory()
@@ -99,7 +114,7 @@ namespace VHMIS.Model
 
             while (Reader.Read())
             {
-                Category p = new Category(Reader["id"].ToString(), Reader["title"].ToString(), Reader["docfee"].ToString(), Reader["hosfee"].ToString(), Reader["created"].ToString());
+                Category p = new Category(Reader["id"].ToString(), Reader["title"].ToString(), Reader["docfee"].ToString(), Reader["hosfee"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
                 lists.Add(p);
 
             }

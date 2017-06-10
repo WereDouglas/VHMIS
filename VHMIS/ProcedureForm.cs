@@ -105,7 +105,7 @@ namespace VHMIS
             }
 
             string id = Guid.NewGuid().ToString();
-            _procedure = new Procedures(id, nameTxt.Text, categoryTxt.Text, rolesCbx.Text,costTxt.Text,departmentCbx.Text,durationTxt.Text,codeTxt.Text,genderCbx.Text,descriptionTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+            _procedure = new Procedures(id, nameTxt.Text, categoryTxt.Text, rolesCbx.Text,costTxt.Text,departmentCbx.Text,durationTxt.Text,codeTxt.Text,genderCbx.Text,descriptionTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
             if (DBConnect.Insert(_procedure) != "")
             {
@@ -183,7 +183,7 @@ namespace VHMIS
             if (MessageBox.Show("YES or No?", "Are you sure you want to update this information? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 //string SQL = "UPDATE procedures SET name = '" + nameTxt.Text + "',mins='" + minTxt.Text + "',maxs= '" + maxTxt.Text + "' WHERE id= '" + updateID + "'";
-                _procedure = new Procedures(updateID, nameTxt.Text, categoryTxt.Text, rolesCbx.Text, costTxt.Text, departmentCbx.Text, durationTxt.Text, codeTxt.Text, genderCbx.Text, descriptionTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+                _procedure = new Procedures(updateID, nameTxt.Text, categoryTxt.Text, rolesCbx.Text, costTxt.Text, departmentCbx.Text, durationTxt.Text, codeTxt.Text, genderCbx.Text, descriptionTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
                 DBConnect.Update(_procedure, updateID);
                 Global._procedures.RemoveAll(x => x.Id == updateID);
@@ -214,7 +214,7 @@ namespace VHMIS
         private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             updateID = dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
-            _procedure = new Procedures(updateID, dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[6].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[7].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[8].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[9].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[10].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[11].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[12].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+            _procedure = new Procedures(updateID, dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[6].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[7].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[8].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[9].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[10].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[11].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[12].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
             //Procedures(2, 4, 5,6,7, 8, string created)
             DBConnect.Update(_procedure, updateID);
             Global._procedures.RemoveAll(x => x.Id == updateID);

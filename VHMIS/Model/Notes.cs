@@ -18,7 +18,7 @@ namespace VHMIS.Model
         private string consultant;
         private string treatment;
         private string created;
-
+        private string orgID;
         public string Id
         {
             get
@@ -123,7 +123,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Notes(string id, string queueID, string patientID, string userID, string patient, string consultant, string treatment, string created)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Notes(string id, string queueID, string patientID, string userID, string patient, string consultant, string treatment, string created, string orgID)
         {
             this.Id = id;
             this.QueueID = queueID;
@@ -133,6 +146,7 @@ namespace VHMIS.Model
             this.Consultant = consultant;
             this.Treatment = treatment;
             this.Created = created;
+            this.OrgID = orgID;
         }
 
         public static List<Notes> ListNotes(string visitID)
@@ -145,7 +159,7 @@ namespace VHMIS.Model
 
             while (Reader.Read())
             {
-                Notes p = new Notes(Reader["id"].ToString(), Reader["queueID"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["patient"].ToString(), Reader["consultant"].ToString(), Reader["treatment"].ToString(), Reader["created"].ToString());
+                Notes p = new Notes(Reader["id"].ToString(), Reader["queueID"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["patient"].ToString(), Reader["consultant"].ToString(), Reader["treatment"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
                 clinics.Add(p);
             }
             DBConnect.CloseConn();

@@ -14,6 +14,7 @@ namespace VHMIS.Model
         private string description;
         private string patientID;
         private string created;
+        private string orgID;
 
         public string Id
         {
@@ -80,13 +81,27 @@ namespace VHMIS.Model
             }
         }
 
-        public Allergy(string id, string name, string description, string patientID, string created)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Allergy(string id, string name, string description, string patientID, string created, string orgID)
         {
             this.Id = id;
             this.Name = name;
             this.Description = description;
             this.PatientID = patientID;
             this.Created = created;
+            this.OrgID = orgID;
         }
 
         public static List<Allergy> ListAllergy(string PatientID)
@@ -99,7 +114,7 @@ namespace VHMIS.Model
 
             while (Reader.Read())
             {
-                Allergy p = new Allergy(Reader["id"].ToString(), Reader["name"].ToString(), Reader["description"].ToString(), Reader["patientID"].ToString(), Reader["created"].ToString());
+                Allergy p = new Allergy(Reader["id"].ToString(), Reader["name"].ToString(), Reader["description"].ToString(), Reader["patientID"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
                 clinics.Add(p);
             }
             DBConnect.CloseConn();

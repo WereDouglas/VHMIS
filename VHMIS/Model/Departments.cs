@@ -17,7 +17,7 @@ namespace VHMIS.Model
         private string expiry;
         private string code;
         private string created;
-
+        private string orgID;
         public string Id
         {
             get
@@ -109,7 +109,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Departments(string id, string name, string regno, string license, string expiry, string code, string created)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Departments(string id, string name, string regno, string license, string expiry, string code, string created, string orgID)
         {
             this.Id = id;
             this.Name = name;
@@ -118,6 +131,7 @@ namespace VHMIS.Model
             this.Expiry = expiry;
             this.Code = code;
             this.Created = created;
+            this.OrgID = orgID;
         }
 
         public static List<Departments> ListDepartment()
@@ -131,7 +145,7 @@ namespace VHMIS.Model
 
             while (Reader.Read())
             {
-                Departments p = new Departments(Reader["id"].ToString(), Reader["name"].ToString(), Reader["regno"].ToString(), Reader["license"].ToString(), Reader["expiry"].ToString(), Reader["code"].ToString(), Reader["created"].ToString());
+                Departments p = new Departments(Reader["id"].ToString(), Reader["name"].ToString(), Reader["regno"].ToString(), Reader["license"].ToString(), Reader["expiry"].ToString(), Reader["code"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
                 departments.Add(p);
 
             }

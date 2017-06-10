@@ -18,7 +18,7 @@ namespace VHMIS.Model
         private string image;
         private string created;
         private string type;//supplier //customer
-
+        private string orgID;
         public string Id
         {
             get
@@ -136,7 +136,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Transactor(string id, string transactorNo, string contact, string name, string email, string address, string image, string created, string type)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Transactor(string id, string transactorNo, string contact, string name, string email, string address, string image, string created, string type, string orgID)
         {
             this.Id = id;
             this.TransactorNo = transactorNo;
@@ -147,6 +160,7 @@ namespace VHMIS.Model
             this.Image = image;
             this.Created = created;
             this.Type = type;//supplier //customer
+            this.OrgID = orgID;
         }
 
         public static List<Transactor> ListTransactors()
@@ -162,7 +176,7 @@ namespace VHMIS.Model
             while (Reader.Read())
             {
 
-                Transactor p = new Transactor(Reader["id"].ToString(), Reader["transactorno"].ToString(), Reader["contact"].ToString(),Reader["name"].ToString(), Reader["email"].ToString(), Reader["address"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["type"].ToString());
+                Transactor p = new Transactor(Reader["id"].ToString(), Reader["transactorno"].ToString(), Reader["contact"].ToString(),Reader["name"].ToString(), Reader["email"].ToString(), Reader["address"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["type"].ToString(), Reader["orgid"].ToString());
                 transactors.Add(p);
 
             }

@@ -101,7 +101,7 @@ namespace VHMIS
             //}
 
             string id = Guid.NewGuid().ToString();
-            _bed = new Beds(id, wardTxt.Text, bedTxt.Text, accountTxt.Text, rateTxt.Text, statusTxt.Text, categoryTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+            _bed = new Beds(id, wardTxt.Text, bedTxt.Text, accountTxt.Text, rateTxt.Text, statusTxt.Text, categoryTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
             if (DBConnect.Insert(_bed) != "")
             {
@@ -177,7 +177,7 @@ namespace VHMIS
             if (updateID == "") { return; }
             if (MessageBox.Show("YES or No?", "Are you sure you want to update this information? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                _bed = new Beds(updateID, wardTxt.Text, bedTxt.Text, accountTxt.Text, rateTxt.Text, statusTxt.Text, categoryTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+                _bed = new Beds(updateID, wardTxt.Text, bedTxt.Text, accountTxt.Text, rateTxt.Text, statusTxt.Text, categoryTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
                 DBConnect.Update(_bed, updateID);
                 Global._beds.RemoveAll(x => x.Id == updateID);
@@ -208,7 +208,7 @@ namespace VHMIS
         private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             updateID = dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
-            _bed = new Beds(dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[6].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[7].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[8].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[9].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+            _bed = new Beds(dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[6].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[7].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[8].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[9].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
             DBConnect.Update(_bed, updateID);
             Global._beds.RemoveAll(x => x.Id == updateID);

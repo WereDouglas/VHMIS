@@ -14,7 +14,7 @@ namespace VHMIS.Model
         private string views;
         private string actions;
         private string created;
-
+        private string orgID;
         public string Id
         {
             get
@@ -80,13 +80,27 @@ namespace VHMIS.Model
             }
         }
 
-        public Roles(string id, string title, string views, string actions,string created)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Roles(string id, string title, string views, string actions,string created, string orgID)
         {
             this.Id = id;
             this.Title = title;
             this.Views = views;
             this.Actions = actions;
             this.Created = created;
+            this.OrgID = orgID;
         }
 
         public static List<Roles> ListRoles()
@@ -101,8 +115,8 @@ namespace VHMIS.Model
             while (Reader.Read())
             {   
                
-                    Roles p = new Roles(Reader["id"].ToString(), Reader["title"].ToString(), Reader["views"].ToString(), Reader["actions"].ToString(), Reader["created"].ToString());
-                    patients.Add(p);
+                    Roles p = new Roles(Reader["id"].ToString(), Reader["title"].ToString(), Reader["views"].ToString(), Reader["actions"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                patients.Add(p);
                 
 
             }

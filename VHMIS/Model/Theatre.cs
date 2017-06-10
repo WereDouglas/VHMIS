@@ -15,7 +15,7 @@ namespace VHMIS.Model
         private string surgeonfee;
         private string anaethetist;
         private string created;
-
+        private string orgID;
         public string Id
         {
             get
@@ -94,7 +94,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Theatre(string id, string departmentID, string procedure, string surgeonfee, string anaethetist, string created)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Theatre(string id, string departmentID, string procedure, string surgeonfee, string anaethetist, string created, string orgID)
         {
             this.Id = id;
             this.DepartmentID = departmentID;
@@ -102,6 +115,7 @@ namespace VHMIS.Model
             this.Surgeonfee = surgeonfee;
             this.Anaethetist = anaethetist;
             this.Created = created;
+            this.OrgID = orgID;
         }
 
         public static List<Theatre> ListTheatre()
@@ -113,7 +127,7 @@ namespace VHMIS.Model
             NpgsqlDataReader Reader = command.ExecuteReader();
             while (Reader.Read())
             {
-                Theatre p = new Theatre(Reader["id"].ToString(), Reader["departmentID"].ToString(), Reader["procedure"].ToString(), Reader["surgeonfee"].ToString(), Reader["anaethetist"].ToString(),Reader["created"].ToString());
+                Theatre p = new Theatre(Reader["id"].ToString(), Reader["departmentID"].ToString(), Reader["procedure"].ToString(), Reader["surgeonfee"].ToString(), Reader["anaethetist"].ToString(),Reader["created"].ToString(), Reader["orgid"].ToString());
                 theatre.Add(p);
             }
             DBConnect.CloseConn();

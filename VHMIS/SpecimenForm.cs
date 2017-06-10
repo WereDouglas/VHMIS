@@ -83,7 +83,7 @@ namespace VHMIS
             }
 
             string id = Guid.NewGuid().ToString();
-            _specimen = new Specimens(id, codeTxt.Text, nameTxt.Text, serviceTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+            _specimen = new Specimens(id, codeTxt.Text, nameTxt.Text, serviceTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
             if (DBConnect.Insert(_specimen) != "")
             {
@@ -147,7 +147,7 @@ namespace VHMIS
             if (updateID == "") { return; }
             if (MessageBox.Show("YES or No?", "Are you sure you want to update this information? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                _specimen = new Specimens(updateID, codeTxt.Text, nameTxt.Text, serviceTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+                _specimen = new Specimens(updateID, codeTxt.Text, nameTxt.Text, serviceTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
                 DBConnect.Update(_specimen, updateID);
                 Global._specimens.RemoveAll(x => x.Id == updateID);
@@ -178,8 +178,8 @@ namespace VHMIS
         private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             updateID = dtGrid.Rows[e.RowIndex].Cells[1].Value.ToString();
-            _specimen = new Specimens(updateID, dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[3].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
-           
+            _specimen = new Specimens(updateID, dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[3].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
+
             DBConnect.Update(_specimen, updateID);
             Global._specimens.RemoveAll(x => x.Id == updateID);
             Global._specimens.Add(_specimen);

@@ -118,7 +118,7 @@ namespace VHMIS
             }
 
             string id = Guid.NewGuid().ToString();
-            _test = new Tests(id,specimenCbx.Text, typeCbx.Text,nameTxt.Text, upperTxt.Text,lowerTxt.Text,unitTxt.Text, desciplineCbx.Text,codeTxt.Text,genderCbx.Text, phraseTxt.Text,descriptionTxt.Text,commentTxt.Text,DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),costTxt.Text,departmentID);
+            _test = new Tests(id,specimenCbx.Text, typeCbx.Text,nameTxt.Text, upperTxt.Text,lowerTxt.Text,unitTxt.Text, desciplineCbx.Text,codeTxt.Text,genderCbx.Text, phraseTxt.Text,descriptionTxt.Text,commentTxt.Text,DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),costTxt.Text,departmentID, Helper.orgID);
 
             if (DBConnect.Insert(_test) != "")
             {
@@ -184,7 +184,7 @@ namespace VHMIS
             if (MessageBox.Show("YES or No?", "Are you sure you want to update this information? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 //string SQL = "UPDATE tests SET name = '" + nameTxt.Text + "',mins='" + minTxt.Text + "',maxs= '" + maxTxt.Text + "' WHERE id= '" + updateID + "'";
-                _test = new Tests(updateID, specimenCbx.Text, typeCbx.Text, nameTxt.Text, upperTxt.Text, lowerTxt.Text, unitTxt.Text, desciplineCbx.Text, codeTxt.Text, genderCbx.Text, phraseTxt.Text, descriptionTxt.Text, commentTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),costTxt.Text,departmentID);
+                _test = new Tests(updateID, specimenCbx.Text, typeCbx.Text, nameTxt.Text, upperTxt.Text, lowerTxt.Text, unitTxt.Text, desciplineCbx.Text, codeTxt.Text, genderCbx.Text, phraseTxt.Text, descriptionTxt.Text, commentTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),costTxt.Text,departmentID, Helper.orgID);
 
                 DBConnect.Update(_test, updateID);
                 Global._tests.RemoveAll(x => x.Id == updateID);
@@ -215,7 +215,7 @@ namespace VHMIS
         private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             updateID = dtGrid.Rows[e.RowIndex].Cells[1].Value.ToString();
-            _test = new Tests(updateID, dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[3].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[6].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[7].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[8].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[9].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[10].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[11].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[12].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[13].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), dtGrid.Rows[e.RowIndex].Cells[15].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[16].Value.ToString());
+            _test = new Tests(updateID, dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[3].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[6].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[7].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[8].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[9].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[10].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[11].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[12].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[13].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), dtGrid.Rows[e.RowIndex].Cells[15].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[16].Value.ToString(), Helper.orgID);
             //Tests(2, 4, 5,6,7, 8, string created)
             DBConnect.Update(_test, updateID);
             Global._tests.RemoveAll(x => x.Id == updateID);

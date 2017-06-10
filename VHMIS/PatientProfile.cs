@@ -190,7 +190,7 @@ namespace VHMIS
                 {
                     //Global._queues.RemoveAll(x => x.Id == updateID);
                     //DBConnect.Delete("queue", dtGrid.Rows[e.RowIndex].Cells[3].Value.ToString());
-                    _queue = new Queue(updateID, _queues.First(x => x.Id.Contains(updateID)).Follow, _queues.First(x => x.Id.Contains(updateID)).PatientID, _queues.First(x => x.Id.Contains(updateID)).UserID, _queues.First(x => x.Id.Contains(updateID)).RoomID, _queues.First(x => x.Id.Contains(updateID)).ClinicID, "Complete", _queues.First(x => x.Id.Contains(updateID)).Dated, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),_queues.First(x => x.Id.Contains(updateID)).Department);
+                    _queue = new Queue(updateID, _queues.First(x => x.Id.Contains(updateID)).Follow, _queues.First(x => x.Id.Contains(updateID)).PatientID, _queues.First(x => x.Id.Contains(updateID)).UserID, _queues.First(x => x.Id.Contains(updateID)).RoomID, _queues.First(x => x.Id.Contains(updateID)).ClinicID, "Complete", _queues.First(x => x.Id.Contains(updateID)).Dated, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),_queues.First(x => x.Id.Contains(updateID)).Department, "", "", "", "", "", "", "", "", "", Helper.orgID);
 
                     DBConnect.Update(_queue, updateID);
                     Global._queues.RemoveAll(x => x.Id == updateID);
@@ -314,17 +314,17 @@ namespace VHMIS
             string id = Guid.NewGuid().ToString();
             if (chronicBtn.Checked == true)
             {
-                _chronic = new Chronic(id, nameTxt.Text, descriptionTxt.Text, PatientID, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+                _chronic = new Chronic(id, nameTxt.Text, descriptionTxt.Text, PatientID, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),Helper.orgID);
                 DBConnect.Insert(_chronic);
             }
             if (allergyBtn.Checked == true)
             {
-                _allergy = new Allergy(id, nameTxt.Text, descriptionTxt.Text, PatientID, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+                _allergy = new Allergy(id, nameTxt.Text, descriptionTxt.Text, PatientID, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
                 DBConnect.Insert(_allergy);
             }
             if (additBtn.Checked == true)
             {
-                _addiction = new Addiction(id, nameTxt.Text, descriptionTxt.Text, PatientID, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+                _addiction = new Addiction(id, nameTxt.Text, descriptionTxt.Text, PatientID, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
                 DBConnect.Insert(_addiction);
             }
             nameTxt.Text = "";
@@ -341,7 +341,7 @@ namespace VHMIS
         private void dtChronic_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             string updateID = dtChronic.Rows[e.RowIndex].Cells[0].Value.ToString();
-            _chronic = new Chronic(updateID, dtChronic.Rows[e.RowIndex].Cells[1].Value.ToString(), dtChronic.Rows[e.RowIndex].Cells[2].Value.ToString(), PatientID, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+            _chronic = new Chronic(updateID, dtChronic.Rows[e.RowIndex].Cells[1].Value.ToString(), dtChronic.Rows[e.RowIndex].Cells[2].Value.ToString(), PatientID, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
             DBConnect.Update(_chronic, updateID);
         }
 
@@ -376,7 +376,7 @@ namespace VHMIS
         private void dtAllergy_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             string updateID = dtAllergy.Rows[e.RowIndex].Cells[0].Value.ToString();
-            _allergy = new Allergy(updateID, dtAllergy.Rows[e.RowIndex].Cells[1].Value.ToString(), dtAllergy.Rows[e.RowIndex].Cells[2].Value.ToString(), PatientID, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+            _allergy = new Allergy(updateID, dtAllergy.Rows[e.RowIndex].Cells[1].Value.ToString(), dtAllergy.Rows[e.RowIndex].Cells[2].Value.ToString(), PatientID, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
             DBConnect.Update(_allergy, updateID);
 
 
@@ -399,7 +399,7 @@ namespace VHMIS
         private void dtAddict_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             string updateID = dtAddict.Rows[e.RowIndex].Cells[0].Value.ToString();
-            _addiction = new Addiction(updateID, dtAddict.Rows[e.RowIndex].Cells[1].Value.ToString(), dtAddict.Rows[e.RowIndex].Cells[2].Value.ToString(), PatientID, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+            _addiction = new Addiction(updateID, dtAddict.Rows[e.RowIndex].Cells[1].Value.ToString(), dtAddict.Rows[e.RowIndex].Cells[2].Value.ToString(), PatientID, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
             DBConnect.Update(_addiction, updateID);
 
 

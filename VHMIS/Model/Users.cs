@@ -35,7 +35,7 @@ namespace VHMIS.Model
         private string sub;
         private string created;
         private string department;
-
+        private string orgID;
         public string Id
         {
             get
@@ -374,7 +374,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Users(string id, string idNo, string contact, string contact2, string surname, string lastname,string email, string nationality, string address, string kin, string kincontact, string passwords, string designation, string roles, string gender, string image, string clinicID, string clinicDesignation, string initialPassword, string account, string status, string practice, string specialisation, string sub, string created,string department)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Users(string id, string idNo, string contact, string contact2, string surname, string lastname,string email, string nationality, string address, string kin, string kincontact, string passwords, string designation, string roles, string gender, string image, string clinicID, string clinicDesignation, string initialPassword, string account, string status, string practice, string specialisation, string sub, string created,string department, string orgID)
         {
             this.Id = id;
             this.IdNo = idNo;
@@ -403,6 +416,7 @@ namespace VHMIS.Model
             this.Sub = sub;
             this.Created = created;
             this.Department = department;
+            this.OrgID = orgID;
         }
 
         public static List<Users> ListUsers()
@@ -425,8 +439,8 @@ namespace VHMIS.Model
                     {
                         images = null;
                     }           
-                    Users p = new Users(Reader["id"].ToString(), Reader["idno"].ToString(), Reader["contact"].ToString(), Reader["contact2"].ToString(), Reader["surname"].ToString(), Reader["lastname"].ToString(), Reader["email"].ToString(), Reader["nationality"].ToString(), Reader["address"].ToString(), Reader["kin"].ToString(), Reader["kincontact"].ToString(), Reader["passwords"].ToString(), Reader["designation"].ToString(), Reader["roles"].ToString(), Reader["gender"].ToString(), images, Reader["clinicID"].ToString(), Reader["clinicDesignation"].ToString(), Reader["initialPassword"].ToString(), Reader["account"].ToString(), Reader["status"].ToString(), Reader["practice"].ToString(), Reader["specialisation"].ToString(), Reader["sub"].ToString(), Reader["created"].ToString(),Reader["department"].ToString());
-                    users.Add(p);                
+                    Users p = new Users(Reader["id"].ToString(), Reader["idno"].ToString(), Reader["contact"].ToString(), Reader["contact2"].ToString(), Reader["surname"].ToString(), Reader["lastname"].ToString(), Reader["email"].ToString(), Reader["nationality"].ToString(), Reader["address"].ToString(), Reader["kin"].ToString(), Reader["kincontact"].ToString(), Reader["passwords"].ToString(), Reader["designation"].ToString(), Reader["roles"].ToString(), Reader["gender"].ToString(), images, Reader["clinicID"].ToString(), Reader["clinicDesignation"].ToString(), Reader["initialPassword"].ToString(), Reader["account"].ToString(), Reader["status"].ToString(), Reader["practice"].ToString(), Reader["specialisation"].ToString(), Reader["sub"].ToString(), Reader["created"].ToString(),Reader["department"].ToString(), Reader["orgid"].ToString());
+                users.Add(p);                
 
             }
             DBConnect.CloseConn();

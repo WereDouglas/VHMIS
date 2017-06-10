@@ -57,3 +57,7 @@ C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHM
 C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.RentalCollectionSummary.resources
 C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.BookingDiag.resources
 C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.LoginForm.resources
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.QueueDialog.resources
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.RoomForm.resources
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.AdmissionDialog.resources
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.AdmissionForm.resources

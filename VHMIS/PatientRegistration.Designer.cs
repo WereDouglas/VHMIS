@@ -42,6 +42,7 @@
             this.othertxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.fullageLbl = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
             this.patientNoTxt = new System.Windows.Forms.TextBox();
@@ -57,12 +58,15 @@
             this.contactTxt = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.genderCbx = new System.Windows.Forms.ComboBox();
+            this.ageTxt = new System.Windows.Forms.TextBox();
+            this.dobdateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.fileUrlTxtBx = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
-            this.fullageLbl = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.imgCapture = new System.Windows.Forms.PictureBox();
             this.label23 = new System.Windows.Forms.Label();
@@ -78,11 +82,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.kincontactTxt = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.dobdateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.bloodCbx = new System.Windows.Forms.ComboBox();
-            this.ageTxt = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -97,8 +97,11 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.splitContainer1.Location = new System.Drawing.Point(12, 12);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -112,38 +115,43 @@
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer1.Size = new System.Drawing.Size(988, 563);
+            this.splitContainer1.Size = new System.Drawing.Size(640, 552);
             this.splitContainer1.SplitterDistance = 25;
             this.splitContainer1.TabIndex = 0;
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = global::VHMIS.Properties.Resources.Cancel_16;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::VHMIS.Properties.Resources.Cancel_16;
-            this.button1.Location = new System.Drawing.Point(949, 4);
+            this.button1.Location = new System.Drawing.Point(608, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(36, 21);
+            this.button1.Size = new System.Drawing.Size(29, 18);
             this.button1.TabIndex = 1;
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 4);
+            this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(0, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 19);
+            this.label1.Size = new System.Drawing.Size(592, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Patient registration";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.48758F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.51242F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.93631F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.06369F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox3, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -151,18 +159,20 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(988, 534);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 481F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(640, 523);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox2.Controls.Add(this.groupBox1);
             this.groupBox2.Controls.Add(this.othertxt);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.fullageLbl);
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Controls.Add(this.patientNoTxt);
@@ -178,9 +188,13 @@
             this.groupBox2.Controls.Add(this.contactTxt);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.genderCbx);
+            this.groupBox2.Controls.Add(this.ageTxt);
+            this.groupBox2.Controls.Add(this.dobdateTimePicker1);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(433, 528);
+            this.groupBox2.Size = new System.Drawing.Size(345, 517);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Biography";
@@ -192,9 +206,9 @@
             this.groupBox1.Controls.Add(this.bntStop);
             this.groupBox1.Controls.Add(this.bntCapture);
             this.groupBox1.Controls.Add(this.imgVideo);
-            this.groupBox1.Location = new System.Drawing.Point(22, 20);
+            this.groupBox1.Location = new System.Drawing.Point(22, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(269, 150);
+            this.groupBox1.Size = new System.Drawing.Size(269, 165);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Camera";
@@ -263,13 +277,13 @@
             this.imgVideo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.imgVideo.Location = new System.Drawing.Point(88, 56);
             this.imgVideo.Name = "imgVideo";
-            this.imgVideo.Size = new System.Drawing.Size(116, 85);
+            this.imgVideo.Size = new System.Drawing.Size(116, 103);
             this.imgVideo.TabIndex = 98;
             this.imgVideo.TabStop = false;
             // 
             // othertxt
             // 
-            this.othertxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.othertxt.BackColor = System.Drawing.Color.Linen;
             this.othertxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.othertxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.othertxt.Location = new System.Drawing.Point(110, 284);
@@ -295,8 +309,18 @@
             this.label3.TabIndex = 115;
             this.label3.Text = "Title";
             // 
+            // fullageLbl
+            // 
+            this.fullageLbl.AutoSize = true;
+            this.fullageLbl.Location = new System.Drawing.Point(107, 421);
+            this.fullageLbl.Name = "fullageLbl";
+            this.fullageLbl.Size = new System.Drawing.Size(25, 13);
+            this.fullageLbl.TabIndex = 113;
+            this.fullageLbl.Text = "info";
+            // 
             // comboBox1
             // 
+            this.comboBox1.BackColor = System.Drawing.Color.Linen;
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(110, 228);
@@ -309,7 +333,7 @@
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(207, 479);
+            this.button5.Location = new System.Drawing.Point(207, 462);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(80, 31);
@@ -320,7 +344,7 @@
             // 
             // patientNoTxt
             // 
-            this.patientNoTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.patientNoTxt.BackColor = System.Drawing.Color.Linen;
             this.patientNoTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.patientNoTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patientNoTxt.Location = new System.Drawing.Point(110, 181);
@@ -333,7 +357,7 @@
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(110, 479);
+            this.button3.Location = new System.Drawing.Point(110, 462);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(80, 31);
@@ -352,7 +376,7 @@
             // 
             // emailTxt
             // 
-            this.emailTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.emailTxt.BackColor = System.Drawing.Color.Linen;
             this.emailTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.emailTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailTxt.Location = new System.Drawing.Point(110, 340);
@@ -372,7 +396,7 @@
             // 
             // surnameTxt
             // 
-            this.surnameTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.surnameTxt.BackColor = System.Drawing.Color.Linen;
             this.surnameTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.surnameTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.surnameTxt.Location = new System.Drawing.Point(110, 255);
@@ -400,7 +424,7 @@
             // 
             // lastnameTxt
             // 
-            this.lastnameTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lastnameTxt.BackColor = System.Drawing.Color.Linen;
             this.lastnameTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lastnameTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lastnameTxt.Location = new System.Drawing.Point(110, 315);
@@ -419,7 +443,7 @@
             // 
             // contactTxt
             // 
-            this.contactTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.contactTxt.BackColor = System.Drawing.Color.Linen;
             this.contactTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.contactTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contactTxt.Location = new System.Drawing.Point(110, 203);
@@ -439,6 +463,7 @@
             // 
             // genderCbx
             // 
+            this.genderCbx.BackColor = System.Drawing.Color.Linen;
             this.genderCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.genderCbx.FormattingEnabled = true;
             this.genderCbx.Items.AddRange(new object[] {
@@ -450,15 +475,53 @@
             this.genderCbx.Size = new System.Drawing.Size(181, 21);
             this.genderCbx.TabIndex = 11;
             // 
+            // ageTxt
+            // 
+            this.ageTxt.BackColor = System.Drawing.Color.Linen;
+            this.ageTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ageTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ageTxt.Location = new System.Drawing.Point(110, 438);
+            this.ageTxt.Name = "ageTxt";
+            this.ageTxt.Size = new System.Drawing.Size(181, 19);
+            this.ageTxt.TabIndex = 109;
+            this.ageTxt.TextChanged += new System.EventHandler(this.textBox19_TextChanged);
+            this.ageTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Number_KeyPress);
+            // 
+            // dobdateTimePicker1
+            // 
+            this.dobdateTimePicker1.Location = new System.Drawing.Point(110, 393);
+            this.dobdateTimePicker1.Name = "dobdateTimePicker1";
+            this.dobdateTimePicker1.Size = new System.Drawing.Size(181, 21);
+            this.dobdateTimePicker1.TabIndex = 110;
+            this.dobdateTimePicker1.CloseUp += new System.EventHandler(this.dobdateTimePicker1_CloseUp);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(28, 442);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(24, 13);
+            this.label10.TabIndex = 108;
+            this.label10.Text = "Age";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(28, 401);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 13);
+            this.label7.TabIndex = 106;
+            this.label7.Text = "Date of Birth";
+            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox3.Controls.Add(this.fileUrlTxtBx);
             this.groupBox3.Controls.Add(this.comboBox2);
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.fullageLbl);
             this.groupBox3.Controls.Add(this.comboBox4);
             this.groupBox3.Controls.Add(this.imgCapture);
             this.groupBox3.Controls.Add(this.label23);
@@ -474,37 +537,34 @@
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.kincontactTxt);
             this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.dobdateTimePicker1);
             this.groupBox3.Controls.Add(this.bloodCbx);
-            this.groupBox3.Controls.Add(this.ageTxt);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(442, 3);
+            this.groupBox3.Location = new System.Drawing.Point(354, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(543, 528);
+            this.groupBox3.Size = new System.Drawing.Size(283, 517);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Demographics";
             // 
             // fileUrlTxtBx
             // 
-            this.fileUrlTxtBx.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.fileUrlTxtBx.BackColor = System.Drawing.Color.Linen;
             this.fileUrlTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.fileUrlTxtBx.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fileUrlTxtBx.Location = new System.Drawing.Point(88, 467);
+            this.fileUrlTxtBx.Location = new System.Drawing.Point(92, 420);
             this.fileUrlTxtBx.Name = "fileUrlTxtBx";
             this.fileUrlTxtBx.Size = new System.Drawing.Size(152, 19);
             this.fileUrlTxtBx.TabIndex = 118;
             // 
             // comboBox2
             // 
+            this.comboBox2.BackColor = System.Drawing.Color.Linen;
             this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "N/A",
             "Active",
             "Not Active"});
-            this.comboBox2.Location = new System.Drawing.Point(88, 440);
+            this.comboBox2.Location = new System.Drawing.Point(92, 394);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(151, 21);
             this.comboBox2.TabIndex = 123;
@@ -516,7 +576,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Snow;
-            this.button2.Location = new System.Drawing.Point(88, 489);
+            this.button2.Location = new System.Drawing.Point(97, 462);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(152, 31);
@@ -528,23 +588,15 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(7, 445);
+            this.label18.Location = new System.Drawing.Point(11, 399);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(50, 13);
             this.label18.TabIndex = 122;
             this.label18.Text = "Sexuality";
             // 
-            // fullageLbl
-            // 
-            this.fullageLbl.AutoSize = true;
-            this.fullageLbl.Location = new System.Drawing.Point(109, 186);
-            this.fullageLbl.Name = "fullageLbl";
-            this.fullageLbl.Size = new System.Drawing.Size(25, 13);
-            this.fullageLbl.TabIndex = 113;
-            this.fullageLbl.Text = "info";
-            // 
             // comboBox4
             // 
+            this.comboBox4.BackColor = System.Drawing.Color.Linen;
             this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Items.AddRange(new object[] {
@@ -555,7 +607,7 @@
             "Widow",
             "Dating",
             "Divorced"});
-            this.comboBox4.Location = new System.Drawing.Point(88, 413);
+            this.comboBox4.Location = new System.Drawing.Point(92, 367);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(151, 21);
             this.comboBox4.TabIndex = 121;
@@ -567,7 +619,7 @@
             this.imgCapture.Image = global::VHMIS.Properties.Resources.temp;
             this.imgCapture.Location = new System.Drawing.Point(97, 71);
             this.imgCapture.Name = "imgCapture";
-            this.imgCapture.Size = new System.Drawing.Size(116, 85);
+            this.imgCapture.Size = new System.Drawing.Size(116, 104);
             this.imgCapture.TabIndex = 99;
             this.imgCapture.TabStop = false;
             this.imgCapture.Click += new System.EventHandler(this.imgCapture_Click);
@@ -575,7 +627,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(7, 413);
+            this.label23.Location = new System.Drawing.Point(11, 367);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(74, 13);
             this.label23.TabIndex = 120;
@@ -598,10 +650,10 @@
             // 
             // nationalityTxt
             // 
-            this.nationalityTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.nationalityTxt.BackColor = System.Drawing.Color.Linen;
             this.nationalityTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.nationalityTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nationalityTxt.Location = new System.Drawing.Point(88, 227);
+            this.nationalityTxt.Location = new System.Drawing.Point(92, 181);
             this.nationalityTxt.Name = "nationalityTxt";
             this.nationalityTxt.Size = new System.Drawing.Size(151, 19);
             this.nationalityTxt.TabIndex = 6;
@@ -609,7 +661,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(7, 389);
+            this.label16.Location = new System.Drawing.Point(11, 343);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(45, 13);
             this.label16.TabIndex = 119;
@@ -617,6 +669,7 @@
             // 
             // religionCbx
             // 
+            this.religionCbx.BackColor = System.Drawing.Color.Linen;
             this.religionCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.religionCbx.FormattingEnabled = true;
             this.religionCbx.Items.AddRange(new object[] {
@@ -625,7 +678,7 @@
             "Anglican",
             "Hindu",
             "Other"});
-            this.religionCbx.Location = new System.Drawing.Point(88, 387);
+            this.religionCbx.Location = new System.Drawing.Point(92, 341);
             this.religionCbx.Name = "religionCbx";
             this.religionCbx.Size = new System.Drawing.Size(151, 21);
             this.religionCbx.TabIndex = 118;
@@ -633,7 +686,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 228);
+            this.label11.Location = new System.Drawing.Point(11, 182);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(59, 13);
             this.label11.TabIndex = 5;
@@ -641,10 +694,10 @@
             // 
             // addressTxt
             // 
-            this.addressTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.addressTxt.BackColor = System.Drawing.Color.Linen;
             this.addressTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.addressTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addressTxt.Location = new System.Drawing.Point(88, 252);
+            this.addressTxt.Location = new System.Drawing.Point(92, 206);
             this.addressTxt.Multiline = true;
             this.addressTxt.Name = "addressTxt";
             this.addressTxt.Size = new System.Drawing.Size(151, 50);
@@ -653,7 +706,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(7, 309);
+            this.label14.Location = new System.Drawing.Point(11, 263);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(56, 13);
             this.label14.TabIndex = 11;
@@ -662,7 +715,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(7, 334);
+            this.label15.Location = new System.Drawing.Point(11, 288);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(60, 13);
             this.label15.TabIndex = 13;
@@ -670,10 +723,10 @@
             // 
             // kinTxt
             // 
-            this.kinTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.kinTxt.BackColor = System.Drawing.Color.Linen;
             this.kinTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.kinTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kinTxt.Location = new System.Drawing.Point(88, 307);
+            this.kinTxt.Location = new System.Drawing.Point(92, 261);
             this.kinTxt.Name = "kinTxt";
             this.kinTxt.Size = new System.Drawing.Size(151, 19);
             this.kinTxt.TabIndex = 12;
@@ -681,7 +734,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 254);
+            this.label9.Location = new System.Drawing.Point(11, 208);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(64, 13);
             this.label9.TabIndex = 3;
@@ -689,10 +742,10 @@
             // 
             // kincontactTxt
             // 
-            this.kincontactTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.kincontactTxt.BackColor = System.Drawing.Color.Linen;
             this.kincontactTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.kincontactTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kincontactTxt.Location = new System.Drawing.Point(88, 333);
+            this.kincontactTxt.Location = new System.Drawing.Point(92, 287);
             this.kincontactTxt.Name = "kincontactTxt";
             this.kincontactTxt.Size = new System.Drawing.Size(151, 19);
             this.kincontactTxt.TabIndex = 14;
@@ -700,22 +753,15 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(7, 368);
+            this.label19.Location = new System.Drawing.Point(11, 322);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(63, 13);
             this.label19.TabIndex = 118;
             this.label19.Text = "Blood group";
             // 
-            // dobdateTimePicker1
-            // 
-            this.dobdateTimePicker1.Location = new System.Drawing.Point(88, 162);
-            this.dobdateTimePicker1.Name = "dobdateTimePicker1";
-            this.dobdateTimePicker1.Size = new System.Drawing.Size(151, 21);
-            this.dobdateTimePicker1.TabIndex = 110;
-            this.dobdateTimePicker1.CloseUp += new System.EventHandler(this.dobdateTimePicker1_CloseUp);
-            // 
             // bloodCbx
             // 
+            this.bloodCbx.BackColor = System.Drawing.Color.Linen;
             this.bloodCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bloodCbx.FormattingEnabled = true;
             this.bloodCbx.Items.AddRange(new object[] {
@@ -723,56 +769,26 @@
             "B",
             "O",
             "AB"});
-            this.bloodCbx.Location = new System.Drawing.Point(88, 360);
+            this.bloodCbx.Location = new System.Drawing.Point(92, 314);
             this.bloodCbx.Name = "bloodCbx";
             this.bloodCbx.Size = new System.Drawing.Size(151, 21);
             this.bloodCbx.TabIndex = 113;
-            // 
-            // ageTxt
-            // 
-            this.ageTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ageTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ageTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ageTxt.Location = new System.Drawing.Point(88, 202);
-            this.ageTxt.Name = "ageTxt";
-            this.ageTxt.Size = new System.Drawing.Size(151, 19);
-            this.ageTxt.TabIndex = 109;
-            this.ageTxt.TextChanged += new System.EventHandler(this.textBox19_TextChanged);
-            this.ageTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Number_KeyPress);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 203);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(24, 13);
-            this.label10.TabIndex = 108;
-            this.label10.Text = "Age";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 168);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 13);
-            this.label7.TabIndex = 106;
-            this.label7.Text = "Date of Birth";
             // 
             // PatientRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(988, 563);
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ClientSize = new System.Drawing.Size(664, 576);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PatientRegistration";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PatientRegistration";
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);

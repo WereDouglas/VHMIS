@@ -20,7 +20,7 @@ namespace VHMIS.Model
         private string new_price;
         private string previous_price;
         private string total_qty;
-
+        private string orgID;
         public string Id
         {
             get
@@ -151,7 +151,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Stock(string id, string itemID, string quantity, string remarks, string created,string sale_price,string purchase_price,string new_price,string previous_price,string total_qty)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Stock(string id, string itemID, string quantity, string remarks, string created,string sale_price,string purchase_price,string new_price,string previous_price,string total_qty, string orgID)
         {
             this.Id = id;
             this.ItemID = itemID;
@@ -163,6 +176,7 @@ namespace VHMIS.Model
             this.New_price = new_price;
             this.Previous_price = previous_price;
             this.Total_qty = total_qty;
+            this.OrgID = orgID;
         }
 
         public static List<Stock> ListStock()
@@ -174,7 +188,7 @@ namespace VHMIS.Model
             NpgsqlDataReader Reader = command.ExecuteReader();
             while (Reader.Read())
             {
-                Stock p = new Stock(Reader["id"].ToString(), Reader["itemid"].ToString(), Reader["quantity"].ToString(), Reader["remarks"].ToString(),Reader["created"].ToString(), Reader["sale_price"].ToString(), Reader["purchase_price"].ToString(), Reader["new_price"].ToString(), Reader["previous_price"].ToString(), Reader["total_qty"].ToString());
+                Stock p = new Stock(Reader["id"].ToString(), Reader["itemid"].ToString(), Reader["quantity"].ToString(), Reader["remarks"].ToString(),Reader["created"].ToString(), Reader["sale_price"].ToString(), Reader["purchase_price"].ToString(), Reader["new_price"].ToString(), Reader["previous_price"].ToString(), Reader["total_qty"].ToString(), Reader["orgid"].ToString());
                 wards.Add(p);
             }
             DBConnect.CloseConn();

@@ -15,7 +15,7 @@ namespace VHMIS.Model
         private string parameter;
         private string reading;
         private string created;
-
+        private string orgID;
         public string Id
         {
             get
@@ -94,7 +94,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Vitals(string id, string queueID, string patientID, string parameter, string reading, string created)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Vitals(string id, string queueID, string patientID, string parameter, string reading, string created, string orgID)
         {
             this.Id = id;
             this.QueueID = queueID;
@@ -102,6 +115,7 @@ namespace VHMIS.Model
             this.Parameter = parameter;
             this.Reading = reading;
             this.Created = created;
+            this.OrgID = orgID;
         }
 
         public static List<Vitals> ListVitals(string visitID)
@@ -114,7 +128,7 @@ namespace VHMIS.Model
             NpgsqlDataReader Reader = command.ExecuteReader();
             while (Reader.Read())
             {
-                Vitals p = new Vitals(Reader["id"].ToString(), Reader["queueID"].ToString(), Reader["patientID"].ToString(), Reader["parameter"].ToString(),Reader["reading"].ToString(), Reader["created"].ToString());
+                Vitals p = new Vitals(Reader["id"].ToString(), Reader["queueID"].ToString(), Reader["patientID"].ToString(), Reader["parameter"].ToString(),Reader["reading"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
                 clinics.Add(p);
             }
             DBConnect.CloseConn();

@@ -181,7 +181,7 @@ namespace VHMIS
             string id = Guid.NewGuid().ToString();
             MemoryStream stream = ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = ImageToBase64(stream);
-            _user = new Users(id, patientNoTxt.Text, contactTxt.Text, contact2Txt.Text, surnameTxt.Text, lastnameTxt.Text, emailTxt.Text, nationalityTxt.Text, addressTxt.Text, kinTxt.Text, kincontactTxt.Text, "", designationCbx.Text, rolesCbx.Text, genderCbx.Text, fullimage, clinicnameTxt.Text, role, Helper.MD5Hash(passTxt.Text), accountTxt.Text, statusCbx.Text, practiceTxt.Text, specialisationTxt.Text, subTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),departmentCbx.Text);
+            _user = new Users(id, patientNoTxt.Text, contactTxt.Text, contact2Txt.Text, surnameTxt.Text, lastnameTxt.Text, emailTxt.Text, nationalityTxt.Text, addressTxt.Text, kinTxt.Text, kincontactTxt.Text, "", designationCbx.Text, rolesCbx.Text, genderCbx.Text, fullimage, clinicnameTxt.Text, role, Helper.MD5Hash(passTxt.Text), accountTxt.Text, statusCbx.Text, practiceTxt.Text, specialisationTxt.Text, subTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),departmentCbx.Text, Helper.orgID);
 
             if (DBConnect.Insert(_user) != "")
             {

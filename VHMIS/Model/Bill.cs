@@ -28,6 +28,7 @@ namespace VHMIS.Model
         private string bank;
         private string queueID;
         private string type;//sale or purchase
+        private string orgID;
 
         public string Id
         {
@@ -250,7 +251,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Bill(string id, string no, string transactorID, string remarks, string date, string amount, string balance, string method, string paid, string created, string department, string due, string chq, string bank, string type,string queueID,string patientID)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Bill(string id, string no, string transactorID, string remarks, string date, string amount, string balance, string method, string paid, string created, string department, string due, string chq, string bank, string type,string queueID,string patientID, string orgID)
         {
             this.Id = id;
             this.No = no;
@@ -269,6 +283,7 @@ namespace VHMIS.Model
             this.Type = type;
             this.QueueID = queueID;
             this.PatientID = patientID;
+            this.OrgID = orgID;
         }
 
         public static List<Bill> ListBill()
@@ -280,7 +295,7 @@ namespace VHMIS.Model
             NpgsqlDataReader Reader = command.ExecuteReader();
             while (Reader.Read())
             {
-                Bill p = new Bill(Reader["id"].ToString(), Reader["no"].ToString(), Reader["transactionid"].ToString(), Reader["remarks"].ToString(), Reader["date"].ToString(),Reader["amount"].ToString(), Reader["balance"].ToString(), Reader["method"].ToString(), Reader["paid"].ToString(), Reader["created"].ToString(), Reader["department"].ToString(), Reader["due"].ToString(), Reader["chq"].ToString(), Reader["bank"].ToString(), Reader["type"].ToString(), Reader["queueid"].ToString(), Reader["patientid"].ToString());
+                Bill p = new Bill(Reader["id"].ToString(), Reader["no"].ToString(), Reader["transactionid"].ToString(), Reader["remarks"].ToString(), Reader["date"].ToString(),Reader["amount"].ToString(), Reader["balance"].ToString(), Reader["method"].ToString(), Reader["paid"].ToString(), Reader["created"].ToString(), Reader["department"].ToString(), Reader["due"].ToString(), Reader["chq"].ToString(), Reader["bank"].ToString(), Reader["type"].ToString(), Reader["queueid"].ToString(), Reader["patientid"].ToString(), Reader["orgid"].ToString());
                 wards.Add(p);
             }
             DBConnect.CloseConn();

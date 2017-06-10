@@ -107,6 +107,8 @@
             this.chk8 = new System.Windows.Forms.CheckBox();
             this.chk16 = new System.Windows.Forms.CheckBox();
             this.chk1 = new System.Windows.Forms.CheckBox();
+            this.queueNo = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -123,6 +125,7 @@
             // 
             // splitContainer1
             // 
+            this.splitContainer1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
@@ -130,6 +133,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.splitContainer1.Panel1.Controls.Add(this.groupBox3);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
@@ -137,6 +141,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
+            this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Size = new System.Drawing.Size(1256, 568);
             this.splitContainer1.SplitterDistance = 423;
@@ -168,13 +173,15 @@
             this.dtServices.Location = new System.Drawing.Point(6, 16);
             this.dtServices.Name = "dtServices";
             this.dtServices.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dtServices.Size = new System.Drawing.Size(402, 111);
+            this.dtServices.Size = new System.Drawing.Size(402, 122);
             this.dtServices.TabIndex = 181;
+            this.dtServices.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtServices_CellClick);
             // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox2.Controls.Add(this.dtDiag);
             this.groupBox2.Font = new System.Drawing.Font("Calibri Light", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(6, 271);
@@ -205,7 +212,9 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox1.Controls.Add(this.queueNo);
+            this.groupBox1.Controls.Add(this.label26);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.dtLab);
@@ -226,9 +235,9 @@
             this.button3.BackColor = System.Drawing.Color.Teal;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(332, 103);
+            this.button3.Location = new System.Drawing.Point(314, 15);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 21);
+            this.button3.Size = new System.Drawing.Size(93, 21);
             this.button3.TabIndex = 192;
             this.button3.Text = "Other service";
             this.button3.UseVisualStyleBackColor = false;
@@ -259,11 +268,12 @@
             this.dtLab.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dtLab.Size = new System.Drawing.Size(407, 120);
             this.dtLab.TabIndex = 179;
+            this.dtLab.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtLab_CellClick);
             // 
             // noLbl
             // 
             this.noLbl.AutoSize = true;
-            this.noLbl.Location = new System.Drawing.Point(6, 34);
+            this.noLbl.Location = new System.Drawing.Point(6, 50);
             this.noLbl.Name = "noLbl";
             this.noLbl.Size = new System.Drawing.Size(66, 15);
             this.noLbl.TabIndex = 178;
@@ -282,15 +292,15 @@
             // 
             this.imgCapture.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.imgCapture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgCapture.Location = new System.Drawing.Point(149, 16);
+            this.imgCapture.Location = new System.Drawing.Point(314, 42);
             this.imgCapture.Name = "imgCapture";
-            this.imgCapture.Size = new System.Drawing.Size(93, 87);
+            this.imgCapture.Size = new System.Drawing.Size(93, 80);
             this.imgCapture.TabIndex = 174;
             this.imgCapture.TabStop = false;
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.BackgroundImage = global::VHMIS.Properties.Resources.palmer;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.label5);
@@ -397,7 +407,7 @@
             // 
             // consultTxt
             // 
-            this.consultTxt.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.consultTxt.BackColor = System.Drawing.Color.MistyRose;
             this.consultTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.consultTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.consultTxt.Location = new System.Drawing.Point(579, 70);
@@ -559,7 +569,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pchk16.AutoSize = true;
-            this.pchk16.BackColor = System.Drawing.SystemColors.Control;
+            this.pchk16.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pchk16.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
             this.pchk16.FlatAppearance.BorderSize = 25;
             this.pchk16.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumSeaGreen;
@@ -655,7 +665,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pchk20.AutoSize = true;
-            this.pchk20.BackColor = System.Drawing.SystemColors.Control;
+            this.pchk20.BackColor = System.Drawing.Color.White;
             this.pchk20.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
             this.pchk20.FlatAppearance.BorderSize = 25;
             this.pchk20.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumSeaGreen;
@@ -678,7 +688,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pchk1.AutoSize = true;
-            this.pchk1.BackColor = System.Drawing.SystemColors.Control;
+            this.pchk1.BackColor = System.Drawing.Color.White;
             this.pchk1.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
             this.pchk1.FlatAppearance.BorderSize = 25;
             this.pchk1.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumSeaGreen;
@@ -774,7 +784,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pchk5.AutoSize = true;
-            this.pchk5.BackColor = System.Drawing.SystemColors.Control;
+            this.pchk5.BackColor = System.Drawing.Color.White;
             this.pchk5.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
             this.pchk5.FlatAppearance.BorderSize = 25;
             this.pchk5.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumSeaGreen;
@@ -870,7 +880,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pchk10.AutoSize = true;
-            this.pchk10.BackColor = System.Drawing.SystemColors.Control;
+            this.pchk10.BackColor = System.Drawing.Color.White;
             this.pchk10.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
             this.pchk10.FlatAppearance.BorderSize = 25;
             this.pchk10.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumSeaGreen;
@@ -894,7 +904,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pchk11.AutoSize = true;
-            this.pchk11.BackColor = System.Drawing.SystemColors.Control;
+            this.pchk11.BackColor = System.Drawing.Color.White;
             this.pchk11.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
             this.pchk11.FlatAppearance.BorderSize = 25;
             this.pchk11.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumSeaGreen;
@@ -990,7 +1000,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pchk15.AutoSize = true;
-            this.pchk15.BackColor = System.Drawing.SystemColors.Control;
+            this.pchk15.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pchk15.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
             this.pchk15.FlatAppearance.BorderSize = 25;
             this.pchk15.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumSeaGreen;
@@ -1014,7 +1024,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pchk6.AutoSize = true;
-            this.pchk6.BackColor = System.Drawing.SystemColors.Control;
+            this.pchk6.BackColor = System.Drawing.Color.White;
             this.pchk6.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
             this.pchk6.FlatAppearance.BorderSize = 25;
             this.pchk6.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumSeaGreen;
@@ -1110,7 +1120,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chk24.AutoSize = true;
-            this.chk24.BackColor = System.Drawing.SystemColors.Control;
+            this.chk24.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.chk24.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
             this.chk24.FlatAppearance.BorderSize = 25;
             this.chk24.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumSeaGreen;
@@ -1278,7 +1288,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chk17.AutoSize = true;
-            this.chk17.BackColor = System.Drawing.SystemColors.Control;
+            this.chk17.BackColor = System.Drawing.Color.White;
             this.chk17.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
             this.chk17.FlatAppearance.BorderSize = 25;
             this.chk17.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumSeaGreen;
@@ -1398,7 +1408,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chk32.AutoSize = true;
-            this.chk32.BackColor = System.Drawing.SystemColors.Control;
+            this.chk32.BackColor = System.Drawing.Color.White;
             this.chk32.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
             this.chk32.FlatAppearance.BorderSize = 25;
             this.chk32.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumSeaGreen;
@@ -1566,7 +1576,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chk25.AutoSize = true;
-            this.chk25.BackColor = System.Drawing.SystemColors.Control;
+            this.chk25.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.chk25.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
             this.chk25.FlatAppearance.BorderSize = 25;
             this.chk25.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumSeaGreen;
@@ -1758,7 +1768,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chk16.AutoSize = true;
-            this.chk16.BackColor = System.Drawing.SystemColors.Control;
+            this.chk16.BackColor = System.Drawing.Color.White;
             this.chk16.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
             this.chk16.FlatAppearance.BorderSize = 25;
             this.chk16.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumSeaGreen;
@@ -1782,7 +1792,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chk1.AutoSize = true;
-            this.chk1.BackColor = System.Drawing.SystemColors.Control;
+            this.chk1.BackColor = System.Drawing.Color.White;
             this.chk1.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
             this.chk1.FlatAppearance.BorderSize = 25;
             this.chk1.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumSeaGreen;
@@ -1800,10 +1810,37 @@
             this.chk1.UseVisualStyleBackColor = false;
             this.chk1.CheckedChanged += new System.EventHandler(this.chk7_CheckedChanged);
             // 
+            // queueNo
+            // 
+            this.queueNo.BackColor = System.Drawing.Color.MistyRose;
+            this.queueNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.queueNo.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.queueNo.Location = new System.Drawing.Point(118, 19);
+            this.queueNo.Name = "queueNo";
+            this.queueNo.Size = new System.Drawing.Size(175, 19);
+            this.queueNo.TabIndex = 193;
+            this.queueNo.Click += new System.EventHandler(this.queueNo_Click);
+            this.queueNo.TextChanged += new System.EventHandler(this.queueNo_TextChanged);
+            this.queueNo.Enter += new System.EventHandler(this.queueNo_Enter);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label26.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label26.Location = new System.Drawing.Point(6, 21);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(91, 15);
+            this.label26.TabIndex = 194;
+            this.label26.Text = "Visit/Queue ID ";
+            this.label26.Enter += new System.EventHandler(this.queueNo_Enter);
+            // 
             // DentalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1256, 568);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1909,5 +1946,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox queueNo;
+        private System.Windows.Forms.Label label26;
     }
 }

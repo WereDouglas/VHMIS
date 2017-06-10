@@ -134,7 +134,7 @@ namespace VHMIS
 
             MemoryStream stream = ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = ImageToBase64(stream);
-            _patient = new Patient(id, patientNoTxt.Text, contactTxt.Text, surnameTxt.Text, lastnameTxt.Text, emailTxt.Text, dobdateTimePicker1.Text, nationalityTxt.Text, addressTxt.Text, kinTxt.Text, kincontactTxt.Text, genderCbx.Text, fullimage, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),religionCbx.Text,bloodCbx.Text);
+            _patient = new Patient(id, patientNoTxt.Text, contactTxt.Text, surnameTxt.Text, lastnameTxt.Text, emailTxt.Text, dobdateTimePicker1.Text, nationalityTxt.Text, addressTxt.Text, kinTxt.Text, kincontactTxt.Text, genderCbx.Text, fullimage, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),religionCbx.Text,bloodCbx.Text, Helper.orgID);
 
             if (DBConnect.Insert(_patient) != "")
             {

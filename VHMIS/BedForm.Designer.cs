@@ -39,6 +39,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.wardTxt = new System.Windows.Forms.ComboBox();
             this.accountTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.bedTxt = new System.Windows.Forms.TextBox();
@@ -48,7 +49,6 @@
             this.saveBtn = new System.Windows.Forms.Button();
             this.dtGrid = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.wardTxt = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -179,6 +179,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.wardTxt);
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.categoryTxt);
             this.groupBox1.Controls.Add(this.label5);
@@ -189,7 +190,6 @@
             this.groupBox1.Controls.Add(this.accountTxt);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.bedTxt);
-            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.updateBtn);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.saveBtn);
@@ -199,6 +199,14 @@
             this.groupBox1.TabIndex = 125;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add/Update";
+            // 
+            // wardTxt
+            // 
+            this.wardTxt.FormattingEnabled = true;
+            this.wardTxt.Location = new System.Drawing.Point(19, 57);
+            this.wardTxt.Name = "wardTxt";
+            this.wardTxt.Size = new System.Drawing.Size(180, 21);
+            this.wardTxt.TabIndex = 139;
             // 
             // accountTxt
             // 
@@ -236,10 +244,10 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Snow;
-            this.button2.Location = new System.Drawing.Point(14, 404);
+            this.button2.Location = new System.Drawing.Point(137, 326);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(175, 35);
+            this.button2.Size = new System.Drawing.Size(68, 35);
             this.button2.TabIndex = 128;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = false;
@@ -252,10 +260,10 @@
             this.updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateBtn.ForeColor = System.Drawing.Color.Snow;
-            this.updateBtn.Location = new System.Drawing.Point(14, 365);
+            this.updateBtn.Location = new System.Drawing.Point(56, 326);
             this.updateBtn.Margin = new System.Windows.Forms.Padding(2);
             this.updateBtn.Name = "updateBtn";
-            this.updateBtn.Size = new System.Drawing.Size(175, 35);
+            this.updateBtn.Size = new System.Drawing.Size(67, 35);
             this.updateBtn.TabIndex = 125;
             this.updateBtn.Text = "Update";
             this.updateBtn.UseVisualStyleBackColor = false;
@@ -277,10 +285,10 @@
             this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveBtn.ForeColor = System.Drawing.Color.Snow;
-            this.saveBtn.Location = new System.Drawing.Point(14, 326);
+            this.saveBtn.Location = new System.Drawing.Point(2, 326);
             this.saveBtn.Margin = new System.Windows.Forms.Padding(2);
             this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(175, 35);
+            this.saveBtn.Size = new System.Drawing.Size(50, 35);
             this.saveBtn.TabIndex = 124;
             this.saveBtn.Text = "Save";
             this.saveBtn.UseVisualStyleBackColor = false;
@@ -310,14 +318,6 @@
             this.button1.TabIndex = 1;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // wardTxt
-            // 
-            this.wardTxt.FormattingEnabled = true;
-            this.wardTxt.Location = new System.Drawing.Point(19, 57);
-            this.wardTxt.Name = "wardTxt";
-            this.wardTxt.Size = new System.Drawing.Size(180, 21);
-            this.wardTxt.TabIndex = 139;
             // 
             // BedForm
             // 

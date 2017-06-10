@@ -13,7 +13,7 @@ namespace VHMIS.Model
         private string name;
         private string code;
         private string created;
-
+        private string orgID;
         public string Id
         {
             get
@@ -66,12 +66,26 @@ namespace VHMIS.Model
             }
         }
 
-        public Discipline(string id, string name, string code, string created)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Discipline(string id, string name, string code, string created, string orgID)
         {
             this.Id = id;
             this.Name = name;
             this.Code = code;
             this.Created = created;
+            this.OrgID = orgID;
         }
 
         public static List<Discipline> ListDiscipline()
@@ -86,7 +100,7 @@ namespace VHMIS.Model
             while (Reader.Read())
             {
 
-                Discipline p = new Discipline(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["created"].ToString());
+                Discipline p = new Discipline(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
                 patients.Add(p);
 
             }

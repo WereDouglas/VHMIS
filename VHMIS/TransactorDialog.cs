@@ -47,7 +47,7 @@ namespace VHMIS
 
             MemoryStream stream = ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = ImageToBase64(stream);
-            _transactor = new Transactor(id, noTxt.Text, contactTxt.Text, nameTxt.Text, emailTxt.Text, addressTxt.Text, fullimage, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),typeCbx.Text);
+            _transactor = new Transactor(id, noTxt.Text, contactTxt.Text, nameTxt.Text, emailTxt.Text, addressTxt.Text, fullimage, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),typeCbx.Text, Helper.orgID);
 
             if (DBConnect.Insert(_transactor) != "")
             {

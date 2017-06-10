@@ -25,8 +25,8 @@ namespace VHMIS.Model
         private string created;
         private string religion;
         private string blood;
-
-        public Patient(string id, string patientNo, string contact, string surname, string lastname, string email, string dob, string nationality, string address, string kin, string kincontact, string gender, string image,string created,string religion,string blood)
+        private string orgID;
+        public Patient(string id, string patientNo, string contact, string surname, string lastname, string email, string dob, string nationality, string address, string kin, string kincontact, string gender, string image,string created,string religion,string blood, string orgID)
         {
             this.Id = id;
             this.PatientNo = patientNo;
@@ -44,6 +44,7 @@ namespace VHMIS.Model
             this.Created = created;
             this.Religion = religion;
             this.Blood= blood;
+            this.OrgID = orgID;
         }
   
         public string Id
@@ -260,6 +261,19 @@ namespace VHMIS.Model
             }
         }
 
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
         public static List<Patient> ListPatients()
         {
 
@@ -290,8 +304,8 @@ namespace VHMIS.Model
                 //catch { }
                 ////(byte[])Reader["image"])
                
-                    Patient p = new Patient(Reader["id"].ToString(), Reader["patientNo"].ToString(), Reader["contact"].ToString(), Reader["surname"].ToString(), Reader["lastname"].ToString(), Reader["email"].ToString(), Reader["dob"].ToString(), Reader["nationality"].ToString(), Reader["address"].ToString(), Reader["kin"].ToString(), Reader["kincontact"].ToString(), Reader["gender"].ToString(), images,Reader["created"].ToString(), Reader["religion"].ToString(), Reader["blood"].ToString());
-                    patients.Add(p);
+                    Patient p = new Patient(Reader["id"].ToString(), Reader["patientNo"].ToString(), Reader["contact"].ToString(), Reader["surname"].ToString(), Reader["lastname"].ToString(), Reader["email"].ToString(), Reader["dob"].ToString(), Reader["nationality"].ToString(), Reader["address"].ToString(), Reader["kin"].ToString(), Reader["kincontact"].ToString(), Reader["gender"].ToString(), images,Reader["created"].ToString(), Reader["religion"].ToString(), Reader["blood"].ToString(), Reader["orgid"].ToString());
+                patients.Add(p);
                 
 
             }

@@ -90,7 +90,7 @@ namespace VHMIS
             }
 
             string id = Guid.NewGuid().ToString();
-            _category = new Category(id, titleTxt.Text, docTxt.Text, hosTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+            _category = new Category(id, titleTxt.Text, docTxt.Text, hosTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
             if (DBConnect.Insert(_category) != "")
             {
@@ -166,7 +166,7 @@ namespace VHMIS
             if (updateID == "") { return; }
             if (MessageBox.Show("YES or No?", "Are you sure you want to update this information? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                _category = new Category(updateID, titleTxt.Text, docTxt.Text, hosTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+                _category = new Category(updateID, titleTxt.Text, docTxt.Text, hosTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
                 DBConnect.Update(_category, updateID);
                 Global._categories.RemoveAll(x => x.Id == updateID);
@@ -197,7 +197,7 @@ namespace VHMIS
         private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             updateID = dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
-            _category = new Category(dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[6].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"));
+            _category = new Category(dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[6].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
 
             DBConnect.Update(_category, updateID);
             Global._categories.RemoveAll(x => x.Id == updateID);

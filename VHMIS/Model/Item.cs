@@ -30,7 +30,7 @@ namespace VHMIS.Model
         private string date_manufactured;//for age
         private string generic;
         private string strength;
-
+        private string orgID;
         public string Id
         {
             get
@@ -291,7 +291,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Item(string id, string name, string code, string description, string manufacturer, string country, string batch, string purchase_price, string sale_price, string composition, string expire, string category, string formulation, string barcode, string image, string created, string department,string date_manufactured,string generic,string strength)
+        public string OrgID
+        {
+            get
+            {
+                return orgID;
+            }
+
+            set
+            {
+                orgID = value;
+            }
+        }
+
+        public Item(string id, string name, string code, string description, string manufacturer, string country, string batch, string purchase_price, string sale_price, string composition, string expire, string category, string formulation, string barcode, string image, string created, string department,string date_manufactured,string generic,string strength, string orgID)
         {
             this.Id = id;
             this.Name = name;
@@ -313,6 +326,7 @@ namespace VHMIS.Model
             this.Date_manufactured = date_manufactured;
             this.Generic = generic;
             this.Strength = strength;
+            this.OrgID = orgID;
         }
 
         public static List<Item> ListItem()
@@ -324,7 +338,7 @@ namespace VHMIS.Model
             NpgsqlDataReader Reader = command.ExecuteReader();
             while (Reader.Read())
             {
-                Item p = new Item(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["description"].ToString(), Reader["manufacturer"].ToString(), Reader["country"].ToString(), Reader["batch"].ToString(), Reader["purchase_price"].ToString(), Reader["sale_price"].ToString(), Reader["composition"].ToString(), Reader["expire"].ToString(), Reader["category"].ToString(), Reader["formulation"].ToString(), Reader["barcode"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["department"].ToString(), Reader["date_manufactured"].ToString(), Reader["generic"].ToString(), Reader["strength"].ToString());
+                Item p = new Item(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["description"].ToString(), Reader["manufacturer"].ToString(), Reader["country"].ToString(), Reader["batch"].ToString(), Reader["purchase_price"].ToString(), Reader["sale_price"].ToString(), Reader["composition"].ToString(), Reader["expire"].ToString(), Reader["category"].ToString(), Reader["formulation"].ToString(), Reader["barcode"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["department"].ToString(), Reader["date_manufactured"].ToString(), Reader["generic"].ToString(), Reader["strength"].ToString(), Reader["orgid"].ToString());
                 wards.Add(p);
             }
             DBConnect.CloseConn();
