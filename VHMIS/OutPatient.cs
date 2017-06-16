@@ -247,7 +247,7 @@ namespace VHMIS
             id = Guid.NewGuid().ToString();
             if (!String.IsNullOrEmpty(labCbx.Text))
             {
-                _lab = new Lab(id, queueID, PatientID, labCbx.Text, labCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), labQty.Text, LabTotal.ToString("n0"), Helper.orgID);
+                _lab = new Lab(id, queueID, PatientID, labCbx.Text, labCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), labQty.Text, LabTotal.ToString("n0"), Helper.orgID, queueNo.Text);
                 DBConnect.Insert(_lab);
                 LoadLabs(queueID);
             }
@@ -267,7 +267,7 @@ namespace VHMIS
             id = Guid.NewGuid().ToString();
             if (!String.IsNullOrEmpty(operationCbx.Text))
             {
-                _service = new Services(id, operationCbx.Text, queueID, "Dental", "procedureID", PatientID, "userID", "code", "userID", opCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), parameterTxt.Text, statusCbx.Text, serviceQty.Text, serviceTotal.ToString("n0"), "No", Helper.orgID);
+                _service = new Services(id, operationCbx.Text, queueID, "Dental", "procedureID", PatientID, "userID", "code", "userID", opCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), parameterTxt.Text, statusCbx.Text, serviceQty.Text, serviceTotal.ToString("n0"), "No", Helper.orgID,queueNo.Text);
                 DBConnect.Insert(_service);
                 MessageBox.Show("Information added/Saved");
                 LoadServices(queueID);
@@ -327,7 +327,7 @@ namespace VHMIS
             }
             string id = Guid.NewGuid().ToString();
 
-            _queue = new Queue(id, next.ToString(), PatientID, userID, roomCbx.Text, clinicCbx.Text, priorityCbx.Text, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), departmentCbx.Text, "", "", "", "", "", "", "", "", "", Helper.orgID);
+            _queue = new Queue(id, next.ToString(), PatientID, userID, roomCbx.Text, clinicCbx.Text, priorityCbx.Text, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), departmentCbx.Text, "", "", "", "", "", "", "", "", "", Helper.orgID,"OP");
 
             if (DBConnect.Insert(_queue) != "")
             {
@@ -497,7 +497,7 @@ namespace VHMIS
             id = Guid.NewGuid().ToString();
             if (!String.IsNullOrEmpty(procTotal.Text))
             {
-                _service = new Services(id, procTxt.Text, queueID, "Dental", "procedureID", PatientID, "userID", "code", "userID", procCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), parameterTxt.Text, statusCbx.Text, procQty.Text, procsTotal.ToString("n0"), "No", Helper.orgID);
+                _service = new Services(id, procTxt.Text, queueID, "Dental", "procedureID", PatientID, "userID", "code", "userID", procCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), parameterTxt.Text, statusCbx.Text, procQty.Text, procsTotal.ToString("n0"), "No", Helper.orgID,queueNo.Text);
                 DBConnect.Insert(_service);
                 MessageBox.Show("Information added/Saved");
                 LoadServices(queueID);

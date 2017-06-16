@@ -29,8 +29,8 @@ namespace VHMIS
         string wardID;
         string clinicID;
 
-        List<Admission> _admissions = new List<Admission>();
-        List<Admission> _todayList = new List<Admission>();
+        List<Queue> _queues = new List<Queue>();
+        List<Queue> _todayList = new List<Queue>();
         Admission _admission;
         DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
         DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
@@ -39,21 +39,20 @@ namespace VHMIS
         string today;
         public AdmissionForm()
         {
-            InitializeComponent();
-          
-            _todayList = Admission.ListAdmission(DateTime.Now.ToString("dd-MM-yyyy")).ToList();
+            _todayList = Queue.ListQueue(DateTime.Now.ToString("dd-MM-yyyy")).ToList();
             _patientList = Global._patients;
             _userList = Global._users;
             InitializeComponent();
-            LoadData();
+           
             autocompleteUsers();
             autocompleteWards();
             openedDate.Text = DateTime.Now.ToString("dd-MM-yyyy");
           
 
             today = DateTime.Now.ToString("dd-MM-yyyy");
-           // _admissions = Global._admit;
-          
+            // _admissions = Global._admit;
+            LoadData();
+
         }
         private void autocompleteUsers()
         {
@@ -99,7 +98,7 @@ namespace VHMIS
                 if (dr == DialogResult.OK)
                 {
                     //MessageBox.Show(form.state);
-                    _todayList = Admission.ListAdmission(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy")).ToList(); ;
+                    _todayList = Queue.ListQueue(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy")).ToList(); ;
                     LoadData();
 
                 }
@@ -111,7 +110,7 @@ namespace VHMIS
             try
             {
                 userID = userDictionary[practitionerCbx.Text];
-                _todayList = Global._admit.Where(l => l.UserID.Contains(userID) && l.Dated.Contains(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy"))).ToList();
+                _todayList = Global._queues.Where(l => l.UserID.Contains(userID) && l.Dated.Contains(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy"))).ToList();
                 LoadData();
             }
             catch { }
@@ -159,9 +158,9 @@ namespace VHMIS
             {
                 g2.DrawString("Loading...", this.Font, new SolidBrush(Color.Gray), 00, 00);
             }
-            foreach (Admission q in _todayList)
+            foreach (Queue q in _todayList)
             {
-               t.Rows.Add(new object[] { q.Follow, q.Id, q.No, _patientList.First(h => h.Id.Contains(q.PatientID)).Surname + " " + _patientList.First(h => h.Id.Contains(q.PatientID)).Lastname, b, q.Ward + Environment.NewLine + q.Bed + Environment.NewLine + q.Remarks, q.ClinicID, q.Status, _userList.First(h => h.Id.Contains(q.UserID)).Surname + " " + _userList.First(h => h.Id.Contains(q.UserID)).Lastname, b2, "View", "Complete", _patientList.First(h => h.Id.Contains(q.PatientID)).Image, _userList.First(h => h.Id.Contains(q.UserID)).Image, q.PatientID, q.UserID, "Out patient", q.Bed, q.Consultation_paid, q.Lab_paid, q.Consultation_complete, q.Lab_complete, q.Remarks, "Remove" });
+               t.Rows.Add(new object[] { q.Follow, q.Id, q.No, _patientList.First(h => h.Id.Contains(q.PatientID)).Surname + " " + _patientList.First(h => h.Id.Contains(q.PatientID)).Lastname, b, q.Department + Environment.NewLine + q.RoomID + Environment.NewLine + q.Remarks, q.ClinicID, q.Status, _userList.First(h => h.Id.Contains(q.UserID)).Surname + " " + _userList.First(h => h.Id.Contains(q.UserID)).Lastname, b2, "View", "Complete", _patientList.First(h => h.Id.Contains(q.PatientID)).Image, _userList.First(h => h.Id.Contains(q.UserID)).Image, q.PatientID, q.UserID, "Out patient", q.RoomID, q.Consultation_paid, q.Lab_paid, q.Consultation_complete, q.Lab_complete, q.Remarks, "Remove" });
             }
             dtGrid.DataSource = t;
             ThreadPool.QueueUserWorkItem(delegate
@@ -252,7 +251,7 @@ namespace VHMIS
             try
             {
 
-                _todayList = Admission.ListAdmission(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy")).Where(l => l.Ward.Contains(roomCbx.Text)).ToList();
+                _todayList = Queue.ListQueue(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy")).Where(l => l.RoomID.Contains(roomCbx.Text)).ToList();
                 LoadData();
             }
             catch { }
@@ -260,7 +259,7 @@ namespace VHMIS
 
         private void openedDate_CloseUp(object sender, EventArgs e)
         {
-            _todayList =Admission.ListAdmission(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy")).ToList();
+            _todayList = Queue.ListQueue(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy")).ToList();
             LoadData();
         }
     }

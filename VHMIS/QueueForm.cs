@@ -154,7 +154,8 @@ namespace VHMIS
             t.Columns.Add("Consulation Complete");//17
             t.Columns.Add("Lab Complete");//17 
             t.Columns.Add("Remarks");//17     
-            t.Columns.Add("Remove");//23    
+            t.Columns.Add("Remove");//23   
+            t.Columns.Add("type");//23    
 
 
             Bitmap b = new Bitmap(50, 50);
@@ -172,7 +173,7 @@ namespace VHMIS
             }
             foreach (Queue q in _todayList)
             {
-                t.Rows.Add(new object[] { q.Follow, q.Id, q.No, _patientList.First(h => h.Id.Contains(q.PatientID)).Surname + " " + _patientList.First(h => h.Id.Contains(q.PatientID)).Lastname, b, q.RoomID + Environment.NewLine  + q.Department + Environment.NewLine + q.Remarks, q.ClinicID, q.Status, _userList.First(h => h.Id.Contains(q.UserID)).Surname + " " + _userList.First(h => h.Id.Contains(q.UserID)).Lastname, b2, "View", "Complete", _patientList.First(h => h.Id.Contains(q.PatientID)).Image, _userList.First(h => h.Id.Contains(q.UserID)).Image, q.PatientID, q.UserID, "Out patient", q.Department, q.Consultation_paid, q.Lab_paid, q.Consultation_complete, q.Lab_complete,q.Remarks, "Remove" });
+                t.Rows.Add(new object[] { q.Follow, q.Id, q.No, _patientList.First(h => h.Id.Contains(q.PatientID)).Surname + " " + _patientList.First(h => h.Id.Contains(q.PatientID)).Lastname, b, q.RoomID + Environment.NewLine  + q.Department + Environment.NewLine + q.Remarks, q.ClinicID, q.Status, _userList.First(h => h.Id.Contains(q.UserID)).Surname + " " + _userList.First(h => h.Id.Contains(q.UserID)).Lastname, b2, "View", "Complete", _patientList.First(h => h.Id.Contains(q.PatientID)).Image, _userList.First(h => h.Id.Contains(q.UserID)).Image, q.PatientID, q.UserID, "Out patient", q.Department, q.Consultation_paid, q.Lab_paid, q.Consultation_complete, q.Lab_complete,q.Remarks, "Remove",q.Type });
             }
             dtGrid.DataSource = t;
             ThreadPool.QueueUserWorkItem(delegate
@@ -288,7 +289,7 @@ namespace VHMIS
                 {
                     //Global._queues.RemoveAll(x => x.Id == updateID);
                     //DBConnect.Delete("queue", dtGrid.Rows[e.RowIndex].Cells[3].Value.ToString());
-                    _queue = new Queue(updateID, _queues.First(x => x.Id.Contains(updateID)).Follow, _queues.First(x => x.Id.Contains(updateID)).PatientID, _queues.First(x => x.Id.Contains(updateID)).UserID, _queues.First(x => x.Id.Contains(updateID)).RoomID, _queues.First(x => x.Id.Contains(updateID)).ClinicID, "Complete", _queues.First(x => x.Id.Contains(updateID)).Dated, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), _queues.First(x => x.Id.Contains(updateID)).Department, "", "", "", "", "", "", "", "", "", Helper.orgID);
+                    _queue = new Queue(updateID, _queues.First(x => x.Id.Contains(updateID)).Follow, _queues.First(x => x.Id.Contains(updateID)).PatientID, _queues.First(x => x.Id.Contains(updateID)).UserID, _queues.First(x => x.Id.Contains(updateID)).RoomID, _queues.First(x => x.Id.Contains(updateID)).ClinicID, "Complete", _queues.First(x => x.Id.Contains(updateID)).Dated, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), _queues.First(x => x.Id.Contains(updateID)).Department, "", "", "", "", "", "", "", "", "", Helper.orgID,dtGrid.Rows[e.RowIndex].Cells["type"].Value.ToString());
 
                     DBConnect.Update(_queue, updateID);
                     Global._queues.RemoveAll(x => x.Id == updateID);

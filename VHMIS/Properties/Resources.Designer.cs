@@ -563,6 +563,16 @@ namespace VHMIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Note_Memo_01_32 {
+            get {
+                object obj = ResourceManager.GetObject("Note-Memo-01-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap palmer {
             get {
                 object obj = ResourceManager.GetObject("palmer", resourceCulture);

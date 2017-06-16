@@ -165,5 +165,21 @@ namespace VHMIS.Model
             return wards;
 
         }
+        public static List<Beds> ListBeds(string ward)
+        {
+            DBConnect.OpenConn();
+            List<Beds> wards = new List<Beds>();
+            string SQL = "SELECT * FROM beds WHERE wardid='" + ward + "'";
+            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
+            NpgsqlDataReader Reader = command.ExecuteReader();
+            while (Reader.Read())
+            {
+                Beds p = new Beds(Reader["id"].ToString(), Reader["wardID"].ToString(), Reader["no"].ToString(), Reader["acc"].ToString(), Reader["rate"].ToString(), Reader["status"].ToString(), Reader["category"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                wards.Add(p);
+            }
+            DBConnect.CloseConn();
+            return wards;
+
+        }
     }
 }

@@ -22,6 +22,7 @@ namespace VHMIS.Model
         private string note;
         private string created;
         private string orgID;
+        private string no;
         public string Id
         {
             get
@@ -191,7 +192,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Diagnosis(string id, string name, string queueID, string departmentID, string diagnosisID, string patientID, string userID, string code, string doneBy, string price, string note, string created, string orgID)
+        public string No
+        {
+            get
+            {
+                return no;
+            }
+
+            set
+            {
+                no = value;
+            }
+        }
+
+        public Diagnosis(string id, string name, string queueID, string departmentID, string diagnosisID, string patientID, string userID, string code, string doneBy, string price, string note, string created, string orgID,string no)
         {
             this.id = id;
             this.name = name;
@@ -206,6 +220,7 @@ namespace VHMIS.Model
             this.note = note;
             this.created = created;
             this.OrgID = orgID;
+            this.No = no;
         }
 
         public static List<Diagnosis> ListDiagnosis(string queueID)
@@ -219,7 +234,7 @@ namespace VHMIS.Model
 
             while (Reader.Read())
             {
-                Diagnosis p = new Diagnosis(Reader["id"].ToString(), Reader["name"].ToString(), Reader["queueID"].ToString(), Reader["departmentID"].ToString(), Reader["diagnosisID"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["code"].ToString(), Reader["doneby"].ToString(), Reader["price"].ToString(), Reader["note"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                Diagnosis p = new Diagnosis(Reader["id"].ToString(), Reader["name"].ToString(), Reader["queueID"].ToString(), Reader["departmentID"].ToString(), Reader["diagnosisID"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["code"].ToString(), Reader["doneby"].ToString(), Reader["price"].ToString(), Reader["note"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString(), Reader["no"].ToString());
                 patients.Add(p);
 
             }

@@ -10,7 +10,7 @@ namespace VHMIS.Model
     public class Queue
     {
         private string id;
-        private  string follow;
+        private string follow;
         private string patientID;
         private string userID;
         private string roomID;
@@ -29,6 +29,7 @@ namespace VHMIS.Model
         private string other;
         private string no;
         private string orgID;
+        private string type;
         public string Id
         {
             get
@@ -289,7 +290,20 @@ namespace VHMIS.Model
             }
         }
 
-        public Queue(string id, string follow, string patientID, string userID, string roomID,string status, string dated, string created, string clinicID, string department,string consultation_paid,string investigation_paid,string lab_paid,string pharmacy_paid,string lab_complete,string consulation_complete,string remarks,string other,string no, string orgID)
+        public string Type
+        {
+            get
+            {
+                return type;
+            }
+
+            set
+            {
+                type = value;
+            }
+        }
+
+        public Queue(string id, string follow, string patientID, string userID, string roomID,string status, string dated, string created, string clinicID, string department,string consultation_paid,string investigation_paid,string lab_paid,string pharmacy_paid,string lab_complete,string consulation_complete,string remarks,string other,string no, string orgID,string type)
         {
             this.Id = id;
             this.Follow = follow;
@@ -311,6 +325,7 @@ namespace VHMIS.Model
             this.Other = other;
             this.No = no;
             this.OrgID = orgID;
+            this.Type = type;
         }
 
         public static List<Queue> ListQueue()
@@ -324,7 +339,7 @@ namespace VHMIS.Model
 
             while (Reader.Read())
             {
-                Queue p = new Queue(Reader["id"].ToString(), Reader["follow"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(),Reader["roomID"].ToString(), Reader["status"].ToString(), Reader["dated"].ToString(), Reader["created"].ToString(), Reader["clinicid"].ToString(),Reader["department"].ToString(), Reader["consultation_paid"].ToString(), Reader["investigation_paid"].ToString(), Reader["lab_paid"].ToString(), Reader["pharmacy_paid"].ToString(), Reader["lab_complete"].ToString(), Reader["consultation_complete"].ToString(), Reader["remarks"].ToString(), Reader["other"].ToString(), Reader["no"].ToString(), Reader["orgid"].ToString());
+                Queue p = new Queue(Reader["id"].ToString(), Reader["follow"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(),Reader["roomID"].ToString(), Reader["status"].ToString(), Reader["dated"].ToString(), Reader["created"].ToString(), Reader["clinicid"].ToString(),Reader["department"].ToString(), Reader["consultation_paid"].ToString(), Reader["investigation_paid"].ToString(), Reader["lab_paid"].ToString(), Reader["pharmacy_paid"].ToString(), Reader["lab_complete"].ToString(), Reader["consultation_complete"].ToString(), Reader["remarks"].ToString(), Reader["other"].ToString(), Reader["no"].ToString(), Reader["orgid"].ToString(), Reader["type"].ToString());
                 queue.Add(p);
             }
             DBConnect.CloseConn();
@@ -343,7 +358,7 @@ namespace VHMIS.Model
 
             while (Reader.Read())
             {
-                Queue p = new Queue(Reader["id"].ToString(), Reader["follow"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["roomID"].ToString(), Reader["status"].ToString(), Reader["dated"].ToString(), Reader["created"].ToString(), Reader["clinicid"].ToString(), Reader["department"].ToString(), Reader["consultation_paid"].ToString(), Reader["investigation_paid"].ToString(), Reader["lab_paid"].ToString(), Reader["pharmacy_paid"].ToString(), Reader["lab_complete"].ToString(), Reader["consultation_complete"].ToString(), Reader["remarks"].ToString(), Reader["other"].ToString(), Reader["no"].ToString(), Reader["orgid"].ToString());
+                Queue p = new Queue(Reader["id"].ToString(), Reader["follow"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["roomID"].ToString(), Reader["status"].ToString(), Reader["dated"].ToString(), Reader["created"].ToString(), Reader["clinicid"].ToString(), Reader["department"].ToString(), Reader["consultation_paid"].ToString(), Reader["investigation_paid"].ToString(), Reader["lab_paid"].ToString(), Reader["pharmacy_paid"].ToString(), Reader["lab_complete"].ToString(), Reader["consultation_complete"].ToString(), Reader["remarks"].ToString(), Reader["other"].ToString(), Reader["no"].ToString(), Reader["orgid"].ToString(), Reader["type"].ToString());
                 queue.Add(p);
             }
             DBConnect.CloseConn();

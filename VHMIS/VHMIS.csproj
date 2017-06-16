@@ -136,6 +136,12 @@
       <DependentUpon>ClinicForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CollectionView.cs" />
+    <Compile Include="DashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DashBoard.Designer.cs">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBConnect.cs" />
     <Compile Include="DentalDialog.cs">
       <SubType>Form</SubType>
@@ -400,6 +406,9 @@
     <EmbeddedResource Include="ClinicForm.resx">
       <DependentUpon>ClinicForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DashBoard.resx">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DentalDialog.resx">
       <DependentUpon>DentalDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -632,6 +641,7 @@
     <None Include="Resources\Syringe-01-321.png" />
     <None Include="Resources\Book-Shelf-32.png" />
     <None Include="Resources\Bill-32 %281%29.png" />
+    <None Include="Resources\Note-Memo-01-32.png" />
     <Content Include="vhmis.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -122,6 +122,7 @@
             this.procTxt = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.billGrid = new System.Windows.Forms.DataGridView();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -170,7 +171,6 @@
             this.departmentCbx = new System.Windows.Forms.ComboBox();
             this.roomCbx = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
-            this.billGrid = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -183,16 +183,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtLab)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.billGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoBx)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.billGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(3, 1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 23);
@@ -201,14 +201,14 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(12, 12);
+            this.splitContainer1.Location = new System.Drawing.Point(7, 5);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
-            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(176)))), ((int)(((byte)(119)))));
             this.splitContainer1.Panel1.Controls.Add(this.queueNo);
             this.splitContainer1.Panel1.Controls.Add(this.label26);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
@@ -1304,6 +1304,22 @@
             this.panel4.Size = new System.Drawing.Size(399, 537);
             this.panel4.TabIndex = 222;
             // 
+            // billGrid
+            // 
+            this.billGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.billGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.billGrid.BackgroundColor = System.Drawing.Color.MistyRose;
+            this.billGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.billGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.billGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.billGrid.Location = new System.Drawing.Point(7, 162);
+            this.billGrid.Name = "billGrid";
+            this.billGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.billGrid.RowHeadersVisible = false;
+            this.billGrid.Size = new System.Drawing.Size(389, 247);
+            this.billGrid.TabIndex = 237;
+            // 
             // label25
             // 
             this.label25.AutoSize = true;
@@ -1902,22 +1918,6 @@
             this.label31.TabIndex = 169;
             this.label31.Text = "Department";
             // 
-            // billGrid
-            // 
-            this.billGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.billGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.billGrid.BackgroundColor = System.Drawing.Color.MistyRose;
-            this.billGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.billGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.billGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.billGrid.Location = new System.Drawing.Point(7, 162);
-            this.billGrid.Name = "billGrid";
-            this.billGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.billGrid.RowHeadersVisible = false;
-            this.billGrid.Size = new System.Drawing.Size(389, 247);
-            this.billGrid.TabIndex = 237;
-            // 
             // OutPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1945,10 +1945,10 @@
             this.groupBox2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.billGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoBx)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.billGrid)).EndInit();
             this.ResumeLayout(false);
 
         }

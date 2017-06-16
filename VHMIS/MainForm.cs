@@ -127,7 +127,7 @@ namespace VHMIS
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            InPatient frm = new InPatient();
+            InPatient frm = new InPatient(null, null, null);
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
             frm.Show();
@@ -718,6 +718,14 @@ namespace VHMIS
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
             AdmissionForm frm = new AdmissionForm();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+           DashBoard frm = new DashBoard();
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
             frm.Show();

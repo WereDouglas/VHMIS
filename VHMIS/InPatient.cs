@@ -21,6 +21,8 @@ namespace VHMIS
         Dictionary<string, string> clinicDictionary = new Dictionary<string, string>();
         Dictionary<string, string> roomDictionary = new Dictionary<string, string>();
         Dictionary<string, string> wardDictionary = new Dictionary<string, string>();
+        Dictionary<string, string> operationCost = new Dictionary<string, string>();
+        Dictionary<string, string> testCost = new Dictionary<string, string>();
 
         DataTable t;
         List<Patient> _patientList = new List<Patient>();
@@ -29,7 +31,10 @@ namespace VHMIS
         string userID;
         string wardID;
         string clinicID;
-
+        int follow;
+        double LabTotal = 0;
+        string notify;
+        Events _event;
         List<Queue> _queues = new List<Queue>();
         List<Queue> _todayList = new List<Queue>();
         Queue _queue;
@@ -38,7 +43,22 @@ namespace VHMIS
 
         bool loaded = false;
         string today;
-        public InPatient()
+        private List<Services> _services;
+        private Services _service;
+
+        private Lab _lab;
+        private List<Lab> _labs;
+        private Diagnosis _diag;
+        private List<Diagnosis> _diags;
+        double serviceTotal = 0;
+        double procsTotal = 0;
+    
+        string queueID;
+        string PatientID;
+        DataTable tb;
+        DataTable bb;
+      
+        public InPatient(string QueueID, string patientID, string UserID)
         {
             _patientList = Global._patients;
             _userList = Global._users;
@@ -78,6 +98,100 @@ namespace VHMIS
             {
                 roomCbx.Items.Add(d.Name);
             }
+            openedDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            if (!String.IsNullOrEmpty(QueueID))
+            {
+                queueID = QueueID;
+                LoadServices(queueID);
+                LoadLabs(queueID);
+                PatientID = patientID;
+                LoadPatient(patientID);
+            }
+            else
+            {
+                queueID = Guid.NewGuid().ToString();
+            }
+            labCbx.Items.Add("");
+            foreach (Tests t in Global._tests)//.Where(i=>i.DepartmentID))
+            {
+                labCbx.Items.Add(t.Parameter);
+                testCost.Add(t.Parameter, t.Cost);
+            }
+            operationCbx.Items.Add("");
+            foreach (Operations t in Global._operations)//.Where(i=>i.DepartmentID))
+            {
+                operationCbx.Items.Add(t.Service);
+                operationCost.Add(t.Service, t.Cost);
+            }
+            foreach (Clinics d in Global._clinics)
+            {
+                clinicCbx.Items.Add(d.Name);
+            }
+            foreach (Departments d in Global._departments)
+            {
+                departmentCbx.Items.Add(d.Name);
+            }
+            foreach (Wards d in Global._wards)
+            {
+                roomCbx.Items.Add(d.Name);
+            }
+
+
+        }
+        private void LoadServices(string visitID)
+        {
+
+            _services = Services.ListServices(visitID);
+            tb = new DataTable();
+            // create and execute query 
+            tb.Columns.Add("id");//2 
+            tb.Columns.Add("Parameter");//2
+            tb.Columns.Add("Name");//2
+            tb.Columns.Add("Department");//
+            tb.Columns.Add("Procedure");//
+            tb.Columns.Add("Price");//
+            tb.Columns.Add("Code");//
+            tb.Columns.Add("status");//
+            tb.Columns.Add("Quantity");//
+            tb.Columns.Add("Cost");//
+            tb.Columns.Add("Cancel");//
+
+            foreach (Services r in _services)
+            {
+                tb.Rows.Add(new object[] { r.Id, r.Parameter, r.Name, r.DepartmentID, r.ProcedureID, r.Price, r.Code, r.Status, r.Qty, r.Total, "Cancel" });
+
+
+            }
+            dtServices.DataSource = tb;
+            billGrid.DataSource = bb;
+            dtServices.AllowUserToAddRows = false;
+            dtServices.Columns[10].DefaultCellStyle.BackColor = Color.OrangeRed;
+            dtServices.Columns[0].Visible = false;
+            dtServices.Columns[10].FillWeight = 80;
+        }
+        private void LoadLabs(string visitID)
+        {
+
+            _labs = Lab.ListLab(visitID);
+            tb = new DataTable();
+
+            tb.Columns.Add("id");//2 
+            tb.Columns.Add("Test");//2
+            tb.Columns.Add("Cost");//
+            tb.Columns.Add("Quantity");//
+            tb.Columns.Add("Total");//
+            tb.Columns.Add("Cancel");//
+            foreach (Lab r in _labs)
+            {
+                tb.Rows.Add(new object[] { r.Id, r.Test, r.Cost, r.Qty, r.Total, "Cancel" });
+            }
+            dtLab.DataSource = tb;
+
+            dtLab.AllowUserToAddRows = false;
+            dtLab.Columns[5].DefaultCellStyle.BackColor = Color.OrangeRed;
+            dtLab.Columns[0].Visible = false;
+            // dtLab.Columns[3].Width = 20;
+            dtLab.Columns[5].FillWeight = 20;
 
         }
         private void autocompleteUsers()
@@ -235,7 +349,7 @@ namespace VHMIS
             System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
             return image;
         }
-        int follow;
+    
         private void button2_Click(object sender, EventArgs e)
         {
             int next;
@@ -256,7 +370,7 @@ namespace VHMIS
             }
             string id = Guid.NewGuid().ToString();
 
-            _queue = new Queue(id, next.ToString(), patientID, userID, roomCbx.Text, clinicCbx.Text, priorityCbx.Text, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),departmentCbx.Text,"","","","","","","","","", Helper.orgID);
+            _queue = new Queue(id, next.ToString(), patientID, userID, roomCbx.Text, clinicCbx.Text, priorityCbx.Text, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),departmentCbx.Text,"","","","","","","","","", Helper.orgID,"IP");
 
             if (DBConnect.Insert(_queue) != "")
             {
@@ -318,6 +432,52 @@ namespace VHMIS
         private void button18_Click(object sender, EventArgs e)
         {
 
+        }
+        Dictionary<string, string> BedDictionary = new Dictionary<string, string>();
+        private void roomCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (Beds item in Beds.ListBeds(roomCbx.Text)) {
+                bedCbx.Items.Add(item.No);
+                BedDictionary.Add(item.No,item.Rate);
+            }
+        }
+
+        private void bedCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            costLbl.Text = BedDictionary[bedCbx.Text];
+        }
+
+        private void costLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void queueNo_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string QueueID = Global._queues.First(p => p.No.Contains(queueNo.Text)).Id;
+                string patientID = Global._queues.First(d => d.No.Contains(queueNo.Text)).PatientID;
+                if (!String.IsNullOrEmpty(QueueID))
+                {
+                    queueID = QueueID;
+                    LoadServices(queueID);
+                    LoadLabs(queueID);
+                    PatientID = patientID;
+                    LoadPatient(patientID);
+                }
+            }
+            catch { }
+        }
+
+        private void queueNo_Click(object sender, EventArgs e)
+        {
+            queueNo.Text = "VHMIS-" + DateTime.Now.ToString("dd-MM-yyyy") + "/ADMIT/";
         }
     }
 }

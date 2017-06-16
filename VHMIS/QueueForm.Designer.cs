@@ -70,7 +70,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(176)))), ((int)(((byte)(119)))));
             this.splitContainer1.Panel1.Controls.Add(this.openedDate);
             this.splitContainer1.Panel1.Controls.Add(this.roomCbx);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
@@ -84,7 +84,7 @@
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(1107, 529);
-            this.splitContainer1.SplitterDistance = 29;
+            this.splitContainer1.SplitterDistance = 28;
             this.splitContainer1.TabIndex = 1;
             // 
             // openedDate
@@ -110,6 +110,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(655, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 19);
@@ -130,6 +131,7 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label36.Location = new System.Drawing.Point(175, 5);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(91, 19);
@@ -177,7 +179,7 @@
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.splitContainer2.Panel2.Controls.Add(this.dtGrid);
-            this.splitContainer2.Size = new System.Drawing.Size(1107, 496);
+            this.splitContainer2.Size = new System.Drawing.Size(1107, 497);
             this.splitContainer2.SplitterDistance = 146;
             this.splitContainer2.TabIndex = 2;
             // 
@@ -341,7 +343,7 @@
             this.dtGrid.Name = "dtGrid";
             this.dtGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dtGrid.RowHeadersVisible = false;
-            this.dtGrid.Size = new System.Drawing.Size(942, 490);
+            this.dtGrid.Size = new System.Drawing.Size(942, 491);
             this.dtGrid.TabIndex = 12;
             this.dtGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellClick);
             this.dtGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrid_CellContentClick);

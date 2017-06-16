@@ -54,6 +54,18 @@
             this.practitionerTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.departmentCbx = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.enrollCbx = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.refTxt = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.referralDocTxt = new System.Windows.Forms.TextBox();
+            this.enrollbyTxt = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.costLbl = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -81,7 +93,7 @@
             this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label9.Location = new System.Drawing.Point(12, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(351, 25);
+            this.label9.Size = new System.Drawing.Size(351, 29);
             this.label9.TabIndex = 191;
             this.label9.Text = "Admission";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -91,7 +103,7 @@
             this.orderLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.orderLbl.AutoSize = true;
-            this.orderLbl.Location = new System.Drawing.Point(101, 22);
+            this.orderLbl.Location = new System.Drawing.Point(109, 0);
             this.orderLbl.Name = "orderLbl";
             this.orderLbl.Size = new System.Drawing.Size(12, 13);
             this.orderLbl.TabIndex = 197;
@@ -104,7 +116,7 @@
             this.opCostTxt.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.opCostTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.opCostTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.opCostTxt.Location = new System.Drawing.Point(104, 331);
+            this.opCostTxt.Location = new System.Drawing.Point(107, 338);
             this.opCostTxt.Name = "opCostTxt";
             this.opCostTxt.Size = new System.Drawing.Size(213, 19);
             this.opCostTxt.TabIndex = 196;
@@ -114,7 +126,7 @@
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(27, 335);
+            this.label11.Location = new System.Drawing.Point(30, 342);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(44, 13);
             this.label11.TabIndex = 195;
@@ -127,7 +139,7 @@
             this.operationCbx.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.operationCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.operationCbx.FormattingEnabled = true;
-            this.operationCbx.Location = new System.Drawing.Point(104, 303);
+            this.operationCbx.Location = new System.Drawing.Point(107, 310);
             this.operationCbx.Margin = new System.Windows.Forms.Padding(4);
             this.operationCbx.Name = "operationCbx";
             this.operationCbx.Size = new System.Drawing.Size(213, 21);
@@ -137,9 +149,9 @@
             // paidChk
             // 
             this.paidChk.BackColor = System.Drawing.Color.Transparent;
-            this.paidChk.Location = new System.Drawing.Point(104, 365);
+            this.paidChk.Location = new System.Drawing.Point(107, 363);
             this.paidChk.Name = "paidChk";
-            this.paidChk.Size = new System.Drawing.Size(73, 17);
+            this.paidChk.Size = new System.Drawing.Size(64, 17);
             this.paidChk.TabIndex = 193;
             this.paidChk.Text = "Paid";
             this.paidChk.UseVisualStyleBackColor = false;
@@ -149,7 +161,7 @@
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(-3, 306);
+            this.label10.Location = new System.Drawing.Point(0, 313);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(107, 13);
             this.label10.TabIndex = 191;
@@ -160,7 +172,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 63);
+            this.label1.Location = new System.Drawing.Point(27, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 190;
@@ -175,7 +187,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(227, 392);
+            this.button2.Location = new System.Drawing.Point(202, 492);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(90, 32);
@@ -191,7 +203,7 @@
             this.remarksTxt.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.remarksTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.remarksTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.remarksTxt.Location = new System.Drawing.Point(103, 249);
+            this.remarksTxt.Location = new System.Drawing.Point(106, 256);
             this.remarksTxt.Multiline = true;
             this.remarksTxt.Name = "remarksTxt";
             this.remarksTxt.Size = new System.Drawing.Size(213, 44);
@@ -202,7 +214,7 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(26, 259);
+            this.label7.Location = new System.Drawing.Point(29, 266);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 13);
             this.label7.TabIndex = 187;
@@ -215,18 +227,19 @@
             this.bedCbx.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.bedCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bedCbx.FormattingEnabled = true;
-            this.bedCbx.Location = new System.Drawing.Point(103, 193);
+            this.bedCbx.Location = new System.Drawing.Point(104, 174);
             this.bedCbx.Margin = new System.Windows.Forms.Padding(4);
             this.bedCbx.Name = "bedCbx";
             this.bedCbx.Size = new System.Drawing.Size(213, 21);
             this.bedCbx.TabIndex = 186;
+            this.bedCbx.SelectedIndexChanged += new System.EventHandler(this.bedCbx_SelectedIndexChanged);
             // 
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 196);
+            this.label6.Location = new System.Drawing.Point(27, 177);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(25, 13);
             this.label6.TabIndex = 185;
@@ -239,7 +252,7 @@
             this.wardCbx.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.wardCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.wardCbx.FormattingEnabled = true;
-            this.wardCbx.Location = new System.Drawing.Point(103, 165);
+            this.wardCbx.Location = new System.Drawing.Point(104, 146);
             this.wardCbx.Margin = new System.Windows.Forms.Padding(4);
             this.wardCbx.Name = "wardCbx";
             this.wardCbx.Size = new System.Drawing.Size(213, 21);
@@ -253,7 +266,7 @@
             this.clinicCbx.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.clinicCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clinicCbx.FormattingEnabled = true;
-            this.clinicCbx.Location = new System.Drawing.Point(103, 137);
+            this.clinicCbx.Location = new System.Drawing.Point(104, 118);
             this.clinicCbx.Margin = new System.Windows.Forms.Padding(4);
             this.clinicCbx.Name = "clinicCbx";
             this.clinicCbx.Size = new System.Drawing.Size(213, 21);
@@ -263,7 +276,7 @@
             // 
             this.openedDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.openedDate.Location = new System.Drawing.Point(103, 57);
+            this.openedDate.Location = new System.Drawing.Point(104, 38);
             this.openedDate.Name = "openedDate";
             this.openedDate.Size = new System.Drawing.Size(213, 21);
             this.openedDate.TabIndex = 182;
@@ -273,7 +286,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(27, 168);
+            this.label5.Location = new System.Drawing.Point(28, 149);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(33, 13);
             this.label5.TabIndex = 181;
@@ -284,7 +297,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 140);
+            this.label4.Location = new System.Drawing.Point(28, 121);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(33, 13);
             this.label4.TabIndex = 180;
@@ -295,7 +308,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(27, 229);
+            this.label8.Location = new System.Drawing.Point(30, 236);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 13);
             this.label8.TabIndex = 178;
@@ -312,7 +325,7 @@
             "High",
             "Medium",
             "Low"});
-            this.priorityCbx.Location = new System.Drawing.Point(103, 221);
+            this.priorityCbx.Location = new System.Drawing.Point(106, 228);
             this.priorityCbx.Margin = new System.Windows.Forms.Padding(4);
             this.priorityCbx.Name = "priorityCbx";
             this.priorityCbx.Size = new System.Drawing.Size(213, 21);
@@ -325,7 +338,7 @@
             this.patientTxt.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.patientTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.patientTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientTxt.Location = new System.Drawing.Point(103, 111);
+            this.patientTxt.Location = new System.Drawing.Point(104, 92);
             this.patientTxt.Name = "patientTxt";
             this.patientTxt.Size = new System.Drawing.Size(213, 19);
             this.patientTxt.TabIndex = 177;
@@ -336,7 +349,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 115);
+            this.label3.Location = new System.Drawing.Point(27, 96);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 176;
@@ -349,7 +362,7 @@
             this.practitionerTxt.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.practitionerTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.practitionerTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.practitionerTxt.Location = new System.Drawing.Point(103, 85);
+            this.practitionerTxt.Location = new System.Drawing.Point(104, 66);
             this.practitionerTxt.Name = "practitionerTxt";
             this.practitionerTxt.Size = new System.Drawing.Size(213, 19);
             this.practitionerTxt.TabIndex = 175;
@@ -360,7 +373,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 88);
+            this.label2.Location = new System.Drawing.Point(27, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 174;
@@ -369,6 +382,18 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.Controls.Add(this.departmentCbx);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.enrollCbx);
+            this.panel1.Controls.Add(this.label17);
+            this.panel1.Controls.Add(this.refTxt);
+            this.panel1.Controls.Add(this.label18);
+            this.panel1.Controls.Add(this.label24);
+            this.panel1.Controls.Add(this.referralDocTxt);
+            this.panel1.Controls.Add(this.enrollbyTxt);
+            this.panel1.Controls.Add(this.label22);
+            this.panel1.Controls.Add(this.label66);
+            this.panel1.Controls.Add(this.costLbl);
             this.panel1.Controls.Add(this.orderLbl);
             this.panel1.Controls.Add(this.opCostTxt);
             this.panel1.Controls.Add(this.label11);
@@ -393,10 +418,143 @@
             this.panel1.Controls.Add(this.practitionerTxt);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(12, 28);
+            this.panel1.Location = new System.Drawing.Point(12, 32);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(351, 459);
+            this.panel1.Size = new System.Drawing.Size(351, 535);
             this.panel1.TabIndex = 0;
+            // 
+            // departmentCbx
+            // 
+            this.departmentCbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.departmentCbx.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.departmentCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.departmentCbx.FormattingEnabled = true;
+            this.departmentCbx.Location = new System.Drawing.Point(101, 14);
+            this.departmentCbx.Margin = new System.Windows.Forms.Padding(4);
+            this.departmentCbx.Name = "departmentCbx";
+            this.departmentCbx.Size = new System.Drawing.Size(216, 21);
+            this.departmentCbx.TabIndex = 209;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(24, 24);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(65, 13);
+            this.label12.TabIndex = 208;
+            this.label12.Text = "Department";
+            // 
+            // enrollCbx
+            // 
+            this.enrollCbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.enrollCbx.FormattingEnabled = true;
+            this.enrollCbx.Items.AddRange(new object[] {
+            "Self",
+            "Other"});
+            this.enrollCbx.Location = new System.Drawing.Point(157, 378);
+            this.enrollCbx.Name = "enrollCbx";
+            this.enrollCbx.Size = new System.Drawing.Size(135, 21);
+            this.enrollCbx.TabIndex = 207;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(34, 406);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(59, 13);
+            this.label17.TabIndex = 200;
+            this.label17.Text = "Enrolled by";
+            // 
+            // refTxt
+            // 
+            this.refTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.refTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.refTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.refTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refTxt.Location = new System.Drawing.Point(157, 429);
+            this.refTxt.Name = "refTxt";
+            this.refTxt.Size = new System.Drawing.Size(135, 26);
+            this.refTxt.TabIndex = 206;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(34, 467);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(78, 13);
+            this.label18.TabIndex = 201;
+            this.label18.Text = "Refferal Doctor";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(34, 433);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(62, 13);
+            this.label24.TabIndex = 205;
+            this.label24.Text = "Refferal No.";
+            // 
+            // referralDocTxt
+            // 
+            this.referralDocTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.referralDocTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.referralDocTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.referralDocTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.referralDocTxt.Location = new System.Drawing.Point(157, 461);
+            this.referralDocTxt.Name = "referralDocTxt";
+            this.referralDocTxt.Size = new System.Drawing.Size(135, 26);
+            this.referralDocTxt.TabIndex = 202;
+            // 
+            // enrollbyTxt
+            // 
+            this.enrollbyTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.enrollbyTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.enrollbyTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.enrollbyTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enrollbyTxt.Location = new System.Drawing.Point(157, 402);
+            this.enrollbyTxt.Name = "enrollbyTxt";
+            this.enrollbyTxt.Size = new System.Drawing.Size(135, 26);
+            this.enrollbyTxt.TabIndex = 204;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(34, 381);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(59, 13);
+            this.label22.TabIndex = 203;
+            this.label22.Text = "Enrollment";
+            // 
+            // label66
+            // 
+            this.label66.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(29, 209);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(54, 13);
+            this.label66.TabIndex = 199;
+            this.label66.Text = "Cost/Rate";
+            // 
+            // costLbl
+            // 
+            this.costLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.costLbl.AutoSize = true;
+            this.costLbl.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.costLbl.ForeColor = System.Drawing.Color.Brown;
+            this.costLbl.Location = new System.Drawing.Point(102, 201);
+            this.costLbl.Name = "costLbl";
+            this.costLbl.Size = new System.Drawing.Size(19, 23);
+            this.costLbl.TabIndex = 198;
+            this.costLbl.Text = "#";
             // 
             // tableLayoutPanel1
             // 
@@ -416,7 +574,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.139186F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.86082F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(392, 490);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(392, 570);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // AdmissionDialog
@@ -424,7 +582,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(428, 514);
+            this.ClientSize = new System.Drawing.Size(428, 594);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -467,5 +625,17 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label costLbl;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.ComboBox enrollCbx;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox refTxt;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox referralDocTxt;
+        private System.Windows.Forms.TextBox enrollbyTxt;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ComboBox departmentCbx;
+        private System.Windows.Forms.Label label12;
     }
 }

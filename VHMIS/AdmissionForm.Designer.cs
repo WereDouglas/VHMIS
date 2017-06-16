@@ -188,11 +188,11 @@
             this.dtGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             this.dtGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGrid.Location = new System.Drawing.Point(96, 17);
+            this.dtGrid.Location = new System.Drawing.Point(12, 17);
             this.dtGrid.Name = "dtGrid";
             this.dtGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dtGrid.RowHeadersVisible = false;
-            this.dtGrid.Size = new System.Drawing.Size(942, 490);
+            this.dtGrid.Size = new System.Drawing.Size(1111, 490);
             this.dtGrid.TabIndex = 13;
             // 
             // AdmissionForm

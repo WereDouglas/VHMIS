@@ -34,6 +34,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtDiag = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.queueNo = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dtLab = new System.Windows.Forms.DataGridView();
@@ -107,8 +109,6 @@
             this.chk8 = new System.Windows.Forms.CheckBox();
             this.chk16 = new System.Windows.Forms.CheckBox();
             this.chk1 = new System.Windows.Forms.CheckBox();
-            this.queueNo = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -230,6 +230,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operations";
             // 
+            // queueNo
+            // 
+            this.queueNo.BackColor = System.Drawing.Color.MistyRose;
+            this.queueNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.queueNo.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.queueNo.Location = new System.Drawing.Point(118, 19);
+            this.queueNo.Name = "queueNo";
+            this.queueNo.Size = new System.Drawing.Size(175, 19);
+            this.queueNo.TabIndex = 193;
+            this.queueNo.Click += new System.EventHandler(this.queueNo_Click);
+            this.queueNo.TextChanged += new System.EventHandler(this.queueNo_TextChanged);
+            this.queueNo.Enter += new System.EventHandler(this.queueNo_Enter);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label26.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label26.Location = new System.Drawing.Point(6, 21);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(91, 15);
+            this.label26.TabIndex = 194;
+            this.label26.Text = "Visit/Queue ID ";
+            this.label26.Enter += new System.EventHandler(this.queueNo_Enter);
+            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Teal;
@@ -282,7 +308,7 @@
             // nameLbl
             // 
             this.nameLbl.AutoSize = true;
-            this.nameLbl.Location = new System.Drawing.Point(6, 71);
+            this.nameLbl.Location = new System.Drawing.Point(13, 77);
             this.nameLbl.Name = "nameLbl";
             this.nameLbl.Size = new System.Drawing.Size(55, 15);
             this.nameLbl.TabIndex = 177;
@@ -1809,32 +1835,6 @@
             this.chk1.Text = "1";
             this.chk1.UseVisualStyleBackColor = false;
             this.chk1.CheckedChanged += new System.EventHandler(this.chk7_CheckedChanged);
-            // 
-            // queueNo
-            // 
-            this.queueNo.BackColor = System.Drawing.Color.MistyRose;
-            this.queueNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.queueNo.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.queueNo.Location = new System.Drawing.Point(118, 19);
-            this.queueNo.Name = "queueNo";
-            this.queueNo.Size = new System.Drawing.Size(175, 19);
-            this.queueNo.TabIndex = 193;
-            this.queueNo.Click += new System.EventHandler(this.queueNo_Click);
-            this.queueNo.TextChanged += new System.EventHandler(this.queueNo_TextChanged);
-            this.queueNo.Enter += new System.EventHandler(this.queueNo_Enter);
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label26.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label26.Location = new System.Drawing.Point(6, 21);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(91, 15);
-            this.label26.TabIndex = 194;
-            this.label26.Text = "Visit/Queue ID ";
-            this.label26.Enter += new System.EventHandler(this.queueNo_Enter);
             // 
             // DentalForm
             // 

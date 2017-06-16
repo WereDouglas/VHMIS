@@ -236,7 +236,7 @@ namespace VHMIS
             if (item.Checked == true)
             {
 
-                using (DentalDialog form = new DentalDialog(item.Text, PatientID, VisitID))
+                using (DentalDialog form = new DentalDialog(item.Text, PatientID, VisitID,queueNo.Text))
                 {
 
                     // DentalDialog form1 = new DentalDialog(item.Text, PatientID);
@@ -353,7 +353,7 @@ namespace VHMIS
 
         private void button3_Click(object sender, EventArgs e)
         {
-            using (DentalDialog form = new DentalDialog("Other", PatientID, VisitID))
+            using (DentalDialog form = new DentalDialog("Other", PatientID, VisitID, queueNo.Text))
             {
 
                 // DentalDialog form1 = new DentalDialog(item.Text, PatientID);

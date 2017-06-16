@@ -29,8 +29,10 @@ namespace VHMIS
         string VisitID;
         Dictionary<string, string> operationCost = new Dictionary<string, string>();
         Dictionary<string, string> testCost = new Dictionary<string, string>();
-        public DentalDialog(string tooth, string patientID, string visitID)
+        string No;
+        public DentalDialog(string tooth, string patientID, string visitID,string no)
         {
+            No = no;
             PatientID = patientID;
             VisitID = visitID;
             InitializeComponent();
@@ -98,7 +100,6 @@ namespace VHMIS
         {
             if (String.IsNullOrEmpty(statusCbx.Text))
             {
-
                 MessageBox.Show("Please select the current status of the operation/Service ");
                 return;
             }
@@ -106,7 +107,7 @@ namespace VHMIS
             id = Guid.NewGuid().ToString();
             if (!String.IsNullOrEmpty(operationCbx.Text))
             {
-                _service = new Services(id, operationCbx.Text, VisitID, "Dental", "procedureID", PatientID, "userID", "code", "userID", opCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), toothTxt.Text, statusCbx.Text,serviceQty.Text,serviceTotal.ToString("n0"),"No", Helper.orgID);
+                _service = new Services(id, operationCbx.Text, VisitID, "Dental", "procedureID", PatientID, "userID", "code", "userID", opCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), toothTxt.Text, statusCbx.Text,serviceQty.Text,serviceTotal.ToString("n0"),"No", Helper.orgID,No);
                 DBConnect.Insert(_service);
                 MessageBox.Show("Information added/Saved");
             }
@@ -119,21 +120,18 @@ namespace VHMIS
             id = Guid.NewGuid().ToString();
             if (!String.IsNullOrEmpty(labCbx.Text))
             {
-                _lab = new Lab(id, VisitID, PatientID, labCbx.Text, labCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), labQty.Text, LabTotal.ToString("n0"), Helper.orgID);
+                _lab = new Lab(id, VisitID, PatientID, labCbx.Text, labCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), labQty.Text, LabTotal.ToString("n0"), Helper.orgID,No);
                 DBConnect.Insert(_lab);
                 MessageBox.Show("Information added/Saved");
-
             }
         }
-
-
         private void button16_Click(object sender, EventArgs e)
         {
             string id = "";
             id = Guid.NewGuid().ToString();
             if (!String.IsNullOrEmpty(operationCbx.Text))
             {
-                _diag = new Diagnosis(id, diagnosisCbx.Text, VisitID, "Dental", "procedureID", PatientID, "userID", codeTxt.Text, "userID", diagCostTxt.Text, noteTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
+                _diag = new Diagnosis(id, diagnosisCbx.Text, VisitID, "Dental", "procedureID", PatientID, "userID", codeTxt.Text, "userID", diagCostTxt.Text, noteTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID,No);
                 DBConnect.Insert(_diag);
                 MessageBox.Show("Information added/Saved");
 

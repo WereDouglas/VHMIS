@@ -15,10 +15,13 @@ namespace VHMIS
         public LoginForm()
         {
             InitializeComponent();
+            Helper.userName = "Test";
+            Helper.userID = "Test";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+          
            // MessageBox.Show("Information Saved");
             this.DialogResult = DialogResult.OK;
             this.Dispose();

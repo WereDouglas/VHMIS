@@ -27,8 +27,8 @@ namespace VHMIS
         string wardID;
         string clinicID;
 
-        List<Admission> _admission = new List<Admission>();
-        List<Admission> _todayList = new List<Admission>();
+        List<Queue> _queues = new List<Queue>();
+        List<Queue> _todayList = new List<Queue>();
         Admission _admit;
         DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
         DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
@@ -51,8 +51,8 @@ namespace VHMIS
             autocompleteClinics();
             autocompleteWards();
             today = DateTime.Now.ToString("yyyy-MM-dd");
-            _admission = Global._admit;
-            _todayList = Global._admit.Where(r => r.Dated.Contains(DateTime.Now.ToString("dd-MM-yyyy"))).ToList();
+            _queues = Global._queues;
+            _todayList = Global._queues.Where(r => r.Dated.Contains(DateTime.Now.ToString("dd-MM-yyyy"))).ToList();
             foreach (Clinics d in Global._clinics)
             {
                 clinicCbx.Items.Add(d.Name);
@@ -69,6 +69,10 @@ namespace VHMIS
                 operationCbx.Items.Add(t.Service);
                 operationCost.Add(t.Service, t.Cost);
             }
+            foreach (Departments d in Global._departments)
+            {
+                departmentCbx.Items.Add(d.Name);
+            }
 
             if (_todayList.Count() < 1)
             {
@@ -79,7 +83,7 @@ namespace VHMIS
                 follow = _todayList.Max(t => Convert.ToInt32(t.Follow));
                 next = follow + 1;
             }
-            orderLbl.Text = "VHMIS-" + DateTime.Now.ToString("dd-MM-yyyy") + "ADMIT/" + next;
+            orderLbl.Text = "VHMIS-" + DateTime.Now.ToString("dd-MM-yyyy") + "/ADMIT/" + next;
         }
         private void autocompleteUsers()
         {
@@ -139,7 +143,7 @@ namespace VHMIS
         {
             Close();
         }
-
+        
         private void button2_Click(object sender, EventArgs e)
         {
             if (patientID == "" || userID == "")
@@ -156,26 +160,29 @@ namespace VHMIS
                 status = "Complete";
             }
             Helper.orgID = "test";
-            _admit = new Admission(id, next.ToString(), patientID, userID, wardCbx.Text, priorityCbx.Text, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), clinicCbx.Text, bedCbx.Text, paid, "", "", "", "", "", remarksTxt.Text, "", orderLbl.Text, Helper.orgID);
-            Global._admit.Add(_admit);
-            if (DBConnect.Insert(_admit) != "")
+            Queue _queue = new Queue(id, next.ToString(), patientID, userID,wardCbx.Text,priorityCbx.Text, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), clinicCbx.Text,bedCbx.Text, paid, "", "", "", "", "", remarksTxt.Text, "", orderLbl.Text, Helper.orgID, "IP");
+            Global._queues.Add(_queue);
+            if (DBConnect.Insert(_queue) != "")
             {
                 patientTxt.Text = "";
                 practitionerTxt.Text = "";
-                string ids = Guid.NewGuid().ToString();
+               
                 if (!String.IsNullOrEmpty(operationCbx.Text))
                 {
-
-                    _service = new Services(ids, operationCbx.Text, id, "Dental", "procedureID", patientID, "userID", "code", "userID", opCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), operationCbx.Text, status, "1", opCostTxt.Text, paid, Helper.orgID);
+                    string ids = Guid.NewGuid().ToString();
+                    _service = new Services(ids, operationCbx.Text, id, "Dental", "procedureID", patientID, "userID", "code", "userID", opCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), operationCbx.Text, status, "1", opCostTxt.Text, paid, Helper.orgID,orderLbl.Text);
                     DBConnect.Insert(_service);
-                    MessageBox.Show("Information added/Saved");
-                    this.DialogResult = DialogResult.OK;
-                    this.Dispose();
+                }
+                if (!String.IsNullOrEmpty(costLbl.Text))
+                {
+                    string ids = Guid.NewGuid().ToString();
+                    _service = new Services(ids,"admission and Bed", id, departmentCbx.Text, orderLbl.Text, patientID,Helper.userID, "ADMIT",Helper.userName,costLbl.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),"Admission", "New", "1", costLbl.Text, paid, Helper.orgID, orderLbl.Text);
+                    DBConnect.Insert(_service);
                 }
 
                 MessageBox.Show("Information Saved");
-
-
+                this.DialogResult = DialogResult.OK;
+                this.Dispose();
             }
             else
             {
@@ -189,7 +196,7 @@ namespace VHMIS
             try
             {
                 userID = userDictionary[practitionerTxt.Text];
-                _todayList = Global._admit.Where(l => l.UserID.Contains(userID)).ToList();
+                _todayList = Global._queues.Where(l => l.UserID.Contains(userID)).ToList();
 
             }
             catch { }
@@ -215,14 +222,20 @@ namespace VHMIS
             }
             catch { }
         }
-
+        Dictionary<string, string> BedDictionary = new Dictionary<string, string>();
         private void wardCbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             string wardID = wardDictionary[wardCbx.Text];
             foreach (Beds d in Global._beds.Where(f=>f.WardID.Contains(wardCbx.Text)))
             {
                 bedCbx.Items.Add(d.No);
+                BedDictionary.Add(d.No, d.Rate);
             }
+        }
+
+        private void bedCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            costLbl.Text = BedDictionary[bedCbx.Text];
         }
     }
 }
