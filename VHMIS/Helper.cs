@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -9,6 +11,7 @@ using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using VHMIS.SQLite;
 
 namespace VHMIS
 {
@@ -21,8 +24,16 @@ namespace VHMIS
         public static string orgAddress;
         public static string userContact;
         public static string lastSync;
+        public static string ServerName ;
+        public static string  Type;
+        public static string ServerIP;
         public static string genUrl = "http://localhost/vhmis/index.php/";
         //public static string fileUrl = "http://localhost/vhmis/file/";
+
+        static Connection dbobject = new Connection();
+        static SQLiteConnection SQLconnect = new SQLiteConnection();
+        static NpgsqlDataReader Reader = null;
+        static NpgsqlCommand cmd = null;
         public static string CalculateYourAge(DateTime Dob)
         {
             DateTime Now = DateTime.Now;
@@ -48,6 +59,123 @@ namespace VHMIS
             int Seconds = Now.Subtract(PastYearDate).Seconds;
              return String.Format("Age: {0} Year(s) {1} Month(s) {2} Day(s) {3} Hour(s) {4} Second(s)", Years, Months, Days, Hours, Seconds);
             //return String.Format("Age: {0} ", Years, Months, Days, Hours, Seconds);
+        }
+        public static bool Exists(string table, string field, string value)
+        {
+
+            string exists = "";
+            string query = "SELECT * FROM " + table + " WHERE " + field + "= '" + value + "'";
+
+            if (!Helper.Type.Contains("Lite"))
+            {
+
+                Reader = DBConnect.Reading(query);
+                while (Reader.Read())
+                {
+                    exists = Reader.IsDBNull(0) ? "" : Reader.GetString(0);
+                }
+                Reader.Close();
+                if (exists != "")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                try
+                {
+                    SQLconnect.ConnectionString = dbobject.datalocation();
+                    SQLconnect.Open();
+                }
+                catch
+                {
+
+                }
+
+                SQLiteCommand cmd = new SQLiteCommand();
+                cmd = SQLconnect.CreateCommand();
+                cmd.CommandText = query;
+                while (Reader.Read())
+                {
+                    exists = Reader.IsDBNull(0) ? "" : Reader.GetString(0);
+                }
+                Reader.Close();
+
+                if (exists != "")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+
+        }
+        public static bool ExistsAnd(string table, string field1, string field2, string value1, string value2)
+        {
+            string exists = "";
+            string SQL = "SELECT * FROM " + table + " WHERE " + field1 + "= '" + value1 + "' AND " + field2 + "= '" + value2 + "'";
+
+            if (!Helper.Type.Contains("Lite"))
+            {
+
+                Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    exists = Reader.IsDBNull(0) ? "" : Reader.GetString(0);
+                }
+                Reader.Close();
+                DBConnect.CloseConn();
+
+                if (exists != "")
+                {
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+
+            }
+            else
+            {
+                try
+                {
+                    SQLconnect.ConnectionString = dbobject.datalocation();
+                    SQLconnect.Open();
+                }
+                catch
+                {
+
+                }
+
+                SQLiteCommand cmd = new SQLiteCommand();
+                cmd = SQLconnect.CreateCommand();
+                cmd.CommandText = SQL;
+                while (Reader.Read())
+                {
+                    exists = Reader.IsDBNull(0) ? "" : Reader.GetString(0);
+                }
+                Reader.Close();
+
+                if (exists != "")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
         }
         public static string get(string url, NameValueCollection data)
         {

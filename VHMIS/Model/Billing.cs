@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -290,7 +291,7 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
+        public Billing() { }
         public Billing(string id, string queueID, string details, string qty, string amount, string account, string bypatient, string bycorporate, string patient, string consultant, string discount, string total, string remarks, string method, string created, string balance, string due, string chq, string bank, string orgID)
         {
             this.Id = id;
@@ -317,17 +318,33 @@ namespace VHMIS.Model
 
         public static List<Billing> ListBilling()
         {
-            DBConnect.OpenConn();
             List<Billing> wards = new List<Billing>();
             string SQL = "SELECT * FROM billing";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-            while (Reader.Read())
+
+            if (Helper.Type != "Lite")
             {
-                Billing p = new Billing(Reader["id"].ToString(), Reader["queueid"].ToString(), Reader["details"].ToString(), Reader["qty"].ToString(), Reader["amount"].ToString(), Reader["account"].ToString(), Reader["bypatient"].ToString(),Reader["bycorporate"].ToString(), Reader["patient"].ToString(), Reader["consultant"].ToString(), Reader["discount"].ToString(), Reader["total"].ToString(), Reader["remarks"].ToString(), Reader["method"].ToString(), Reader["created"].ToString(), Reader["balance"].ToString(), Reader["due"].ToString(), Reader["chq"].ToString(), Reader["bank"].ToString(), Reader["orgid"].ToString());
-                wards.Add(p);
+                DBConnect.OpenConn();
+                NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
+                NpgsqlDataReader Reader = command.ExecuteReader();
+                while (Reader.Read())
+                {
+                    Billing p = new Billing(Reader["id"].ToString(), Reader["queueid"].ToString(), Reader["details"].ToString(), Reader["qty"].ToString(), Reader["amount"].ToString(), Reader["account"].ToString(), Reader["bypatient"].ToString(), Reader["bycorporate"].ToString(), Reader["patient"].ToString(), Reader["consultant"].ToString(), Reader["discount"].ToString(), Reader["total"].ToString(), Reader["remarks"].ToString(), Reader["method"].ToString(), Reader["created"].ToString(), Reader["balance"].ToString(), Reader["due"].ToString(), Reader["chq"].ToString(), Reader["bank"].ToString(), Reader["orgid"].ToString());
+                    wards.Add(p);
+                }
+                Reader.Close();
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Billing p = new Billing(Reader["id"].ToString(), Reader["queueid"].ToString(), Reader["details"].ToString(), Reader["qty"].ToString(), Reader["amount"].ToString(), Reader["account"].ToString(), Reader["bypatient"].ToString(), Reader["bycorporate"].ToString(), Reader["patient"].ToString(), Reader["consultant"].ToString(), Reader["discount"].ToString(), Reader["total"].ToString(), Reader["remarks"].ToString(), Reader["method"].ToString(), Reader["created"].ToString(), Reader["balance"].ToString(), Reader["due"].ToString(), Reader["chq"].ToString(), Reader["bank"].ToString(), Reader["orgid"].ToString());
+                    wards.Add(p);
+                }
+                Reader.Close();
+
+            }
             return wards;
 
         }

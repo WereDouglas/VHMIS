@@ -1,13 +1,14 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace VHMIS.Model
 {
-   public class Lab
+    public class Lab
     {
         private string id;
         private string queueID;
@@ -147,8 +148,8 @@ namespace VHMIS.Model
                 no = value;
             }
         }
-
-        public Lab(string id, string queueID, string patientID, string test, string cost, string created, string qty, string total, string orgID,string no)
+        public Lab() { }
+        public Lab(string id, string queueID, string patientID, string test, string cost, string created, string qty, string total, string orgID, string no)
         {
             this.Id = id;
             this.QueueID = queueID;
@@ -164,17 +165,31 @@ namespace VHMIS.Model
 
         public static List<Lab> ListLab(string visitID)
         {
-            DBConnect.OpenConn();
             List<Lab> clinics = new List<Lab>();
             string SQL = "SELECT * FROM lab WHERE queueID= '" + visitID + "' ";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-            while (Reader.Read())
+
+            if (Helper.Type != "Lite")
             {
-                Lab p = new Lab(Reader["id"].ToString(), Reader["queueID"].ToString(), Reader["patientID"].ToString(), Reader["test"].ToString(),Reader["cost"].ToString(), Reader["created"].ToString(), Reader["qty"].ToString(), Reader["total"].ToString(), Reader["orgid"].ToString(), Reader["no"].ToString());
-                clinics.Add(p);
+
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Lab p = new Lab(Reader["id"].ToString(), Reader["queueID"].ToString(), Reader["patientID"].ToString(), Reader["test"].ToString(), Reader["cost"].ToString(), Reader["created"].ToString(), Reader["qty"].ToString(), Reader["total"].ToString(), Reader["orgid"].ToString(), Reader["no"].ToString());
+                    clinics.Add(p);
+                }
+                Reader.Close();
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Lab p = new Lab(Reader["id"].ToString(), Reader["queueID"].ToString(), Reader["patientID"].ToString(), Reader["test"].ToString(), Reader["cost"].ToString(), Reader["created"].ToString(), Reader["qty"].ToString(), Reader["total"].ToString(), Reader["orgid"].ToString(), Reader["no"].ToString());
+                    clinics.Add(p);
+                }
+                Reader.Close();
+            }
 
             return clinics;
 

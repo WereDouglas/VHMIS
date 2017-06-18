@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -204,8 +205,8 @@ namespace VHMIS.Model
                 no = value;
             }
         }
-
-        public Diagnosis(string id, string name, string queueID, string departmentID, string diagnosisID, string patientID, string userID, string code, string doneBy, string price, string note, string created, string orgID,string no)
+        public Diagnosis() { }
+        public Diagnosis(string id, string name, string queueID, string departmentID, string diagnosisID, string patientID, string userID, string code, string doneBy, string price, string note, string created, string orgID, string no)
         {
             this.id = id;
             this.name = name;
@@ -225,20 +226,30 @@ namespace VHMIS.Model
 
         public static List<Diagnosis> ListDiagnosis(string queueID)
         {
-            DBConnect.OpenConn();
-
             List<Diagnosis> patients = new List<Diagnosis>();
             string SQL = "SELECT * FROM diagnosis WHERE queueID='" + queueID + "'";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-
-            while (Reader.Read())
+            if (Helper.Type != "Lite")
+            {              
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Diagnosis p = new Diagnosis(Reader["id"].ToString(), Reader["name"].ToString(), Reader["queueID"].ToString(), Reader["departmentID"].ToString(), Reader["diagnosisID"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["code"].ToString(), Reader["doneby"].ToString(), Reader["price"].ToString(), Reader["note"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString(), Reader["no"].ToString());
+                    patients.Add(p);
+                }
+                Reader.Close();
+                DBConnect.CloseConn();
+            }
+            else
             {
-                Diagnosis p = new Diagnosis(Reader["id"].ToString(), Reader["name"].ToString(), Reader["queueID"].ToString(), Reader["departmentID"].ToString(), Reader["diagnosisID"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["code"].ToString(), Reader["doneby"].ToString(), Reader["price"].ToString(), Reader["note"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString(), Reader["no"].ToString());
-                patients.Add(p);
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Diagnosis p = new Diagnosis(Reader["id"].ToString(), Reader["name"].ToString(), Reader["queueID"].ToString(), Reader["departmentID"].ToString(), Reader["diagnosisID"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["code"].ToString(), Reader["doneby"].ToString(), Reader["price"].ToString(), Reader["note"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString(), Reader["no"].ToString());
+                    patients.Add(p);
+                }
+                Reader.Close();
 
             }
-            DBConnect.CloseConn();
 
             return patients;
 

@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace VHMIS.Model
         private string code;
         private string doneBy;
         private string price;
-        private string created;        
+        private string created;
         private string parameter;
         private string status;
         private string qty;
@@ -260,8 +261,8 @@ namespace VHMIS.Model
                 no = value;
             }
         }
-
-        public Services(string id, string name, string queueID, string departmentID, string procedureID, string patientID, string userID, string code, string doneBy, string price, string created,string parameter,string status,string qty,string total,string paid, string orgID,string no)
+        public Services() { }
+        public Services(string id, string name, string queueID, string departmentID, string procedureID, string patientID, string userID, string code, string doneBy, string price, string created, string parameter, string status, string qty, string total, string paid, string orgID, string no)
         {
             this.Id = id;
             this.Name = name;
@@ -285,21 +286,29 @@ namespace VHMIS.Model
 
         public static List<Services> ListServices(string queueID)
         {
-            DBConnect.OpenConn();
-
             List<Services> patients = new List<Services>();
-            string SQL = "SELECT * FROM services WHERE queueID='"+queueID+"'";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-
-            while (Reader.Read())
+            string SQL = "SELECT * FROM services WHERE queueID='" + queueID + "'";
+            if (Helper.Type != "Lite")
             {
-                Services p = new Services(Reader["id"].ToString(), Reader["name"].ToString(), Reader["queueID"].ToString(), Reader["departmentID"].ToString(), Reader["procedureID"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["code"].ToString(), Reader["doneby"].ToString(), Reader["price"].ToString(),Reader["created"].ToString(), Reader["parameter"].ToString(), Reader["status"].ToString(),Reader["qty"].ToString(),Reader["total"].ToString(), Reader["paid"].ToString(), Reader["orgid"].ToString(), Reader["no"].ToString());
-                patients.Add(p);
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Services p = new Services(Reader["id"].ToString(), Reader["name"].ToString(), Reader["queueID"].ToString(), Reader["departmentID"].ToString(), Reader["procedureID"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["code"].ToString(), Reader["doneby"].ToString(), Reader["price"].ToString(), Reader["created"].ToString(), Reader["parameter"].ToString(), Reader["status"].ToString(), Reader["qty"].ToString(), Reader["total"].ToString(), Reader["paid"].ToString(), Reader["orgid"].ToString(), Reader["no"].ToString());
+                    patients.Add(p);
+                }
+                DBConnect.CloseConn();
+            }
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Services p = new Services(Reader["id"].ToString(), Reader["name"].ToString(), Reader["queueID"].ToString(), Reader["departmentID"].ToString(), Reader["procedureID"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["code"].ToString(), Reader["doneby"].ToString(), Reader["price"].ToString(), Reader["created"].ToString(), Reader["parameter"].ToString(), Reader["status"].ToString(), Reader["qty"].ToString(), Reader["total"].ToString(), Reader["paid"].ToString(), Reader["orgid"].ToString(), Reader["no"].ToString());
+                    patients.Add(p);
+                }
+                Reader.Close();
 
             }
-            DBConnect.CloseConn();
-
             return patients;
 
         }

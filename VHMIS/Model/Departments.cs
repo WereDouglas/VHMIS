@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -121,7 +122,7 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
+        public Departments() { }
         public Departments(string id, string name, string regno, string license, string expiry, string code, string created, string orgID)
         {
             this.Id = id;
@@ -136,20 +137,32 @@ namespace VHMIS.Model
 
         public static List<Departments> ListDepartment()
         {
-            DBConnect.OpenConn();
-
             List<Departments> departments = new List<Departments>();
             string SQL = "SELECT * FROM departments";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
 
-            while (Reader.Read())
+            if (Helper.Type != "Lite")
             {
-                Departments p = new Departments(Reader["id"].ToString(), Reader["name"].ToString(), Reader["regno"].ToString(), Reader["license"].ToString(), Reader["expiry"].ToString(), Reader["code"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
-                departments.Add(p);
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Departments p = new Departments(Reader["id"].ToString(), Reader["name"].ToString(), Reader["regno"].ToString(), Reader["license"].ToString(), Reader["expiry"].ToString(), Reader["code"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    departments.Add(p);
+
+                }
+                Reader.Close();
+                DBConnect.CloseConn();
+            }
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Departments p = new Departments(Reader["id"].ToString(), Reader["name"].ToString(), Reader["regno"].ToString(), Reader["license"].ToString(), Reader["expiry"].ToString(), Reader["code"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    departments.Add(p);
+                }
+                Reader.Close();
 
             }
-            DBConnect.CloseConn();
 
             return departments;
 

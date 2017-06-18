@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -78,7 +79,7 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
+        public Discipline() { }
         public Discipline(string id, string name, string code, string created, string orgID)
         {
             this.Id = id;
@@ -90,21 +91,30 @@ namespace VHMIS.Model
 
         public static List<Discipline> ListDiscipline()
         {
-            DBConnect.OpenConn();
-
             List<Discipline> patients = new List<Discipline>();
             string SQL = "SELECT * FROM discipline";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
 
-            while (Reader.Read())
+            if (Helper.Type != "Lite")
             {
-
-                Discipline p = new Discipline(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
-                patients.Add(p);
-
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Discipline p = new Discipline(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    patients.Add(p);
+                }
+                Reader.Close();
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Discipline p = new Discipline(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    patients.Add(p);
+                }
+                Reader.Close();
+            }
 
             return patients;
 

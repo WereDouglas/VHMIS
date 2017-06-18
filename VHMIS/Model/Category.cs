@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -92,7 +93,7 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
+        public Category() { }
         public Category(string id, string title, string docfee, string hosfee, string created, string orgID)
         {
             this.Id = id;
@@ -105,20 +106,30 @@ namespace VHMIS.Model
 
         public static List<Category> ListCategory()
         {
-            DBConnect.OpenConn();
-
             List<Category> lists = new List<Category>();
             string SQL = "SELECT * FROM category";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-
-            while (Reader.Read())
+            if (Helper.Type != "Lite")
             {
-                Category p = new Category(Reader["id"].ToString(), Reader["title"].ToString(), Reader["docfee"].ToString(), Reader["hosfee"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
-                lists.Add(p);
-
+                DBConnect.OpenConn();
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Category p = new Category(Reader["id"].ToString(), Reader["title"].ToString(), Reader["docfee"].ToString(), Reader["hosfee"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    lists.Add(p);
+                }
+                Reader.Close();
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Category p = new Category(Reader["id"].ToString(), Reader["title"].ToString(), Reader["docfee"].ToString(), Reader["hosfee"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    lists.Add(p);
+                }
+                Reader.Close();
+            }
 
             return lists;
 

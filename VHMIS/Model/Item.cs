@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -303,8 +304,8 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
-        public Item(string id, string name, string code, string description, string manufacturer, string country, string batch, string purchase_price, string sale_price, string composition, string expire, string category, string formulation, string barcode, string image, string created, string department,string date_manufactured,string generic,string strength, string orgID)
+        public Item() { }
+        public Item(string id, string name, string code, string description, string manufacturer, string country, string batch, string purchase_price, string sale_price, string composition, string expire, string category, string formulation, string barcode, string image, string created, string department, string date_manufactured, string generic, string strength, string orgID)
         {
             this.Id = id;
             this.Name = name;
@@ -331,17 +332,29 @@ namespace VHMIS.Model
 
         public static List<Item> ListItem()
         {
-            DBConnect.OpenConn();
             List<Item> wards = new List<Item>();
             string SQL = "SELECT * FROM item";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-            while (Reader.Read())
+
+            if (Helper.Type != "Lite")
             {
-                Item p = new Item(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["description"].ToString(), Reader["manufacturer"].ToString(), Reader["country"].ToString(), Reader["batch"].ToString(), Reader["purchase_price"].ToString(), Reader["sale_price"].ToString(), Reader["composition"].ToString(), Reader["expire"].ToString(), Reader["category"].ToString(), Reader["formulation"].ToString(), Reader["barcode"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["department"].ToString(), Reader["date_manufactured"].ToString(), Reader["generic"].ToString(), Reader["strength"].ToString(), Reader["orgid"].ToString());
-                wards.Add(p);
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Item p = new Item(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["description"].ToString(), Reader["manufacturer"].ToString(), Reader["country"].ToString(), Reader["batch"].ToString(), Reader["purchase_price"].ToString(), Reader["sale_price"].ToString(), Reader["composition"].ToString(), Reader["expire"].ToString(), Reader["category"].ToString(), Reader["formulation"].ToString(), Reader["barcode"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["department"].ToString(), Reader["date_manufactured"].ToString(), Reader["generic"].ToString(), Reader["strength"].ToString(), Reader["orgid"].ToString());
+                    wards.Add(p);
+                }
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Item p = new Item(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["description"].ToString(), Reader["manufacturer"].ToString(), Reader["country"].ToString(), Reader["batch"].ToString(), Reader["purchase_price"].ToString(), Reader["sale_price"].ToString(), Reader["composition"].ToString(), Reader["expire"].ToString(), Reader["category"].ToString(), Reader["formulation"].ToString(), Reader["barcode"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["department"].ToString(), Reader["date_manufactured"].ToString(), Reader["generic"].ToString(), Reader["strength"].ToString(), Reader["orgid"].ToString());
+                    wards.Add(p);
+                }
+                Reader.Close();
+            }
             return wards;
 
         }

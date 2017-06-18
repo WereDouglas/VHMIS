@@ -36,7 +36,8 @@ namespace VHMIS
         public static List<Vitals> _vitals;
         public static List<Organisation> _org;
 
-        public static void LoadData() {
+        public static void LoadData(string start, string end)
+        {
 
             _roles = new List<Roles>(Roles.ListRoles());
             _patients = new List<Patient>(Patient.ListPatients());

@@ -1,13 +1,14 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace VHMIS.Model
 {
-   public class Transaction
+    public class Transaction
     {
 
         private string id;
@@ -135,8 +136,8 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
-        public Transaction(string id, string no, string itemID, string quantity, string date, string price, string type,string created, string orgID)
+        public Transaction() { }
+        public Transaction(string id, string no, string itemID, string quantity, string date, string price, string type, string created, string orgID)
         {
             this.Id = id;
             this.No = no;
@@ -154,14 +155,28 @@ namespace VHMIS.Model
             DBConnect.OpenConn();
             List<Transaction> wards = new List<Transaction>();
             string SQL = "SELECT * FROM transaction";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-            while (Reader.Read())
+
+            if (Helper.Type != "Lite")
             {
-                Transaction p = new Transaction(Reader["id"].ToString(), Reader["no"].ToString(), Reader["itemid"].ToString(), Reader["quantity"].ToString(), Reader["date"].ToString(), Reader["price"].ToString(), Reader["type"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
-                wards.Add(p);
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Transaction p = new Transaction(Reader["id"].ToString(), Reader["no"].ToString(), Reader["itemid"].ToString(), Reader["quantity"].ToString(), Reader["date"].ToString(), Reader["price"].ToString(), Reader["type"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    wards.Add(p);
+                }
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Transaction p = new Transaction(Reader["id"].ToString(), Reader["no"].ToString(), Reader["itemid"].ToString(), Reader["quantity"].ToString(), Reader["date"].ToString(), Reader["price"].ToString(), Reader["type"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    wards.Add(p);
+                }
+                Reader.Close();
+
+            }
             return wards;
 
         }

@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace VHMIS.Model
         private string patientNo;
         private string contact;
         private string surname;
-        private string lastname;       
+        private string lastname;
         private string email;
         private string dob;
         private string nationality;
@@ -26,7 +27,8 @@ namespace VHMIS.Model
         private string religion;
         private string blood;
         private string orgID;
-        public Patient(string id, string patientNo, string contact, string surname, string lastname, string email, string dob, string nationality, string address, string kin, string kincontact, string gender, string image,string created,string religion,string blood, string orgID)
+        public Patient() { }
+        public Patient(string id, string patientNo, string contact, string surname, string lastname, string email, string dob, string nationality, string address, string kin, string kincontact, string gender, string image, string created, string religion, string blood, string orgID)
         {
             this.Id = id;
             this.PatientNo = patientNo;
@@ -43,10 +45,10 @@ namespace VHMIS.Model
             this.Image = image;
             this.Created = created;
             this.Religion = religion;
-            this.Blood= blood;
+            this.Blood = blood;
             this.OrgID = orgID;
         }
-  
+
         public string Id
         {
             get
@@ -276,48 +278,34 @@ namespace VHMIS.Model
 
         public static List<Patient> ListPatients()
         {
-
-            //try
-            //{
-            DBConnect.OpenConn();
-
             List<Patient> patients = new List<Patient>();
             string SQL = "SELECT * FROM patient";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
 
-            while (Reader.Read())
+            if (Helper.Type != "Lite")
             {
-                string images=null;
-                //try
-               // {
-                    if (!Reader.IsDBNull(11))
-                    {
-                        images = Reader["image"].ToString();
-                       
-                    }
-                    else
-                    {
-                        images = null;
-                    }
-               // }
-                //catch { }
-                ////(byte[])Reader["image"])
-               
-                    Patient p = new Patient(Reader["id"].ToString(), Reader["patientNo"].ToString(), Reader["contact"].ToString(), Reader["surname"].ToString(), Reader["lastname"].ToString(), Reader["email"].ToString(), Reader["dob"].ToString(), Reader["nationality"].ToString(), Reader["address"].ToString(), Reader["kin"].ToString(), Reader["kincontact"].ToString(), Reader["gender"].ToString(), images,Reader["created"].ToString(), Reader["religion"].ToString(), Reader["blood"].ToString(), Reader["orgid"].ToString());
-                patients.Add(p);
-                
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Patient p = new Patient(Reader["id"].ToString(), Reader["patientNo"].ToString(), Reader["contact"].ToString(), Reader["surname"].ToString(), Reader["lastname"].ToString(), Reader["email"].ToString(), Reader["dob"].ToString(), Reader["nationality"].ToString(), Reader["address"].ToString(), Reader["kin"].ToString(), Reader["kincontact"].ToString(), Reader["gender"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["religion"].ToString(), Reader["blood"].ToString(), Reader["orgid"].ToString());
+                    patients.Add(p);
+
+                }
+                Reader.Close();
+                DBConnect.CloseConn();
+            }
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Patient p = new Patient(Reader["id"].ToString(), Reader["patientNo"].ToString(), Reader["contact"].ToString(), Reader["surname"].ToString(), Reader["lastname"].ToString(), Reader["email"].ToString(), Reader["dob"].ToString(), Reader["nationality"].ToString(), Reader["address"].ToString(), Reader["kin"].ToString(), Reader["kincontact"].ToString(), Reader["gender"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["religion"].ToString(), Reader["blood"].ToString(), Reader["orgid"].ToString());
+                    patients.Add(p);
+                }
+                Reader.Close();
 
             }
-            DBConnect.CloseConn();
-
             return patients;
-            //}
-            //catch (Exception)
-            //{
-            //    Console.WriteLine("Errr on query!");
-            //    return null;
-            //}
+
         }
     }
 }

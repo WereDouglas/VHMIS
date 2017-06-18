@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -92,7 +93,7 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
+        public Clinics() { }
         public Clinics(string id, string name, string maxs, string mins, string created, string orgID)
         {
             this.Id = id;
@@ -105,19 +106,30 @@ namespace VHMIS.Model
 
         public static List<Clinics> ListClinic()
         {
-            DBConnect.OpenConn();
-
             List<Clinics> clinics = new List<Clinics>();
             string SQL = "SELECT * FROM clinics";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-
-            while (Reader.Read())
-            {
-                Clinics p = new Clinics(Reader["id"].ToString(), Reader["name"].ToString(), Reader["maxs"].ToString(), Reader["mins"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
-                clinics.Add(p);
+            if (Helper.Type != "Lite")
+            {                      
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Clinics p = new Clinics(Reader["id"].ToString(), Reader["name"].ToString(), Reader["maxs"].ToString(), Reader["mins"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    clinics.Add(p);
+                }
+                Reader.Close();
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Clinics p = new Clinics(Reader["id"].ToString(), Reader["name"].ToString(), Reader["maxs"].ToString(), Reader["mins"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    clinics.Add(p);
+                }
+                Reader.Close();
+
+            }
 
             return clinics;
 

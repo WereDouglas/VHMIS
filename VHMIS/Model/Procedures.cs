@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace VHMIS
 {
     public class Procedures
     {
-        private string id;       
+        private string id;
         private string name;
         private string category;
         private string roleID;
@@ -17,8 +18,8 @@ namespace VHMIS
         private string departmentID;
         private string duration;
         private string code;
-        private string gender;     
-        private string description;       
+        private string gender;
+        private string description;
         private string created;
         private string orgID;
         public string Id
@@ -176,7 +177,7 @@ namespace VHMIS
                 orgID = value;
             }
         }
-
+        public Procedures() { }
         public Procedures(string id, string name, string category, string roleID, string cost, string departmentID, string duration, string code, string gender, string description, string created, string orgID)
         {
             this.Id = id;
@@ -195,19 +196,29 @@ namespace VHMIS
 
         public static List<Procedures> ListProcedures()
         {
-
-            DBConnect.OpenConn();
             List<Procedures> patients = new List<Procedures>();
             string SQL = "SELECT * FROM procedures";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-
-            while (Reader.Read())
+            if (Helper.Type != "Lite")
             {
-                Procedures p = new Procedures(Reader["id"].ToString(), Reader["name"].ToString(), Reader["category"].ToString(), Reader["roleID"].ToString(), Reader["cost"].ToString(), Reader["departmentID"].ToString(), Reader["duration"].ToString(), Reader["code"].ToString(), Reader["gender"].ToString(), Reader["description"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
-                patients.Add(p);
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Procedures p = new Procedures(Reader["id"].ToString(), Reader["name"].ToString(), Reader["category"].ToString(), Reader["roleID"].ToString(), Reader["cost"].ToString(), Reader["departmentID"].ToString(), Reader["duration"].ToString(), Reader["code"].ToString(), Reader["gender"].ToString(), Reader["description"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    patients.Add(p);
+                }
+                Reader.Close();
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Procedures p = new Procedures(Reader["id"].ToString(), Reader["name"].ToString(), Reader["category"].ToString(), Reader["roleID"].ToString(), Reader["cost"].ToString(), Reader["departmentID"].ToString(), Reader["duration"].ToString(), Reader["code"].ToString(), Reader["gender"].ToString(), Reader["description"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    patients.Add(p);
+                }
+                Reader.Close();
+            }
 
             return patients;
 

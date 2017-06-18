@@ -1,13 +1,14 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace VHMIS.Model
 {
-   public class Dosage
+    public class Dosage
     {
         private string id;
         private string itemID;
@@ -134,7 +135,7 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
+        public Dosage() { }
         public Dosage(string id, string itemID, string dose, string prescription, string qty, string min_age, string max_age, string created, string orgID)
         {
             this.Id = id;
@@ -150,18 +151,30 @@ namespace VHMIS.Model
 
         public static List<Dosage> ListDosage()
         {
-            DBConnect.OpenConn();
             List<Dosage> clinics = new List<Dosage>();
             string SQL = "SELECT * FROM dosage";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
 
-            while (Reader.Read())
+            if (Helper.Type != "Lite")
             {
-                Dosage p = new Dosage(Reader["id"].ToString(), Reader["itemid"].ToString(), Reader["dose"].ToString(), Reader["prescription"].ToString(), Reader["qty"].ToString(), Reader["min_age"].ToString(), Reader["max_age"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
-                clinics.Add(p);
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Dosage p = new Dosage(Reader["id"].ToString(), Reader["itemid"].ToString(), Reader["dose"].ToString(), Reader["prescription"].ToString(), Reader["qty"].ToString(), Reader["min_age"].ToString(), Reader["max_age"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    clinics.Add(p);
+                }
+                Reader.Close();
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Dosage p = new Dosage(Reader["id"].ToString(), Reader["itemid"].ToString(), Reader["dose"].ToString(), Reader["prescription"].ToString(), Reader["qty"].ToString(), Reader["min_age"].ToString(), Reader["max_age"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    clinics.Add(p);
+                }
+                Reader.Close();
+            }
 
             return clinics;
 

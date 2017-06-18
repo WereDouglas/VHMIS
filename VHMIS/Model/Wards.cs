@@ -1,13 +1,14 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace VHMIS.Model
 {
-   public class Wards
+    public class Wards
     {
 
         private string id;
@@ -149,7 +150,7 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
+        public Wards() { }
         public Wards(string id, string name, string code, string capacity, string cost, string deposit, string wing, string period, string created, string orgID)
         {
             this.Id = id;
@@ -166,20 +167,30 @@ namespace VHMIS.Model
 
         public static List<Wards> ListWards()
         {
-            DBConnect.OpenConn();
-
             List<Wards> wards = new List<Wards>();
             string SQL = "SELECT * FROM wards";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-
-            while (Reader.Read())
+            if (Helper.Type != "Lite")
             {
-                Wards p = new Wards(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["capacity"].ToString(), Reader["cost"].ToString(), Reader["deposit"].ToString(), Reader["wing"].ToString(), Reader["period"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
-                wards.Add(p);
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+
+                while (Reader.Read())
+                {
+                    Wards p = new Wards(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["capacity"].ToString(), Reader["cost"].ToString(), Reader["deposit"].ToString(), Reader["wing"].ToString(), Reader["period"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    wards.Add(p);
+                }
+                DBConnect.CloseConn();
+            }
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Wards p = new Wards(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["capacity"].ToString(), Reader["cost"].ToString(), Reader["deposit"].ToString(), Reader["wing"].ToString(), Reader["period"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    wards.Add(p);
+                }
+                Reader.Close();
 
             }
-            DBConnect.CloseConn();
 
             return wards;
 

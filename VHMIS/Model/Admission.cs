@@ -288,7 +288,7 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
+        public Admission() { }
         public Admission(string id, string follow, string patientID, string userID, string ward,string status, string dated, string created, string clinicID, string bed,string consultation_paid,string investigation_paid,string lab_paid,string pharmacy_paid,string lab_complete,string consulation_complete,string remarks,string other,string no, string orgID)
         {
             this.Id = id;

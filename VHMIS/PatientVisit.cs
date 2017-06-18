@@ -127,12 +127,7 @@ namespace VHMIS
             LoadLabs(queueID);
             LoadNotes(queueID);
             LoadResults(queueID);
-            foreach (Tests t in Global._tests)
-            {
-
-                labCbx.Items.Add(t.Parameter);
-                testCost.Add(t.Parameter, t.Cost);
-            }
+           
             //diagnosisCbx.Items.Add("");
             //foreach (Operations t in Global._operations)//.Where(i=>i.DepartmentID))
             //{
@@ -140,17 +135,10 @@ namespace VHMIS
             //    diagnosisCost.Add(t.Service, t.Cost);
             //}
 
-            operationCbx.Items.Add("");
-            foreach (Operations t in Global._operations)//.Where(i=>i.DepartmentID))
-            {
-                operationCbx.Items.Add(t.Service);
-                operationCost.Add(t.Service, t.Cost);
-            }
             _todayList = Global._queues.Where(j => j.PatientID == patientID).ToList();//.Where(r => r.Dated.Contains(today)).ToList();
             LoadDiagnosis(queueID);
             LoadVisits();
             LoadVoice();
-
             bw_message.DoWork += backgroundWorker1_DoWork;
 
             bw_message.WorkerReportsProgress = true;
@@ -649,12 +637,7 @@ namespace VHMIS
 
         }
         string testID;
-        private void labCbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            testID = testCost[labCbx.Text];
-            testsTxt.Text = "Specimen:" + Global._tests.First(w => w.Id.Contains(testID)).SpecimenID + "\r\nType:" + Global._tests.First(w => w.Id.Contains(testID)).Type + "\r\nLower Limit:" + Global._tests.First(w => w.Id.Contains(testID)).Lower + "\r\nUpper Limit:" + Global._tests.First(w => w.Id.Contains(testID)).Upper + "\r\n" + Global._tests.First(w => w.Id.Contains(testID)).Description + "\r\nGender:" + Global._tests.First(w => w.Id.Contains(testID)).Gender;
-
-        }
+      
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -822,23 +805,23 @@ namespace VHMIS
         /// <param name="e">The <see cref="System.Speech.Recognition.SpeechRecognizedEventArgs"/> instance containing the event data.</param>
         void engine_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            txtSpoken.Text += "\r" + getKnownTextOrExecute(e.Result.Text);
-            ///scvText.ScrollToEnd();
-            Console.WriteLine("SEE" + e.Result.Text);
-            try
-            {
-                testsTxt.Text = e.Result.Text;
+            //txtSpoken.Text += "\r" + getKnownTextOrExecute(e.Result.Text);
+            /////scvText.ScrollToEnd();
+            //Console.WriteLine("SEE" + e.Result.Text);
+            //try
+            //{
+            //    testsTxt.Text = e.Result.Text;
 
-                var testID = getKnownTextOrExecute(e.Result.Text);
+            //    var testID = getKnownTextOrExecute(e.Result.Text);
 
-                testsTxt.Text = testsTxt.Text + " Specimen:" + Global._tests.First(w => w.Id.Contains(testID)).SpecimenID + "\r\nType:" + Global._tests.First(w => w.Id.Contains(testID)).Type + "\r\nLower Limit:" + Global._tests.First(w => w.Id.Contains(testID)).Lower + "\r\nUpper Limit:" + Global._tests.First(w => w.Id.Contains(testID)).Upper + "\r\n" + Global._tests.First(w => w.Id.Contains(testID)).Description + "\r\nGender:" + Global._tests.First(w => w.Id.Contains(testID)).Gender;
+            //    testsTxt.Text = testsTxt.Text + " Specimen:" + Global._tests.First(w => w.Id.Contains(testID)).SpecimenID + "\r\nType:" + Global._tests.First(w => w.Id.Contains(testID)).Type + "\r\nLower Limit:" + Global._tests.First(w => w.Id.Contains(testID)).Lower + "\r\nUpper Limit:" + Global._tests.First(w => w.Id.Contains(testID)).Upper + "\r\n" + Global._tests.First(w => w.Id.Contains(testID)).Description + "\r\nGender:" + Global._tests.First(w => w.Id.Contains(testID)).Gender;
 
-            }
-            catch
-            {
+            //}
+            //catch
+            //{
 
-                testsTxt.Text = "Cant find the test";
-            }
+            //    testsTxt.Text = "Cant find the test";
+            //}
 
         }
 
@@ -949,6 +932,11 @@ namespace VHMIS
 
         private void button2_Click_2(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(QueueNo))
+            {
+                MessageBox.Show("Please input the VISIT NO/ID");
+                return;
+            }
             using (LabDialog form = new LabDialog(PatientID, queueID, QueueNo))
             {
                 // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
@@ -975,6 +963,11 @@ namespace VHMIS
         private Services _service;
         private void button18_Click_1(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(QueueNo))
+            {
+                MessageBox.Show("Please input the VISIT NO/ID");
+                return;
+            }
             using (ServiceDialog form = new ServiceDialog(PatientID, queueID, QueueNo))
             {
                 // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
@@ -1001,51 +994,8 @@ namespace VHMIS
             catch { }
         }
         double LabTotal = 0;
-        private void labCbx_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            try
-            {
-                labCostTxt.Text = testCost[labCbx.Text];
-                LabTotal = Convert.ToDouble(labCostTxt.Text) * Convert.ToDouble(labQty.Text);
-                LabLbl.Text = LabTotal.ToString("n0");
-            }
-            catch { }
+     
 
-        }
-        double serviceTotal = 0;
-        private void operationCbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                opCostTxt.Text = operationCost[operationCbx.Text];
-                serviceTotal = Convert.ToDouble(opCostTxt.Text) * Convert.ToDouble(serviceQty.Text);
-                serviceLbl.Text = serviceTotal.ToString("n0");
-            }
-            catch { }
-
-        }
-
-        private void labQty_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-
-                LabTotal = Convert.ToDouble(labCostTxt.Text) * Convert.ToDouble(labQty.Text);
-                LabLbl.Text = LabTotal.ToString("n0");
-            }
-            catch { }
-
-        }
-
-        private void serviceQty_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                serviceTotal = Convert.ToDouble(opCostTxt.Text) * Convert.ToDouble(serviceQty.Text);
-                serviceLbl.Text = serviceTotal.ToString("n0");
-            }
-            catch { }
-        }
        
         private void button17_Click(object sender, EventArgs e)
         {

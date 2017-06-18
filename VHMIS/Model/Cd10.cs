@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -107,7 +108,7 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
+        public Cd10() { }
         public Cd10(string id, string code, string description, string other, string department, string created, string orgID)
         {
             this.Id = id;
@@ -121,17 +122,31 @@ namespace VHMIS.Model
 
         public static List<Cd10> ListCd10()
         {
-            DBConnect.OpenConn();
             List<Cd10> wards = new List<Cd10>();
             string SQL = "SELECT * FROM cd10";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-            while (Reader.Read())
+            if (Helper.Type != "Lite")
             {
-                Cd10 p = new Cd10(Reader["id"].ToString(), Reader["code"].ToString(), Reader["description"].ToString(), Reader["other"].ToString(), Reader["department"].ToString(),Reader["created"].ToString(), Reader["orgid"].ToString());
-                wards.Add(p);
+                DBConnect.OpenConn();
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Cd10 p = new Cd10(Reader["id"].ToString(), Reader["code"].ToString(), Reader["description"].ToString(), Reader["other"].ToString(), Reader["department"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    wards.Add(p);
+                }
+                Reader.Close();
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Cd10 p = new Cd10(Reader["id"].ToString(), Reader["code"].ToString(), Reader["description"].ToString(), Reader["other"].ToString(), Reader["department"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    wards.Add(p);
+                }
+                Reader.Close();
+
+            }
             return wards;
 
         }

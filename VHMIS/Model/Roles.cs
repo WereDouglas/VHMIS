@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -92,7 +93,7 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
+        public Roles() { }
         public Roles(string id, string title, string views, string actions,string created, string orgID)
         {
             this.Id = id;
@@ -104,25 +105,34 @@ namespace VHMIS.Model
         }
 
         public static List<Roles> ListRoles()
-        {           
-            DBConnect.OpenConn();
-
+        {        
             List<Roles> patients = new List<Roles>();
             string SQL = "SELECT * FROM roles";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-
-            while (Reader.Read())
-            {   
-               
+         
+            if (Helper.Type != "Lite")
+            {
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
                     Roles p = new Roles(Reader["id"].ToString(), Reader["title"].ToString(), Reader["views"].ToString(), Reader["actions"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
-                patients.Add(p);
-                
+                    patients.Add(p);
+                }
+                DBConnect.CloseConn();
+            }
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Roles p = new Roles(Reader["id"].ToString(), Reader["title"].ToString(), Reader["views"].ToString(), Reader["actions"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    patients.Add(p);
+                }
+                Reader.Close();
 
             }
-            DBConnect.CloseConn();
 
             return patients;
+            
             
         }
     }

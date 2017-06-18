@@ -1,21 +1,22 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace VHMIS.Model
 {
-   public class Operations
+    public class Operations
     {
 
         private string id;
-        private string departmentID;       
+        private string departmentID;
         private string code;
         private string service;
         private string cost;
-        private string other;               
+        private string other;
         private string created;
         private string orgID;
         public string Id
@@ -120,7 +121,7 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
+        public Operations() { }
         public Operations(string id, string departmentID, string code, string service, string cost, string other, string created, string orgID)
         {
             this.Id = id;
@@ -134,17 +135,29 @@ namespace VHMIS.Model
         }
         public static List<Operations> ListOperations()
         {
-            DBConnect.OpenConn();
             List<Operations> wards = new List<Operations>();
             string SQL = "SELECT * FROM operations";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-            while (Reader.Read())
+            if (Helper.Type != "Lite")
             {
-                Operations p = new Operations(Reader["id"].ToString(), Reader["departmentID"].ToString(), Reader["code"].ToString(), Reader["service"].ToString(), Reader["cost"].ToString(), Reader["other"].ToString(),Reader["created"].ToString(), Reader["orgid"].ToString());
-                wards.Add(p);
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Operations p = new Operations(Reader["id"].ToString(), Reader["departmentID"].ToString(), Reader["code"].ToString(), Reader["service"].ToString(), Reader["cost"].ToString(), Reader["other"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    wards.Add(p);
+                }
+                Reader.Close();
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Operations p = new Operations(Reader["id"].ToString(), Reader["departmentID"].ToString(), Reader["code"].ToString(), Reader["service"].ToString(), Reader["cost"].ToString(), Reader["other"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    wards.Add(p);
+                }
+                Reader.Close();
+            }
             return wards;
 
         }

@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -386,7 +387,7 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
+        public Users() { }
         public Users(string id, string idNo, string contact, string contact2, string surname, string lastname,string email, string nationality, string address, string kin, string kincontact, string passwords, string designation, string roles, string gender, string image, string clinicID, string clinicDesignation, string initialPassword, string account, string status, string practice, string specialisation, string sub, string created,string department, string orgID)
         {
             this.Id = id;
@@ -394,8 +395,7 @@ namespace VHMIS.Model
             this.Contact = contact;
             this.Contact2 = contact2;
             this.Surname = surname;
-            this.Lastname = lastname;
-           
+            this.Lastname = lastname;           
             this.Email = email;
             this.Nationality = nationality;
             this.Address = address;
@@ -418,35 +418,41 @@ namespace VHMIS.Model
             this.Department = department;
             this.OrgID = orgID;
         }
-
+     
         public static List<Users> ListUsers()
-        {           
-            DBConnect.OpenConn();
+        {
             List<Users> users = new List<Users>();
-            string SQL = "SELECT * FROM users";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-
-            while (Reader.Read())
+            if (Helper.Type != "Lite")
             {
-                string images=null;
-            
-                    if (!Reader.IsDBNull(11))
-                    {
-                        images = Reader["image"].ToString();                       
-                    }
-                    else
-                    {
-                        images = null;
-                    }           
-                    Users p = new Users(Reader["id"].ToString(), Reader["idno"].ToString(), Reader["contact"].ToString(), Reader["contact2"].ToString(), Reader["surname"].ToString(), Reader["lastname"].ToString(), Reader["email"].ToString(), Reader["nationality"].ToString(), Reader["address"].ToString(), Reader["kin"].ToString(), Reader["kincontact"].ToString(), Reader["passwords"].ToString(), Reader["designation"].ToString(), Reader["roles"].ToString(), Reader["gender"].ToString(), images, Reader["clinicID"].ToString(), Reader["clinicDesignation"].ToString(), Reader["initialPassword"].ToString(), Reader["account"].ToString(), Reader["status"].ToString(), Reader["practice"].ToString(), Reader["specialisation"].ToString(), Reader["sub"].ToString(), Reader["created"].ToString(),Reader["department"].ToString(), Reader["orgid"].ToString());
-                users.Add(p);                
-
+                DBConnect.OpenConn();
+                
+                string SQL = "SELECT * FROM users";
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Users p = new Users(Reader["id"].ToString(), Reader["idno"].ToString(), Reader["contact"].ToString(), Reader["contact2"].ToString(), Reader["surname"].ToString(), Reader["lastname"].ToString(), Reader["email"].ToString(), Reader["nationality"].ToString(), Reader["address"].ToString(), Reader["kin"].ToString(), Reader["kincontact"].ToString(), Reader["passwords"].ToString(), Reader["designation"].ToString(), Reader["roles"].ToString(), Reader["gender"].ToString(), Reader["image"].ToString(), Reader["clinicID"].ToString(), Reader["clinicDesignation"].ToString(), Reader["initialPassword"].ToString(), Reader["account"].ToString(), Reader["status"].ToString(), Reader["practice"].ToString(), Reader["specialisation"].ToString(), Reader["sub"].ToString(), Reader["created"].ToString(), Reader["department"].ToString(), Reader["orgid"].ToString());
+                    users.Add(p);
+                }
+                Reader.Close();
+                DBConnect.CloseConn();
+                return users;
             }
-            DBConnect.CloseConn();
+            else
+            {
+                List<Users> wards = new List<Users>();
+                string SQL = "SELECT * FROM users";
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Users p = new Users(Reader["id"].ToString(), Reader["idno"].ToString(), Reader["contact"].ToString(), Reader["contact2"].ToString(), Reader["surname"].ToString(), Reader["lastname"].ToString(), Reader["email"].ToString(), Reader["nationality"].ToString(), Reader["address"].ToString(), Reader["kin"].ToString(), Reader["kincontact"].ToString(), Reader["passwords"].ToString(), Reader["designation"].ToString(), Reader["roles"].ToString(), Reader["gender"].ToString(), Reader["image"].ToString(), Reader["clinicID"].ToString(), Reader["clinicDesignation"].ToString(), Reader["initialPassword"].ToString(), Reader["account"].ToString(), Reader["status"].ToString(), Reader["practice"].ToString(), Reader["specialisation"].ToString(), Reader["sub"].ToString(), Reader["created"].ToString(), Reader["department"].ToString(), Reader["orgid"].ToString());
+                    users.Add(p);
+                }
+                Reader.Close();
+                DBConnect.CloseConn();
+                return wards;
+            }
 
-            return users;
-           
+
         }
     }
 }

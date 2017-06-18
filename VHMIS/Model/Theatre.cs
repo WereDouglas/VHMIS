@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -106,7 +107,7 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
+        public Theatre() { }
         public Theatre(string id, string departmentID, string procedure, string surgeonfee, string anaethetist, string created, string orgID)
         {
             this.Id = id;
@@ -120,17 +121,29 @@ namespace VHMIS.Model
 
         public static List<Theatre> ListTheatre()
         {
-            DBConnect.OpenConn();
             List<Theatre> theatre = new List<Theatre>();
             string SQL = "SELECT * FROM theatre";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-            while (Reader.Read())
+            if (Helper.Type != "Lite")
             {
-                Theatre p = new Theatre(Reader["id"].ToString(), Reader["departmentID"].ToString(), Reader["procedure"].ToString(), Reader["surgeonfee"].ToString(), Reader["anaethetist"].ToString(),Reader["created"].ToString(), Reader["orgid"].ToString());
-                theatre.Add(p);
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Theatre p = new Theatre(Reader["id"].ToString(), Reader["departmentID"].ToString(), Reader["procedure"].ToString(), Reader["surgeonfee"].ToString(), Reader["anaethetist"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    theatre.Add(p);
+                }
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Theatre p = new Theatre(Reader["id"].ToString(), Reader["departmentID"].ToString(), Reader["procedure"].ToString(), Reader["surgeonfee"].ToString(), Reader["anaethetist"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    theatre.Add(p);
+                }
+                Reader.Close();
+
+            }
             return theatre;
 
         }

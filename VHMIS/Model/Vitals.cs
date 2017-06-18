@@ -1,13 +1,14 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace VHMIS.Model
 {
-   public class Vitals
+    public class Vitals
     {
         private string id;
         private string queueID;
@@ -106,7 +107,7 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
+        public Vitals() { }
         public Vitals(string id, string queueID, string patientID, string parameter, string reading, string created, string orgID)
         {
             this.Id = id;
@@ -120,18 +121,29 @@ namespace VHMIS.Model
 
         public static List<Vitals> ListVitals(string visitID)
         {
-            DBConnect.OpenConn();
-
             List<Vitals> clinics = new List<Vitals>();
             string SQL = "SELECT * FROM vitals WHERE queueID= '" + visitID + "' ";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-            while (Reader.Read())
+            if (Helper.Type != "Lite")
             {
-                Vitals p = new Vitals(Reader["id"].ToString(), Reader["queueID"].ToString(), Reader["patientID"].ToString(), Reader["parameter"].ToString(),Reader["reading"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
-                clinics.Add(p);
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Vitals p = new Vitals(Reader["id"].ToString(), Reader["queueID"].ToString(), Reader["patientID"].ToString(), Reader["parameter"].ToString(), Reader["reading"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    clinics.Add(p);
+                }
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Vitals p = new Vitals(Reader["id"].ToString(), Reader["queueID"].ToString(), Reader["patientID"].ToString(), Reader["parameter"].ToString(), Reader["reading"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    clinics.Add(p);
+                }
+                Reader.Close();
+
+            }
 
             return clinics;
 

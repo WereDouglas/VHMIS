@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -92,7 +93,7 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
+        public Specimens() { }
         public Specimens(string id, string code, string name, string service, string created, string orgID)
         {
             this.Id = id;
@@ -104,23 +105,35 @@ namespace VHMIS.Model
         }
 
         public static List<Specimens> ListSpecimens()
-        {           
-            DBConnect.OpenConn();
+        {
+
 
             List<Specimens> spec = new List<Specimens>();
             string SQL = "SELECT * FROM specimens";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-
-            while (Reader.Read())
-            {                  
-                    Specimens p = new Specimens(Reader["id"].ToString(), Reader["code"].ToString(), Reader["name"].ToString(),Reader["service"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
-                spec.Add(p);   
+            if (Helper.Type != "Lite")
+            {
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Specimens p = new Specimens(Reader["id"].ToString(), Reader["code"].ToString(), Reader["name"].ToString(), Reader["service"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    spec.Add(p);
+                }
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Specimens p = new Specimens(Reader["id"].ToString(), Reader["code"].ToString(), Reader["name"].ToString(), Reader["service"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    spec.Add(p);
+                }
+                Reader.Close();
+
+            }
 
             return spec;
-            
+
         }
     }
 }

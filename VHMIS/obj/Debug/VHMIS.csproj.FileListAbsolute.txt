@@ -65,3 +65,14 @@ C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHM
 C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.ParentForm.resources
 C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.ServiceDialog.resources
 C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.LabDialog.resources
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\bin\Debug\SQLite.Interop.dll
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\bin\Debug\x64\SQLite.Interop.dll
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\bin\Debug\x86\SQLite.Interop.dll
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\bin\Debug\EntityFramework.dll
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\bin\Debug\System.Data.SQLite.dll
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\bin\Debug\EntityFramework.xml
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\bin\Debug\System.Data.SQLite.xml

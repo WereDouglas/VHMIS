@@ -1,22 +1,23 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace VHMIS.Model
 {
-   public class Stock
+    public class Stock
     {
 
         private string id;
         private string itemID;
-        private string quantity;       
+        private string quantity;
         private string remarks;
         private string created;
         private string sale_price;
-        private string purchase_price;       
+        private string purchase_price;
         private string new_price;
         private string previous_price;
         private string total_qty;
@@ -163,8 +164,8 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
-        public Stock(string id, string itemID, string quantity, string remarks, string created,string sale_price,string purchase_price,string new_price,string previous_price,string total_qty, string orgID)
+        public Stock() { }
+        public Stock(string id, string itemID, string quantity, string remarks, string created, string sale_price, string purchase_price, string new_price, string previous_price, string total_qty, string orgID)
         {
             this.Id = id;
             this.ItemID = itemID;
@@ -181,17 +182,31 @@ namespace VHMIS.Model
 
         public static List<Stock> ListStock()
         {
-            DBConnect.OpenConn();
+
             List<Stock> wards = new List<Stock>();
             string SQL = "SELECT * FROM stock";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-            while (Reader.Read())
+            if (Helper.Type != "Lite")
             {
-                Stock p = new Stock(Reader["id"].ToString(), Reader["itemid"].ToString(), Reader["quantity"].ToString(), Reader["remarks"].ToString(),Reader["created"].ToString(), Reader["sale_price"].ToString(), Reader["purchase_price"].ToString(), Reader["new_price"].ToString(), Reader["previous_price"].ToString(), Reader["total_qty"].ToString(), Reader["orgid"].ToString());
-                wards.Add(p);
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Stock p = new Stock(Reader["id"].ToString(), Reader["itemid"].ToString(), Reader["quantity"].ToString(), Reader["remarks"].ToString(), Reader["created"].ToString(), Reader["sale_price"].ToString(), Reader["purchase_price"].ToString(), Reader["new_price"].ToString(), Reader["previous_price"].ToString(), Reader["total_qty"].ToString(), Reader["orgid"].ToString());
+                    wards.Add(p);
+                }
+                Reader.Close();
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Stock p = new Stock(Reader["id"].ToString(), Reader["itemid"].ToString(), Reader["quantity"].ToString(), Reader["remarks"].ToString(), Reader["created"].ToString(), Reader["sale_price"].ToString(), Reader["purchase_price"].ToString(), Reader["new_price"].ToString(), Reader["previous_price"].ToString(), Reader["total_qty"].ToString(), Reader["orgid"].ToString());
+                    wards.Add(p);
+                }
+                Reader.Close();
+
+            }
             return wards;
 
         }

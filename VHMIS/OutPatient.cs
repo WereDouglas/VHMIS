@@ -63,18 +63,7 @@ namespace VHMIS
             {
                 queueID = Guid.NewGuid().ToString();
             }
-            labCbx.Items.Add("");
-            foreach (Tests t in Global._tests)//.Where(i=>i.DepartmentID))
-            {
-                labCbx.Items.Add(t.Parameter);
-                testCost.Add(t.Parameter, t.Cost);
-            }
-            operationCbx.Items.Add("");
-            foreach (Operations t in Global._operations)//.Where(i=>i.DepartmentID))
-            {
-                operationCbx.Items.Add(t.Service);
-                operationCost.Add(t.Service, t.Cost);
-            }
+           
             foreach (Clinics d in Global._clinics)
             {
                 clinicCbx.Items.Add(d.Name);
@@ -243,6 +232,11 @@ namespace VHMIS
         private List<Diagnosis> _diags;
         private void button2_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(queueNo.Text))
+            {
+                MessageBox.Show("Please input the VISIT NO/ID");
+                return;
+            }
             using (LabDialog form = new LabDialog(PatientID, queueID, queueNo.Text))
             {
                 // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
@@ -264,6 +258,10 @@ namespace VHMIS
         double serviceTotal = 0;
         private void button18_Click(object sender, EventArgs e)
         {
+            if(String.IsNullOrEmpty(queueNo.Text)){
+                MessageBox.Show("Please input the VISIT NO/ID");
+                return;
+            }
             using (ServiceDialog form = new ServiceDialog(PatientID, queueID, queueNo.Text))
             {
                 // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
@@ -350,29 +348,7 @@ namespace VHMIS
             }
         }
 
-        private void operationCbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            try
-            {
-                opCostTxt.Text = operationCost[operationCbx.Text];
-                serviceTotal = Convert.ToDouble(opCostTxt.Text) * Convert.ToDouble(serviceQty.Text);
-                serviceLbl.Text = serviceTotal.ToString("n0");
-            }
-            catch { }
-
-        }
-        double LabTotal = 0;
-        private void labCbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                labCostTxt.Text = testCost[labCbx.Text];
-                LabTotal = Convert.ToDouble(labCostTxt.Text) * Convert.ToDouble(labQty.Text);
-                LabLbl.Text = LabTotal.ToString("n0");
-            }
-            catch { }
-        }
+       
 
         private void patientTxt_Leave_1(object sender, EventArgs e)
         {
@@ -467,47 +443,8 @@ namespace VHMIS
 
         }
 
-        private void serviceQty_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                serviceTotal = Convert.ToDouble(opCostTxt.Text) * Convert.ToDouble(serviceQty.Text);
-                serviceLbl.Text = serviceTotal.ToString("n0");
-            }
-            catch { }
-
-        }      
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (String.IsNullOrEmpty(procTxt.Text))
-            {
-
-                MessageBox.Show("Please select the current status of the operation/Service ");
-                return;
-            }
-            string id = "";
-            id = Guid.NewGuid().ToString();
-            if (!String.IsNullOrEmpty(procTotal.Text))
-            {
-                _service = new Services(id, procTxt.Text, queueID, "Dental", "procedureID", PatientID, "userID", "code", "userID", procCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), parameterTxt.Text, statusCbx.Text, procQty.Text, procsTotal.ToString("n0"), "No", Helper.orgID,queueNo.Text);
-                DBConnect.Insert(_service);
-                MessageBox.Show("Information added/Saved");
-                LoadServices(queueID);
-            }
-        }
         double procsTotal = 0;
-        private void procQty_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                procsTotal = Convert.ToDouble(procCostTxt.Text) * Convert.ToDouble(procQty.Text);
-                procTotal.Text = procsTotal.ToString("n0");
-            }
-            catch { }
-
-        }
-
+       
         private void button7_Click(object sender, EventArgs e)
         {
 

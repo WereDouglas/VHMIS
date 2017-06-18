@@ -1,13 +1,14 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace VHMIS.Model
 {
-   public class Beds
+    public class Beds
     {
 
         private string id;
@@ -16,7 +17,7 @@ namespace VHMIS.Model
         private string acc;
         private string rate;
         private string status;
-        private string category;       
+        private string category;
         private string created;
         private string orgID;
         public string Id
@@ -135,7 +136,7 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
+        public Beds() { }
         public Beds(string id, string wardID, string no, string acc, string rate, string status, string category, string created, string orgID)
         {
             this.Id = id;
@@ -151,34 +152,63 @@ namespace VHMIS.Model
 
         public static List<Beds> ListBeds()
         {
-            DBConnect.OpenConn();
-            List<Beds> wards = new List<Beds>();
             string SQL = "SELECT * FROM beds";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-            while (Reader.Read())
+            List<Beds> wards = new List<Beds>();
+            if (Helper.Type != "Lite")
             {
-                Beds p = new Beds(Reader["id"].ToString(), Reader["wardID"].ToString(), Reader["no"].ToString(), Reader["acc"].ToString(), Reader["rate"].ToString(), Reader["status"].ToString(), Reader["category"].ToString(),Reader["created"].ToString(), Reader["orgid"].ToString());
-                wards.Add(p);
+                DBConnect.OpenConn();
+               
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Beds p = new Beds(Reader["id"].ToString(), Reader["wardID"].ToString(), Reader["no"].ToString(), Reader["acc"].ToString(), Reader["rate"].ToString(), Reader["status"].ToString(), Reader["category"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    wards.Add(p);
+                }
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {                
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Beds p = new Beds(Reader["id"].ToString(), Reader["wardID"].ToString(), Reader["no"].ToString(), Reader["acc"].ToString(), Reader["rate"].ToString(), Reader["status"].ToString(), Reader["category"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    wards.Add(p);
+                }
+                Reader.Close();
+                DBConnect.CloseConn();
+            }
             return wards;
 
         }
         public static List<Beds> ListBeds(string ward)
         {
-            DBConnect.OpenConn();
-            List<Beds> wards = new List<Beds>();
+
             string SQL = "SELECT * FROM beds WHERE wardid='" + ward + "'";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-            while (Reader.Read())
+            List<Beds> wards = new List<Beds>();
+            if (Helper.Type != "Lite")
             {
-                Beds p = new Beds(Reader["id"].ToString(), Reader["wardID"].ToString(), Reader["no"].ToString(), Reader["acc"].ToString(), Reader["rate"].ToString(), Reader["status"].ToString(), Reader["category"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
-                wards.Add(p);
+                DBConnect.OpenConn();
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Beds p = new Beds(Reader["id"].ToString(), Reader["wardID"].ToString(), Reader["no"].ToString(), Reader["acc"].ToString(), Reader["rate"].ToString(), Reader["status"].ToString(), Reader["category"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    wards.Add(p);
+                }
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Beds p = new Beds(Reader["id"].ToString(), Reader["wardID"].ToString(), Reader["no"].ToString(), Reader["acc"].ToString(), Reader["rate"].ToString(), Reader["status"].ToString(), Reader["category"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    wards.Add(p);
+                }
+                Reader.Close();
+                DBConnect.CloseConn();
+            }
             return wards;
+
 
         }
     }

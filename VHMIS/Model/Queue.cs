@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -302,8 +303,8 @@ namespace VHMIS.Model
                 type = value;
             }
         }
-
-        public Queue(string id, string follow, string patientID, string userID, string roomID,string status, string dated, string created, string clinicID, string department,string consultation_paid,string investigation_paid,string lab_paid,string pharmacy_paid,string lab_complete,string consulation_complete,string remarks,string other,string no, string orgID,string type)
+        public Queue() { }
+        public Queue(string id, string follow, string patientID, string userID, string roomID, string status, string dated, string created, string clinicID, string department, string consultation_paid, string investigation_paid, string lab_paid, string pharmacy_paid, string lab_complete, string consulation_complete, string remarks, string other, string no, string orgID, string type)
         {
             this.Id = id;
             this.Follow = follow;
@@ -330,39 +331,58 @@ namespace VHMIS.Model
 
         public static List<Queue> ListQueue()
         {
-            DBConnect.OpenConn();
-
             List<Queue> queue = new List<Queue>();
             string SQL = "SELECT * FROM queue";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-
-            while (Reader.Read())
+            if (Helper.Type != "Lite")
             {
-                Queue p = new Queue(Reader["id"].ToString(), Reader["follow"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(),Reader["roomID"].ToString(), Reader["status"].ToString(), Reader["dated"].ToString(), Reader["created"].ToString(), Reader["clinicid"].ToString(),Reader["department"].ToString(), Reader["consultation_paid"].ToString(), Reader["investigation_paid"].ToString(), Reader["lab_paid"].ToString(), Reader["pharmacy_paid"].ToString(), Reader["lab_complete"].ToString(), Reader["consultation_complete"].ToString(), Reader["remarks"].ToString(), Reader["other"].ToString(), Reader["no"].ToString(), Reader["orgid"].ToString(), Reader["type"].ToString());
-                queue.Add(p);
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Queue p = new Queue(Reader["id"].ToString(), Reader["follow"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["roomID"].ToString(), Reader["status"].ToString(), Reader["dated"].ToString(), Reader["created"].ToString(), Reader["clinicid"].ToString(), Reader["department"].ToString(), Reader["consultation_paid"].ToString(), Reader["investigation_paid"].ToString(), Reader["lab_paid"].ToString(), Reader["pharmacy_paid"].ToString(), Reader["lab_complete"].ToString(), Reader["consultation_complete"].ToString(), Reader["remarks"].ToString(), Reader["other"].ToString(), Reader["no"].ToString(), Reader["orgid"].ToString(), Reader["type"].ToString());
+                    queue.Add(p);
+                }
+                Reader.Close();
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
-
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Queue p = new Queue(Reader["id"].ToString(), Reader["follow"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["roomID"].ToString(), Reader["status"].ToString(), Reader["dated"].ToString(), Reader["created"].ToString(), Reader["clinicid"].ToString(), Reader["department"].ToString(), Reader["consultation_paid"].ToString(), Reader["investigation_paid"].ToString(), Reader["lab_paid"].ToString(), Reader["pharmacy_paid"].ToString(), Reader["lab_complete"].ToString(), Reader["consultation_complete"].ToString(), Reader["remarks"].ToString(), Reader["other"].ToString(), Reader["no"].ToString(), Reader["orgid"].ToString(), Reader["type"].ToString());
+                    queue.Add(p);
+                }
+                Reader.Close();
+            }
             return queue;
 
         }
         public static List<Queue> ListQueue(string Date)
         {
-            DBConnect.OpenConn();
-
+           
             List<Queue> queue = new List<Queue>();
             string SQL = "SELECT * FROM queue WHERE dated::date = '" + Date + "'::date ";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-
-            while (Reader.Read())
+            if (Helper.Type != "Lite")
             {
-                Queue p = new Queue(Reader["id"].ToString(), Reader["follow"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["roomID"].ToString(), Reader["status"].ToString(), Reader["dated"].ToString(), Reader["created"].ToString(), Reader["clinicid"].ToString(), Reader["department"].ToString(), Reader["consultation_paid"].ToString(), Reader["investigation_paid"].ToString(), Reader["lab_paid"].ToString(), Reader["pharmacy_paid"].ToString(), Reader["lab_complete"].ToString(), Reader["consultation_complete"].ToString(), Reader["remarks"].ToString(), Reader["other"].ToString(), Reader["no"].ToString(), Reader["orgid"].ToString(), Reader["type"].ToString());
-                queue.Add(p);
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Queue p = new Queue(Reader["id"].ToString(), Reader["follow"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["roomID"].ToString(), Reader["status"].ToString(), Reader["dated"].ToString(), Reader["created"].ToString(), Reader["clinicid"].ToString(), Reader["department"].ToString(), Reader["consultation_paid"].ToString(), Reader["investigation_paid"].ToString(), Reader["lab_paid"].ToString(), Reader["pharmacy_paid"].ToString(), Reader["lab_complete"].ToString(), Reader["consultation_complete"].ToString(), Reader["remarks"].ToString(), Reader["other"].ToString(), Reader["no"].ToString(), Reader["orgid"].ToString(), Reader["type"].ToString());
+                    queue.Add(p);
+                }
+                Reader.Close()
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
-
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Queue p = new Queue(Reader["id"].ToString(), Reader["follow"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["roomID"].ToString(), Reader["status"].ToString(), Reader["dated"].ToString(), Reader["created"].ToString(), Reader["clinicid"].ToString(), Reader["department"].ToString(), Reader["consultation_paid"].ToString(), Reader["investigation_paid"].ToString(), Reader["lab_paid"].ToString(), Reader["pharmacy_paid"].ToString(), Reader["lab_complete"].ToString(), Reader["consultation_complete"].ToString(), Reader["remarks"].ToString(), Reader["other"].ToString(), Reader["no"].ToString(), Reader["orgid"].ToString(), Reader["type"].ToString());
+                    queue.Add(p);
+                }
+                Reader.Close();
+            }
             return queue;
 
         }

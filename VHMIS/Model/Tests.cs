@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -246,8 +247,8 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
-        public Tests(string id, string specimenID, string type, string parameter, string upper, string lower, string unit, string disciplineid, string code, string gender, string phrase, string description, string comment, string created,string cost,string departmentID, string orgID)
+        public Tests() { }
+        public Tests(string id, string specimenID, string type, string parameter, string upper, string lower, string unit, string disciplineid, string code, string gender, string phrase, string description, string comment, string created, string cost, string departmentID, string orgID)
         {
             this.Id = id;
             this.SpecimenID = specimenID;
@@ -274,15 +275,27 @@ namespace VHMIS.Model
             DBConnect.OpenConn();
             List<Tests> patients = new List<Tests>();
             string SQL = "SELECT * FROM tests";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-
-            while (Reader.Read())
+            if (Helper.Type != "Lite")
             {
-                Tests p = new Tests(Reader["id"].ToString(), Reader["specimenID"].ToString(), Reader["type"].ToString(), Reader["parameter"].ToString(), Reader["upper"].ToString(), Reader["lower"].ToString(), Reader["unit"].ToString(), Reader["disciplineid"].ToString(), Reader["code"].ToString(), Reader["gender"].ToString(), Reader["phrase"].ToString(), Reader["description"].ToString(), Reader["comment"].ToString(), Reader["created"].ToString(), Reader["cost"].ToString(), Reader["departmentID"].ToString(), Reader["orgid"].ToString());
-                patients.Add(p);
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Tests p = new Tests(Reader["id"].ToString(), Reader["specimenID"].ToString(), Reader["type"].ToString(), Reader["parameter"].ToString(), Reader["upper"].ToString(), Reader["lower"].ToString(), Reader["unit"].ToString(), Reader["disciplineid"].ToString(), Reader["code"].ToString(), Reader["gender"].ToString(), Reader["phrase"].ToString(), Reader["description"].ToString(), Reader["comment"].ToString(), Reader["created"].ToString(), Reader["cost"].ToString(), Reader["departmentID"].ToString(), Reader["orgid"].ToString());
+                    patients.Add(p);
+                }
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Tests p = new Tests(Reader["id"].ToString(), Reader["specimenID"].ToString(), Reader["type"].ToString(), Reader["parameter"].ToString(), Reader["upper"].ToString(), Reader["lower"].ToString(), Reader["unit"].ToString(), Reader["disciplineid"].ToString(), Reader["code"].ToString(), Reader["gender"].ToString(), Reader["phrase"].ToString(), Reader["description"].ToString(), Reader["comment"].ToString(), Reader["created"].ToString(), Reader["cost"].ToString(), Reader["departmentID"].ToString(), Reader["orgid"].ToString());
+                    patients.Add(p);
+                }
+                Reader.Close();
+
+            }
 
             return patients;
 

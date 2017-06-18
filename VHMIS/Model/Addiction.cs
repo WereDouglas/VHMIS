@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,6 @@ namespace VHMIS.Model
         private string patientID;
         private string created;
         private string orgID;
-
         public string Id
         {
             get
@@ -93,7 +93,7 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
+        public Addiction() { }
         public Addiction(string id, string name, string description, string patientID, string created,string orgID)
         {
             this.Id = id;
@@ -106,18 +106,31 @@ namespace VHMIS.Model
 
         public static List<Addiction> ListAddiction(string PatientID)
         {
-            DBConnect.OpenConn();
             List<Addiction> clinics = new List<Addiction>();
-            string SQL = "SELECT * FROM addiction WHERE patientID= '"+PatientID+"'";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-
-            while (Reader.Read())
+            if (Helper.Type != "Lite")
             {
-                Addiction p = new Addiction(Reader["id"].ToString(), Reader["name"].ToString(), Reader["description"].ToString(), Reader["patientID"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
-                clinics.Add(p);
+                DBConnect.OpenConn();
+                string SQL = "SELECT * FROM addiction WHERE patientID= '" + PatientID + "'";               
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Addiction p = new Addiction(Reader["id"].ToString(), Reader["name"].ToString(), Reader["description"].ToString(), Reader["patientID"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    clinics.Add(p);
+                }
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {               
+                string SQL = "SELECT * FROM addiction WHERE patientID= '" + PatientID + "'";
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Addiction p = new Addiction(Reader["id"].ToString(), Reader["name"].ToString(), Reader["description"].ToString(), Reader["patientID"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    clinics.Add(p);
+                }
+                Reader.Close();
+                DBConnect.CloseConn();             
+            }
 
             return clinics;
 

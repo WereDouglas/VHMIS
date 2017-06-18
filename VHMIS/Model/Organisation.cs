@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -275,7 +276,7 @@ namespace VHMIS.Model
                 company = value;
             }
         }
-
+        public Organisation() { }
         public Organisation(string id, string name, string code, string registration, string contact, string address, string tin, string vat, string email, string country, string initialpassword, string account, string status, string expires, string image, string created, string sync, string counts, string company)
         {
             this.Id = id;
@@ -301,17 +302,30 @@ namespace VHMIS.Model
 
         public static List<Organisation> ListOrganisation()
         {
-            DBConnect.OpenConn();
+            
             List<Organisation> wards = new List<Organisation>();
             string SQL = "SELECT * FROM organisation LIMIT 1";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-            while (Reader.Read())
+            if (Helper.Type != "Lite")
             {
-                Organisation p = new Organisation(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["registration"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["tin"].ToString(), Reader["vat"].ToString(), Reader["email"].ToString(), Reader["country"].ToString(), Reader["initialpassword"].ToString(), Reader["account"].ToString(), Reader["status"].ToString(), Reader["expires"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["counts"].ToString(), Reader["company"].ToString());
-                wards.Add(p);
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
+                while (Reader.Read())
+                {
+                    Organisation p = new Organisation(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["registration"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["tin"].ToString(), Reader["vat"].ToString(), Reader["email"].ToString(), Reader["country"].ToString(), Reader["initialpassword"].ToString(), Reader["account"].ToString(), Reader["status"].ToString(), Reader["expires"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["counts"].ToString(), Reader["company"].ToString());
+                    wards.Add(p);
+                }
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Organisation p = new Organisation(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["registration"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["tin"].ToString(), Reader["vat"].ToString(), Reader["email"].ToString(), Reader["country"].ToString(), Reader["initialpassword"].ToString(), Reader["account"].ToString(), Reader["status"].ToString(), Reader["expires"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["counts"].ToString(), Reader["company"].ToString());
+                    wards.Add(p);
+                }
+                Reader.Close();
+
+            }
             return wards;
 
         }

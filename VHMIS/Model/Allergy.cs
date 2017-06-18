@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -93,7 +94,7 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
+        public Allergy() { }
         public Allergy(string id, string name, string description, string patientID, string created, string orgID)
         {
             this.Id = id;
@@ -106,18 +107,33 @@ namespace VHMIS.Model
 
         public static List<Allergy> ListAllergy(string PatientID)
         {
-            DBConnect.OpenConn();
             List<Allergy> clinics = new List<Allergy>();
-            string SQL = "SELECT * FROM allergy WHERE patientID= '"+PatientID+"'";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-
-            while (Reader.Read())
+            if (Helper.Type != "Lite")
             {
-                Allergy p = new Allergy(Reader["id"].ToString(), Reader["name"].ToString(), Reader["description"].ToString(), Reader["patientID"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
-                clinics.Add(p);
+                DBConnect.OpenConn();
+
+                string SQL = "SELECT * FROM allergy WHERE patientID= '" + PatientID + "'";
+                NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
+                NpgsqlDataReader Reader = command.ExecuteReader();
+                while (Reader.Read())
+                {
+                    Allergy p = new Allergy(Reader["id"].ToString(), Reader["name"].ToString(), Reader["description"].ToString(), Reader["patientID"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    clinics.Add(p);
+                }
+                DBConnect.CloseConn();
             }
-            DBConnect.CloseConn();
+            else
+            {
+                string SQL = "SELECT * FROM allergy WHERE patientID= '" + PatientID + "'";
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Allergy p = new Allergy(Reader["id"].ToString(), Reader["name"].ToString(), Reader["description"].ToString(), Reader["patientID"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    clinics.Add(p);
+                }
+                Reader.Close();
+                DBConnect.CloseConn();               
+            }
 
             return clinics;
 

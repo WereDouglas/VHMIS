@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -148,7 +149,7 @@ namespace VHMIS.Model
                 orgID = value;
             }
         }
-
+        public Transactor() { }
         public Transactor(string id, string transactorNo, string contact, string name, string email, string address, string image, string created, string type, string orgID)
         {
             this.Id = id;
@@ -166,21 +167,34 @@ namespace VHMIS.Model
         public static List<Transactor> ListTransactors()
         {
 
-            DBConnect.OpenConn();
-
             List<Transactor> transactors = new List<Transactor>();
             string SQL = "SELECT * FROM transactor";
-            NpgsqlCommand command = new NpgsqlCommand(SQL, DBConnect.conn);
-            NpgsqlDataReader Reader = command.ExecuteReader();
-
-            while (Reader.Read())
+          
+            if (Helper.Type != "Lite")
             {
+                NpgsqlDataReader Reader = DBConnect.Reading(SQL);
 
-                Transactor p = new Transactor(Reader["id"].ToString(), Reader["transactorno"].ToString(), Reader["contact"].ToString(),Reader["name"].ToString(), Reader["email"].ToString(), Reader["address"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["type"].ToString(), Reader["orgid"].ToString());
-                transactors.Add(p);
+                while (Reader.Read())
+                {
+
+                    Transactor p = new Transactor(Reader["id"].ToString(), Reader["transactorno"].ToString(), Reader["contact"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["address"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["type"].ToString(), Reader["orgid"].ToString());
+                    transactors.Add(p);
+
+                }
+                Reader.Close();
+                DBConnect.CloseConn();
+            }
+            else
+            {
+                SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
+                while (Reader.Read())
+                {
+                    Transactor p = new Transactor(Reader["id"].ToString(), Reader["transactorno"].ToString(), Reader["contact"].ToString(), Reader["name"].ToString(), Reader["email"].ToString(), Reader["address"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["type"].ToString(), Reader["orgid"].ToString());
+                    transactors.Add(p);
+                }
+                Reader.Close();
 
             }
-            DBConnect.CloseConn();
 
             return transactors;
 
