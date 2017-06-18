@@ -36,7 +36,6 @@
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -61,6 +60,11 @@
             this.vitalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSplitButton9 = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripSplitButton7 = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.bookingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.operationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,14 +107,12 @@
             this.toolStripSplitButton15 = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.processLbl = new System.Windows.Forms.TextBox();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // BottomToolStripPanel
@@ -153,11 +155,10 @@
             // 
             this.toolStrip1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.toolStrip1.GripMargin = new System.Windows.Forms.Padding(0);
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton3,
-            this.toolStripButton4,
             this.toolStripButton1,
             this.toolStripButton2,
             this.toolStripDropDownButton2,
@@ -168,7 +169,6 @@
             this.toolStripSplitButton9,
             this.toolStripSplitButton7,
             this.toolStripSplitButton2,
-            this.toolStripButton7,
             this.toolStripSplitButton1,
             this.toolStripSplitButton12,
             this.toolStripDropDownButton3,
@@ -181,73 +181,61 @@
             this.toolStripSplitButton14,
             this.toolStripButton6});
             this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Location = new System.Drawing.Point(10, 10);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(88, 690);
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
+            this.toolStrip1.Size = new System.Drawing.Size(90, 670);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // toolStripButton3
             // 
-            this.toolStripButton3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStripButton3.AutoSize = false;
+            this.toolStripButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(176)))), ((int)(((byte)(119)))));
+            this.toolStripButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButton3.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripButton3.ForeColor = System.Drawing.Color.DimGray;
-            this.toolStripButton3.Image = global::VHMIS.Properties.Resources.Stethoscope_04_32__1_;
+            this.toolStripButton3.Image = global::VHMIS.Properties.Resources.logo;
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Margin = new System.Windows.Forms.Padding(4, 1, 0, 2);
+            this.toolStripButton3.Margin = new System.Windows.Forms.Padding(0);
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(81, 38);
-            this.toolStripButton3.Text = "VISIT";
+            this.toolStripButton3.Size = new System.Drawing.Size(90, 45);
             this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.toolStripButton4.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButton4.ForeColor = System.Drawing.Color.DimGray;
-            this.toolStripButton4.Image = global::VHMIS.Properties.Resources.Brick_32;
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(82, 38);
-            this.toolStripButton4.Text = "SCHEDULE";
-            this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
-            // 
             // toolStripButton1
             // 
-            this.toolStripButton1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStripButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(242)))));
             this.toolStripButton1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripButton1.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripButton1.Image = global::VHMIS.Properties.Resources.Syringe_01_32;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(82, 38);
+            this.toolStripButton1.Size = new System.Drawing.Size(86, 34);
             this.toolStripButton1.Text = "OPD";
             this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
             // 
             // toolStripButton2
             // 
-            this.toolStripButton2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStripButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(242)))));
             this.toolStripButton2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripButton2.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripButton2.Image = global::VHMIS.Properties.Resources.Sleep_01_32;
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(82, 38);
+            this.toolStripButton2.Size = new System.Drawing.Size(86, 34);
             this.toolStripButton2.Text = "IPD";
             this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripDropDownButton2
             // 
-            this.toolStripDropDownButton2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStripDropDownButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(242)))));
             this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registerToolStripMenuItem1,
             this.viewAllToolStripMenuItem1,
@@ -259,41 +247,41 @@
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(82, 38);
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(86, 34);
             this.toolStripDropDownButton2.Text = "PATIENTS";
             this.toolStripDropDownButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // registerToolStripMenuItem1
             // 
             this.registerToolStripMenuItem1.Name = "registerToolStripMenuItem1";
-            this.registerToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.registerToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
             this.registerToolStripMenuItem1.Text = "Register";
             this.registerToolStripMenuItem1.Click += new System.EventHandler(this.registerToolStripMenuItem1_Click);
             // 
             // viewAllToolStripMenuItem1
             // 
             this.viewAllToolStripMenuItem1.Name = "viewAllToolStripMenuItem1";
-            this.viewAllToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.viewAllToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
             this.viewAllToolStripMenuItem1.Text = "View all";
             this.viewAllToolStripMenuItem1.Click += new System.EventHandler(this.viewAllToolStripMenuItem1_Click);
             // 
             // referalsToolStripMenuItem
             // 
             this.referalsToolStripMenuItem.Name = "referalsToolStripMenuItem";
-            this.referalsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.referalsToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.referalsToolStripMenuItem.Text = "Referrals";
             this.referalsToolStripMenuItem.Click += new System.EventHandler(this.referalsToolStripMenuItem_Click);
             // 
             // bokingToolStripMenuItem
             // 
             this.bokingToolStripMenuItem.Name = "bokingToolStripMenuItem";
-            this.bokingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bokingToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.bokingToolStripMenuItem.Text = "Booking";
             this.bokingToolStripMenuItem.Click += new System.EventHandler(this.bokingToolStripMenuItem_Click);
             // 
             // toolStripSplitButton11
             // 
-            this.toolStripSplitButton11.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStripSplitButton11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(242)))));
             this.toolStripSplitButton11.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem3,
             this.dischargesToolStripMenuItem,
@@ -305,7 +293,7 @@
             this.toolStripSplitButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton11.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripSplitButton11.Name = "toolStripSplitButton11";
-            this.toolStripSplitButton11.Size = new System.Drawing.Size(82, 38);
+            this.toolStripSplitButton11.Size = new System.Drawing.Size(86, 34);
             this.toolStripSplitButton11.Text = "ADMISSION";
             this.toolStripSplitButton11.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
@@ -336,14 +324,14 @@
             // 
             // toolStripButton5
             // 
-            this.toolStripButton5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStripButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(242)))));
             this.toolStripButton5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripButton5.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripButton5.Image = global::VHMIS.Properties.Resources.Medicine_32__1_;
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(82, 38);
+            this.toolStripButton5.Size = new System.Drawing.Size(86, 34);
             this.toolStripButton5.Text = "PHARMACY";
             this.toolStripButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.toolStripButton5.ToolTipText = "Pharmacy";
@@ -351,7 +339,7 @@
             // 
             // toolStripSplitButton5
             // 
-            this.toolStripSplitButton5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStripSplitButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(242)))));
             this.toolStripSplitButton5.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.waitingListsQueueToolStripMenuItem,
             this.diagnosisToolStripMenuItem,
@@ -362,7 +350,7 @@
             this.toolStripSplitButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton5.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripSplitButton5.Name = "toolStripSplitButton5";
-            this.toolStripSplitButton5.Size = new System.Drawing.Size(82, 38);
+            this.toolStripSplitButton5.Size = new System.Drawing.Size(86, 34);
             this.toolStripSplitButton5.Text = "LAB";
             this.toolStripSplitButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
@@ -387,7 +375,7 @@
             // 
             // toolStripSplitButton6
             // 
-            this.toolStripSplitButton6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStripSplitButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(242)))));
             this.toolStripSplitButton6.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.imagingToolStripMenuItem,
             this.dentalToolStripMenuItem,
@@ -399,64 +387,106 @@
             this.toolStripSplitButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton6.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripSplitButton6.Name = "toolStripSplitButton6";
-            this.toolStripSplitButton6.Size = new System.Drawing.Size(82, 38);
+            this.toolStripSplitButton6.Size = new System.Drawing.Size(86, 34);
             this.toolStripSplitButton6.Text = "DIAGNOSIS";
             this.toolStripSplitButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // imagingToolStripMenuItem
             // 
             this.imagingToolStripMenuItem.Name = "imagingToolStripMenuItem";
-            this.imagingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.imagingToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.imagingToolStripMenuItem.Text = "Imaging";
             // 
             // dentalToolStripMenuItem
             // 
             this.dentalToolStripMenuItem.Name = "dentalToolStripMenuItem";
-            this.dentalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.dentalToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.dentalToolStripMenuItem.Text = "Dental";
             // 
             // urinalysisToolStripMenuItem
             // 
             this.urinalysisToolStripMenuItem.Name = "urinalysisToolStripMenuItem";
-            this.urinalysisToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.urinalysisToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.urinalysisToolStripMenuItem.Text = "Urinalysis";
             // 
             // vitalsToolStripMenuItem
             // 
             this.vitalsToolStripMenuItem.Name = "vitalsToolStripMenuItem";
-            this.vitalsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.vitalsToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.vitalsToolStripMenuItem.Text = "Vitals";
             // 
             // toolStripSplitButton9
             // 
-            this.toolStripSplitButton9.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStripSplitButton9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(242)))));
             this.toolStripSplitButton9.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripSplitButton9.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripSplitButton9.Image = global::VHMIS.Properties.Resources.Dental_32__1_;
             this.toolStripSplitButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton9.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripSplitButton9.Name = "toolStripSplitButton9";
-            this.toolStripSplitButton9.Size = new System.Drawing.Size(82, 38);
+            this.toolStripSplitButton9.Size = new System.Drawing.Size(86, 34);
             this.toolStripSplitButton9.Text = "DENTAL";
             this.toolStripSplitButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.toolStripSplitButton9.ButtonClick += new System.EventHandler(this.toolStripSplitButton9_ButtonClick);
             // 
             // toolStripSplitButton7
             // 
-            this.toolStripSplitButton7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStripSplitButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(242)))));
             this.toolStripSplitButton7.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripSplitButton7.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripSplitButton7.Image = global::VHMIS.Properties.Resources.Flow_Cart_32;
             this.toolStripSplitButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton7.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripSplitButton7.Name = "toolStripSplitButton7";
-            this.toolStripSplitButton7.Size = new System.Drawing.Size(82, 38);
+            this.toolStripSplitButton7.Size = new System.Drawing.Size(86, 34);
             this.toolStripSplitButton7.Text = "OPTICAL";
             this.toolStripSplitButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
+            // toolStripSplitButton2
+            // 
+            this.toolStripSplitButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(242)))));
+            this.toolStripSplitButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem7});
+            this.toolStripSplitButton2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripSplitButton2.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripSplitButton2.Image = global::VHMIS.Properties.Resources.Book_Shelf_32;
+            this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton2.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
+            this.toolStripSplitButton2.Name = "toolStripSplitButton2";
+            this.toolStripSplitButton2.Size = new System.Drawing.Size(86, 34);
+            this.toolStripSplitButton2.Text = "THEATRE";
+            this.toolStripSplitButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
+            this.toolStripMenuItem1.Text = "Bookings";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(134, 22);
+            this.toolStripMenuItem2.Text = "Operations";
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(134, 22);
+            this.toolStripMenuItem4.Text = "Procedures";
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(134, 22);
+            this.toolStripMenuItem7.Text = "Surgery";
+            // 
             // toolStripSplitButton1
             // 
-            this.toolStripSplitButton1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStripSplitButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(242)))));
             this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bookingsToolStripMenuItem,
             this.operationsToolStripMenuItem,
@@ -468,37 +498,37 @@
             this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton1.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(82, 38);
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(86, 34);
             this.toolStripSplitButton1.Text = "THEATRE";
             this.toolStripSplitButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // bookingsToolStripMenuItem
             // 
             this.bookingsToolStripMenuItem.Name = "bookingsToolStripMenuItem";
-            this.bookingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bookingsToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.bookingsToolStripMenuItem.Text = "Bookings";
             // 
             // operationsToolStripMenuItem
             // 
             this.operationsToolStripMenuItem.Name = "operationsToolStripMenuItem";
-            this.operationsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.operationsToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.operationsToolStripMenuItem.Text = "Operations";
             // 
             // proceduresToolStripMenuItem
             // 
             this.proceduresToolStripMenuItem.Name = "proceduresToolStripMenuItem";
-            this.proceduresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.proceduresToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.proceduresToolStripMenuItem.Text = "Procedures";
             // 
             // surgeryToolStripMenuItem
             // 
             this.surgeryToolStripMenuItem.Name = "surgeryToolStripMenuItem";
-            this.surgeryToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.surgeryToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.surgeryToolStripMenuItem.Text = "Surgery";
             // 
             // toolStripSplitButton12
             // 
-            this.toolStripSplitButton12.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStripSplitButton12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(242)))));
             this.toolStripSplitButton12.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem5,
             this.toolStripMenuItem6});
@@ -508,25 +538,25 @@
             this.toolStripSplitButton12.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton12.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripSplitButton12.Name = "toolStripSplitButton12";
-            this.toolStripSplitButton12.Size = new System.Drawing.Size(82, 38);
+            this.toolStripSplitButton12.Size = new System.Drawing.Size(86, 34);
             this.toolStripSplitButton12.Text = "ANTENATAL";
             this.toolStripSplitButton12.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(119, 22);
             this.toolStripMenuItem5.Text = "Register";
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(119, 22);
             this.toolStripMenuItem6.Text = "Nurses";
             // 
             // toolStripDropDownButton3
             // 
-            this.toolStripDropDownButton3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStripDropDownButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(242)))));
             this.toolStripDropDownButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.billingToolStripMenuItem,
             this.chargeSlipsToolStripMenuItem});
@@ -535,25 +565,25 @@
             this.toolStripDropDownButton3.Image = global::VHMIS.Properties.Resources.Desktop_32;
             this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
-            this.toolStripDropDownButton3.Size = new System.Drawing.Size(85, 38);
+            this.toolStripDropDownButton3.Size = new System.Drawing.Size(89, 34);
             this.toolStripDropDownButton3.Text = "BILLING";
             this.toolStripDropDownButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // billingToolStripMenuItem
             // 
             this.billingToolStripMenuItem.Name = "billingToolStripMenuItem";
-            this.billingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.billingToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.billingToolStripMenuItem.Text = "OPBilling";
             // 
             // chargeSlipsToolStripMenuItem
             // 
             this.chargeSlipsToolStripMenuItem.Name = "chargeSlipsToolStripMenuItem";
-            this.chargeSlipsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.chargeSlipsToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.chargeSlipsToolStripMenuItem.Text = "Charge slips";
             // 
             // toolStripSplitButton8
             // 
-            this.toolStripSplitButton8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStripSplitButton8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(242)))));
             this.toolStripSplitButton8.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.doctorsToolStripMenuItem,
             this.nursesToolStripMenuItem});
@@ -563,20 +593,20 @@
             this.toolStripSplitButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton8.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripSplitButton8.Name = "toolStripSplitButton8";
-            this.toolStripSplitButton8.Size = new System.Drawing.Size(79, 38);
+            this.toolStripSplitButton8.Size = new System.Drawing.Size(86, 34);
             this.toolStripSplitButton8.Text = "REGISTERS";
             this.toolStripSplitButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // doctorsToolStripMenuItem
             // 
             this.doctorsToolStripMenuItem.Name = "doctorsToolStripMenuItem";
-            this.doctorsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.doctorsToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.doctorsToolStripMenuItem.Text = "Birth";
             // 
             // nursesToolStripMenuItem
             // 
             this.nursesToolStripMenuItem.Name = "nursesToolStripMenuItem";
-            this.nursesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nursesToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.nursesToolStripMenuItem.Text = "Death";
             // 
             // toolStripSeparator14
@@ -594,7 +624,7 @@
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(65, 38);
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(86, 34);
             this.toolStripDropDownButton1.Text = "FINANCE";
             this.toolStripDropDownButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
@@ -616,7 +646,7 @@
             this.toolStripSplitButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton10.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripSplitButton10.Name = "toolStripSplitButton10";
-            this.toolStripSplitButton10.Size = new System.Drawing.Size(53, 38);
+            this.toolStripSplitButton10.Size = new System.Drawing.Size(53, 34);
             this.toolStripSplitButton10.Text = "STAFF";
             this.toolStripSplitButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
@@ -664,7 +694,7 @@
             this.toolStripSplitButton14.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton14.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripSplitButton14.Name = "toolStripSplitButton14";
-            this.toolStripSplitButton14.Size = new System.Drawing.Size(58, 38);
+            this.toolStripSplitButton14.Size = new System.Drawing.Size(58, 34);
             this.toolStripSplitButton14.Text = " SETUP";
             this.toolStripSplitButton14.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
@@ -771,7 +801,7 @@
             this.toolStripButton6.Image = global::VHMIS.Properties.Resources.Note_Memo_01_32;
             this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(81, 39);
+            this.toolStripButton6.Size = new System.Drawing.Size(81, 35);
             this.toolStripButton6.Text = "DASHBOARD";
             this.toolStripButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
@@ -782,9 +812,9 @@
             this.prgLevel,
             this.toolStripSplitButton15,
             this.toolStripProgressBar1});
-            this.statusStrip1.Location = new System.Drawing.Point(88, 668);
+            this.statusStrip1.Location = new System.Drawing.Point(100, 658);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1259, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1237, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -814,68 +844,50 @@
             this.processLbl.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.processLbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.processLbl.ForeColor = System.Drawing.SystemColors.Info;
-            this.processLbl.Location = new System.Drawing.Point(91, 575);
+            this.processLbl.Location = new System.Drawing.Point(101, 519);
             this.processLbl.Multiline = true;
             this.processLbl.Name = "processLbl";
-            this.processLbl.Size = new System.Drawing.Size(254, 90);
+            this.processLbl.Size = new System.Drawing.Size(436, 136);
             this.processLbl.TabIndex = 7;
             this.processLbl.Visible = false;
+            this.processLbl.TextChanged += new System.EventHandler(this.processLbl_TextChanged);
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.AutoSize = false;
+            this.toolStrip2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(176)))), ((int)(((byte)(119)))));
+            this.toolStrip2.GripMargin = new System.Windows.Forms.Padding(0);
+            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton7,
+            this.toolStripButton8});
+            this.toolStrip2.Location = new System.Drawing.Point(100, 10);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
+            this.toolStrip2.Size = new System.Drawing.Size(1237, 45);
+            this.toolStrip2.TabIndex = 9;
+            this.toolStrip2.Text = "toolStrip2";
             // 
             // toolStripButton7
             // 
-            this.toolStripButton7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.toolStripButton7.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButton7.ForeColor = System.Drawing.Color.DimGray;
-            this.toolStripButton7.Image = global::VHMIS.Properties.Resources.Syringe_01_32;
+            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton7.Image = global::VHMIS.Properties.Resources.View_Medium_Icons_16;
+            this.toolStripButton7.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(82, 38);
-            this.toolStripButton7.Text = "OPD";
-            this.toolStripButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton1_Click_1);
+            this.toolStripButton7.Size = new System.Drawing.Size(23, 42);
+            this.toolStripButton7.Text = "toolStripButton7";
+            this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
             // 
-            // toolStripSplitButton2
+            // toolStripButton8
             // 
-            this.toolStripSplitButton2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.toolStripSplitButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem7});
-            this.toolStripSplitButton2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripSplitButton2.ForeColor = System.Drawing.Color.DimGray;
-            this.toolStripSplitButton2.Image = global::VHMIS.Properties.Resources.Book_Shelf_32;
-            this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton2.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
-            this.toolStripSplitButton2.Name = "toolStripSplitButton2";
-            this.toolStripSplitButton2.Size = new System.Drawing.Size(82, 38);
-            this.toolStripSplitButton2.Text = "THEATRE";
-            this.toolStripSplitButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem1.Text = "Bookings";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem2.Text = "Operations";
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem4.Text = "Procedures";
-            // 
-            // toolStripMenuItem7
-            // 
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem7.Text = "Surgery";
+            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton8.Image = global::VHMIS.Properties.Resources.Calendar_Date_02_16;
+            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.Size = new System.Drawing.Size(23, 42);
+            this.toolStripButton8.Text = "toolStripButton8";
+            this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
             // 
             // MainForm
             // 
@@ -883,7 +895,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1347, 690);
+            this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.processLbl);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
@@ -892,6 +906,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "MainForm";
+            this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "VHMIS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -899,6 +914,8 @@
             this.toolStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -961,8 +978,6 @@
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
         private System.Windows.Forms.ToolStripMenuItem registerToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem viewAllToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripMenuItem cD10DiagnosisToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
@@ -985,6 +1000,9 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
+        private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.ToolStripButton toolStripButton8;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
     }
 }

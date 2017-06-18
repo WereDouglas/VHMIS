@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VHMIS
+namespace VHMIS.Model
 {
     public class Events
     {
@@ -29,7 +29,8 @@ namespace VHMIS
         private string department;
         private string clinic;
         private string orgID;
-        public Events(string id, string details, string starts, string ends, string users, string patient, string created, string patientid, string status, string userid, string dated, string notif, string priority, string sync, string cal, string contact, string email,string department,string clinic, string orgID)
+
+        public Events(string id, string details, string starts, string ends, string users, string patient, string created, string patientid, string status, string userid, string dated, string notif, string priority, string sync, string cal, string contact, string email, string department, string clinic, string orgID)
         {
             this.id = id;
             this.details = details;
@@ -46,10 +47,11 @@ namespace VHMIS
             this.priority = priority;
             this.sync = sync;
             this.cal = cal;
-            this.email = contact;
+            this.contact = contact;
+            this.email = email;
             this.department = department;
             this.clinic = clinic;
-            this.OrgID = orgID;
+            this.orgID = orgID;
         }
 
         public string Id
@@ -324,7 +326,7 @@ namespace VHMIS
             while (Reader.Read())
             {  
                
-                    Events p = new Events(Reader["id"].ToString(), Reader["details"].ToString(), Reader["starts"].ToString(), Reader["ends"].ToString(), Reader["users"].ToString(), Reader["patient"].ToString(), Reader["created"].ToString(), Reader["patientid"].ToString(), Reader["status"].ToString(), Reader["userid"].ToString(), Reader["dated"].ToString(), Reader["notif"].ToString(), Reader["priority"].ToString(), Reader["sync"].ToString(), Reader["cal"].ToString(), Reader["contact"].ToString(), Reader["email"].ToString(),Reader["department"].ToString(), Reader["clinic"].ToString(), Reader["orgid"].ToString());
+                Events p = new Events(Reader["id"].ToString(), Reader["details"].ToString(), Reader["starts"].ToString(), Reader["ends"].ToString(), Reader["users"].ToString(), Reader["patient"].ToString(), Reader["created"].ToString(), Reader["patientid"].ToString(), Reader["status"].ToString(), Reader["userid"].ToString(), Reader["dated"].ToString(), Reader["notif"].ToString(), Reader["priority"].ToString(), Reader["sync"].ToString(), Reader["cal"].ToString(), Reader["contact"].ToString(), Reader["email"].ToString(),Reader["department"].ToString(), Reader["clinic"].ToString(), Reader["orgid"].ToString());
                 events.Add(p);                
 
             }

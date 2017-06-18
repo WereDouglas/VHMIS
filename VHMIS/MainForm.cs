@@ -25,6 +25,7 @@ namespace VHMIS
         public static MainForm _Form1;
         private BackgroundWorker bw_message = new BackgroundWorker();
         private BackgroundWorker bw_upload = new BackgroundWorker();
+        private BackgroundWorker bwLite = new BackgroundWorker();
         public MainForm()
         {
             Helper.orgID = "test";
@@ -32,7 +33,6 @@ namespace VHMIS
             Global.LoadData();
 
             LoadVoice();
-
 
             _Form1 = this;
             System.Timers.Timer timer = new System.Timers.Timer();
@@ -44,14 +44,96 @@ namespace VHMIS
             bw_message.ProgressChanged += backgroundWorker1_ProgressChanged;
             bw_message.WorkerReportsProgress = true;
 
+            bwLite.DoWork += backgroundWorker1_Upload;
+            bwLite.ProgressChanged += backgroundWorker1_ProgressChanged;
+            bwLite.WorkerReportsProgress = true;
+
+
+        }
+        private void backgroundWorker1_Upload(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+
+            if (Uploading.CheckServer())
+            {
+
+                for (int i = 0; i < 16; i++)
+                {
+                    FeedBack("PROCESS " + i.ToString());
+                    //try
+                    //{
+                    process(i);
+                    //}
+                    //catch (Exception c)
+                    //{
+                    //    FeedBack("PROCESSING ERROR " + i.ToString() + " " + c.Message.ToString());
+                    //}
+
+                    bwLite.ReportProgress(i);
+                    Thread.Sleep(1500);
+
+                }
+            }
+            else
+            {
+
+                FeedBack("No internet connection ");
+                bwLite.Dispose();
+
+
+            }
+
+        }
+        private void process(int count)
+        {
+            int val = count;
+            switch (val)
+            {
+                case 1:
+                    Uploading.Patients();
+
+                    break;
+                case 2:
+                    Uploading.Users();
+                    break;
+                case 3:
+                    Uploading.Events();
+                    break;
+
+                case 14:
+
+                    if (Uploading.CheckServer())
+                    {
+                        Uploading.updateSyncTime();
+                        FeedBack("Uploading and Downloading of information complete");
+
+                        FeedBack("LAST SYNC " + Helper.lastSync);
+                        bwLite.Dispose();
+                        return;
+                    }
+                    else
+                    {
+                        FeedBack("No valid connection ");
+
+                    }
+                    break;
+                default:
+                    FeedBack("Processing");
+                    break;
+            }
+
         }
 
         void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
+            if (!bwLite.IsBusy)
+            {
+                bwLite.RunWorkerAsync();
+            }
             if (!bw_message.IsBusy)
             {
                 bw_message.RunWorkerAsync();
             }
+
         }
         public void FeedBack(string text)
         {
@@ -729,6 +811,29 @@ namespace VHMIS
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
             frm.Show();
+        }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+
+            QueueForm frm = new QueueForm();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripButton8_Click(object sender, EventArgs e)
+        {
+            CalenderForm frm = new CalenderForm();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void processLbl_TextChanged(object sender, EventArgs e)
+        {
+            processLbl.SelectionStart = processLbl.Text.Length;
+            processLbl.ScrollToCaret();
         }
     }
 }

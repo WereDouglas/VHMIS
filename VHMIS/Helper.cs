@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
@@ -18,6 +20,9 @@ namespace VHMIS
         public static string orgName;
         public static string orgAddress;
         public static string userContact;
+        public static string lastSync;
+        public static string genUrl = "http://localhost/vhmis/index.php/";
+        //public static string fileUrl = "http://localhost/vhmis/file/";
         public static string CalculateYourAge(DateTime Dob)
         {
             DateTime Now = DateTime.Now;
@@ -43,6 +48,48 @@ namespace VHMIS
             int Seconds = Now.Subtract(PastYearDate).Seconds;
              return String.Format("Age: {0} Year(s) {1} Month(s) {2} Day(s) {3} Hour(s) {4} Second(s)", Years, Months, Days, Hours, Seconds);
             //return String.Format("Age: {0} ", Years, Months, Days, Hours, Seconds);
+        }
+        public static string get(string url, NameValueCollection data)
+        {
+            try
+            {
+                WebClient webClient = new WebClient();
+
+                byte[] responseBytes = webClient.UploadValues(url, "POST", data);
+                string responsefromserver = Encoding.UTF8.GetString(responseBytes);
+
+                Console.WriteLine(responsefromserver);
+                return responsefromserver;
+                //    //   webClient.Dispose();
+            }
+            catch (Exception v)
+            {
+
+                Console.WriteLine("Your issue " + v.Message.ToString());
+                return "false";
+
+            }
+
+        }
+        public static string send(string url, NameValueCollection data)
+        {
+            //try
+            //{
+            WebClient webClient = new WebClient();
+
+            byte[] responseBytes = webClient.UploadValues(url, "POST", data);
+            string responsefromserver = Encoding.UTF8.GetString(responseBytes);
+            // row.Update(row.Id, "F");
+            //row.Update(row.Id, responsefromserver);
+            Console.WriteLine(responsefromserver);
+            return responsefromserver;
+            //    //   webClient.Dispose();
+            //}
+            //catch {
+            //    return "No Internet";
+
+            //}
+
         }
         public static string CleanString(string str)
         {

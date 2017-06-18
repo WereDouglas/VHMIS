@@ -58,6 +58,7 @@ namespace VHMIS
         Dictionary<string, string> cdDictionary = new Dictionary<string, string>();
         List<Queue> _todayList = new List<Queue>();
         Queue _queue;
+        string QueueNo;
         DataTable t;
         List<Users> _userList = new List<Users>();
 
@@ -76,6 +77,7 @@ namespace VHMIS
             perfChart.TimerInterval = 100;
          
             queueID = visitID;
+           
             try
             {
                 LoadPatient(patientID);
@@ -84,7 +86,8 @@ namespace VHMIS
             {
 
             }
-            visitLbl.Text = Global._queues.First(e=>e.Id.Contains(queueID)).No ;
+            visitLbl.Text = Global._queues.First(e=>e.Id.Contains(queueID)).No;
+            QueueNo = Global._queues.First(e => e.Id.Contains(queueID)).No;
 
             btnDelete.Name = "btnDelete";
             btnDelete.Text = "Remove";
@@ -946,14 +949,18 @@ namespace VHMIS
 
         private void button2_Click_2(object sender, EventArgs e)
         {
-            string id = "";
-            id = Guid.NewGuid().ToString();
-            if (!String.IsNullOrEmpty(labCbx.Text))
+            using (LabDialog form = new LabDialog(PatientID, queueID, QueueNo))
             {
-                _lab = new Lab(id, queueID, PatientID, labCbx.Text, labCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), labQty.Text, LabTotal.ToString("n0"), Helper.orgID, visitLbl.Text);
-                DBConnect.Insert(_lab);
-                LoadLabs(queueID);
+                // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                   
+                    LoadLabs(queueID);
+
+                }
             }
+
         }
 
         private void diagnosisCbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -968,20 +975,17 @@ namespace VHMIS
         private Services _service;
         private void button18_Click_1(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(statusCbx.Text))
+            using (ServiceDialog form = new ServiceDialog(PatientID, queueID, QueueNo))
             {
+                // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    //MessageBox.Show(form.state);
+                 
+                    LoadServices(queueID);
 
-                MessageBox.Show("Please select the current status of the operation/Service ");
-                return;
-            }
-            string id = "";
-            id = Guid.NewGuid().ToString();
-            if (!String.IsNullOrEmpty(operationCbx.Text))
-            {
-                _service = new Services(id, operationCbx.Text, queueID, "Dental", "procedureID", PatientID, "userID", "code", "userID", opCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), parameterTxt.Text, statusCbx.Text, serviceQty.Text, serviceTotal.ToString("n0"),"No", Helper.orgID, visitLbl.Text);
-                DBConnect.Insert(_service);
-                MessageBox.Show("Information added/Saved");
-                LoadServices(queueID);
+                }
             }
         }
 

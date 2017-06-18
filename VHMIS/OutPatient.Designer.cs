@@ -33,6 +33,8 @@
             this.queueNo = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
@@ -66,8 +68,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.numberTxt = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label54 = new System.Windows.Forms.Label();
-            this.procTotal = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label62 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
@@ -80,46 +80,19 @@
             this.label50 = new System.Windows.Forms.Label();
             this.serviceLbl = new System.Windows.Forms.Label();
             this.enrollbyTxt = new System.Windows.Forms.TextBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.procQty = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
-            this.labQty = new System.Windows.Forms.TextBox();
             this.label53 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.methodCbx = new System.Windows.Forms.ComboBox();
-            this.serviceQty = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.dtServices = new System.Windows.Forms.DataGridView();
             this.dtLab = new System.Windows.Forms.DataGridView();
-            this.label27 = new System.Windows.Forms.Label();
-            this.parameterTxt = new System.Windows.Forms.TextBox();
-            this.button18 = new System.Windows.Forms.Button();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.statusCbx = new System.Windows.Forms.ComboBox();
-            this.operationCbx = new System.Windows.Forms.ComboBox();
-            this.opCostTxt = new System.Windows.Forms.TextBox();
-            this.label52 = new System.Windows.Forms.Label();
-            this.testsTxt = new System.Windows.Forms.TextBox();
-            this.labCbx = new System.Windows.Forms.ComboBox();
-            this.labCostTxt = new System.Windows.Forms.TextBox();
-            this.textBox31 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.remarksTxt = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.procCostTxt = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
-            this.procTxt = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.billGrid = new System.Windows.Forms.DataGridView();
@@ -192,7 +165,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.MediumSeaGreen;
             this.label1.Location = new System.Drawing.Point(3, 1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 23);
@@ -201,18 +174,20 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(7, 5);
+            this.splitContainer1.Location = new System.Drawing.Point(98, 5);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
-            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(176)))), ((int)(((byte)(119)))));
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
             this.splitContainer1.Panel1.Controls.Add(this.queueNo);
             this.splitContainer1.Panel1.Controls.Add(this.label26);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
+            this.splitContainer1.Panel1.Controls.Add(this.button18);
+            this.splitContainer1.Panel1.Controls.Add(this.button2);
             this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
@@ -239,7 +214,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label26.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label26.Location = new System.Drawing.Point(308, 6);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(91, 15);
@@ -252,12 +227,44 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::VHMIS.Properties.Resources.Cancel_16;
-            this.button1.Location = new System.Drawing.Point(1662, 2);
+            this.button1.Location = new System.Drawing.Point(1628, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(36, 21);
             this.button1.TabIndex = 1;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button18
+            // 
+            this.button18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button18.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button18.FlatAppearance.BorderSize = 0;
+            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button18.Location = new System.Drawing.Point(786, 2);
+            this.button18.Margin = new System.Windows.Forms.Padding(2);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(102, 21);
+            this.button18.TabIndex = 216;
+            this.button18.Text = "Add service";
+            this.button18.UseVisualStyleBackColor = false;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(911, 1);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(96, 26);
+            this.button2.TabIndex = 152;
+            this.button2.Text = "Request Lab";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -265,7 +272,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.57371F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.42628F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 414F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 301F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 2, 0);
@@ -318,7 +325,7 @@
             this.panel1.ForeColor = System.Drawing.SystemColors.Desktop;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(286, 558);
+            this.panel1.Size = new System.Drawing.Size(285, 558);
             this.panel1.TabIndex = 5;
             // 
             // button5
@@ -621,8 +628,6 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.label54);
-            this.groupBox1.Controls.Add(this.procTotal);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label62);
             this.groupBox1.Controls.Add(this.label48);
@@ -635,72 +640,25 @@
             this.groupBox1.Controls.Add(this.label50);
             this.groupBox1.Controls.Add(this.serviceLbl);
             this.groupBox1.Controls.Add(this.enrollbyTxt);
-            this.groupBox1.Controls.Add(this.label37);
-            this.groupBox1.Controls.Add(this.procQty);
-            this.groupBox1.Controls.Add(this.label30);
             this.groupBox1.Controls.Add(this.label51);
-            this.groupBox1.Controls.Add(this.labQty);
             this.groupBox1.Controls.Add(this.label53);
-            this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.methodCbx);
-            this.groupBox1.Controls.Add(this.serviceQty);
             this.groupBox1.Controls.Add(this.textBox6);
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.dtServices);
             this.groupBox1.Controls.Add(this.dtLab);
-            this.groupBox1.Controls.Add(this.label27);
-            this.groupBox1.Controls.Add(this.parameterTxt);
-            this.groupBox1.Controls.Add(this.button18);
-            this.groupBox1.Controls.Add(this.label56);
-            this.groupBox1.Controls.Add(this.label55);
-            this.groupBox1.Controls.Add(this.statusCbx);
-            this.groupBox1.Controls.Add(this.operationCbx);
-            this.groupBox1.Controls.Add(this.opCostTxt);
-            this.groupBox1.Controls.Add(this.label52);
-            this.groupBox1.Controls.Add(this.testsTxt);
-            this.groupBox1.Controls.Add(this.labCbx);
-            this.groupBox1.Controls.Add(this.labCostTxt);
-            this.groupBox1.Controls.Add(this.textBox31);
-            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.remarksTxt);
             this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.procCostTxt);
-            this.groupBox1.Controls.Add(this.label29);
             this.groupBox1.Controls.Add(this.button7);
-            this.groupBox1.Controls.Add(this.procTxt);
-            this.groupBox1.Location = new System.Drawing.Point(295, 3);
+            this.groupBox1.Location = new System.Drawing.Point(294, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(689, 558);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Services";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(6, 453);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(49, 13);
-            this.label54.TabIndex = 185;
-            this.label54.Text = "Fee/Cost";
-            // 
-            // procTotal
-            // 
-            this.procTotal.AutoSize = true;
-            this.procTotal.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.procTotal.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.procTotal.Location = new System.Drawing.Point(487, 321);
-            this.procTotal.Name = "procTotal";
-            this.procTotal.Size = new System.Drawing.Size(33, 15);
-            this.procTotal.TabIndex = 236;
-            this.procTotal.Text = "Total";
             // 
             // textBox2
             // 
@@ -757,7 +715,7 @@
             this.LabLbl.AutoSize = true;
             this.LabLbl.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabLbl.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.LabLbl.Location = new System.Drawing.Point(471, 188);
+            this.LabLbl.Location = new System.Drawing.Point(646, 248);
             this.LabLbl.Name = "LabLbl";
             this.LabLbl.Size = new System.Drawing.Size(33, 15);
             this.LabLbl.TabIndex = 233;
@@ -809,7 +767,7 @@
             this.serviceLbl.AutoSize = true;
             this.serviceLbl.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.serviceLbl.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.serviceLbl.Location = new System.Drawing.Point(487, 43);
+            this.serviceLbl.Location = new System.Drawing.Point(646, 114);
             this.serviceLbl.Name = "serviceLbl";
             this.serviceLbl.Size = new System.Drawing.Size(33, 15);
             this.serviceLbl.TabIndex = 232;
@@ -825,37 +783,6 @@
             this.enrollbyTxt.Size = new System.Drawing.Size(205, 19);
             this.enrollbyTxt.TabIndex = 178;
             // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(377, 321);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(47, 13);
-            this.label37.TabIndex = 231;
-            this.label37.Text = "Quantity";
-            // 
-            // procQty
-            // 
-            this.procQty.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.procQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.procQty.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.procQty.Location = new System.Drawing.Point(430, 317);
-            this.procQty.Multiline = true;
-            this.procQty.Name = "procQty";
-            this.procQty.Size = new System.Drawing.Size(43, 21);
-            this.procQty.TabIndex = 230;
-            this.procQty.Text = "1";
-            this.procQty.TextChanged += new System.EventHandler(this.procQty_TextChanged);
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(381, 162);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(47, 13);
-            this.label30.TabIndex = 229;
-            this.label30.Text = "Quantity";
-            // 
             // label51
             // 
             this.label51.AutoSize = true;
@@ -865,19 +792,6 @@
             this.label51.TabIndex = 175;
             this.label51.Text = "Billing method";
             // 
-            // labQty
-            // 
-            this.labQty.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labQty.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labQty.Location = new System.Drawing.Point(380, 184);
-            this.labQty.Multiline = true;
-            this.labQty.Name = "labQty";
-            this.labQty.Size = new System.Drawing.Size(85, 19);
-            this.labQty.TabIndex = 228;
-            this.labQty.Text = "1";
-            this.labQty.TextChanged += new System.EventHandler(this.labQty_TextChanged);
-            // 
             // label53
             // 
             this.label53.AutoSize = true;
@@ -886,15 +800,6 @@
             this.label53.Size = new System.Drawing.Size(59, 13);
             this.label53.TabIndex = 177;
             this.label53.Text = "Enrollment";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(385, 26);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(47, 13);
-            this.label22.TabIndex = 227;
-            this.label22.Text = "Quantity";
             // 
             // methodCbx
             // 
@@ -911,19 +816,6 @@
             this.methodCbx.Name = "methodCbx";
             this.methodCbx.Size = new System.Drawing.Size(205, 21);
             this.methodCbx.TabIndex = 176;
-            // 
-            // serviceQty
-            // 
-            this.serviceQty.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.serviceQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.serviceQty.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.serviceQty.Location = new System.Drawing.Point(384, 42);
-            this.serviceQty.Multiline = true;
-            this.serviceQty.Name = "serviceQty";
-            this.serviceQty.Size = new System.Drawing.Size(85, 21);
-            this.serviceQty.TabIndex = 226;
-            this.serviceQty.Text = "1";
-            this.serviceQty.TextChanged += new System.EventHandler(this.serviceQty_TextChanged);
             // 
             // textBox6
             // 
@@ -963,22 +855,6 @@
             this.label20.TabIndex = 222;
             this.label20.Text = "Insurance Cover";
             // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(628, 315);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(55, 23);
-            this.button4.TabIndex = 221;
-            this.button4.Text = "Add";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // dtServices
             // 
             this.dtServices.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -989,7 +865,7 @@
             this.dtServices.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtServices.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dtServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtServices.Location = new System.Drawing.Point(9, 69);
+            this.dtServices.Location = new System.Drawing.Point(6, 19);
             this.dtServices.Name = "dtServices";
             this.dtServices.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dtServices.Size = new System.Drawing.Size(674, 89);
@@ -1005,162 +881,13 @@
             this.dtLab.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtLab.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dtLab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtLab.Location = new System.Drawing.Point(8, 215);
+            this.dtLab.Location = new System.Drawing.Point(10, 133);
             this.dtLab.Name = "dtLab";
             this.dtLab.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dtLab.RowHeadersVisible = false;
             this.dtLab.Size = new System.Drawing.Size(675, 100);
             this.dtLab.TabIndex = 219;
             this.dtLab.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtLab_CellClick);
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(293, 26);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(58, 13);
-            this.label27.TabIndex = 218;
-            this.label27.Text = "Parameter";
-            // 
-            // parameterTxt
-            // 
-            this.parameterTxt.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.parameterTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.parameterTxt.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.parameterTxt.Location = new System.Drawing.Point(292, 43);
-            this.parameterTxt.Multiline = true;
-            this.parameterTxt.Name = "parameterTxt";
-            this.parameterTxt.Size = new System.Drawing.Size(85, 21);
-            this.parameterTxt.TabIndex = 217;
-            // 
-            // button18
-            // 
-            this.button18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button18.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button18.FlatAppearance.BorderSize = 0;
-            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button18.Location = new System.Drawing.Point(623, 44);
-            this.button18.Margin = new System.Windows.Forms.Padding(2);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(55, 21);
-            this.button18.TabIndex = 216;
-            this.button18.Text = "Add";
-            this.button18.UseVisualStyleBackColor = false;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(213, 26);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(37, 13);
-            this.label56.TabIndex = 215;
-            this.label56.Text = "Status";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(154, 26);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(28, 13);
-            this.label55.TabIndex = 214;
-            this.label55.Text = "Cost";
-            // 
-            // statusCbx
-            // 
-            this.statusCbx.FormattingEnabled = true;
-            this.statusCbx.Items.AddRange(new object[] {
-            "Complete",
-            "Not Done"});
-            this.statusCbx.Location = new System.Drawing.Point(199, 43);
-            this.statusCbx.Name = "statusCbx";
-            this.statusCbx.Size = new System.Drawing.Size(87, 21);
-            this.statusCbx.TabIndex = 213;
-            // 
-            // operationCbx
-            // 
-            this.operationCbx.FormattingEnabled = true;
-            this.operationCbx.Location = new System.Drawing.Point(9, 43);
-            this.operationCbx.Name = "operationCbx";
-            this.operationCbx.Size = new System.Drawing.Size(108, 21);
-            this.operationCbx.TabIndex = 212;
-            this.operationCbx.SelectedIndexChanged += new System.EventHandler(this.operationCbx_SelectedIndexChanged);
-            // 
-            // opCostTxt
-            // 
-            this.opCostTxt.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.opCostTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.opCostTxt.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.opCostTxt.Location = new System.Drawing.Point(121, 43);
-            this.opCostTxt.Name = "opCostTxt";
-            this.opCostTxt.Size = new System.Drawing.Size(72, 21);
-            this.opCostTxt.TabIndex = 211;
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(6, 26);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(125, 13);
-            this.label52.TabIndex = 210;
-            this.label52.Text = "Procedures e.g Radiology";
-            // 
-            // testsTxt
-            // 
-            this.testsTxt.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.testsTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.testsTxt.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.testsTxt.Location = new System.Drawing.Point(292, 184);
-            this.testsTxt.Multiline = true;
-            this.testsTxt.Name = "testsTxt";
-            this.testsTxt.Size = new System.Drawing.Size(85, 19);
-            this.testsTxt.TabIndex = 155;
-            // 
-            // labCbx
-            // 
-            this.labCbx.FormattingEnabled = true;
-            this.labCbx.Location = new System.Drawing.Point(8, 183);
-            this.labCbx.Name = "labCbx";
-            this.labCbx.Size = new System.Drawing.Size(109, 21);
-            this.labCbx.TabIndex = 154;
-            this.labCbx.SelectedIndexChanged += new System.EventHandler(this.labCbx_SelectedIndexChanged);
-            // 
-            // labCostTxt
-            // 
-            this.labCostTxt.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labCostTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labCostTxt.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labCostTxt.Location = new System.Drawing.Point(198, 184);
-            this.labCostTxt.Name = "labCostTxt";
-            this.labCostTxt.Size = new System.Drawing.Size(88, 21);
-            this.labCostTxt.TabIndex = 153;
-            // 
-            // textBox31
-            // 
-            this.textBox31.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox31.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox31.Location = new System.Drawing.Point(123, 184);
-            this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(72, 21);
-            this.textBox31.TabIndex = 151;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(627, 185);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(55, 26);
-            this.button2.TabIndex = 152;
-            this.button2.Text = "Request";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // remarksTxt
             // 
@@ -1182,33 +909,6 @@
             this.label19.TabIndex = 143;
             this.label19.Text = "Remarks";
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(10, 323);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(85, 13);
-            this.label18.TabIndex = 142;
-            this.label18.Text = "Procedure name";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 161);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(85, 13);
-            this.label17.TabIndex = 141;
-            this.label17.Text = "Labaratory tests";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 24);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 13);
-            this.label4.TabIndex = 139;
-            this.label4.Text = "Services and Operations";
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -1217,25 +917,6 @@
             this.label16.Size = new System.Drawing.Size(67, 13);
             this.label16.TabIndex = 137;
             this.label16.Text = "Practictioner";
-            // 
-            // procCostTxt
-            // 
-            this.procCostTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.procCostTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.procCostTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.procCostTxt.Location = new System.Drawing.Point(273, 319);
-            this.procCostTxt.Name = "procCostTxt";
-            this.procCostTxt.Size = new System.Drawing.Size(104, 19);
-            this.procCostTxt.TabIndex = 135;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(224, 321);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(50, 13);
-            this.label29.TabIndex = 131;
-            this.label29.Text = "Unit Cost";
             // 
             // button7
             // 
@@ -1253,20 +934,10 @@
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // procTxt
-            // 
-            this.procTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.procTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.procTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.procTxt.Location = new System.Drawing.Point(107, 320);
-            this.procTxt.Name = "procTxt";
-            this.procTxt.Size = new System.Drawing.Size(111, 19);
-            this.procTxt.TabIndex = 136;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.panel4);
-            this.groupBox2.Location = new System.Drawing.Point(990, 3);
+            this.groupBox2.Location = new System.Drawing.Point(989, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(408, 571);
             this.groupBox2.TabIndex = 4;
@@ -1559,9 +1230,9 @@
             this.groupBox4.Controls.Add(this.departmentCbx);
             this.groupBox4.Controls.Add(this.roomCbx);
             this.groupBox4.Controls.Add(this.label31);
-            this.groupBox4.Location = new System.Drawing.Point(1404, 3);
+            this.groupBox4.Location = new System.Drawing.Point(1403, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(295, 558);
+            this.groupBox4.Size = new System.Drawing.Size(296, 558);
             this.groupBox4.TabIndex = 147;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Add new appointment";
@@ -1599,7 +1270,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.openedDate.Location = new System.Drawing.Point(109, 359);
             this.openedDate.Name = "openedDate";
-            this.openedDate.Size = new System.Drawing.Size(167, 21);
+            this.openedDate.Size = new System.Drawing.Size(168, 21);
             this.openedDate.TabIndex = 223;
             // 
             // button6
@@ -1613,7 +1284,7 @@
             this.button6.Location = new System.Drawing.Point(155, 507);
             this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(132, 20);
+            this.button6.Size = new System.Drawing.Size(133, 20);
             this.button6.TabIndex = 190;
             this.button6.Text = "Add to Calendar";
             this.button6.UseVisualStyleBackColor = false;
@@ -1644,7 +1315,7 @@
             this.comboBox7.Location = new System.Drawing.Point(109, 310);
             this.comboBox7.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(167, 21);
+            this.comboBox7.Size = new System.Drawing.Size(168, 21);
             this.comboBox7.TabIndex = 192;
             // 
             // notifyChk
@@ -1665,7 +1336,7 @@
             this.endMinTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.endMinTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.endMinTxt.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.endMinTxt.Location = new System.Drawing.Point(210, 278);
+            this.endMinTxt.Location = new System.Drawing.Point(211, 278);
             this.endMinTxt.Name = "endMinTxt";
             this.endMinTxt.Size = new System.Drawing.Size(55, 16);
             this.endMinTxt.TabIndex = 186;
@@ -1676,7 +1347,7 @@
             this.startMinTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.startMinTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.startMinTxt.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startMinTxt.Location = new System.Drawing.Point(210, 247);
+            this.startMinTxt.Location = new System.Drawing.Point(211, 247);
             this.startMinTxt.Name = "startMinTxt";
             this.startMinTxt.Size = new System.Drawing.Size(55, 16);
             this.startMinTxt.TabIndex = 185;
@@ -1724,7 +1395,7 @@
             "16",
             "17",
             "18"});
-            this.endHrTxt.Location = new System.Drawing.Point(117, 274);
+            this.endHrTxt.Location = new System.Drawing.Point(118, 274);
             this.endHrTxt.Name = "endHrTxt";
             this.endHrTxt.Size = new System.Drawing.Size(87, 21);
             this.endHrTxt.TabIndex = 184;
@@ -1754,7 +1425,7 @@
             "21",
             "22",
             "23"});
-            this.startHrTxt.Location = new System.Drawing.Point(117, 247);
+            this.startHrTxt.Location = new System.Drawing.Point(118, 247);
             this.startHrTxt.Name = "startHrTxt";
             this.startHrTxt.Size = new System.Drawing.Size(87, 21);
             this.startHrTxt.TabIndex = 183;
@@ -1765,7 +1436,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker3.Location = new System.Drawing.Point(109, 24);
             this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(177, 21);
+            this.dateTimePicker3.Size = new System.Drawing.Size(178, 21);
             this.dateTimePicker3.TabIndex = 175;
             // 
             // label64
@@ -1788,7 +1459,7 @@
             this.practitionerTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.practitionerTxt.Location = new System.Drawing.Point(108, 386);
             this.practitionerTxt.Name = "practitionerTxt";
-            this.practitionerTxt.Size = new System.Drawing.Size(180, 19);
+            this.practitionerTxt.Size = new System.Drawing.Size(181, 19);
             this.practitionerTxt.TabIndex = 142;
             this.practitionerTxt.Leave += new System.EventHandler(this.practitionerTxt_Leave);
             // 
@@ -1802,7 +1473,7 @@
             this.detailsTxt.Location = new System.Drawing.Point(109, 177);
             this.detailsTxt.Multiline = true;
             this.detailsTxt.Name = "detailsTxt";
-            this.detailsTxt.Size = new System.Drawing.Size(176, 47);
+            this.detailsTxt.Size = new System.Drawing.Size(177, 47);
             this.detailsTxt.TabIndex = 172;
             // 
             // clinicCbx
@@ -1815,7 +1486,7 @@
             this.clinicCbx.Location = new System.Drawing.Point(109, 52);
             this.clinicCbx.Margin = new System.Windows.Forms.Padding(4);
             this.clinicCbx.Name = "clinicCbx";
-            this.clinicCbx.Size = new System.Drawing.Size(175, 21);
+            this.clinicCbx.Size = new System.Drawing.Size(176, 21);
             this.clinicCbx.TabIndex = 167;
             // 
             // label46
@@ -1843,7 +1514,7 @@
             this.priorityCbx.Location = new System.Drawing.Point(109, 142);
             this.priorityCbx.Margin = new System.Windows.Forms.Padding(4);
             this.priorityCbx.Name = "priorityCbx";
-            this.priorityCbx.Size = new System.Drawing.Size(176, 21);
+            this.priorityCbx.Size = new System.Drawing.Size(177, 21);
             this.priorityCbx.TabIndex = 156;
             // 
             // label45
@@ -1890,7 +1561,7 @@
             this.departmentCbx.Location = new System.Drawing.Point(109, 114);
             this.departmentCbx.Margin = new System.Windows.Forms.Padding(4);
             this.departmentCbx.Name = "departmentCbx";
-            this.departmentCbx.Size = new System.Drawing.Size(176, 21);
+            this.departmentCbx.Size = new System.Drawing.Size(177, 21);
             this.departmentCbx.TabIndex = 170;
             // 
             // roomCbx
@@ -1903,7 +1574,7 @@
             this.roomCbx.Location = new System.Drawing.Point(109, 83);
             this.roomCbx.Margin = new System.Windows.Forms.Padding(4);
             this.roomCbx.Name = "roomCbx";
-            this.roomCbx.Size = new System.Drawing.Size(176, 21);
+            this.roomCbx.Size = new System.Drawing.Size(177, 21);
             this.roomCbx.TabIndex = 168;
             this.roomCbx.SelectedIndexChanged += new System.EventHandler(this.roomCbx_SelectedIndexChanged);
             // 
@@ -1923,7 +1594,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1362, 610);
+            this.ClientSize = new System.Drawing.Size(1362, 627);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -2042,8 +1713,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.Label procTotal;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.Label label48;
@@ -2056,46 +1725,21 @@
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label serviceLbl;
         private System.Windows.Forms.TextBox enrollbyTxt;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.TextBox procQty;
-        private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.TextBox labQty;
         private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ComboBox methodCbx;
-        private System.Windows.Forms.TextBox serviceQty;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView dtServices;
         private System.Windows.Forms.DataGridView dtLab;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox parameterTxt;
         private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.ComboBox statusCbx;
-        private System.Windows.Forms.ComboBox operationCbx;
-        private System.Windows.Forms.TextBox opCostTxt;
-        private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.TextBox testsTxt;
-        private System.Windows.Forms.ComboBox labCbx;
-        private System.Windows.Forms.TextBox labCostTxt;
-        private System.Windows.Forms.TextBox textBox31;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox remarksTxt;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox procCostTxt;
-        private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox procTxt;
         private System.Windows.Forms.DataGridView billGrid;
     }
 }

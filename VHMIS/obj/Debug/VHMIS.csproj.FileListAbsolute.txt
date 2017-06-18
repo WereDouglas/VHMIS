@@ -62,3 +62,6 @@ C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHM
 C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.AdmissionDialog.resources
 C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.AdmissionForm.resources
 C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.DashBoard.resources
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.ParentForm.resources
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.ServiceDialog.resources
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.LabDialog.resources

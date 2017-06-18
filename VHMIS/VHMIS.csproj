@@ -194,6 +194,12 @@
       <DependentUpon>ItemDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="ItemInfo.cs" />
+    <Compile Include="LabDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LabDialog.Designer.cs">
+      <DependentUpon>LabDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -258,6 +264,12 @@
       <DependentUpon>OutPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Patient.cs" />
+    <Compile Include="ParentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ParentForm.Designer.cs">
+      <DependentUpon>ParentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PatientProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -338,6 +350,12 @@
     <Compile Include="RoomForm.Designer.cs">
       <DependentUpon>RoomForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServiceDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceDialog.Designer.cs">
+      <DependentUpon>ServiceDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="SpecimenForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -357,6 +375,7 @@
     <Compile Include="TransactorDialog.Designer.cs">
       <DependentUpon>TransactorDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Uploading.cs" />
     <Compile Include="UrinalysisTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -433,17 +452,24 @@
     <EmbeddedResource Include="ItemDialog.resx">
       <DependentUpon>ItemDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LabDialog.resx">
+      <DependentUpon>LabDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="OperationForm.resx">
       <DependentUpon>OperationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OutPatient.resx">
       <DependentUpon>OutPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParentForm.resx">
+      <DependentUpon>ParentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientProfile.resx">
       <DependentUpon>PatientProfile.cs</DependentUpon>
@@ -490,6 +516,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RoomForm.resx">
       <DependentUpon>RoomForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceDialog.resx">
+      <DependentUpon>ServiceDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SpecimenForm.resx">
       <DependentUpon>SpecimenForm.cs</DependentUpon>
@@ -642,6 +671,9 @@
     <None Include="Resources\Book-Shelf-32.png" />
     <None Include="Resources\Bill-32 %281%29.png" />
     <None Include="Resources\Note-Memo-01-32.png" />
+    <None Include="Resources\View-Medium-Icons-16.png" />
+    <None Include="Resources\Calendar-Date-02-16.png" />
+    <None Include="Resources\inset2.JPG" />
     <Content Include="vhmis.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

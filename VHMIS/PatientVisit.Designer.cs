@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            SpPerfChart.ChartPen chartPen5 = new SpPerfChart.ChartPen();
-            SpPerfChart.ChartPen chartPen6 = new SpPerfChart.ChartPen();
-            SpPerfChart.ChartPen chartPen7 = new SpPerfChart.ChartPen();
-            SpPerfChart.ChartPen chartPen8 = new SpPerfChart.ChartPen();
+            SpPerfChart.ChartPen chartPen9 = new SpPerfChart.ChartPen();
+            SpPerfChart.ChartPen chartPen10 = new SpPerfChart.ChartPen();
+            SpPerfChart.ChartPen chartPen11 = new SpPerfChart.ChartPen();
+            SpPerfChart.ChartPen chartPen12 = new SpPerfChart.ChartPen();
             this.noLbl = new System.Windows.Forms.Label();
             this.nameLbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -107,35 +107,8 @@
             this.label54 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.dtLab = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.LabLbl = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
-            this.labQty = new System.Windows.Forms.TextBox();
-            this.labStatus = new System.Windows.Forms.ComboBox();
-            this.label66 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.testsTxt = new System.Windows.Forms.TextBox();
-            this.labCbx = new System.Windows.Forms.ComboBox();
-            this.labCostTxt = new System.Windows.Forms.TextBox();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.label41 = new System.Windows.Forms.Label();
-            this.serviceLbl = new System.Windows.Forms.Label();
-            this.serviceQty = new System.Windows.Forms.TextBox();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.parameterTxt = new System.Windows.Forms.TextBox();
-            this.statusCbx = new System.Windows.Forms.ComboBox();
             this.button18 = new System.Windows.Forms.Button();
-            this.operationCbx = new System.Windows.Forms.ComboBox();
-            this.opCostTxt = new System.Windows.Forms.TextBox();
-            this.label52 = new System.Windows.Forms.Label();
-            this.dtServices = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
@@ -239,6 +212,9 @@
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.bgWrkTimer = new System.ComponentModel.BackgroundWorker();
+            this.dtServices = new System.Windows.Forms.DataGridView();
+            this.dtLab = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -257,11 +233,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtGridVital)).BeginInit();
             this.groupBox14.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtLab)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            this.groupBox12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtServices)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox13.SuspendLayout();
@@ -288,12 +259,15 @@
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtServices)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtLab)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // noLbl
             // 
             this.noLbl.AutoSize = true;
-            this.noLbl.Location = new System.Drawing.Point(472, 6);
+            this.noLbl.Location = new System.Drawing.Point(241, 8);
             this.noLbl.Name = "noLbl";
             this.noLbl.Size = new System.Drawing.Size(59, 13);
             this.noLbl.TabIndex = 104;
@@ -302,7 +276,7 @@
             // nameLbl
             // 
             this.nameLbl.AutoSize = true;
-            this.nameLbl.Location = new System.Drawing.Point(164, 8);
+            this.nameLbl.Location = new System.Drawing.Point(136, 8);
             this.nameLbl.Name = "nameLbl";
             this.nameLbl.Size = new System.Drawing.Size(49, 13);
             this.nameLbl.TabIndex = 103;
@@ -333,6 +307,8 @@
             this.splitContainer1.Panel1.Controls.Add(this.nameLbl);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
+            this.splitContainer1.Panel1.Controls.Add(this.button2);
+            this.splitContainer1.Panel1.Controls.Add(this.button18);
             // 
             // splitContainer1.Panel2
             // 
@@ -1182,296 +1158,20 @@
             this.tabPage2.Text = "Requests";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.21239F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.78761F));
-            this.tableLayoutPanel2.Controls.Add(this.dtLab, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.groupBox3, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.groupBox12, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.dtServices, 1, 1);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.81588F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.18411F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1273, 585);
-            this.tableLayoutPanel2.TabIndex = 0;
-            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
-            // 
-            // dtLab
-            // 
-            this.dtLab.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtLab.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtLab.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dtLab.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtLab.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dtLab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtLab.Location = new System.Drawing.Point(3, 74);
-            this.dtLab.Name = "dtLab";
-            this.dtLab.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dtLab.RowHeadersVisible = false;
-            this.dtLab.Size = new System.Drawing.Size(658, 474);
-            this.dtLab.TabIndex = 149;
-            this.dtLab.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtLab_CellClick_1);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.LabLbl);
-            this.groupBox3.Controls.Add(this.label65);
-            this.groupBox3.Controls.Add(this.labQty);
-            this.groupBox3.Controls.Add(this.labStatus);
-            this.groupBox3.Controls.Add(this.label66);
-            this.groupBox3.Controls.Add(this.label60);
-            this.groupBox3.Controls.Add(this.testsTxt);
-            this.groupBox3.Controls.Add(this.labCbx);
-            this.groupBox3.Controls.Add(this.labCostTxt);
-            this.groupBox3.Controls.Add(this.label45);
-            this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Location = new System.Drawing.Point(3, 3);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(658, 65);
-            this.groupBox3.TabIndex = 148;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Laboratory request";
-            // 
-            // LabLbl
-            // 
-            this.LabLbl.AutoSize = true;
-            this.LabLbl.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabLbl.ForeColor = System.Drawing.Color.DimGray;
-            this.LabLbl.Location = new System.Drawing.Point(532, 18);
-            this.LabLbl.Name = "LabLbl";
-            this.LabLbl.Size = new System.Drawing.Size(33, 15);
-            this.LabLbl.TabIndex = 243;
-            this.LabLbl.Text = "Total";
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(465, 18);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(47, 13);
-            this.label65.TabIndex = 242;
-            this.label65.Text = "Quantity";
-            // 
-            // labQty
-            // 
-            this.labQty.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labQty.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labQty.Location = new System.Drawing.Point(463, 36);
-            this.labQty.Multiline = true;
-            this.labQty.Name = "labQty";
-            this.labQty.Size = new System.Drawing.Size(49, 21);
-            this.labQty.TabIndex = 241;
-            this.labQty.Text = "1";
-            this.labQty.TextChanged += new System.EventHandler(this.labQty_TextChanged);
-            // 
-            // labStatus
-            // 
-            this.labStatus.FormattingEnabled = true;
-            this.labStatus.Items.AddRange(new object[] {
-            "Complete",
-            "Not Done"});
-            this.labStatus.Location = new System.Drawing.Point(371, 36);
-            this.labStatus.Name = "labStatus";
-            this.labStatus.Size = new System.Drawing.Size(90, 21);
-            this.labStatus.TabIndex = 240;
-            // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label66.Location = new System.Drawing.Point(380, 17);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(38, 14);
-            this.label66.TabIndex = 239;
-            this.label66.Text = "Status";
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(277, 16);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(58, 13);
-            this.label60.TabIndex = 208;
-            this.label60.Text = "Parameter";
-            // 
-            // testsTxt
-            // 
-            this.testsTxt.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.testsTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.testsTxt.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.testsTxt.Location = new System.Drawing.Point(266, 36);
-            this.testsTxt.Multiline = true;
-            this.testsTxt.Name = "testsTxt";
-            this.testsTxt.Size = new System.Drawing.Size(102, 21);
-            this.testsTxt.TabIndex = 139;
-            // 
-            // labCbx
-            // 
-            this.labCbx.FormattingEnabled = true;
-            this.labCbx.Location = new System.Drawing.Point(11, 36);
-            this.labCbx.Name = "labCbx";
-            this.labCbx.Size = new System.Drawing.Size(151, 21);
-            this.labCbx.TabIndex = 138;
-            this.labCbx.SelectedIndexChanged += new System.EventHandler(this.labCbx_SelectedIndexChanged_1);
-            // 
-            // labCostTxt
-            // 
-            this.labCostTxt.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.labCostTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labCostTxt.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labCostTxt.Location = new System.Drawing.Point(166, 36);
-            this.labCostTxt.Name = "labCostTxt";
-            this.labCostTxt.Size = new System.Drawing.Size(97, 21);
-            this.labCostTxt.TabIndex = 137;
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(174, 17);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(28, 13);
-            this.label45.TabIndex = 136;
-            this.label45.Text = "Cost";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(11, 17);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(63, 13);
-            this.label16.TabIndex = 133;
-            this.label16.Text = "Lab request";
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(583, 33);
+            this.button2.Location = new System.Drawing.Point(390, 3);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(70, 24);
+            this.button2.Size = new System.Drawing.Size(111, 24);
             this.button2.TabIndex = 135;
-            this.button2.Text = "Request";
+            this.button2.Text = "Request Laboratory";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click_2);
-            // 
-            // groupBox12
-            // 
-            this.groupBox12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox12.Controls.Add(this.label41);
-            this.groupBox12.Controls.Add(this.serviceLbl);
-            this.groupBox12.Controls.Add(this.serviceQty);
-            this.groupBox12.Controls.Add(this.label56);
-            this.groupBox12.Controls.Add(this.label55);
-            this.groupBox12.Controls.Add(this.label39);
-            this.groupBox12.Controls.Add(this.parameterTxt);
-            this.groupBox12.Controls.Add(this.statusCbx);
-            this.groupBox12.Controls.Add(this.button18);
-            this.groupBox12.Controls.Add(this.operationCbx);
-            this.groupBox12.Controls.Add(this.opCostTxt);
-            this.groupBox12.Controls.Add(this.label52);
-            this.groupBox12.Location = new System.Drawing.Point(667, 3);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(603, 65);
-            this.groupBox12.TabIndex = 150;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Procuredural requests";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(429, 22);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(47, 13);
-            this.label41.TabIndex = 243;
-            this.label41.Text = "Quantity";
-            // 
-            // serviceLbl
-            // 
-            this.serviceLbl.AutoSize = true;
-            this.serviceLbl.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.serviceLbl.ForeColor = System.Drawing.Color.DimGray;
-            this.serviceLbl.Location = new System.Drawing.Point(498, 20);
-            this.serviceLbl.Name = "serviceLbl";
-            this.serviceLbl.Size = new System.Drawing.Size(33, 15);
-            this.serviceLbl.TabIndex = 242;
-            this.serviceLbl.Text = "Total";
-            // 
-            // serviceQty
-            // 
-            this.serviceQty.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.serviceQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.serviceQty.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.serviceQty.Location = new System.Drawing.Point(427, 39);
-            this.serviceQty.Multiline = true;
-            this.serviceQty.Name = "serviceQty";
-            this.serviceQty.Size = new System.Drawing.Size(49, 21);
-            this.serviceQty.TabIndex = 241;
-            this.serviceQty.Text = "1";
-            this.serviceQty.TextChanged += new System.EventHandler(this.serviceQty_TextChanged);
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(256, 20);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(37, 13);
-            this.label56.TabIndex = 209;
-            this.label56.Text = "Status";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(163, 20);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(28, 13);
-            this.label55.TabIndex = 208;
-            this.label55.Text = "Cost";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(352, 20);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(58, 13);
-            this.label39.TabIndex = 207;
-            this.label39.Text = "Parameter";
-            // 
-            // parameterTxt
-            // 
-            this.parameterTxt.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.parameterTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.parameterTxt.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.parameterTxt.Location = new System.Drawing.Point(344, 38);
-            this.parameterTxt.Multiline = true;
-            this.parameterTxt.Name = "parameterTxt";
-            this.parameterTxt.Size = new System.Drawing.Size(77, 22);
-            this.parameterTxt.TabIndex = 206;
-            // 
-            // statusCbx
-            // 
-            this.statusCbx.FormattingEnabled = true;
-            this.statusCbx.Items.AddRange(new object[] {
-            "Complete",
-            "Not Done"});
-            this.statusCbx.Location = new System.Drawing.Point(251, 38);
-            this.statusCbx.Name = "statusCbx";
-            this.statusCbx.Size = new System.Drawing.Size(87, 21);
-            this.statusCbx.TabIndex = 205;
             // 
             // button18
             // 
@@ -1479,59 +1179,14 @@
             this.button18.FlatAppearance.BorderSize = 0;
             this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button18.Location = new System.Drawing.Point(536, 37);
+            this.button18.Location = new System.Drawing.Point(528, 2);
             this.button18.Margin = new System.Windows.Forms.Padding(2);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(62, 24);
+            this.button18.Size = new System.Drawing.Size(107, 24);
             this.button18.TabIndex = 204;
-            this.button18.Text = "Add";
+            this.button18.Text = "Add service";
             this.button18.UseVisualStyleBackColor = false;
             this.button18.Click += new System.EventHandler(this.button18_Click_1);
-            // 
-            // operationCbx
-            // 
-            this.operationCbx.FormattingEnabled = true;
-            this.operationCbx.Location = new System.Drawing.Point(6, 38);
-            this.operationCbx.Name = "operationCbx";
-            this.operationCbx.Size = new System.Drawing.Size(154, 21);
-            this.operationCbx.TabIndex = 203;
-            this.operationCbx.SelectedIndexChanged += new System.EventHandler(this.operationCbx_SelectedIndexChanged);
-            // 
-            // opCostTxt
-            // 
-            this.opCostTxt.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.opCostTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.opCostTxt.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.opCostTxt.Location = new System.Drawing.Point(166, 38);
-            this.opCostTxt.Name = "opCostTxt";
-            this.opCostTxt.Size = new System.Drawing.Size(77, 22);
-            this.opCostTxt.TabIndex = 201;
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(6, 18);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(148, 13);
-            this.label52.TabIndex = 133;
-            this.label52.Text = "Procedures && Services Groups";
-            // 
-            // dtServices
-            // 
-            this.dtServices.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtServices.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtServices.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dtServices.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dtServices.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dtServices.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dtServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtServices.Location = new System.Drawing.Point(667, 74);
-            this.dtServices.Name = "dtServices";
-            this.dtServices.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dtServices.Size = new System.Drawing.Size(603, 477);
-            this.dtServices.TabIndex = 221;
-            this.dtServices.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtServices_CellClick);
             // 
             // tabPage3
             // 
@@ -2566,27 +2221,27 @@
             this.perfChart.Location = new System.Drawing.Point(6, 8);
             this.perfChart.Name = "perfChart";
             this.perfChart.PerfChartStyle.AntiAliasing = true;
-            chartPen5.Color = System.Drawing.Color.LightGreen;
-            chartPen5.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            chartPen5.Width = 1F;
-            this.perfChart.PerfChartStyle.AvgLinePen = chartPen5;
+            chartPen9.Color = System.Drawing.Color.LightGreen;
+            chartPen9.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            chartPen9.Width = 1F;
+            this.perfChart.PerfChartStyle.AvgLinePen = chartPen9;
             this.perfChart.PerfChartStyle.BackgroundColorBottom = System.Drawing.Color.DarkOliveGreen;
             this.perfChart.PerfChartStyle.BackgroundColorTop = System.Drawing.Color.YellowGreen;
-            chartPen6.Color = System.Drawing.Color.Gold;
-            chartPen6.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            chartPen6.Width = 1F;
-            this.perfChart.PerfChartStyle.ChartLinePen = chartPen6;
-            chartPen7.Color = System.Drawing.Color.DarkOliveGreen;
-            chartPen7.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            chartPen7.Width = 1F;
-            this.perfChart.PerfChartStyle.HorizontalGridPen = chartPen7;
+            chartPen10.Color = System.Drawing.Color.Gold;
+            chartPen10.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            chartPen10.Width = 1F;
+            this.perfChart.PerfChartStyle.ChartLinePen = chartPen10;
+            chartPen11.Color = System.Drawing.Color.DarkOliveGreen;
+            chartPen11.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            chartPen11.Width = 1F;
+            this.perfChart.PerfChartStyle.HorizontalGridPen = chartPen11;
             this.perfChart.PerfChartStyle.ShowAverageLine = true;
             this.perfChart.PerfChartStyle.ShowHorizontalGridLines = true;
             this.perfChart.PerfChartStyle.ShowVerticalGridLines = true;
-            chartPen8.Color = System.Drawing.Color.DarkOliveGreen;
-            chartPen8.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            chartPen8.Width = 1F;
-            this.perfChart.PerfChartStyle.VerticalGridPen = chartPen8;
+            chartPen12.Color = System.Drawing.Color.DarkOliveGreen;
+            chartPen12.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            chartPen12.Width = 1F;
+            this.perfChart.PerfChartStyle.VerticalGridPen = chartPen12;
             this.perfChart.ScaleMode = SpPerfChart.ScaleMode.Relative;
             this.perfChart.Size = new System.Drawing.Size(561, 185);
             this.perfChart.TabIndex = 1;
@@ -2692,6 +2347,58 @@
             this.bgWrkTimer.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWrkTimer_DoWork);
             this.bgWrkTimer.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgWrkTimer_RunWorkerCompleted);
             // 
+            // dtServices
+            // 
+            this.dtServices.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtServices.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtServices.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dtServices.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dtServices.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtServices.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dtServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtServices.Location = new System.Drawing.Point(667, 22);
+            this.dtServices.Name = "dtServices";
+            this.dtServices.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtServices.Size = new System.Drawing.Size(603, 477);
+            this.dtServices.TabIndex = 221;
+            this.dtServices.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtServices_CellClick);
+            // 
+            // dtLab
+            // 
+            this.dtLab.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtLab.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtLab.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dtLab.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtLab.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dtLab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtLab.Location = new System.Drawing.Point(3, 22);
+            this.dtLab.Name = "dtLab";
+            this.dtLab.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtLab.RowHeadersVisible = false;
+            this.dtLab.Size = new System.Drawing.Size(658, 474);
+            this.dtLab.TabIndex = 149;
+            this.dtLab.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtLab_CellClick_1);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.21239F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.78761F));
+            this.tableLayoutPanel2.Controls.Add(this.dtLab, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.dtServices, 1, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.429603F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 96.5704F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1273, 585);
+            this.tableLayoutPanel2.TabIndex = 0;
+            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
+            // 
             // PatientVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2728,13 +2435,6 @@
             this.groupBox14.ResumeLayout(false);
             this.groupBox14.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtLab)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtServices)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.groupBox13.ResumeLayout(false);
@@ -2767,6 +2467,9 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtServices)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtLab)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2920,17 +2623,7 @@
         private System.Windows.Forms.DataGridView dtDiag;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox testsTxt;
-        private System.Windows.Forms.ComboBox labCbx;
-        private System.Windows.Forms.TextBox labCostTxt;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dtLab;
-        private System.Windows.Forms.GroupBox groupBox12;
-        private System.Windows.Forms.Label label52;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.Button button14;
@@ -2941,14 +2634,7 @@
         private System.Windows.Forms.ComboBox diagStatus;
         private System.Windows.Forms.TextBox diagCostTxt;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.ComboBox statusCbx;
         private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.ComboBox operationCbx;
-        private System.Windows.Forms.TextBox opCostTxt;
-        private System.Windows.Forms.TextBox parameterTxt;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.Label label55;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.ComboBox comboBox7;
         private System.Windows.Forms.Label label58;
@@ -2957,7 +2643,6 @@
         private System.Windows.Forms.TextBox referralRemarlsTxt;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.DataGridView dtPrevious;
-        private System.Windows.Forms.Label label60;
         private System.Windows.Forms.TextBox bmiTxt;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Label label62;
@@ -2965,19 +2650,13 @@
         private System.Windows.Forms.TextBox diagnosisQty;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.Label label64;
-        private System.Windows.Forms.Label LabLbl;
-        private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.TextBox labQty;
-        private System.Windows.Forms.ComboBox labStatus;
-        private System.Windows.Forms.Label label66;
-        private System.Windows.Forms.Label serviceLbl;
-        private System.Windows.Forms.TextBox serviceQty;
-        private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox codeTxt;
         private System.Windows.Forms.TextBox diagnosisCbx;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.DataGridView dtLab;
         private System.Windows.Forms.DataGridView dtServices;
     }
 }

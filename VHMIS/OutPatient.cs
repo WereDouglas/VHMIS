@@ -243,35 +243,40 @@ namespace VHMIS
         private List<Diagnosis> _diags;
         private void button2_Click(object sender, EventArgs e)
         {
-            string id = "";
-            id = Guid.NewGuid().ToString();
-            if (!String.IsNullOrEmpty(labCbx.Text))
+            using (LabDialog form = new LabDialog(PatientID, queueID, queueNo.Text))
             {
-                _lab = new Lab(id, queueID, PatientID, labCbx.Text, labCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), labQty.Text, LabTotal.ToString("n0"), Helper.orgID, queueNo.Text);
-                DBConnect.Insert(_lab);
-                LoadLabs(queueID);
+                // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    //MessageBox.Show(form.state);
+                    _todayList = Queue.ListQueue(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy")).ToList(); ;
+                    
+                    LoadLabs(queueID);
+
+                }
             }
+
+
         }
         private List<Services> _services;
         private Services _service;
         double serviceTotal = 0;
         private void button18_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(statusCbx.Text))
+            using (ServiceDialog form = new ServiceDialog(PatientID, queueID, queueNo.Text))
             {
+                // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    //MessageBox.Show(form.state);
+                    _todayList = Queue.ListQueue(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy")).ToList(); ;
+                    LoadServices(queueID);
 
-                MessageBox.Show("Please select the current status of the operation/Service ");
-                return;
+                }
             }
-            string id = "";
-            id = Guid.NewGuid().ToString();
-            if (!String.IsNullOrEmpty(operationCbx.Text))
-            {
-                _service = new Services(id, operationCbx.Text, queueID, "Dental", "procedureID", PatientID, "userID", "code", "userID", opCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), parameterTxt.Text, statusCbx.Text, serviceQty.Text, serviceTotal.ToString("n0"), "No", Helper.orgID,queueNo.Text);
-                DBConnect.Insert(_service);
-                MessageBox.Show("Information added/Saved");
-                LoadServices(queueID);
-            }
+
         }
         private void LoadPatient(string patientID)
         {
@@ -471,19 +476,7 @@ namespace VHMIS
             }
             catch { }
 
-        }
-
-        private void labQty_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-
-                LabTotal = Convert.ToDouble(labCostTxt.Text) * Convert.ToDouble(labQty.Text);
-                LabLbl.Text = LabTotal.ToString("n0");
-            }
-            catch { }
-
-        }
+        }      
 
         private void button4_Click(object sender, EventArgs e)
         {

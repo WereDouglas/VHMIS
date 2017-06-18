@@ -111,18 +111,7 @@ namespace VHMIS
             {
                 queueID = Guid.NewGuid().ToString();
             }
-            labCbx.Items.Add("");
-            foreach (Tests t in Global._tests)//.Where(i=>i.DepartmentID))
-            {
-                labCbx.Items.Add(t.Parameter);
-                testCost.Add(t.Parameter, t.Cost);
-            }
-            operationCbx.Items.Add("");
-            foreach (Operations t in Global._operations)//.Where(i=>i.DepartmentID))
-            {
-                operationCbx.Items.Add(t.Service);
-                operationCost.Add(t.Service, t.Cost);
-            }
+          
             foreach (Clinics d in Global._clinics)
             {
                 clinicCbx.Items.Add(d.Name);
@@ -431,7 +420,18 @@ namespace VHMIS
 
         private void button18_Click(object sender, EventArgs e)
         {
+            using (ServiceDialog form = new ServiceDialog(PatientID, queueID, queueNo.Text))
+            {
+                // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    //MessageBox.Show(form.state);
+                    _todayList = Queue.ListQueue(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy")).ToList(); ;
+                    LoadServices(queueID);
 
+                }
+            }
         }
         Dictionary<string, string> BedDictionary = new Dictionary<string, string>();
         private void roomCbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -454,7 +454,19 @@ namespace VHMIS
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+            using (LabDialog form = new LabDialog(PatientID, queueID, queueNo.Text))
+            {
+                // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    //MessageBox.Show(form.state);
+                    _todayList = Queue.ListQueue(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy")).ToList(); ;
 
+                    LoadLabs(queueID);
+
+                }
+            }
         }
 
         private void queueNo_TextChanged(object sender, EventArgs e)
@@ -478,6 +490,11 @@ namespace VHMIS
         private void queueNo_Click(object sender, EventArgs e)
         {
             queueNo.Text = "VHMIS-" + DateTime.Now.ToString("dd-MM-yyyy") + "/ADMIT/";
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

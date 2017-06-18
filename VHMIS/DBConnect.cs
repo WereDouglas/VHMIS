@@ -26,7 +26,64 @@ namespace VHMIS
                 Console.WriteLine("Error :S");
             }
         }
+        public static string GenerateQuery(Object objGen)
+        {
+            //try
+            //{
 
+            Type typeObj = objGen.GetType();
+            PropertyInfo[] properties = typeObj.GetProperties();
+
+            // Get table
+            string[] type = typeObj.ToString().Split('.');
+            string table = type[2].ToLower();
+
+            // Start mounting string to insert
+            string SQL = "INSERT INTO " + table + " VALUES (";
+
+            // It goes from second until second to last
+            for (int i = 0; i < properties.Length - 1; i++)
+            {
+                object propValue = properties[i].GetValue(objGen, null);
+                string[] typeValue = propValue.GetType().ToString().Split('.');
+                if (typeValue[1].Equals("String"))
+                {
+                    SQL += "'" + propValue.ToString() + "',";
+                }
+                else if (typeValue[1].Equals("DateTime"))
+                {
+                    SQL += "'" + Convert.ToDateTime(propValue.ToString()).ToShortDateString() + "',";
+                }
+
+                else
+                {
+                    SQL += propValue.ToString() + ",";
+                }
+            }
+
+            // get last attribute here
+            object lastValue = properties[properties.Length - 1].GetValue(objGen, null);
+            string[] lastType = lastValue.GetType().ToString().Split('.');
+            if (lastType[1].Equals("String"))
+            {
+                SQL += "'" + lastValue.ToString() + "'";
+            }
+            else if (lastType[1].Equals("DateTime"))
+            {
+                SQL += "'" + Convert.ToDateTime(lastValue.ToString()).ToShortDateString() + "'";
+            }
+
+            else
+            {
+                SQL += lastValue.ToString();
+            }
+
+            // Ends string builder
+            SQL += ");";
+
+            return SQL;
+
+        }
         public static void CloseConn()
         {
             try
