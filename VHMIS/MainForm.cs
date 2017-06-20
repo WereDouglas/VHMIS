@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Speech.Recognition;
@@ -26,11 +27,15 @@ namespace VHMIS
         private BackgroundWorker bw_message = new BackgroundWorker();
         private BackgroundWorker bw_upload = new BackgroundWorker();
         private BackgroundWorker bwLite = new BackgroundWorker();
+        string start;
+        string end;
         public MainForm()
         {
+            start = DateTime.Now.ToString("dd-MM-yyyy");
+            end = DateTime.Now.ToString("dd-MM-yyyy");
             Helper.orgID = "test";
             InitializeComponent();
-            Global.LoadData();
+            Global.LoadData(start,end);
 
             LoadVoice();
 
@@ -260,18 +265,21 @@ namespace VHMIS
 
         private void registerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PractitionerRegistration frm = new PractitionerRegistration();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+            using (PractitionerRegistration form = new PractitionerRegistration())
+            {
+                // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+
+
+                }
+            }
         }
 
         private void toolStripMenuItem10_Click(object sender, EventArgs e)
         {
-            RoleForm frm = new RoleForm();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+           
 
         }
 
@@ -285,84 +293,54 @@ namespace VHMIS
 
         private void clinicsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ClinicForm frm = new ClinicForm();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+           
 
         }
 
         private void wardsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            WardForm frm = new WardForm();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+           
         }
 
         private void departmentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DepartmentForm frm = new DepartmentForm();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+           
         }
 
         private void disciplinesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DisciplineForm frm = new DisciplineForm();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+           
 
         }
 
         private void testsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TestForm frm = new TestForm();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+           
         }
 
         private void proceduresToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ProcedureForm frm = new ProcedureForm();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+            
         }
 
         private void operationsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            OperationForm frm = new OperationForm();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+           
         }
 
         private void bedsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BedForm frm = new BedForm();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+          
         }
 
         private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CategoryForm frm = new CategoryForm();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+           
         }
 
         private void specimensToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SpecimenForm frm = new SpecimenForm();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+           
         }
         void LoadVoice()
         {
@@ -658,11 +636,15 @@ namespace VHMIS
 
         private void registerToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            PatientRegistration frm = new PatientRegistration();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+            using (PatientRegistration form = new PatientRegistration())
+            {             
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
 
+
+                }
+            }
         }
 
         private void viewAllToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -692,10 +674,7 @@ namespace VHMIS
 
         private void cD10DiagnosisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CdForm frm = new CdForm();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+           
 
         }
 
@@ -710,10 +689,7 @@ namespace VHMIS
 
         private void profileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ProfileForm frm = new ProfileForm("");
-            frm.MdiParent = this;
-            //frm.Dock = DockStyle.Fill;
-            frm.Show();
+           
         }
 
         private void referalsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -738,45 +714,7 @@ namespace VHMIS
         private void MainForm_Load(object sender, EventArgs e)
         {
            
-            Global.LoadData();
-            if (Global._org.Count() < 1)
-            {
-
-                using (ProfileForm form = new ProfileForm(""))
-                {
-                    // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
-                    DialogResult dr = form.ShowDialog();
-                    if (dr == DialogResult.OK)
-                    {
-                        // MessageBox.Show(form.state);
-
-                    }
-                }
-
-            }
-            else
-            {
-
-                Helper.orgID = Global._org.FirstOrDefault().Id;              
-                Helper.orgName = Global._org.First().Name;
-            }
-            if (Global._users.Count() < 1)
-            {
-                string ids = Guid.NewGuid().ToString();
-                _role = new Roles(ids, "Administrator", "All item pos daily purchases merchandise inventory expenses cash flow suppliers users suppliers catgories transactions ledgers logs profile ", "create update delete log ", DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
-
-                DBConnect.Insert(_role);
-                using (PractitionerRegistration form = new PractitionerRegistration())
-                {
-                    // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
-                    DialogResult dr = form.ShowDialog();
-                    if (dr == DialogResult.OK)
-                    {
-                        // MessageBox.Show(form.state);
-
-                    }
-                }
-            }
+           
             using (LoginForm form = new LoginForm())
             {
                 // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
@@ -784,9 +722,26 @@ namespace VHMIS
                 if (dr == DialogResult.OK)
                 {
                     // MessageBox.Show(form.state);
-                    
+                    LoadProfile();
                 }
             }
+        }
+        private void LoadProfile()
+        {
+            nameLbl.Text = Helper.Username;
+            Image img = Base64ToImage(Helper.Image);
+            System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
+            imageDropDown.Image = bmp;
+
+        }
+        static string base64String = null;
+        public System.Drawing.Image Base64ToImage(string bases)
+        {
+            byte[] imageBytes = Convert.FromBase64String(bases);
+            MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
+            ms.Write(imageBytes, 0, imageBytes.Length);
+            System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
+            return image;
         }
 
         private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -807,10 +762,7 @@ namespace VHMIS
 
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
-           DashBoard frm = new DashBoard();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+          
         }
 
         private void toolStripButton7_Click(object sender, EventArgs e)
@@ -834,6 +786,143 @@ namespace VHMIS
         {
             processLbl.SelectionStart = processLbl.Text.Length;
             processLbl.ScrollToCaret();
+        }
+
+        private void toolStripButton4_Click_1(object sender, EventArgs e)
+        {
+            using (EventDialog form = new EventDialog())
+            {
+                // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                   
+
+                }
+            }
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            DepartmentForm frm = new DepartmentForm();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem9_Click_1(object sender, EventArgs e)
+        {
+            RoleForm frm = new RoleForm();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            ClinicForm frm = new ClinicForm();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripButton9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem13_Click(object sender, EventArgs e)
+        {
+            WardForm frm = new WardForm();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            RoomForm frm = new RoomForm();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem14_Click(object sender, EventArgs e)
+        {
+            OperationForm frm = new OperationForm();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem16_Click(object sender, EventArgs e)
+        {
+            TestForm frm = new TestForm();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem17_Click(object sender, EventArgs e)
+        {
+            DisciplineForm frm = new DisciplineForm();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton9_Click_1(object sender, EventArgs e)
+        {
+            DashBoard frm = new DashBoard();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem18_Click(object sender, EventArgs e)
+        {
+            BedForm frm = new BedForm();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+
+        }
+
+        private void toolStripMenuItem19_Click(object sender, EventArgs e)
+        {
+            CategoryForm frm = new CategoryForm();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem20_Click(object sender, EventArgs e)
+        {
+            SpecimenForm frm = new SpecimenForm();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem21_Click(object sender, EventArgs e)
+        {
+            CdForm frm = new CdForm();
+            frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem22_Click(object sender, EventArgs e)
+        {
+            ProfileForm frm = new ProfileForm("");
+            frm.MdiParent = this;
+            //frm.Dock = DockStyle.Fill;
+            frm.Show();
         }
     }
 }

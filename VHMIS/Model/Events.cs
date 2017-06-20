@@ -317,8 +317,6 @@ namespace VHMIS.Model
 
         public static List<Events> ListEvents()
         {
-
-
             List<Events> events = new List<Events>();
             string SQL = "SELECT * FROM events";
 
@@ -345,7 +343,6 @@ namespace VHMIS.Model
                     events.Add(p);
                 }
                 Reader.Close();
-
             }
 
             return events;

@@ -358,23 +358,24 @@ namespace VHMIS.Model
 
         }
         public static List<Queue> ListQueue(string Date)
-        {
-           
+        {           
             List<Queue> queue = new List<Queue>();
-            string SQL = "SELECT * FROM queue WHERE dated::date = '" + Date + "'::date ";
+           
             if (Helper.Type != "Lite")
             {
+                string SQL = "SELECT * FROM queue WHERE dated::date = '" + Date + "'::date ";
                 NpgsqlDataReader Reader = DBConnect.Reading(SQL);
                 while (Reader.Read())
                 {
                     Queue p = new Queue(Reader["id"].ToString(), Reader["follow"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["roomID"].ToString(), Reader["status"].ToString(), Reader["dated"].ToString(), Reader["created"].ToString(), Reader["clinicid"].ToString(), Reader["department"].ToString(), Reader["consultation_paid"].ToString(), Reader["investigation_paid"].ToString(), Reader["lab_paid"].ToString(), Reader["pharmacy_paid"].ToString(), Reader["lab_complete"].ToString(), Reader["consultation_complete"].ToString(), Reader["remarks"].ToString(), Reader["other"].ToString(), Reader["no"].ToString(), Reader["orgid"].ToString(), Reader["type"].ToString());
                     queue.Add(p);
                 }
-                Reader.Close()
+                Reader.Close();
                 DBConnect.CloseConn();
             }
             else
             {
+                string SQL = "SELECT * FROM queue ";
                 SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
                 while (Reader.Read())
                 {

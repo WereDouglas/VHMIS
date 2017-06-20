@@ -85,7 +85,10 @@ namespace VHMIS
             foreach (Users u in Global._users)
             {
                 AutoItem.Add(u.Surname + " " + u.Lastname);
-                userDictionary.Add(u.Surname + " " + u.Lastname, u.Id);
+                if (!userDictionary.ContainsKey(u.Surname + " " + u.Lastname))
+                {
+                    userDictionary.Add(u.Surname + " " + u.Lastname, u.Id);
+                }
 
             }
             practitionerTxt.AutoCompleteMode = AutoCompleteMode.Suggest;

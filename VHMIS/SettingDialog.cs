@@ -56,8 +56,8 @@ namespace VHMIS
             }
 
             XElement xml = new XElement("Servers",
-           new XElement("Server",
-           new XElement("Name", serverTxt.Text),
+              new XElement("Server",
+              new XElement("Name", serverTxt.Text),
               new XElement("Type", typeCbx.Text)
            )
            );

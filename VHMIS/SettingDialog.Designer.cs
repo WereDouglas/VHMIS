@@ -55,9 +55,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(11, 3);
+            this.panel1.Location = new System.Drawing.Point(10, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(523, 77);
+            this.panel1.Size = new System.Drawing.Size(520, 77);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -68,7 +68,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.492537F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 98.50746F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
@@ -85,9 +85,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Location = new System.Drawing.Point(11, 86);
+            this.panel2.Location = new System.Drawing.Point(10, 86);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(523, 238);
+            this.panel2.Size = new System.Drawing.Size(520, 238);
             this.panel2.TabIndex = 1;
             // 
             // panel3
@@ -104,7 +104,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(523, 238);
+            this.panel3.Size = new System.Drawing.Size(520, 238);
             this.panel3.TabIndex = 1;
             // 
             // label1

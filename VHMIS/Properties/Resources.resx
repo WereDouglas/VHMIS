@@ -169,6 +169,9 @@
   <data name="Garbage-Open-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Garbage-Open-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="inset2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inset2.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="aco_bot" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\aco_bot.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -259,14 +262,17 @@
   <data name="Desktop-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Desktop-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Calendar-Date-02-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Calendar-Date-02-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Syringe-01-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Syringe-01-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Calendar-Date-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Calendar-Date-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Medicine-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Medicine-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ignore-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ignore-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Heart-ECG-32 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Heart-ECG-32 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -277,8 +283,8 @@
   <data name="Doctor-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Doctor-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Syringe-01-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Syringe-01-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Calendar-Date-02-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Calendar-Date-02-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Date-24 (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Date-24 (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -331,7 +337,7 @@
   <data name="Payments-32 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Payments-32 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="inset2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\inset2.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Building-Add-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Building-Add-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

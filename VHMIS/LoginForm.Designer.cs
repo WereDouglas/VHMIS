@@ -40,18 +40,18 @@
             this.passwordTxt = new System.Windows.Forms.TextBox();
             this.contactTxt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.button7 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.uploadTxt = new System.Windows.Forms.TextBox();
             this.processLbl = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.lblStatus = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -68,7 +68,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.88566F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.11433F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 79F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 1, 2);
@@ -93,7 +93,7 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(64, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(411, 51);
+            this.panel1.Size = new System.Drawing.Size(407, 51);
             this.panel1.TabIndex = 0;
             // 
             // label6
@@ -144,7 +144,7 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Location = new System.Drawing.Point(64, 60);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(411, 245);
+            this.panel2.Size = new System.Drawing.Size(407, 245);
             this.panel2.TabIndex = 1;
             // 
             // panel3
@@ -160,7 +160,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(411, 245);
+            this.panel3.Size = new System.Drawing.Size(407, 245);
             this.panel3.TabIndex = 1;
             // 
             // button2
@@ -186,6 +186,7 @@
             this.passwordTxt.PasswordChar = '.';
             this.passwordTxt.Size = new System.Drawing.Size(233, 31);
             this.passwordTxt.TabIndex = 7;
+            this.passwordTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordTxt_KeyDown);
             // 
             // contactTxt
             // 
@@ -204,6 +205,18 @@
             this.label5.Size = new System.Drawing.Size(78, 26);
             this.label5.TabIndex = 5;
             this.label5.Text = "Contact";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.BackColor = System.Drawing.Color.Transparent;
+            this.lblStatus.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.lblStatus.Location = new System.Drawing.Point(102, 11);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(32, 14);
+            this.lblStatus.TabIndex = 109;
+            this.lblStatus.Text = "INFO";
             // 
             // label4
             // 
@@ -260,6 +273,18 @@
             this.panel4.Size = new System.Drawing.Size(548, 144);
             this.panel4.TabIndex = 2;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(63)))), ((int)(((byte)(84)))));
+            this.progressBar1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.progressBar1.Location = new System.Drawing.Point(17, 124);
+            this.progressBar1.Maximum = 15;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(516, 15);
+            this.progressBar1.TabIndex = 115;
+            // 
             // button7
             // 
             this.button7.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -286,13 +311,14 @@
             this.button5.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(185, 90);
+            this.button5.Location = new System.Drawing.Point(173, 90);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(114, 28);
             this.button5.TabIndex = 113;
             this.button5.Text = "Register";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // uploadTxt
             // 
@@ -300,10 +326,10 @@
             this.uploadTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.uploadTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uploadTxt.ForeColor = System.Drawing.Color.Black;
-            this.uploadTxt.Location = new System.Drawing.Point(30, 38);
+            this.uploadTxt.Location = new System.Drawing.Point(44, 38);
             this.uploadTxt.Multiline = true;
             this.uploadTxt.Name = "uploadTxt";
-            this.uploadTxt.Size = new System.Drawing.Size(503, 46);
+            this.uploadTxt.Size = new System.Drawing.Size(453, 46);
             this.uploadTxt.TabIndex = 112;
             this.uploadTxt.Visible = false;
             // 
@@ -330,25 +356,14 @@
             this.button4.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.ForestGreen;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(305, 90);
+            this.button4.Location = new System.Drawing.Point(293, 91);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(110, 30);
             this.button4.TabIndex = 110;
             this.button4.Text = "Refresh";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button4.UseVisualStyleBackColor = false;
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.BackColor = System.Drawing.Color.Transparent;
-            this.lblStatus.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.ForeColor = System.Drawing.Color.DarkTurquoise;
-            this.lblStatus.Location = new System.Drawing.Point(102, 11);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(32, 14);
-            this.lblStatus.TabIndex = 109;
-            this.lblStatus.Text = "INFO";
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -359,7 +374,7 @@
             this.button3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(61, 90);
+            this.button3.Location = new System.Drawing.Point(41, 90);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(101, 28);
             this.button3.TabIndex = 108;
@@ -367,18 +382,6 @@
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(63)))), ((int)(((byte)(84)))));
-            this.progressBar1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.progressBar1.Location = new System.Drawing.Point(17, 124);
-            this.progressBar1.Maximum = 15;
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(516, 15);
-            this.progressBar1.TabIndex = 115;
             // 
             // LoginForm
             // 
@@ -391,6 +394,7 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

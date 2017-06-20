@@ -188,8 +188,10 @@ namespace VHMIS
             AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
             foreach (Users u in Global._users)
             {
-                AutoItem.Add(u.Surname + " " + u.Lastname);
-                userDictionary.Add(u.Surname + " " + u.Lastname, u.Id);
+                if (!userDictionary.ContainsKey(u.Surname + " " + u.Lastname)) {
+                    userDictionary.Add(u.Surname + " " + u.Lastname, u.Id);
+                }
+                AutoItem.Add(u.Surname + " " + u.Lastname);              
             }
             practitionerTxt.AutoCompleteMode = AutoCompleteMode.Suggest;
             practitionerTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -495,6 +497,11 @@ namespace VHMIS
         private void button4_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

@@ -143,6 +143,16 @@ namespace VHMIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Building_Add_16 {
+            get {
+                object obj = ResourceManager.GetObject("Building-Add-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Calendar_32 {
             get {
                 object obj = ResourceManager.GetObject("Calendar-32", resourceCulture);
@@ -426,6 +436,16 @@ namespace VHMIS.Properties {
         internal static System.Drawing.Bitmap Hospital_Lab_24 {
             get {
                 object obj = ResourceManager.GetObject("Hospital-Lab-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ignore_32 {
+            get {
+                object obj = ResourceManager.GetObject("Ignore-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

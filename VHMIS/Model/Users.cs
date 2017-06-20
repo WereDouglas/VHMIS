@@ -435,11 +435,10 @@ namespace VHMIS.Model
                 }
                 Reader.Close();
                 DBConnect.CloseConn();
-                return users;
+               
             }
             else
-            {
-                List<Users> wards = new List<Users>();
+            {                
                 string SQL = "SELECT * FROM users";
                 SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
                 while (Reader.Read())
@@ -447,11 +446,9 @@ namespace VHMIS.Model
                     Users p = new Users(Reader["id"].ToString(), Reader["idno"].ToString(), Reader["contact"].ToString(), Reader["contact2"].ToString(), Reader["surname"].ToString(), Reader["lastname"].ToString(), Reader["email"].ToString(), Reader["nationality"].ToString(), Reader["address"].ToString(), Reader["kin"].ToString(), Reader["kincontact"].ToString(), Reader["passwords"].ToString(), Reader["designation"].ToString(), Reader["roles"].ToString(), Reader["gender"].ToString(), Reader["image"].ToString(), Reader["clinicID"].ToString(), Reader["clinicDesignation"].ToString(), Reader["initialPassword"].ToString(), Reader["account"].ToString(), Reader["status"].ToString(), Reader["practice"].ToString(), Reader["specialisation"].ToString(), Reader["sub"].ToString(), Reader["created"].ToString(), Reader["department"].ToString(), Reader["orgid"].ToString());
                     users.Add(p);
                 }
-                Reader.Close();
-                DBConnect.CloseConn();
-                return wards;
+                Reader.Close();    
             }
-
+            return users;
 
         }
     }

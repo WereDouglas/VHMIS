@@ -20,17 +20,39 @@ namespace VHMIS
         WebCam webcam;
         string OrgID = "";
         DataTable t;
+        Dictionary<string, string> storeDictionary = new Dictionary<string, string>();
         public ProfileForm(string orgID)
         {
             InitializeComponent();
             webcam = new WebCam();
             webcam.InitializeWebCam(ref imgVideo);
             autocomplete();
-            if (orgID != "")
+            string exists = "";
+            try
             {
-                OrgID = orgID;
-                Profile(OrgID);
+                exists = Organisation.ListOrganisation().First().Id;
             }
+            catch { }
+            if (String.IsNullOrEmpty(exists))
+            {
+                OrgID = Guid.NewGuid().ToString();
+                Helper.orgID = OrgID;
+                MemoryStream stream = ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
+                string fullimage = ImageToBase64(stream);
+                _org = new Organisation(OrgID, nameTxt.Text, codeTxt.Text, registrationTxt.Text, contactTxt.Text, addressTxt.Text, tinTxt.Text, vatTxt.Text, emailTxt.Text, nationalityTxt.Text, "", accountTxt.Text, statusCbx.Text,DateTime.Now.AddMonths(3).ToString("dd-MM-yyyy"), fullimage, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), countsTxt.Text, companyCode.Text, "");
+                DBConnect.Insert(_org);
+
+            }
+            else
+            {
+
+                Helper.orgID = exists;
+                OrgID = exists;
+                Profile(exists);
+
+            }
+            LoadStores();
+
         }
         private void Profile(string ID)
         {
@@ -110,12 +132,37 @@ namespace VHMIS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Close();
+            this.DialogResult = DialogResult.OK;
+            this.Dispose();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+           
+            try
+            {
+                if (Users.ListUsers().Count() < 1)
+                {
+                    MessageBox.Show("Please add atleast a single user");
+                    return;
+                }
+            }
+            catch
+            {
 
+                return;
+            }
+            if (Branch.ListBranch().Count() < 1)
+            {
+                MessageBox.Show("Please add a branch");
+                return;
+            }
+            if (String.IsNullOrEmpty(Helper.BranchID))
+            {
+                MessageBox.Show("Please select a store/Shop");
+                storeCbx.BackColor = Color.Red;
+                return;
+            }
             string password = "";
 
             if (nameTxt.Text == "")
@@ -140,44 +187,30 @@ namespace VHMIS
 
             MemoryStream stream = ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = ImageToBase64(stream);
-            _org = new Organisation(id, nameTxt.Text, codeTxt.Text, registrationTxt.Text, contactTxt.Text, addressTxt.Text, tinTxt.Text, vatTxt.Text, emailTxt.Text, nationalityTxt.Text, password, accountTxt.Text, statusCbx.Text, Convert.ToDateTime(expireDate.Text).ToString("dd-MM-yyyy"), fullimage, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), countsTxt.Text, companyCode.Text);
-            if (OrgID != "")
+            _org = new Organisation(id, nameTxt.Text, codeTxt.Text, registrationTxt.Text, contactTxt.Text, addressTxt.Text, tinTxt.Text, vatTxt.Text, emailTxt.Text, nationalityTxt.Text, password, accountTxt.Text, statusCbx.Text, Convert.ToDateTime(expireDate.Text).ToString("dd-MM-yyyy"), fullimage, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), countsTxt.Text, companyCode.Text, Helper.BranchID);
+            DBConnect.Update(_org, OrgID);
+            Helper.orgID = OrgID;
+            DBConnect.Update(_org, OrgID);
+            MessageBox.Show("Information Updated ");
+            Close();
+
+            string SQL = "UPDATE organisation SET counts = '" + DateTime.Now.ToString("dd-MM-yyyy H:mm:ss") + "' WHERE id= '" + id + "'";
+
+            DBConnect.Execute(SQL);
+            MessageBox.Show("Information Saved");
+            Close();
+            if (Global._users.Count() < 1)
             {
-                DBConnect.Update(_org, OrgID);
-                MessageBox.Show("Information Updated ");
-                Close();
+                Helper.orgID = id;
+                string ids = Guid.NewGuid().ToString();
+                _role = new Roles(ids, "Administrator", "All item pos daily purchases merchandise inventory expenses cash flow suppliers users suppliers catgories transactions ledgers logs profile ", "create update delete log ", DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
+
+                DBConnect.Insert(_role);
+                Global._roles.Add(_role);
+               
             }
-            else
-            {
-                if (DBConnect.Insert(_org) != "")
-                {
-                    string SQL = "UPDATE organisation SET counts = '" + DateTime.Now.ToString("dd-MM-yyyy H:mm:ss") + "' WHERE id= '" + id + "'";
-
-                    DBConnect.Execute(SQL);
-                    MessageBox.Show("Information Saved");
-                    Close();
-                    if (Global._users.Count() < 1)
-                    {
-                        Helper.orgID = id;
-                        string ids = Guid.NewGuid().ToString();
-                        _role = new Roles(ids, "Administrator", "All item pos daily purchases merchandise inventory expenses cash flow suppliers users suppliers catgories transactions ledgers logs profile ", "create update delete log ", DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
-
-                        DBConnect.Insert(_role);
-                        Global._roles.Add(_role);
-                        using (PractitionerRegistration form = new PractitionerRegistration())
-                        {
-                            // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
-                            DialogResult dr = form.ShowDialog();
-                            if (dr == DialogResult.OK)
-                            {
-                                // MessageBox.Show(form.state);
-
-                            }
-                        }
-                    }
-                }
-
-            }
+            this.DialogResult = DialogResult.OK;
+            this.Dispose();
             nameTxt.Text = "";
             codeTxt.Text = "";
         }
@@ -215,6 +248,104 @@ namespace VHMIS
                 imgCapture.Image = new Bitmap(open.FileName);
                 imgCapture.SizeMode = PictureBoxSizeMode.StretchImage;
                 fileUrlTxtBx.Text = open.FileName;
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (Branch.ListBranch().Count() < 1)
+            {
+                MessageBox.Show("Please add a branch first");
+                return;
+            }
+            using (PractitionerRegistration form = new PractitionerRegistration())
+            {
+                // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    autocompleteUsers();
+
+                }
+            }
+        }
+        private void autocompleteUsers()
+        {
+            AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
+            foreach (Users r in Users.ListUsers())
+            {
+                AutoItem.Add(r.Contact);
+            }
+            contactTxt.AutoCompleteMode = AutoCompleteMode.Suggest;
+            contactTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            contactTxt.AutoCompleteCustomSource = AutoItem;
+
+           
+        }
+        private void LoadStores()
+        {
+            foreach (Branch s in Global._branch.ToList())
+            {
+
+                if (!storeDictionary.ContainsKey(s.Name))
+                {
+                    storeDictionary.Add(s.Name, s.Id);
+                    storeCbx.Items.Add(s.Name);
+                }
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            using (BranchDialog form = new BranchDialog())
+            {
+                // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    // MessageBox.Show(form.state);
+                    LoadStores();
+                }
+            }
+        }
+
+        private void storeCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Helper.BranchID = storeDictionary[storeCbx.Text];
+            }
+            catch { }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (Branch.ListBranch().Count() < 1)
+            {
+                MessageBox.Show("Please add a branch");
+                return;
+            }
+            if (String.IsNullOrEmpty(Helper.BranchID))
+            {
+                MessageBox.Show("Please select a store/Shop");
+                storeCbx.BackColor = Color.Red;
+                return;
+            }
+            Helper.BranchID = storeDictionary[storeCbx.Text];
+            if (storeCbx.Text == "")
+            {
+                storeCbx.BackColor = Color.PaleVioletRed;
+                return;
+            }
+            MemoryStream stream = ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
+            string fullimage = ImageToBase64(stream);
+            _org = new Organisation(OrgID, nameTxt.Text, codeTxt.Text, registrationTxt.Text, contactTxt.Text, addressTxt.Text, tinTxt.Text, vatTxt.Text, emailTxt.Text, nationalityTxt.Text, "", accountTxt.Text, statusCbx.Text, Convert.ToDateTime(expireDate.Text).ToString("dd-MM-yyyy"), fullimage, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),Convert.ToDateTime(syncDate.Text).ToString("dd-MM-yyyy H:mm:ss"), countsTxt.Text, companyCode.Text, Helper.BranchID);
+            if (OrgID != "")
+            {
+                DBConnect.Update(_org, OrgID);
+                MessageBox.Show("Information Updated ");
+                this.DialogResult = DialogResult.OK;
+                this.Dispose();
             }
         }
     }

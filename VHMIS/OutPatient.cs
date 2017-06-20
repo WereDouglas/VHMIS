@@ -46,11 +46,8 @@ namespace VHMIS
 
             autocompleteNumber();
             autocompleteID();
-            autocompleteUsers();
-            autocompletePatient();
-            autocompleteClinics();
-            autocompleteWards();
-            openedDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+           
+            
             if (!String.IsNullOrEmpty(QueueID))
             {
                 queueID = QueueID;
@@ -64,73 +61,11 @@ namespace VHMIS
                 queueID = Guid.NewGuid().ToString();
             }
            
-            foreach (Clinics d in Global._clinics)
-            {
-                clinicCbx.Items.Add(d.Name);
-            }
-            foreach (Departments d in Global._departments)
-            {
-                departmentCbx.Items.Add(d.Name);
-            }
-            foreach (Wards d in Global._wards)
-            {
-                roomCbx.Items.Add(d.Name);
-            }
+            
           
         }
-        private void autocompleteUsers()
-        {
-            AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
-            foreach (Users u in Global._users)
-            {
-                AutoItem.Add(u.Surname + " " + u.Lastname);
-                userDictionary.Add(u.Surname + " " + u.Lastname, u.Id);
-            }
-            practitionerTxt.AutoCompleteMode = AutoCompleteMode.Suggest;
-            practitionerTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            practitionerTxt.AutoCompleteCustomSource = AutoItem;
-
-        }
-        private void autocompleteClinics()
-        {
-            AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
-            foreach (Clinics u in Global._clinics)
-            {
-                AutoItem.Add(u.Name);
-                clinicDictionary.Add(u.Name, u.Id);
-            }
-            clinicCbx.AutoCompleteMode = AutoCompleteMode.Suggest;
-            clinicCbx.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            clinicCbx.AutoCompleteCustomSource = AutoItem;
-
-        }
-        private void autocompleteWards()
-        {
-            AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
-            foreach (Wards u in Global._wards)
-            {
-                AutoItem.Add(u.Name);
-                wardDictionary.Add(u.Name, u.Id);
-            }
-            roomCbx.AutoCompleteMode = AutoCompleteMode.Suggest;
-            roomCbx.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            roomCbx.AutoCompleteCustomSource = AutoItem;
-
-        }
-        private void autocompletePatient()
-        {
-            AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
-            foreach (Patient p in Global._patients)
-            {
-                AutoItem.Add(p.Surname + " " + p.Lastname);
-                patientDictionary.Add(p.Surname + " " + p.Lastname, p.Id);
-            }
-
-            patientTxt.AutoCompleteMode = AutoCompleteMode.Suggest;
-            patientTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            patientTxt.AutoCompleteCustomSource = AutoItem;
-        }
-
+       
+       
         private void autocompleteNumber()
         {
             AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
@@ -244,8 +179,7 @@ namespace VHMIS
                 if (dr == DialogResult.OK)
                 {
                     //MessageBox.Show(form.state);
-                    _todayList = Queue.ListQueue(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy")).ToList(); ;
-                    
+                     
                     LoadLabs(queueID);
 
                 }
@@ -269,7 +203,7 @@ namespace VHMIS
                 if (dr == DialogResult.OK)
                 {
                     //MessageBox.Show(form.state);
-                    _todayList = Queue.ListQueue(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy")).ToList(); ;
+                  
                     LoadServices(queueID);
 
                 }
@@ -310,44 +244,7 @@ namespace VHMIS
             return image;
         }
         int follow;
-        private void button3_Click(object sender, EventArgs e)
-        {
-            int next;
-            if (_todayList.Count() < 1)
-            {
-                next = 1;
-            }
-            else
-            {
-                follow = _todayList.Max(t => Convert.ToInt32(t.Follow));
-                next = follow + 1;
-            }
-
-            if (PatientID == "" || userID == "")
-            {
-                MessageBox.Show("Please input the input the patient OR the practitioner  ");
-                return;
-            }
-            string id = Guid.NewGuid().ToString();
-
-            _queue = new Queue(id, next.ToString(), PatientID, userID, roomCbx.Text, clinicCbx.Text, priorityCbx.Text, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), departmentCbx.Text, "", "", "", "", "", "", "", "", "", Helper.orgID,"OP");
-
-            if (DBConnect.Insert(_queue) != "")
-            {
-                Global._queues.Add(_queue);
-                patientTxt.Text = "";
-                practitionerTxt.Text = "";
-                MessageBox.Show("Information Saved");
-
-
-            }
-            else
-            {
-                return;
-
-            }
-        }
-
+       
        
 
         private void patientTxt_Leave_1(object sender, EventArgs e)
@@ -369,14 +266,7 @@ namespace VHMIS
             frm.Show();
         }
 
-        private void practitionerTxt_Leave(object sender, EventArgs e)
-        {
-            try
-            {
-                userID = userDictionary[practitionerTxt.Text];
-            }
-            catch { }
-        }
+       
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -409,34 +299,7 @@ namespace VHMIS
         }
         string notify;
         Events _event;
-        private void button6_Click_1(object sender, EventArgs e)
-        {
-            if (startHrTxt.Text == "" || endHrTxt.Text == "")
-            {
-                MessageBox.Show("Please input the start time and end time for the meeting /schedule ");
-                return;
-            }
-            string ID = Guid.NewGuid().ToString();
-            var start = Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "T" + this.startHrTxt.Text + ":" + startMinTxt.Text + ":00";
-            var end = Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "T" + this.endHrTxt.Text + ":" + endMinTxt.Text + ":00";
-
-            notify = "false";
-
-            if (notifyChk.Checked)
-            {
-                notify = "true";
-            }
-            _event = new Events(ID, Helper.CleanString(this.detailsTxt.Text), start, end, practitionerTxt.Text, patientTxt.Text, DateTime.Now.Date.ToString("yyyy-MM-dd"), PatientID, "due", userID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), notify, priorityCbx.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), "f", contactTxt.Text, emailTxt.Text, departmentCbx.Text, clinicCbx.Text, Helper.orgID);
-
-            Global._events.Add(_event);
-
-            string Query2 = "INSERT INTO events (id, details, starts, ends, users, patient, created, patientID, status, userID, dated,notif,priority, sync,cal,contact,email) VALUES ('" + ID + "','" + Helper.CleanString(this.detailsTxt.Text) + "','" + start + "','" + end + "','" + practitionerTxt.Text + "','" + patientTxt.Text + "','" + DateTime.Now.Date.ToString("yyyy-MM-dd") + "','" + PatientID + "','due','" + userID + "','" + Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "','" + notify + "','" + priorityCbx.Text + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','f','" + contactTxt.Text + "','" + emailTxt.Text + "');";
-            DBConnect.Execute(Query2);
-            MessageBox.Show("Information saved");
-
-
-
-        }
+      
 
         private void groupBox4_Enter(object sender, EventArgs e)
         {
@@ -502,6 +365,21 @@ namespace VHMIS
 
                 }
 
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            using (EventDialog form = new EventDialog())
+            {
+                // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+
+
+                }
             }
         }
     }

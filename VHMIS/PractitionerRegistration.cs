@@ -25,6 +25,14 @@ namespace VHMIS
             webcam.InitializeWebCam(ref imgVideo);
             autocomplete();
 
+            if (Global._roles.Count() < 1)
+            {
+                string ids = Guid.NewGuid().ToString();
+                 Roles _role = new Roles(ids, "Administrator", "All item pos daily purchases merchandise inventory expenses cash flow suppliers users suppliers catgories transactions ledgers logs profile ", "create update delete log ", DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
+                DBConnect.Insert(_role);
+                Global._roles.Add(_role);
+
+            }
             foreach (Roles r in Global._roles)
             {
                 rolesCbx.Items.Add(r.Title);
@@ -168,10 +176,17 @@ namespace VHMIS
                 return;                
 
             }
+            if (String.IsNullOrEmpty(passTxt.Text))
+            {
+                errorList.Add("please insert password !");
+                passTxt.BackColor = Color.Red;
+                UpdateErrors();
+                return;
+
+            }
             string role = "";
             if (mainRadioBtn.Checked)
             {
-
                 role = "Main";
             }
             else if (subRadioBtn.Checked) { role = "Sub"; }
@@ -181,19 +196,18 @@ namespace VHMIS
             string id = Guid.NewGuid().ToString();
             MemoryStream stream = ImageToStream(imgCapture.Image, System.Drawing.Imaging.ImageFormat.Jpeg);
             string fullimage = ImageToBase64(stream);
-            _user = new Users(id, patientNoTxt.Text, contactTxt.Text, contact2Txt.Text, surnameTxt.Text, lastnameTxt.Text, emailTxt.Text, nationalityTxt.Text, addressTxt.Text, kinTxt.Text, kincontactTxt.Text, "", designationCbx.Text, rolesCbx.Text, genderCbx.Text, fullimage, clinicnameTxt.Text, role, Helper.MD5Hash(passTxt.Text), accountTxt.Text, statusCbx.Text, practiceTxt.Text, specialisationTxt.Text, subTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),departmentCbx.Text, Helper.orgID);
+            _user = new Users(id,patientNoTxt.Text, contactTxt.Text, contact2Txt.Text, surnameTxt.Text, lastnameTxt.Text, emailTxt.Text, nationalityTxt.Text, addressTxt.Text, kinTxt.Text, kincontactTxt.Text,Helper.MD5Hash(pass2Txt.Text), designationCbx.Text, rolesCbx.Text, genderCbx.Text, fullimage, clinicnameTxt.Text, role, Helper.MD5Hash(passTxt.Text), accountTxt.Text, statusCbx.Text, practiceTxt.Text, specialisationTxt.Text, subTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:m:s"),departmentCbx.Text, Helper.orgID);
 
             if (DBConnect.Insert(_user) != "")
             {
+                Global._users.Add(_user);
                 //DBConnect.saveImage("users", fullimage, id);
                 MessageBox.Show("Information Saved");
              
-                Global._users.Add(_user);
-                ViewUsers frm = new ViewUsers();
-                frm.MdiParent = MainForm.ActiveForm;
-                frm.Dock = DockStyle.Fill;
-                frm.Show();
-                this.Close();
+               
+                
+                this.DialogResult = DialogResult.OK;
+                this.Dispose();
             }
             else
             {

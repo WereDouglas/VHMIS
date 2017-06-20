@@ -343,6 +343,7 @@ namespace VHMIS.Model
                     Item p = new Item(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["description"].ToString(), Reader["manufacturer"].ToString(), Reader["country"].ToString(), Reader["batch"].ToString(), Reader["purchase_price"].ToString(), Reader["sale_price"].ToString(), Reader["composition"].ToString(), Reader["expire"].ToString(), Reader["category"].ToString(), Reader["formulation"].ToString(), Reader["barcode"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["department"].ToString(), Reader["date_manufactured"].ToString(), Reader["generic"].ToString(), Reader["strength"].ToString(), Reader["orgid"].ToString());
                     wards.Add(p);
                 }
+                Reader.Close();
                 DBConnect.CloseConn();
             }
             else

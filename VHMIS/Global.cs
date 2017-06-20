@@ -35,6 +35,7 @@ namespace VHMIS
         public static List<Room> _rooms;
         public static List<Vitals> _vitals;
         public static List<Organisation> _org;
+        public static List<Branch> _branch;
 
         public static void LoadData(string start, string end)
         {
@@ -44,6 +45,7 @@ namespace VHMIS
             _users = new List<Users>(Users.ListUsers());
             _events = new List<Events>(Events.ListEvents());
             _clinics = new List<Clinics>(Clinics.ListClinic());
+            _branch = new List<Branch>(Branch.ListBranch());
             _queues = new List<Queue>(Queue.ListQueue());
             _admit = new List<Admission>(Admission.ListAdmission());
             _wards = new List<Wards>(Wards.ListWards());

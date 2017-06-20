@@ -29,6 +29,7 @@ namespace VHMIS.Model
         private string sync;
         private string counts;
         private string company;
+        private string branchID;
 
         public string Id
         {
@@ -276,8 +277,22 @@ namespace VHMIS.Model
                 company = value;
             }
         }
+
+        public string BranchID
+        {
+            get
+            {
+                return branchID;
+            }
+
+            set
+            {
+                branchID = value;
+            }
+        }
+
         public Organisation() { }
-        public Organisation(string id, string name, string code, string registration, string contact, string address, string tin, string vat, string email, string country, string initialpassword, string account, string status, string expires, string image, string created, string sync, string counts, string company)
+        public Organisation(string id, string name, string code, string registration, string contact, string address, string tin, string vat, string email, string country, string initialpassword, string account, string status, string expires, string image, string created, string sync, string counts, string company,string branchID)
         {
             this.Id = id;
             this.Name = name;
@@ -298,6 +313,7 @@ namespace VHMIS.Model
             this.Sync = sync;
             this.Counts = counts;
             this.Company = company;
+            this.BranchID = branchID;
         }
 
         public static List<Organisation> ListOrganisation()
@@ -310,7 +326,7 @@ namespace VHMIS.Model
                 NpgsqlDataReader Reader = DBConnect.Reading(SQL);
                 while (Reader.Read())
                 {
-                    Organisation p = new Organisation(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["registration"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["tin"].ToString(), Reader["vat"].ToString(), Reader["email"].ToString(), Reader["country"].ToString(), Reader["initialpassword"].ToString(), Reader["account"].ToString(), Reader["status"].ToString(), Reader["expires"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["counts"].ToString(), Reader["company"].ToString());
+                    Organisation p = new Organisation(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["registration"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["tin"].ToString(), Reader["vat"].ToString(), Reader["email"].ToString(), Reader["country"].ToString(), Reader["initialpassword"].ToString(), Reader["account"].ToString(), Reader["status"].ToString(), Reader["expires"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["counts"].ToString(), Reader["company"].ToString(), Reader["branchid"].ToString());
                     wards.Add(p);
                 }
                 DBConnect.CloseConn();
@@ -320,7 +336,7 @@ namespace VHMIS.Model
                 SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
                 while (Reader.Read())
                 {
-                    Organisation p = new Organisation(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["registration"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["tin"].ToString(), Reader["vat"].ToString(), Reader["email"].ToString(), Reader["country"].ToString(), Reader["initialpassword"].ToString(), Reader["account"].ToString(), Reader["status"].ToString(), Reader["expires"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["counts"].ToString(), Reader["company"].ToString());
+                    Organisation p = new Organisation(Reader["id"].ToString(), Reader["name"].ToString(), Reader["code"].ToString(), Reader["registration"].ToString(), Reader["contact"].ToString(), Reader["address"].ToString(), Reader["tin"].ToString(), Reader["vat"].ToString(), Reader["email"].ToString(), Reader["country"].ToString(), Reader["initialpassword"].ToString(), Reader["account"].ToString(), Reader["status"].ToString(), Reader["expires"].ToString(), Reader["image"].ToString(), Reader["created"].ToString(), Reader["sync"].ToString(), Reader["counts"].ToString(), Reader["company"].ToString(), Reader["branchid"].ToString());
                     wards.Add(p);
                 }
                 Reader.Close();

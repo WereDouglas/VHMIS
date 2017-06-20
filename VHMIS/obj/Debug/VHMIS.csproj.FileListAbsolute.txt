@@ -76,3 +76,6 @@ C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\bin\Debug\Sys
 C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\bin\Debug\EntityFramework.xml
 C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\bin\Debug\System.Data.SQLite.xml
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.SettingDialog.resources
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.EventDialog.resources
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.BranchDialog.resources

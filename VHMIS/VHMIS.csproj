@@ -134,6 +134,12 @@
     <Compile Include="BookingDiag.Designer.cs">
       <DependentUpon>BookingDiag.cs</DependentUpon>
     </Compile>
+    <Compile Include="BranchDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BranchDialog.Designer.cs">
+      <DependentUpon>BranchDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="CalenderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,12 @@
     <Compile Include="DisciplineForm.Designer.cs">
       <DependentUpon>DisciplineForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EventDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventDialog.Designer.cs">
+      <DependentUpon>EventDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,9 +248,11 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Messaging\Messenger.cs" />
+    <Compile Include="Model\Branch.cs" />
     <Compile Include="Model\Dosage.cs" />
     <Compile Include="Model\Bill.cs" />
     <Compile Include="Model\Admission.cs" />
+    <Compile Include="Model\Expense.cs" />
     <Compile Include="Model\Transactor.cs" />
     <Compile Include="Model\Transaction.cs" />
     <Compile Include="Model\Stock.cs" />
@@ -379,12 +393,19 @@
     <Compile Include="ServiceDialog.Designer.cs">
       <DependentUpon>ServiceDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="SettingDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingDialog.Designer.cs">
+      <DependentUpon>SettingDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="SpecimenForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SpecimenForm.Designer.cs">
       <DependentUpon>SpecimenForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SQLite\Connection.cs" />
     <Compile Include="System\Collections\Generic\List.cs" />
     <Compile Include="TestForm.cs">
       <SubType>Form</SubType>
@@ -436,6 +457,9 @@
     <EmbeddedResource Include="BookingDiag.resx">
       <DependentUpon>BookingDiag.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BranchDialog.resx">
+      <DependentUpon>BranchDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CalenderForm.resx">
       <DependentUpon>CalenderForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -465,6 +489,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DisciplineForm.resx">
       <DependentUpon>DisciplineForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventDialog.resx">
+      <DependentUpon>EventDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -542,6 +569,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceDialog.resx">
       <DependentUpon>ServiceDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingDialog.resx">
+      <DependentUpon>SettingDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SpecimenForm.resx">
       <DependentUpon>SpecimenForm.cs</DependentUpon>
@@ -639,6 +669,8 @@
     <None Include="Resources\Instrument-Microscope-24 %281%29.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Ignore-32.png" />
+    <None Include="Resources\Building-Add-16.png" />
     <Content Include="SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -27,37 +27,71 @@ namespace VHMIS
         public CalenderForm()
         {
             InitializeComponent();
-            startMinTxt.Text = "00";
-            endMinTxt.Text = "00";
+          
             autocompleteUsers();
-            autocompletePatient();
-            startHrTxt.Text = DateTime.Now.ToString("HH");
-            endHrTxt.Text = DateTime.Now.AddHours(1).ToString("HH");
+            autocompletePatient();          
             LoadingCalendarLite();
-
-            foreach (Clinics d in Global._clinics)
-            {
-                clinicCbx.Items.Add(d.Name);
-            }
-
-            foreach (Departments d in Global._departments)
-            {
-                departmentCbx.Items.Add(d.Name);
-            }
+            LoadItem("");
         }
+        public void LoadItem(string date)
+        {
+            List< Events > _events = new List<Events>(Global._events);
+            listView1.Clear();
+          
+          
+            ImageList il = new ImageList();
+            foreach (Events h in _events)
+            {
+                try
+                {
+                    Image img = Base64ToImage(Global._users.First(p => p.Id.Contains(h.Userid)).Image);
+                    il.Images.Add(img);
+                }
+                catch { }
+            }
+            il.ImageSize = new Size(60, 60);
+            int count = 0;
+            listView1.LargeImageList = il;
+            foreach (Events h in _events)
+            {
+              
+                ListViewItem lst = new ListViewItem();
+                lst.Text = h.Users + "\n\r" + h.Details + "\n\r" + h.Department;
+                lst.ForeColor = Color.DimGray;
+                lst.Tag = h.Id;
+                lst.ImageIndex = count++;
+                listView1.Items.Add(lst);
+
+            }
+           
+
+        }
+        static string base64String = null;
+        public System.Drawing.Image Base64ToImage(string bases)
+        {
+            byte[] imageBytes = Convert.FromBase64String(bases);
+            MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
+            ms.Write(imageBytes, 0, imageBytes.Length);
+            System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
+            return image;
+        }
+        public Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            Image returnImage = Image.FromStream(ms);
+            return returnImage;
+        }
+
         private void autocompleteUsers()
         {
             AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
             foreach (Users u in Global._users)
             {
                 AutoItem.Add(u.Surname + " " + u.Lastname);
-                userDictionary.Add(u.Surname + " " + u.Lastname, u.Id);
+                if (!userDictionary.ContainsKey(u.Surname + " " + u.Lastname)) {
+                    userDictionary.Add(u.Surname + " " + u.Lastname, u.Id);
+                }
             }
-
-            practitionerTxt.AutoCompleteMode = AutoCompleteMode.Suggest;
-            practitionerTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            practitionerTxt.AutoCompleteCustomSource = AutoItem;
-
         }
         private void autocompletePatient()
         {
@@ -68,11 +102,7 @@ namespace VHMIS
                 patientDictionary.Add(p.Surname + " " + p.Lastname, p.Id);
                 contactDictionary.Add(p.Id, p.Contact);
                 emailDictionary.Add(p.Id, p.Email);
-            }
-
-            patientTxt.AutoCompleteMode = AutoCompleteMode.Suggest;
-            patientTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            patientTxt.AutoCompleteCustomSource = AutoItem;
+            }           
 
         }
 
@@ -81,44 +111,7 @@ namespace VHMIS
 
         }
         string notify;
-        private void button5_Click(object sender, EventArgs e)
-        {
-            if (startHrTxt.Text == "" || endHrTxt.Text == "")
-            {
-                MessageBox.Show("Please input the start time and end time for the meeting /schedule ");
-                return;
-            }
-            string ID = Guid.NewGuid().ToString();
-            var start = Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "T" + this.startHrTxt.Text + ":" + startMinTxt.Text + ":00";
-            var end = Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "T" + this.endHrTxt.Text + ":" + endMinTxt.Text + ":00";
-
-            notify = "false";
-
-            if (notifyChk.Checked)
-            {
-                notify = "true";
-            }
-            _event = new Events(ID, Helper.CleanString(this.detailsTxt.Text), start, end, practitionerTxt.Text, patientTxt.Text, DateTime.Now.Date.ToString("yyyy-MM-dd"), patientID, "due", userID, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), notify, priorityCbx.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), "f", contact, email, departmentCbx.Text, clinicCbx.Text, Helper.orgID);
-
-            Global._events.Add(_event);
-
-            string Query2 = "INSERT INTO events (id, details, starts, ends, users, patient, created, patientID, status, userID, dated,notif,priority, sync,cal,contact,email) VALUES ('" + ID + "','" + Helper.CleanString(this.detailsTxt.Text) + "','" + start + "','" + end + "','" + practitionerTxt.Text + "','" + patientTxt.Text + "','" + DateTime.Now.Date.ToString("yyyy-MM-dd") + "','" + patientID + "','due','" + userID + "','" + Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd") + "','" + notify + "','" + priorityCbx.Text + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','f','" + contact + "','" + email + "');";
-            DBConnect.Execute(Query2);
-            MessageBox.Show("Information saved");
-            // LoadingCalendarLite();
-            string state = "";
-
-            CalendarItem cal = new CalendarItem(calendar1, Convert.ToDateTime(start), Convert.ToDateTime(end), patientTxt.Text + " ATT: " + practitionerTxt.Text + " " + detailsTxt.Text);
-
-            if (state == "Medium") { cal.ApplyColor(Color.LightGreen); }
-            if (state == "Low") { cal.ApplyColor(Color.CornflowerBlue); }
-            if (state == "High") { cal.ApplyColor(Color.Salmon); }
-            if (state == "none") { cal.ApplyColor(Color.LightSeaGreen); }
-            _items.Add(cal);
-
-            PlaceItems();
-
-        }
+       
         string patientID;
         string userID;
         public FileInfo ItemsFile
@@ -129,41 +122,10 @@ namespace VHMIS
             }
         }
 
-        private void practitionerTxt_Leave(object sender, EventArgs e)
-        {
-            try
-            {
-                userID = userDictionary[practitionerTxt.Text];
-            }
-            catch { }
-            LoadingCalendarLite();
-        }
         string contact;
         string email;
-        private void patientTxt_Leave(object sender, EventArgs e)
-        {
-            try
-            {
-                patientID = patientDictionary[patientTxt.Text];
-                contact = contactDictionary[patientID];
-                email = emailDictionary[patientID];
-            }
-            catch { }
-        }
-
-        private void endHrTxt_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (Convert.ToDouble(endHrTxt.Text) < Convert.ToDouble(startHrTxt.Text))
-            {
-                MessageBox.Show("Schedule end time cannot be less than the start time");
-            }
-        }
-
-        private void startHrTxt_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            endHrTxt.Text = (Convert.ToDouble(startHrTxt.Text) + 1).ToString();
-        }
-
+       
+       
         private void detailsTxt_TextChanged(object sender, EventArgs e)
         {
 
@@ -541,6 +503,36 @@ namespace VHMIS
         private void button3_Click_1(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void patientTxt_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void practitionerTxt_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void practitionerTxt_Leave_1(object sender, EventArgs e)
+        {
+            try
+            {
+                userID = userDictionary[practitionerTxt.Text];
+            }
+            catch { }
+        }
+
+        private void patientTxt_Leave_1(object sender, EventArgs e)
+        {
+            try
+            {
+                patientID = patientDictionary[patientTxt.Text];
+                contact = contactDictionary[patientID];
+                email = emailDictionary[patientID];
+            }
+            catch { }
         }
     }
 }

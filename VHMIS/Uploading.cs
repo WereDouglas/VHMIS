@@ -61,7 +61,7 @@ namespace VHMIS
         public static void Patients()
         {
             //.Where(e => Convert.ToDateTime(e.Created) > Convert.ToDateTime(Helper.lastSync))
-            foreach (var h in Global._patients)
+            foreach (var h in Global._patients.ToList())
             {
                 string Query2 = "DELETE from patient WHERE id ='" + h.Id + "'";
 
@@ -88,7 +88,7 @@ namespace VHMIS
         public static void Events()
         {
             //.Where(e => Convert.ToDateTime(e.Created) > Convert.ToDateTime(Helper.lastSync))
-            foreach (var h in Global._events)
+            foreach (var h in Global._events.ToList())
             {
                 string Query2 = "DELETE from events WHERE id ='" + h.Id + "'";
 
@@ -123,9 +123,9 @@ namespace VHMIS
             }
             catch
             {
-                string Query3 = "UPDATE organisation SET sync='" + DateTime.Now.AddMinutes(-10).ToString("dd-MM-yyyy HH:mm:ss") + "'";
-                DBConnect.save(Query3);
-                Helper.lastSync = DateTime.Now.AddMinutes(-10).ToString("dd-MM-yyyy HH:mm:ss");
+                //string Query3 = "UPDATE organisation SET sync='" + DateTime.Now.AddMinutes(-10).ToString("dd-MM-yyyy HH:mm:ss") + "'";
+                //DBConnect.save(Query3);
+                //Helper.lastSync = DateTime.Now.AddMinutes(-10).ToString("dd-MM-yyyy HH:mm:ss");
             }
         }
     }

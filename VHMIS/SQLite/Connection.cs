@@ -29,7 +29,7 @@ namespace VHMIS.SQLite
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
             string appPath = Path.GetDirectoryName(Application.ExecutablePath);
             string dir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            return dir + "\\LocalXMLFile.xml";
+            return dir + "\\DBHMIS.xml";
 
         }
         public static void createSQLLiteDB(String SQL)

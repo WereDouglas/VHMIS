@@ -117,33 +117,7 @@
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.logoBx = new System.Windows.Forms.PictureBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label23 = new System.Windows.Forms.Label();
-            this.openedDate = new System.Windows.Forms.DateTimePicker();
-            this.button6 = new System.Windows.Forms.Button();
-            this.label58 = new System.Windows.Forms.Label();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.notifyChk = new System.Windows.Forms.CheckBox();
-            this.endMinTxt = new System.Windows.Forms.TextBox();
-            this.startMinTxt = new System.Windows.Forms.TextBox();
-            this.label60 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.endHrTxt = new System.Windows.Forms.ComboBox();
-            this.startHrTxt = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.label64 = new System.Windows.Forms.Label();
-            this.practitionerTxt = new System.Windows.Forms.TextBox();
-            this.detailsTxt = new System.Windows.Forms.TextBox();
-            this.clinicCbx = new System.Windows.Forms.ComboBox();
-            this.label46 = new System.Windows.Forms.Label();
-            this.priorityCbx = new System.Windows.Forms.ComboBox();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.departmentCbx = new System.Windows.Forms.ComboBox();
-            this.roomCbx = new System.Windows.Forms.ComboBox();
-            this.label31 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -158,7 +132,6 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.billGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoBx)).BeginInit();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -174,7 +147,7 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(98, 5);
+            this.splitContainer1.Location = new System.Drawing.Point(12, 12);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -182,6 +155,7 @@
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+            this.splitContainer1.Panel1.Controls.Add(this.button4);
             this.splitContainer1.Panel1.Controls.Add(this.queueNo);
             this.splitContainer1.Panel1.Controls.Add(this.label26);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
@@ -194,8 +168,8 @@
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer1.Size = new System.Drawing.Size(1702, 611);
-            this.splitContainer1.SplitterDistance = 25;
+            this.splitContainer1.Size = new System.Drawing.Size(1305, 611);
+            this.splitContainer1.SplitterDistance = 41;
             this.splitContainer1.TabIndex = 2;
             // 
             // queueNo
@@ -203,7 +177,7 @@
             this.queueNo.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.queueNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.queueNo.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.queueNo.Location = new System.Drawing.Point(407, 3);
+            this.queueNo.Location = new System.Drawing.Point(215, 4);
             this.queueNo.Name = "queueNo";
             this.queueNo.Size = new System.Drawing.Size(175, 19);
             this.queueNo.TabIndex = 113;
@@ -215,7 +189,7 @@
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label26.Location = new System.Drawing.Point(308, 6);
+            this.label26.Location = new System.Drawing.Point(118, 5);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(91, 15);
             this.label26.TabIndex = 113;
@@ -227,7 +201,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::VHMIS.Properties.Resources.Cancel_16;
-            this.button1.Location = new System.Drawing.Point(1628, 2);
+            this.button1.Location = new System.Drawing.Point(1231, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(36, 21);
             this.button1.TabIndex = 1;
@@ -241,7 +215,7 @@
             this.button18.FlatAppearance.BorderSize = 0;
             this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button18.Location = new System.Drawing.Point(786, 2);
+            this.button18.Location = new System.Drawing.Point(654, 10);
             this.button18.Margin = new System.Windows.Forms.Padding(2);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(102, 21);
@@ -257,7 +231,7 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(911, 1);
+            this.button2.Location = new System.Drawing.Point(768, 5);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(96, 26);
@@ -268,21 +242,19 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.57371F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.42628F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 414F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 301F));
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.28019F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.71981F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 451F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox4, 3, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1702, 582);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1305, 566);
             this.tableLayoutPanel1.TabIndex = 222;
             // 
             // panel1
@@ -325,7 +297,7 @@
             this.panel1.ForeColor = System.Drawing.SystemColors.Desktop;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(285, 558);
+            this.panel1.Size = new System.Drawing.Size(312, 558);
             this.panel1.TabIndex = 5;
             // 
             // button5
@@ -653,9 +625,9 @@
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.button7);
-            this.groupBox1.Location = new System.Drawing.Point(294, 3);
+            this.groupBox1.Location = new System.Drawing.Point(321, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(689, 558);
+            this.groupBox1.Size = new System.Drawing.Size(529, 558);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Services";
@@ -868,7 +840,7 @@
             this.dtServices.Location = new System.Drawing.Point(6, 19);
             this.dtServices.Name = "dtServices";
             this.dtServices.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dtServices.Size = new System.Drawing.Size(674, 89);
+            this.dtServices.Size = new System.Drawing.Size(514, 89);
             this.dtServices.TabIndex = 220;
             this.dtServices.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtServices_CellClick);
             // 
@@ -885,7 +857,7 @@
             this.dtLab.Name = "dtLab";
             this.dtLab.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dtLab.RowHeadersVisible = false;
-            this.dtLab.Size = new System.Drawing.Size(675, 100);
+            this.dtLab.Size = new System.Drawing.Size(515, 100);
             this.dtLab.TabIndex = 219;
             this.dtLab.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtLab_CellClick);
             // 
@@ -897,7 +869,7 @@
             this.remarksTxt.Location = new System.Drawing.Point(107, 345);
             this.remarksTxt.Multiline = true;
             this.remarksTxt.Name = "remarksTxt";
-            this.remarksTxt.Size = new System.Drawing.Size(577, 38);
+            this.remarksTxt.Size = new System.Drawing.Size(387, 38);
             this.remarksTxt.TabIndex = 144;
             // 
             // label19
@@ -925,7 +897,7 @@
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button7.Location = new System.Drawing.Point(624, 518);
+            this.button7.Location = new System.Drawing.Point(464, 518);
             this.button7.Margin = new System.Windows.Forms.Padding(2);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(55, 29);
@@ -937,9 +909,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.panel4);
-            this.groupBox2.Location = new System.Drawing.Point(989, 3);
+            this.groupBox2.Location = new System.Drawing.Point(856, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(408, 571);
+            this.groupBox2.Size = new System.Drawing.Size(408, 560);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Billing";
@@ -970,7 +942,7 @@
             this.panel4.Controls.Add(this.label42);
             this.panel4.Controls.Add(this.label43);
             this.panel4.Controls.Add(this.logoBx);
-            this.panel4.Location = new System.Drawing.Point(3, 10);
+            this.panel4.Location = new System.Drawing.Point(3, 5);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(399, 537);
             this.panel4.TabIndex = 222;
@@ -1200,394 +1172,21 @@
             this.logoBx.TabIndex = 0;
             this.logoBx.TabStop = false;
             // 
-            // groupBox4
+            // button4
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Controls.Add(this.button3);
-            this.groupBox4.Controls.Add(this.label23);
-            this.groupBox4.Controls.Add(this.openedDate);
-            this.groupBox4.Controls.Add(this.button6);
-            this.groupBox4.Controls.Add(this.label58);
-            this.groupBox4.Controls.Add(this.comboBox7);
-            this.groupBox4.Controls.Add(this.notifyChk);
-            this.groupBox4.Controls.Add(this.endMinTxt);
-            this.groupBox4.Controls.Add(this.startMinTxt);
-            this.groupBox4.Controls.Add(this.label60);
-            this.groupBox4.Controls.Add(this.label61);
-            this.groupBox4.Controls.Add(this.endHrTxt);
-            this.groupBox4.Controls.Add(this.startHrTxt);
-            this.groupBox4.Controls.Add(this.dateTimePicker3);
-            this.groupBox4.Controls.Add(this.label64);
-            this.groupBox4.Controls.Add(this.practitionerTxt);
-            this.groupBox4.Controls.Add(this.detailsTxt);
-            this.groupBox4.Controls.Add(this.clinicCbx);
-            this.groupBox4.Controls.Add(this.label46);
-            this.groupBox4.Controls.Add(this.priorityCbx);
-            this.groupBox4.Controls.Add(this.label45);
-            this.groupBox4.Controls.Add(this.label44);
-            this.groupBox4.Controls.Add(this.label34);
-            this.groupBox4.Controls.Add(this.departmentCbx);
-            this.groupBox4.Controls.Add(this.roomCbx);
-            this.groupBox4.Controls.Add(this.label31);
-            this.groupBox4.Location = new System.Drawing.Point(1403, 3);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(296, 558);
-            this.groupBox4.TabIndex = 147;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Add new appointment";
-            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(46, 507);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(96, 20);
-            this.button3.TabIndex = 154;
-            this.button3.Text = "Add to Queue";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // label23
-            // 
-            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(17, 313);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(45, 13);
-            this.label23.TabIndex = 191;
-            this.label23.Text = "Priority:";
-            // 
-            // openedDate
-            // 
-            this.openedDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.openedDate.Location = new System.Drawing.Point(109, 359);
-            this.openedDate.Name = "openedDate";
-            this.openedDate.Size = new System.Drawing.Size(168, 21);
-            this.openedDate.TabIndex = 223;
-            // 
-            // button6
-            // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.Location = new System.Drawing.Point(155, 507);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(133, 20);
-            this.button6.TabIndex = 190;
-            this.button6.Text = "Add to Calendar";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click_1);
-            // 
-            // label58
-            // 
-            this.label58.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(17, 177);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(87, 13);
-            this.label58.TabIndex = 187;
-            this.label58.Text = "Remarks/Reason";
-            // 
-            // comboBox7
-            // 
-            this.comboBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox7.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.comboBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Items.AddRange(new object[] {
-            "High",
-            "Medium",
-            "Low"});
-            this.comboBox7.Location = new System.Drawing.Point(109, 310);
-            this.comboBox7.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(168, 21);
-            this.comboBox7.TabIndex = 192;
-            // 
-            // notifyChk
-            // 
-            this.notifyChk.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.notifyChk.AutoSize = true;
-            this.notifyChk.Location = new System.Drawing.Point(109, 342);
-            this.notifyChk.Name = "notifyChk";
-            this.notifyChk.Size = new System.Drawing.Size(104, 17);
-            this.notifyChk.TabIndex = 189;
-            this.notifyChk.Text = "Send notification";
-            this.notifyChk.UseVisualStyleBackColor = true;
-            // 
-            // endMinTxt
-            // 
-            this.endMinTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.endMinTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.endMinTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.endMinTxt.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.endMinTxt.Location = new System.Drawing.Point(211, 278);
-            this.endMinTxt.Name = "endMinTxt";
-            this.endMinTxt.Size = new System.Drawing.Size(55, 16);
-            this.endMinTxt.TabIndex = 186;
-            // 
-            // startMinTxt
-            // 
-            this.startMinTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.startMinTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.startMinTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.startMinTxt.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startMinTxt.Location = new System.Drawing.Point(211, 247);
-            this.startMinTxt.Name = "startMinTxt";
-            this.startMinTxt.Size = new System.Drawing.Size(55, 16);
-            this.startMinTxt.TabIndex = 185;
-            // 
-            // label60
-            // 
-            this.label60.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(17, 245);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(56, 13);
-            this.label60.TabIndex = 181;
-            this.label60.Text = "Start time:";
-            // 
-            // label61
-            // 
-            this.label61.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(17, 278);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(50, 13);
-            this.label61.TabIndex = 182;
-            this.label61.Text = "End time:";
-            // 
-            // endHrTxt
-            // 
-            this.endHrTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.endHrTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.endHrTxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.endHrTxt.FormattingEnabled = true;
-            this.endHrTxt.Items.AddRange(new object[] {
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18"});
-            this.endHrTxt.Location = new System.Drawing.Point(118, 274);
-            this.endHrTxt.Name = "endHrTxt";
-            this.endHrTxt.Size = new System.Drawing.Size(87, 21);
-            this.endHrTxt.TabIndex = 184;
-            // 
-            // startHrTxt
-            // 
-            this.startHrTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.startHrTxt.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.startHrTxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.startHrTxt.Items.AddRange(new object[] {
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23"});
-            this.startHrTxt.Location = new System.Drawing.Point(118, 247);
-            this.startHrTxt.Name = "startHrTxt";
-            this.startHrTxt.Size = new System.Drawing.Size(87, 21);
-            this.startHrTxt.TabIndex = 183;
-            // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker3.Location = new System.Drawing.Point(109, 24);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(178, 21);
-            this.dateTimePicker3.TabIndex = 175;
-            // 
-            // label64
-            // 
-            this.label64.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(17, 26);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(33, 13);
-            this.label64.TabIndex = 176;
-            this.label64.Text = "Date:";
-            // 
-            // practitionerTxt
-            // 
-            this.practitionerTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.practitionerTxt.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.practitionerTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.practitionerTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.practitionerTxt.Location = new System.Drawing.Point(108, 386);
-            this.practitionerTxt.Name = "practitionerTxt";
-            this.practitionerTxt.Size = new System.Drawing.Size(181, 19);
-            this.practitionerTxt.TabIndex = 142;
-            this.practitionerTxt.Leave += new System.EventHandler(this.practitionerTxt_Leave);
-            // 
-            // detailsTxt
-            // 
-            this.detailsTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.detailsTxt.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.detailsTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.detailsTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.detailsTxt.Location = new System.Drawing.Point(109, 177);
-            this.detailsTxt.Multiline = true;
-            this.detailsTxt.Name = "detailsTxt";
-            this.detailsTxt.Size = new System.Drawing.Size(177, 47);
-            this.detailsTxt.TabIndex = 172;
-            // 
-            // clinicCbx
-            // 
-            this.clinicCbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.clinicCbx.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.clinicCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clinicCbx.FormattingEnabled = true;
-            this.clinicCbx.Location = new System.Drawing.Point(109, 52);
-            this.clinicCbx.Margin = new System.Windows.Forms.Padding(4);
-            this.clinicCbx.Name = "clinicCbx";
-            this.clinicCbx.Size = new System.Drawing.Size(176, 21);
-            this.clinicCbx.TabIndex = 167;
-            // 
-            // label46
-            // 
-            this.label46.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(21, 412);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(67, 13);
-            this.label46.TabIndex = 141;
-            this.label46.Text = "Practictioner";
-            // 
-            // priorityCbx
-            // 
-            this.priorityCbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.priorityCbx.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.priorityCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.priorityCbx.FormattingEnabled = true;
-            this.priorityCbx.Items.AddRange(new object[] {
-            "High",
-            "Medium",
-            "Low"});
-            this.priorityCbx.Location = new System.Drawing.Point(109, 142);
-            this.priorityCbx.Margin = new System.Windows.Forms.Padding(4);
-            this.priorityCbx.Name = "priorityCbx";
-            this.priorityCbx.Size = new System.Drawing.Size(177, 21);
-            this.priorityCbx.TabIndex = 156;
-            // 
-            // label45
-            // 
-            this.label45.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(17, 146);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(45, 13);
-            this.label45.TabIndex = 155;
-            this.label45.Text = "Priority:";
-            // 
-            // label44
-            // 
-            this.label44.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(17, 54);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(33, 13);
-            this.label44.TabIndex = 157;
-            this.label44.Text = "Clinic";
-            // 
-            // label34
-            // 
-            this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(17, 86);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(64, 13);
-            this.label34.TabIndex = 159;
-            this.label34.Text = "Room/Ward";
-            this.label34.Click += new System.EventHandler(this.label34_Click);
-            // 
-            // departmentCbx
-            // 
-            this.departmentCbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.departmentCbx.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.departmentCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.departmentCbx.FormattingEnabled = true;
-            this.departmentCbx.Location = new System.Drawing.Point(109, 114);
-            this.departmentCbx.Margin = new System.Windows.Forms.Padding(4);
-            this.departmentCbx.Name = "departmentCbx";
-            this.departmentCbx.Size = new System.Drawing.Size(177, 21);
-            this.departmentCbx.TabIndex = 170;
-            // 
-            // roomCbx
-            // 
-            this.roomCbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.roomCbx.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.roomCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roomCbx.FormattingEnabled = true;
-            this.roomCbx.Location = new System.Drawing.Point(109, 83);
-            this.roomCbx.Margin = new System.Windows.Forms.Padding(4);
-            this.roomCbx.Name = "roomCbx";
-            this.roomCbx.Size = new System.Drawing.Size(177, 21);
-            this.roomCbx.TabIndex = 168;
-            this.roomCbx.SelectedIndexChanged += new System.EventHandler(this.roomCbx_SelectedIndexChanged);
-            // 
-            // label31
-            // 
-            this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(17, 114);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(65, 13);
-            this.label31.TabIndex = 169;
-            this.label31.Text = "Department";
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button4.Location = new System.Drawing.Point(871, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(149, 26);
+            this.button4.TabIndex = 217;
+            this.button4.Text = "New appointment";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // OutPatient
             // 
@@ -1618,8 +1217,6 @@
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.billGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoBx)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1685,33 +1282,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox numberTxt;
-        private System.Windows.Forms.DateTimePicker openedDate;
-        private System.Windows.Forms.TextBox detailsTxt;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ComboBox departmentCbx;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.ComboBox roomCbx;
-        private System.Windows.Forms.ComboBox clinicCbx;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.ComboBox priorityCbx;
-        private System.Windows.Forms.TextBox practitionerTxt;
-        private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label58;
-        private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.CheckBox notifyChk;
-        private System.Windows.Forms.TextBox endMinTxt;
-        private System.Windows.Forms.TextBox startMinTxt;
-        private System.Windows.Forms.Label label60;
-        private System.Windows.Forms.Label label61;
-        private System.Windows.Forms.ComboBox endHrTxt;
-        private System.Windows.Forms.ComboBox startHrTxt;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.Label label64;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label62;
@@ -1741,5 +1311,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.DataGridView billGrid;
+        private System.Windows.Forms.Button button4;
     }
 }

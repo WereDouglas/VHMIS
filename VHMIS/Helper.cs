@@ -15,18 +15,23 @@ using VHMIS.SQLite;
 
 namespace VHMIS
 {
-   public static class Helper
+    public static class Helper
     {
         public static string orgID;
         public static string userID;
+        public static string BranchID;
         public static string userName;
         public static string orgName;
         public static string orgAddress;
         public static string userContact;
         public static string lastSync;
-        public static string ServerName ;
-        public static string  Type;
+        public static string ServerName;
+        public static string Type;
         public static string ServerIP;
+        public static string UserID;
+        public static string Code;
+        public static string Image;
+        public static string Username;
         public static string genUrl = "http://localhost/vhmis/index.php/";
         //public static string fileUrl = "http://localhost/vhmis/file/";
 
@@ -57,7 +62,7 @@ namespace VHMIS
             int Hours = Now.Subtract(PastYearDate).Hours;
             int Minutes = Now.Subtract(PastYearDate).Minutes;
             int Seconds = Now.Subtract(PastYearDate).Seconds;
-             return String.Format("Age: {0} Year(s) {1} Month(s) {2} Day(s) {3} Hour(s) {4} Second(s)", Years, Months, Days, Hours, Seconds);
+            return String.Format("Age: {0} Year(s) {1} Month(s) {2} Day(s) {3} Hour(s) {4} Second(s)", Years, Months, Days, Hours, Seconds);
             //return String.Format("Age: {0} ", Years, Months, Days, Hours, Seconds);
         }
         public static bool Exists(string table, string field, string value)
@@ -267,7 +272,7 @@ namespace VHMIS
         }
 
     }
-   public static class CountryArrays
+    public static class CountryArrays
     {
         /// <summary>
         /// Country names
