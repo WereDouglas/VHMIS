@@ -30,16 +30,26 @@
         {
             this.addressTxt = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.tinTxt = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.syncDate = new System.Windows.Forms.DateTimePicker();
+            this.storeCbx = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.bntStart = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.bntContinue = new System.Windows.Forms.Button();
             this.bntCapture = new System.Windows.Forms.Button();
             this.bntStop = new System.Windows.Forms.Button();
+            this.imgCapture = new System.Windows.Forms.PictureBox();
+            this.imgVideo = new System.Windows.Forms.PictureBox();
             this.fileUrlTxtBx = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.nameTxt = new System.Windows.Forms.TextBox();
@@ -71,16 +81,6 @@
             this.label19 = new System.Windows.Forms.Label();
             this.companyCode = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.imgCapture = new System.Windows.Forms.PictureBox();
-            this.imgVideo = new System.Windows.Forms.PictureBox();
-            this.storeCbx = new System.Windows.Forms.ComboBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.syncDate = new System.Windows.Forms.DateTimePicker();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -111,6 +111,63 @@
             this.panel2.Size = new System.Drawing.Size(833, 46);
             this.panel2.TabIndex = 106;
             // 
+            // button6
+            // 
+            this.button6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button6.BackColor = System.Drawing.Color.Transparent;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(661, 2);
+            this.button6.Margin = new System.Windows.Forms.Padding(2);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(121, 31);
+            this.button6.TabIndex = 111;
+            this.button6.Text = "Add Users";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button3
+            // 
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(354, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(106, 32);
+            this.button3.TabIndex = 109;
+            this.button3.Text = "Update";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button5
+            // 
+            this.button5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button5.BackColor = System.Drawing.Color.Transparent;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(503, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(126, 31);
+            this.button5.TabIndex = 110;
+            this.button5.Text = "Add Store";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // label17
             // 
             this.label17.BackColor = System.Drawing.Color.Transparent;
@@ -122,6 +179,20 @@
             this.label17.TabIndex = 12;
             this.label17.Text = "Company/Organisation profile";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackgroundImage = global::VHMIS.Properties.Resources.Cancel_16;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(801, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(15, 15);
+            this.button1.TabIndex = 0;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tinTxt
             // 
@@ -214,6 +285,43 @@
             this.panel1.Size = new System.Drawing.Size(300, 410);
             this.panel1.TabIndex = 152;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 264);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(138, 13);
+            this.label7.TabIndex = 169;
+            this.label7.Text = "Date of last synchronisation";
+            // 
+            // syncDate
+            // 
+            this.syncDate.Location = new System.Drawing.Point(121, 296);
+            this.syncDate.Name = "syncDate";
+            this.syncDate.Size = new System.Drawing.Size(138, 21);
+            this.syncDate.TabIndex = 168;
+            // 
+            // storeCbx
+            // 
+            this.storeCbx.FormattingEnabled = true;
+            this.storeCbx.Items.AddRange(new object[] {
+            ""});
+            this.storeCbx.Location = new System.Drawing.Point(121, 210);
+            this.storeCbx.Name = "storeCbx";
+            this.storeCbx.Size = new System.Drawing.Size(138, 21);
+            this.storeCbx.TabIndex = 167;
+            this.storeCbx.SelectedIndexChanged += new System.EventHandler(this.storeCbx_SelectedIndexChanged);
+            // 
+            // label22
+            // 
+            this.label22.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(12, 213);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(78, 13);
+            this.label22.TabIndex = 166;
+            this.label22.Text = "Current Branch";
+            // 
             // bntStart
             // 
             this.bntStart.BackColor = System.Drawing.SystemColors.ButtonShadow;
@@ -286,6 +394,28 @@
             this.bntStop.Text = "Stop";
             this.bntStop.UseVisualStyleBackColor = false;
             this.bntStop.Click += new System.EventHandler(this.bntStop_Click);
+            // 
+            // imgCapture
+            // 
+            this.imgCapture.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.imgCapture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgCapture.Image = global::VHMIS.Properties.Resources.logo;
+            this.imgCapture.Location = new System.Drawing.Point(121, 98);
+            this.imgCapture.Name = "imgCapture";
+            this.imgCapture.Size = new System.Drawing.Size(128, 91);
+            this.imgCapture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgCapture.TabIndex = 102;
+            this.imgCapture.TabStop = false;
+            // 
+            // imgVideo
+            // 
+            this.imgVideo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.imgVideo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgVideo.Location = new System.Drawing.Point(121, 13);
+            this.imgVideo.Name = "imgVideo";
+            this.imgVideo.Size = new System.Drawing.Size(128, 79);
+            this.imgVideo.TabIndex = 104;
+            this.imgVideo.TabStop = false;
             // 
             // fileUrlTxtBx
             // 
@@ -555,136 +685,6 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button6
-            // 
-            this.button6.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(661, 2);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(121, 31);
-            this.button6.TabIndex = 111;
-            this.button6.Text = "Add Users";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button3
-            // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(354, 4);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(106, 32);
-            this.button3.TabIndex = 109;
-            this.button3.Text = "Update";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button5
-            // 
-            this.button5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button5.BackColor = System.Drawing.Color.Transparent;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(503, 2);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(126, 31);
-            this.button5.TabIndex = 110;
-            this.button5.Text = "Add Store";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackgroundImage = global::VHMIS.Properties.Resources.Cancel_16;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(801, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(15, 15);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // imgCapture
-            // 
-            this.imgCapture.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.imgCapture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgCapture.Image = global::VHMIS.Properties.Resources.logo;
-            this.imgCapture.Location = new System.Drawing.Point(121, 98);
-            this.imgCapture.Name = "imgCapture";
-            this.imgCapture.Size = new System.Drawing.Size(128, 91);
-            this.imgCapture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgCapture.TabIndex = 102;
-            this.imgCapture.TabStop = false;
-            // 
-            // imgVideo
-            // 
-            this.imgVideo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.imgVideo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgVideo.Location = new System.Drawing.Point(121, 13);
-            this.imgVideo.Name = "imgVideo";
-            this.imgVideo.Size = new System.Drawing.Size(128, 79);
-            this.imgVideo.TabIndex = 104;
-            this.imgVideo.TabStop = false;
-            // 
-            // storeCbx
-            // 
-            this.storeCbx.FormattingEnabled = true;
-            this.storeCbx.Items.AddRange(new object[] {
-            ""});
-            this.storeCbx.Location = new System.Drawing.Point(121, 210);
-            this.storeCbx.Name = "storeCbx";
-            this.storeCbx.Size = new System.Drawing.Size(138, 21);
-            this.storeCbx.TabIndex = 167;
-            this.storeCbx.SelectedIndexChanged += new System.EventHandler(this.storeCbx_SelectedIndexChanged);
-            // 
-            // label22
-            // 
-            this.label22.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(12, 213);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(78, 13);
-            this.label22.TabIndex = 166;
-            this.label22.Text = "Current Branch";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 264);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(138, 13);
-            this.label7.TabIndex = 169;
-            this.label7.Text = "Date of last synchronisation";
-            // 
-            // syncDate
-            // 
-            this.syncDate.Location = new System.Drawing.Point(121, 296);
-            this.syncDate.Name = "syncDate";
-            this.syncDate.Size = new System.Drawing.Size(138, 21);
-            this.syncDate.TabIndex = 168;
-            // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -695,6 +695,7 @@
             this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProfileForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProfileForm";
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

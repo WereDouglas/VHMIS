@@ -79,3 +79,11 @@ C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\bin\Debug\Sys
 C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.SettingDialog.resources
 C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.EventDialog.resources
 C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.BranchDialog.resources
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.OperationDialog.resources
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.DepartmentDialog.resources
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.DisciplineDialog.resources
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.SpecimenDialog.resources
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.RequestDialog.resources
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.StatementDialog.resources
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.ReferDialog.resources
+C:\Users\DOUGLAS\Documents\Visual Studio 2015\Projects\VHMIS\VHMIS\obj\Debug\VHMIS.PrescrribeDialog.resources

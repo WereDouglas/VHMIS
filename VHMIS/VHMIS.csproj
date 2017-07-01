@@ -184,6 +184,12 @@
     <Compile Include="DentalForm.Designer.cs">
       <DependentUpon>DentalForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DepartmentDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepartmentDialog.Designer.cs">
+      <DependentUpon>DepartmentDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="DepartmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +201,12 @@
     </Compile>
     <Compile Include="DiagnosisForm.Designer.cs">
       <DependentUpon>DiagnosisForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DisciplineDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisciplineDialog.Designer.cs">
+      <DependentUpon>DisciplineDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="DisciplineForm.cs">
       <SubType>Form</SubType>
@@ -288,6 +300,12 @@
     <Compile Include="Model\Users.cs" />
     <Compile Include="Model\Roles.cs" />
     <Compile Include="Model\Word.cs" />
+    <Compile Include="OperationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OperationDialog.Designer.cs">
+      <DependentUpon>OperationDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="OperationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -337,6 +355,12 @@
     <Compile Include="PractitionerRegistration.Designer.cs">
       <DependentUpon>PractitionerRegistration.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrescrribeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrescrribeDialog.Designer.cs">
+      <DependentUpon>PrescrribeDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProcedureForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -363,6 +387,12 @@
     <Compile Include="QueueForm.Designer.cs">
       <DependentUpon>QueueForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReferDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReferDialog.Designer.cs">
+      <DependentUpon>ReferDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="RentalCollection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -374,6 +404,12 @@
     </Compile>
     <Compile Include="RentalCollectionSummary.Designer.cs">
       <DependentUpon>RentalCollectionSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RequestDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestDialog.Designer.cs">
+      <DependentUpon>RequestDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="RoleForm.cs">
       <SubType>Form</SubType>
@@ -399,6 +435,12 @@
     <Compile Include="SettingDialog.Designer.cs">
       <DependentUpon>SettingDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="SpecimenDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpecimenDialog.Designer.cs">
+      <DependentUpon>SpecimenDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="SpecimenForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -406,6 +448,12 @@
       <DependentUpon>SpecimenForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SQLite\Connection.cs" />
+    <Compile Include="StatementDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatementDialog.Designer.cs">
+      <DependentUpon>StatementDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="System\Collections\Generic\List.cs" />
     <Compile Include="TestForm.cs">
       <SubType>Form</SubType>
@@ -481,11 +529,17 @@
     <EmbeddedResource Include="DentalForm.resx">
       <DependentUpon>DentalForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DepartmentDialog.resx">
+      <DependentUpon>DepartmentDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DepartmentForm.resx">
       <DependentUpon>DepartmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DiagnosisForm.resx">
       <DependentUpon>DiagnosisForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisciplineDialog.resx">
+      <DependentUpon>DisciplineDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DisciplineForm.resx">
       <DependentUpon>DisciplineForm.cs</DependentUpon>
@@ -512,6 +566,9 @@
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="OperationDialog.resx">
+      <DependentUpon>OperationDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OperationForm.resx">
       <DependentUpon>OperationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -536,6 +593,9 @@
     <EmbeddedResource Include="PractitionerRegistration.resx">
       <DependentUpon>PractitionerRegistration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PrescrribeDialog.resx">
+      <DependentUpon>PrescrribeDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProcedureForm.resx">
       <DependentUpon>ProcedureForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -558,8 +618,14 @@
     <EmbeddedResource Include="QueueForm.resx">
       <DependentUpon>QueueForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReferDialog.resx">
+      <DependentUpon>ReferDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RentalCollectionSummary.resx">
       <DependentUpon>RentalCollectionSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RequestDialog.resx">
+      <DependentUpon>RequestDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RoleForm.resx">
       <DependentUpon>RoleForm.cs</DependentUpon>
@@ -573,8 +639,14 @@
     <EmbeddedResource Include="SettingDialog.resx">
       <DependentUpon>SettingDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SpecimenDialog.resx">
+      <DependentUpon>SpecimenDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SpecimenForm.resx">
       <DependentUpon>SpecimenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatementDialog.resx">
+      <DependentUpon>StatementDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TestForm.resx">
       <DependentUpon>TestForm.cs</DependentUpon>
@@ -671,6 +743,28 @@
   <ItemGroup>
     <None Include="Resources\Ignore-32.png" />
     <None Include="Resources\Building-Add-16.png" />
+    <None Include="Resources\News-Add-24.png" />
+    <None Include="Resources\Document-Add-01-32.png" />
+    <None Include="Resources\vugaco.PNG" />
+    <None Include="Resources\First-Aid-Kit-01-32.png" />
+    <None Include="Resources\First-Aid-Kit-01-128.png" />
+    <None Include="Resources\Sleep-01-128.png" />
+    <None Include="Resources\Sleep-01-48.png" />
+    <None Include="Resources\First-Aid-Kit-01-48.png" />
+    <None Include="Resources\T-Shirt-2-48.png" />
+    <None Include="Resources\Wheelchair-48.png" />
+    <None Include="Resources\User-Group-48 %283%29.png" />
+    <None Include="Resources\Gear-32.png" />
+    <None Include="Resources\Medicine-48.png" />
+    <None Include="Resources\Instrument-Microscope-48.png" />
+    <None Include="Resources\Heart-ECG-48 %281%29.png" />
+    <None Include="Resources\Heart-ECG-48 %281%291.png" />
+    <None Include="Resources\Heart-ECG-48 %281%292.png" />
+    <None Include="Resources\Dental-48.png" />
+    <None Include="Resources\Instrument-Microscope-48 %282%29.png" />
+    <None Include="Resources\For-This-Week-48.png" />
+    <None Include="Resources\Microsoft-Excel-2013-01-48.png" />
+    <None Include="Resources\Document-48.png" />
     <Content Include="SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

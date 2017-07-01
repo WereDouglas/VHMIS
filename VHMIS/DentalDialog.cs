@@ -37,19 +37,40 @@ namespace VHMIS
             VisitID = visitID;
             InitializeComponent();
             toothTxt.Text = tooth;
-            operationCbx.Items.Add("");
-            foreach (Operations t in Global._operations)//.Where(i=>i.DepartmentID))
-            {
-                operationCbx.Items.Add(t.Service);
-                operationCost.Add(t.Service, t.Cost);
-            }
-            labCbx.Items.Add("");
-            foreach (Tests t in Global._tests)//.Where(i=>i.DepartmentID))
-            {
-                labCbx.Items.Add(t.Parameter);
-                testCost.Add(t.Parameter, t.Cost);
-            }
+            orderLbl.Text = No;
             autocompleteCD();
+            LoadItem();
+            LoadServices(No);
+        }
+        public void LoadItem()
+        {
+            try
+            {
+                TreeNode treeNode = new TreeNode("Departments");
+                
+                int ct = 1;
+                var result = Global._operations.GroupBy(cat => cat.DepID).Select(un => un.First());
+                foreach (Operations c in result)
+                {
+                    treeNode = new TreeNode(ct++ + "." + Global._departments.First(s => s.Id.Contains(c.DepID)).Name);
+                    myTreeView.Nodes.Add(treeNode);
+                    foreach (Operations d in Global._operations.Where(b => b.DepID.Contains(c.DepID)))
+                    {
+                        TreeNode child = new TreeNode();
+                        child.Name = d.Name;
+                        child.Tag = d.Id;
+                        child.Text = d.Name;
+                        child.ImageIndex = 1;
+                        treeNode.Nodes.Add(child);
+                    }
+                }
+                myTreeView.Nodes[0].TreeView.ImageList = imageList1;
+            }
+            catch
+            {
+
+
+            }
         }
         Dictionary<string, string> cdDictionary = new Dictionary<string, string>();
         private void autocompleteCD()
@@ -69,7 +90,8 @@ namespace VHMIS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Close();
+            this.DialogResult = DialogResult.OK;
+            this.Dispose();
         }
 
         private void label52_Click(object sender, EventArgs e)
@@ -85,81 +107,8 @@ namespace VHMIS
 
         }
         double serviceTotal = 0;
-        private void operationCbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                opCostTxt.Text = operationCost[operationCbx.Text];
-                serviceTotal = Convert.ToDouble(opCostTxt.Text) * Convert.ToDouble(serviceQty.Text);
-                serviceLbl.Text = serviceTotal.ToString("n0");
-            }
-            catch { }
-        }
+      
 
-        private void button17_Click(object sender, EventArgs e)
-        {
-            if (String.IsNullOrEmpty(statusCbx.Text))
-            {
-                MessageBox.Show("Please select the current status of the operation/Service ");
-                return;
-            }
-            string id = "";
-            id = Guid.NewGuid().ToString();
-            if (!String.IsNullOrEmpty(operationCbx.Text))
-            {
-                _service = new Services(id, operationCbx.Text, VisitID, "Dental", "procedureID", PatientID, "userID", "code", "userID", opCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), toothTxt.Text, statusCbx.Text,serviceQty.Text,serviceTotal.ToString("n0"),"No", Helper.orgID,No);
-                DBConnect.Insert(_service);
-                MessageBox.Show("Information added/Saved");
-            }
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string id = "";
-            id = Guid.NewGuid().ToString();
-            if (!String.IsNullOrEmpty(labCbx.Text))
-            {
-                _lab = new Lab(id, VisitID, PatientID, labCbx.Text, labCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), labQty.Text, LabTotal.ToString("n0"), Helper.orgID,No);
-                DBConnect.Insert(_lab);
-                MessageBox.Show("Information added/Saved");
-            }
-        }
-        private void button16_Click(object sender, EventArgs e)
-        {
-            string id = "";
-            id = Guid.NewGuid().ToString();
-            if (!String.IsNullOrEmpty(operationCbx.Text))
-            {
-                _diag = new Diagnosis(id, diagnosisCbx.Text, VisitID, "Dental", "procedureID", PatientID, "userID", codeTxt.Text, "userID", diagCostTxt.Text, noteTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID,No);
-                DBConnect.Insert(_diag);
-                MessageBox.Show("Information added/Saved");
-
-            }
-
-        }
-        double LabTotal = 0;
-        private void labCbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                labCostTxt.Text = testCost[labCbx.Text];
-                LabTotal = Convert.ToDouble(labCostTxt.Text) * Convert.ToDouble(labQty.Text);
-                LabLbl.Text = LabTotal.ToString("n0");
-            }
-            catch { }
-        }
-
-        private void labQty_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-
-                LabTotal = Convert.ToDouble(labCostTxt.Text) * Convert.ToDouble(labQty.Text);
-                LabLbl.Text = LabTotal.ToString("n0");
-            }
-            catch { }
-        }
 
         private void serviceQty_TextChanged(object sender, EventArgs e)
         {
@@ -176,7 +125,7 @@ namespace VHMIS
             try
             {
                 var value = cdDictionary.FirstOrDefault(x => x.Value.Contains(diagnosisCbx.Text)).Key;
-                codeTxt.Text = value;// cdDictionary[diagnosisCbx.Text];
+                noteTxt.Text = value;// cdDictionary[diagnosisCbx.Text];
             }
             catch
             {
@@ -187,6 +136,110 @@ namespace VHMIS
         private void label46_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void myTreeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            
+          
+            if (String.IsNullOrEmpty(PatientID))
+            {
+                MessageBox.Show("Please input the input the patient  ");
+                return;
+            }           
+            string OpId = myTreeView.SelectedNode.Tag.ToString();
+
+            
+            string id = Guid.NewGuid().ToString();
+            if (!String.IsNullOrEmpty(OpId))
+            {
+                Services _service = new Services(id, myTreeView.SelectedNode.Name.ToString(), orderLbl.Text, VisitID, Global._operations.First(s => s.Id.Contains(OpId)).DepID, OpId, PatientID, Helper.userID, Global._operations.First(s => s.Id.Contains(OpId)).Cost, toothTxt.Text, "Incomplete", "1", Global._operations.First(s => s.Id.Contains(OpId)).Cost, "No", "", "", DateTime.Now.ToString("dd-MM-yyyy"), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
+                DBConnect.Insert(_service);
+                // Global._services.Add(_service);
+                MessageBox.Show("Information added/Saved");
+
+
+            }
+            LoadServices(orderLbl.Text);
+        }
+        DataTable tb;
+        private void LoadServices(string visitID)
+        {
+            _services = Services.ListServices(visitID);
+            tb = new DataTable();
+            // create and execute query 
+            tb.Columns.Add("id");//2 
+            tb.Columns.Add("Parameter");//2
+            tb.Columns.Add("Name");//2
+            tb.Columns.Add("Department");//           
+            tb.Columns.Add("Price");//
+            tb.Columns.Add("Quantity");//
+            tb.Columns.Add("Total");//
+            tb.Columns.Add("Paid");//
+            tb.Columns.Add("Notes");//
+            tb.Columns.Add("Status");// 
+            tb.Columns.Add("Results");//            
+            tb.Columns.Add("Cancel");//
+            tb.Columns.Add("departmentID");//
+
+            foreach (Services r in _services)
+            {
+                tb.Rows.Add(new object[] { r.Id, r.Parameter, r.Name, Global._departments.First(e => e.Id.Contains(r.DepartmentID)).Name, r.Price, r.Qty, r.Total, r.Paid, r.Notes, r.Status, r.Results, "Cancel", r.DepartmentID });
+
+            }
+            dtGrid.DataSource = tb;
+            dtGrid.AllowUserToAddRows = false;
+            dtGrid.Columns["Cancel"].DefaultCellStyle.BackColor = Color.OrangeRed;
+            dtGrid.Columns["id"].Visible = false;
+            dtGrid.Columns["departmentID"].Visible = false;
+            dtGrid.Columns["Cancel"].FillWeight = 80;
+            totalLbl.Text = _services.Sum(f => Convert.ToDouble(f.Total)).ToString("n0");
+        }
+
+        private void dtGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dtGrid.Columns["Cancel"].Index && e.RowIndex >= 0)
+            {
+                if (MessageBox.Show("YES or No?", "Cancel service ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    DBConnect.Delete("services", dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                    MessageBox.Show("Information deleted");
+                    LoadServices(No);
+
+                }
+
+            }
+        }
+
+        private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (String.IsNullOrEmpty(dtGrid.Rows[e.RowIndex].Cells["Quantity"].Value.ToString()) || String.IsNullOrEmpty(dtGrid.Rows[e.RowIndex].Cells["Price"].Value.ToString()))
+            {
+
+                MessageBox.Show("Please input a value ");
+                return;
+
+            }
+            if (e.ColumnIndex == dtGrid.Columns["Quantity"].Index || e.ColumnIndex == dtGrid.Columns["Price"].Index)
+            {
+                try
+                {
+                    dtGrid.Rows[e.RowIndex].Cells["Total"].Value = (Convert.ToDouble(dtGrid.Rows[e.RowIndex].Cells["Quantity"].Value) * Convert.ToDouble(dtGrid.Rows[e.RowIndex].Cells["Price"].Value));
+                }
+                catch
+                {
+
+
+                }
+
+            }
+            Services _c = new Services(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString(), No, VisitID, dtGrid.Rows[e.RowIndex].Cells["departmentID"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["name"].Value.ToString(), PatientID, Helper.userID, dtGrid.Rows[e.RowIndex].Cells["price"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["parameter"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["status"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Quantity"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Total"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["Paid"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["notes"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["results"].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy"), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
+            DBConnect.Update(_c, dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+            try
+            {
+                LoadServices(No);
+            }
+            catch { }
         }
     }
 }

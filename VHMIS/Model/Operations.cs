@@ -10,15 +10,26 @@ namespace VHMIS.Model
 {
     public class Operations
     {
-
         private string id;
-        private string departmentID;
+        private string depID;
         private string code;
-        private string service;
-        private string cost;
-        private string other;
+        private string name;
+        private string type;//treatment  or investigation //test diagnosis
+        private string category;//Operation ,surgery, other
+        private string cost;       
+        private string specimenID; 
+        private string parameter;
+        private string upper;
+        private string lower;
+        private string unit;
+        private string disciplineID;       
+        private string gender;
+        private string phrase;
+        private string max;
+        private string min;
         private string created;
         private string orgID;
+
         public string Id
         {
             get
@@ -32,16 +43,16 @@ namespace VHMIS.Model
             }
         }
 
-        public string DepartmentID
+        public string DepID
         {
             get
             {
-                return departmentID;
+                return depID;
             }
 
             set
             {
-                departmentID = value;
+                depID = value;
             }
         }
 
@@ -58,16 +69,42 @@ namespace VHMIS.Model
             }
         }
 
-        public string Service
+        public string Name
         {
             get
             {
-                return service;
+                return name;
             }
 
             set
             {
-                service = value;
+                name = value;
+            }
+        }
+
+        public string Type
+        {
+            get
+            {
+                return type;
+            }
+
+            set
+            {
+                type = value;
+            }
+        }
+
+        public string Category
+        {
+            get
+            {
+                return category;
+            }
+
+            set
+            {
+                category = value;
             }
         }
 
@@ -83,16 +120,134 @@ namespace VHMIS.Model
                 cost = value;
             }
         }
-        public string Other
+
+        public string SpecimenID
         {
             get
             {
-                return other;
+                return specimenID;
             }
 
             set
             {
-                other = value;
+                specimenID = value;
+            }
+        }
+
+        public string Parameter
+        {
+            get
+            {
+                return parameter;
+            }
+
+            set
+            {
+                parameter = value;
+            }
+        }
+
+        public string Upper
+        {
+            get
+            {
+                return upper;
+            }
+
+            set
+            {
+                upper = value;
+            }
+        }
+
+        public string Lower
+        {
+            get
+            {
+                return lower;
+            }
+
+            set
+            {
+                lower = value;
+            }
+        }
+
+        public string Unit
+        {
+            get
+            {
+                return unit;
+            }
+
+            set
+            {
+                unit = value;
+            }
+        }
+
+        public string DisciplineID
+        {
+            get
+            {
+                return disciplineID;
+            }
+
+            set
+            {
+                disciplineID = value;
+            }
+        }
+
+        public string Gender
+        {
+            get
+            {
+                return gender;
+            }
+
+            set
+            {
+                gender = value;
+            }
+        }
+
+        public string Phrase
+        {
+            get
+            {
+                return phrase;
+            }
+
+            set
+            {
+                phrase = value;
+            }
+        }
+
+        public string Max
+        {
+            get
+            {
+                return max;
+            }
+
+            set
+            {
+                max = value;
+            }
+        }
+
+        public string Min
+        {
+            get
+            {
+                return min;
+            }
+
+            set
+            {
+                min = value;
             }
         }
 
@@ -122,28 +277,40 @@ namespace VHMIS.Model
             }
         }
         public Operations() { }
-        public Operations(string id, string departmentID, string code, string service, string cost, string other, string created, string orgID)
+        public Operations(string id, string depID, string code, string name, string type, string category, string cost, string specimenID, string parameter, string upper, string lower, string unit, string disciplineID, string gender, string phrase, string max, string min, string created, string orgID)
         {
             this.Id = id;
-            this.DepartmentID = departmentID;
+            this.DepID = depID;
             this.Code = code;
-            this.Service = service;
+            this.Name = name;
+            this.Type = type;
+            this.Category = category;
             this.Cost = cost;
-            this.Other = other;
+            this.SpecimenID = specimenID;
+            this.Parameter = parameter;
+            this.Upper = upper;
+            this.Lower = lower;
+            this.Unit = unit;
+            this.DisciplineID = disciplineID;
+            this.Gender = gender;
+            this.Phrase = phrase;
+            this.Max = max;
+            this.Min = min;
             this.Created = created;
             this.OrgID = orgID;
         }
+
         public static List<Operations> ListOperations()
         {
-            List<Operations> wards = new List<Operations>();
+            List<Operations> operations = new List<Operations>();
             string SQL = "SELECT * FROM operations";
             if (Helper.Type != "Lite")
             {
                 NpgsqlDataReader Reader = DBConnect.Reading(SQL);
                 while (Reader.Read())
                 {
-                    Operations p = new Operations(Reader["id"].ToString(), Reader["departmentID"].ToString(), Reader["code"].ToString(), Reader["service"].ToString(), Reader["cost"].ToString(), Reader["other"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
-                    wards.Add(p);
+                    Operations p = new Operations(Reader["id"].ToString(), Reader["depID"].ToString(), Reader["code"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["cost"].ToString(), Reader["specimenID"].ToString(), Reader["parameter"].ToString(), Reader["upper"].ToString(), Reader["lower"].ToString(), Reader["unit"].ToString(), Reader["disciplineID"].ToString(), Reader["gender"].ToString(), Reader["phrase"].ToString(), Reader["max"].ToString(), Reader["min"].ToString(), Reader["created"].ToString(), Reader["orgID"].ToString());
+                    operations.Add(p);
                 }
                 Reader.Close();
                 DBConnect.CloseConn();
@@ -153,12 +320,12 @@ namespace VHMIS.Model
                 SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
                 while (Reader.Read())
                 {
-                    Operations p = new Operations(Reader["id"].ToString(), Reader["departmentID"].ToString(), Reader["code"].ToString(), Reader["service"].ToString(), Reader["cost"].ToString(), Reader["other"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
-                    wards.Add(p);
+                    Operations p = new Operations(Reader["id"].ToString(), Reader["depID"].ToString(), Reader["code"].ToString(), Reader["name"].ToString(), Reader["type"].ToString(), Reader["category"].ToString(), Reader["cost"].ToString(), Reader["specimenID"].ToString(), Reader["parameter"].ToString(), Reader["upper"].ToString(), Reader["lower"].ToString(), Reader["unit"].ToString(), Reader["discipineID"].ToString(), Reader["gender"].ToString(), Reader["phrase"].ToString(), Reader["max"].ToString(), Reader["min"].ToString(), Reader["created"].ToString(), Reader["orgID"].ToString());
+                    operations.Add(p);
                 }
                 Reader.Close();
             }
-            return wards;
+            return operations;
 
         }
     }

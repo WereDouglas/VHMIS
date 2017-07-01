@@ -28,16 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdmissionDialog));
             this.label9 = new System.Windows.Forms.Label();
             this.orderLbl = new System.Windows.Forms.Label();
-            this.opCostTxt = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.operationCbx = new System.Windows.Forms.ComboBox();
-            this.paidChk = new System.Windows.Forms.CheckBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.remarksTxt = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.bedCbx = new System.Windows.Forms.ComboBox();
@@ -67,23 +62,16 @@
             this.label66 = new System.Windows.Forms.Label();
             this.costLbl = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dtGrid = new System.Windows.Forms.DataGridView();
+            this.myTreeView = new System.Windows.Forms.TreeView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.paidChk = new System.Windows.Forms.CheckBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGrid)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackgroundImage = global::VHMIS.Properties.Resources.Cancel_16;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(369, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(20, 18);
-            this.button1.TabIndex = 2;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label9
             // 
@@ -91,9 +79,9 @@
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label9.Location = new System.Drawing.Point(12, 0);
+            this.label9.Location = new System.Drawing.Point(37, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(351, 29);
+            this.label9.Size = new System.Drawing.Size(267, 28);
             this.label9.TabIndex = 191;
             this.label9.Text = "Admission";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -109,64 +97,6 @@
             this.orderLbl.TabIndex = 197;
             this.orderLbl.Text = "#";
             // 
-            // opCostTxt
-            // 
-            this.opCostTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.opCostTxt.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.opCostTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.opCostTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.opCostTxt.Location = new System.Drawing.Point(107, 338);
-            this.opCostTxt.Name = "opCostTxt";
-            this.opCostTxt.Size = new System.Drawing.Size(213, 19);
-            this.opCostTxt.TabIndex = 196;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(30, 342);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 13);
-            this.label11.TabIndex = 195;
-            this.label11.Text = "Amount";
-            // 
-            // operationCbx
-            // 
-            this.operationCbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.operationCbx.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.operationCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.operationCbx.FormattingEnabled = true;
-            this.operationCbx.Location = new System.Drawing.Point(107, 310);
-            this.operationCbx.Margin = new System.Windows.Forms.Padding(4);
-            this.operationCbx.Name = "operationCbx";
-            this.operationCbx.Size = new System.Drawing.Size(213, 21);
-            this.operationCbx.TabIndex = 194;
-            this.operationCbx.SelectedIndexChanged += new System.EventHandler(this.operationCbx_SelectedIndexChanged);
-            // 
-            // paidChk
-            // 
-            this.paidChk.BackColor = System.Drawing.Color.Transparent;
-            this.paidChk.Location = new System.Drawing.Point(107, 363);
-            this.paidChk.Name = "paidChk";
-            this.paidChk.Size = new System.Drawing.Size(64, 17);
-            this.paidChk.TabIndex = 193;
-            this.paidChk.Text = "Paid";
-            this.paidChk.UseVisualStyleBackColor = false;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(0, 313);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(107, 13);
-            this.label10.TabIndex = 191;
-            this.label10.Text = "Operation/Procedure";
-            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -178,24 +108,6 @@
             this.label1.TabIndex = 190;
             this.label1.Text = "Date";
             // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(202, 492);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 32);
-            this.button2.TabIndex = 189;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // remarksTxt
             // 
             this.remarksTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -206,7 +118,7 @@
             this.remarksTxt.Location = new System.Drawing.Point(106, 256);
             this.remarksTxt.Multiline = true;
             this.remarksTxt.Name = "remarksTxt";
-            this.remarksTxt.Size = new System.Drawing.Size(213, 44);
+            this.remarksTxt.Size = new System.Drawing.Size(129, 62);
             this.remarksTxt.TabIndex = 188;
             // 
             // label7
@@ -230,7 +142,7 @@
             this.bedCbx.Location = new System.Drawing.Point(104, 174);
             this.bedCbx.Margin = new System.Windows.Forms.Padding(4);
             this.bedCbx.Name = "bedCbx";
-            this.bedCbx.Size = new System.Drawing.Size(213, 21);
+            this.bedCbx.Size = new System.Drawing.Size(129, 21);
             this.bedCbx.TabIndex = 186;
             this.bedCbx.SelectedIndexChanged += new System.EventHandler(this.bedCbx_SelectedIndexChanged);
             // 
@@ -255,7 +167,7 @@
             this.wardCbx.Location = new System.Drawing.Point(104, 146);
             this.wardCbx.Margin = new System.Windows.Forms.Padding(4);
             this.wardCbx.Name = "wardCbx";
-            this.wardCbx.Size = new System.Drawing.Size(213, 21);
+            this.wardCbx.Size = new System.Drawing.Size(129, 21);
             this.wardCbx.TabIndex = 184;
             this.wardCbx.SelectedIndexChanged += new System.EventHandler(this.wardCbx_SelectedIndexChanged);
             // 
@@ -269,7 +181,7 @@
             this.clinicCbx.Location = new System.Drawing.Point(104, 118);
             this.clinicCbx.Margin = new System.Windows.Forms.Padding(4);
             this.clinicCbx.Name = "clinicCbx";
-            this.clinicCbx.Size = new System.Drawing.Size(213, 21);
+            this.clinicCbx.Size = new System.Drawing.Size(129, 21);
             this.clinicCbx.TabIndex = 183;
             // 
             // openedDate
@@ -278,7 +190,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.openedDate.Location = new System.Drawing.Point(104, 38);
             this.openedDate.Name = "openedDate";
-            this.openedDate.Size = new System.Drawing.Size(213, 21);
+            this.openedDate.Size = new System.Drawing.Size(129, 21);
             this.openedDate.TabIndex = 182;
             // 
             // label5
@@ -328,7 +240,7 @@
             this.priorityCbx.Location = new System.Drawing.Point(106, 228);
             this.priorityCbx.Margin = new System.Windows.Forms.Padding(4);
             this.priorityCbx.Name = "priorityCbx";
-            this.priorityCbx.Size = new System.Drawing.Size(213, 21);
+            this.priorityCbx.Size = new System.Drawing.Size(129, 21);
             this.priorityCbx.TabIndex = 179;
             // 
             // patientTxt
@@ -340,7 +252,7 @@
             this.patientTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patientTxt.Location = new System.Drawing.Point(104, 92);
             this.patientTxt.Name = "patientTxt";
-            this.patientTxt.Size = new System.Drawing.Size(213, 19);
+            this.patientTxt.Size = new System.Drawing.Size(129, 19);
             this.patientTxt.TabIndex = 177;
             this.patientTxt.Leave += new System.EventHandler(this.patientTxt_Leave);
             // 
@@ -364,7 +276,7 @@
             this.practitionerTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.practitionerTxt.Location = new System.Drawing.Point(104, 66);
             this.practitionerTxt.Name = "practitionerTxt";
-            this.practitionerTxt.Size = new System.Drawing.Size(213, 19);
+            this.practitionerTxt.Size = new System.Drawing.Size(129, 19);
             this.practitionerTxt.TabIndex = 175;
             this.practitionerTxt.Leave += new System.EventHandler(this.practitionerTxt_Leave);
             // 
@@ -382,6 +294,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.departmentCbx);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.enrollCbx);
@@ -395,13 +308,8 @@
             this.panel1.Controls.Add(this.label66);
             this.panel1.Controls.Add(this.costLbl);
             this.panel1.Controls.Add(this.orderLbl);
-            this.panel1.Controls.Add(this.opCostTxt);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.operationCbx);
             this.panel1.Controls.Add(this.paidChk);
-            this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.remarksTxt);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.bedCbx);
@@ -418,9 +326,9 @@
             this.panel1.Controls.Add(this.practitionerTxt);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(12, 32);
+            this.panel1.Location = new System.Drawing.Point(37, 31);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(351, 535);
+            this.panel1.Size = new System.Drawing.Size(267, 522);
             this.panel1.TabIndex = 0;
             // 
             // departmentCbx
@@ -433,8 +341,9 @@
             this.departmentCbx.Location = new System.Drawing.Point(101, 14);
             this.departmentCbx.Margin = new System.Windows.Forms.Padding(4);
             this.departmentCbx.Name = "departmentCbx";
-            this.departmentCbx.Size = new System.Drawing.Size(216, 21);
+            this.departmentCbx.Size = new System.Drawing.Size(132, 21);
             this.departmentCbx.TabIndex = 209;
+            this.departmentCbx.SelectedIndexChanged += new System.EventHandler(this.departmentCbx_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -455,15 +364,15 @@
             this.enrollCbx.Items.AddRange(new object[] {
             "Self",
             "Other"});
-            this.enrollCbx.Location = new System.Drawing.Point(157, 378);
+            this.enrollCbx.Location = new System.Drawing.Point(106, 378);
             this.enrollCbx.Name = "enrollCbx";
-            this.enrollCbx.Size = new System.Drawing.Size(135, 21);
+            this.enrollCbx.Size = new System.Drawing.Size(130, 21);
             this.enrollCbx.TabIndex = 207;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(34, 406);
+            this.label17.Location = new System.Drawing.Point(20, 408);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(59, 13);
             this.label17.TabIndex = 200;
@@ -476,15 +385,15 @@
             this.refTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.refTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.refTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refTxt.Location = new System.Drawing.Point(157, 429);
+            this.refTxt.Location = new System.Drawing.Point(105, 434);
             this.refTxt.Name = "refTxt";
-            this.refTxt.Size = new System.Drawing.Size(135, 26);
+            this.refTxt.Size = new System.Drawing.Size(130, 26);
             this.refTxt.TabIndex = 206;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(34, 467);
+            this.label18.Location = new System.Drawing.Point(20, 474);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(78, 13);
             this.label18.TabIndex = 201;
@@ -493,7 +402,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(34, 433);
+            this.label24.Location = new System.Drawing.Point(20, 435);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(62, 13);
             this.label24.TabIndex = 205;
@@ -506,9 +415,9 @@
             this.referralDocTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.referralDocTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.referralDocTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.referralDocTxt.Location = new System.Drawing.Point(157, 461);
+            this.referralDocTxt.Location = new System.Drawing.Point(104, 461);
             this.referralDocTxt.Name = "referralDocTxt";
-            this.referralDocTxt.Size = new System.Drawing.Size(135, 26);
+            this.referralDocTxt.Size = new System.Drawing.Size(132, 26);
             this.referralDocTxt.TabIndex = 202;
             // 
             // enrollbyTxt
@@ -518,15 +427,15 @@
             this.enrollbyTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.enrollbyTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.enrollbyTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enrollbyTxt.Location = new System.Drawing.Point(157, 402);
+            this.enrollbyTxt.Location = new System.Drawing.Point(104, 402);
             this.enrollbyTxt.Name = "enrollbyTxt";
-            this.enrollbyTxt.Size = new System.Drawing.Size(135, 26);
+            this.enrollbyTxt.Size = new System.Drawing.Size(132, 26);
             this.enrollbyTxt.TabIndex = 204;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(34, 381);
+            this.label22.Location = new System.Drawing.Point(20, 381);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(59, 13);
             this.label22.TabIndex = 203;
@@ -550,7 +459,7 @@
             this.costLbl.AutoSize = true;
             this.costLbl.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.costLbl.ForeColor = System.Drawing.Color.Brown;
-            this.costLbl.Location = new System.Drawing.Point(102, 201);
+            this.costLbl.Location = new System.Drawing.Point(108, 201);
             this.costLbl.Name = "costLbl";
             this.costLbl.Size = new System.Drawing.Size(19, 23);
             this.costLbl.TabIndex = 198;
@@ -562,27 +471,103 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.616279F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 97.38372F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.21795F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.78205F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 293F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 337F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label9, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.button1, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dtGrid, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.myTreeView, 2, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(18, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.139186F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.86082F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(392, 570);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(938, 570);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackgroundImage = global::VHMIS.Properties.Resources.Cancel_16;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(915, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(20, 18);
+            this.button1.TabIndex = 2;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // dtGrid
+            // 
+            this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dtGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGrid.Location = new System.Drawing.Point(603, 31);
+            this.dtGrid.Name = "dtGrid";
+            this.dtGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dtGrid.RowHeadersVisible = false;
+            this.dtGrid.Size = new System.Drawing.Size(332, 515);
+            this.dtGrid.TabIndex = 193;
+            // 
+            // myTreeView
+            // 
+            this.myTreeView.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.myTreeView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.myTreeView.Location = new System.Drawing.Point(310, 31);
+            this.myTreeView.Name = "myTreeView";
+            this.tableLayoutPanel1.SetRowSpan(this.myTreeView, 2);
+            this.myTreeView.ShowNodeToolTips = true;
+            this.myTreeView.Size = new System.Drawing.Size(287, 515);
+            this.myTreeView.TabIndex = 192;
+            this.myTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.myTreeView_AfterSelect);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Folder-24 (1).png");
+            this.imageList1.Images.SetKeyName(1, "Document-32.png");
+            this.imageList1.Images.SetKeyName(2, "Folder-24.png");
+            // 
+            // paidChk
+            // 
+            this.paidChk.BackColor = System.Drawing.Color.Transparent;
+            this.paidChk.Location = new System.Drawing.Point(106, 324);
+            this.paidChk.Name = "paidChk";
+            this.paidChk.Size = new System.Drawing.Size(64, 17);
+            this.paidChk.TabIndex = 193;
+            this.paidChk.Text = "Paid";
+            this.paidChk.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(104, 492);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(132, 23);
+            this.button2.TabIndex = 218;
+            this.button2.Text = "Save";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // AdmissionDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(428, 594);
+            this.ClientSize = new System.Drawing.Size(974, 594);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -592,6 +577,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -601,13 +587,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label orderLbl;
-        private System.Windows.Forms.TextBox opCostTxt;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox operationCbx;
-        private System.Windows.Forms.CheckBox paidChk;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox remarksTxt;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox bedCbx;
@@ -637,5 +617,10 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ComboBox departmentCbx;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TreeView myTreeView;
+        private System.Windows.Forms.DataGridView dtGrid;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.CheckBox paidChk;
+        private System.Windows.Forms.Button button2;
     }
 }

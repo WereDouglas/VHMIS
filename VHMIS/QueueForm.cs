@@ -46,85 +46,121 @@ namespace VHMIS
             _patientList = Global._patients;
             _userList = Global._users;
             InitializeComponent();
-            autocompleteUsers();
-            autocompleteWards();
+         
             openedDate.Text = DateTime.Now.ToString("dd-MM-yyyy");
-            btnDelete.Name = "btnDelete";
-            btnDelete.Text = "Complete";
-            btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Width = 60;
-            btnDelete.CellTemplate.Style.BackColor = Color.Green;
-            btnDelete.UseColumnTextForButtonValue = true;
-            btnDelete.HeaderText = "Complete";
+           
 
-            btnEdit.Name = "btnEdit";
-            btnEdit.Text = "Visit";
-            btnEdit.FlatStyle = FlatStyle.Flat;
-            btnEdit.Width = 60;
-            btnEdit.CellTemplate.Style.BackColor = Color.Orange;
-            btnEdit.UseColumnTextForButtonValue = true;
-            btnEdit.HeaderText = "Edit";
+           
             today = DateTime.Now.ToString("dd-MM-yyyy");
             _queues = Global._queues;
             LoadData();
-
+            LoadItem();
+           // LoadRoom();
 
 
         }
-        private void autocompleteUsers()
+        public void LoadItem()
         {
-            AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
-            foreach (Users u in Global._users)
+
+            //foreach (Queue d in Global._queues.Where(b => b.Id.Contains(c.Id)))
+            //{
+
+            //    Image img = Base64ToImage(Global._users.First(s => s.Id.Contains(d.UserID)).Image.ToString());
+            //    System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
+            //    Bitmap bps = new Bitmap(bmp, 50, 50);
+
+            //    ImageList treeList = new ImageList();
+            //    treeList.Images.Add("imageKey", bps);
+            //    treeList.ImageSize = new Size(32, 32);
+            //}
+
+
+            myTreeView.Nodes.Clear();
+            try
             {
-                AutoItem.Add(u.Surname + " " + u.Lastname);
-                if (!userDictionary.ContainsKey(u.Surname + " " + u.Lastname))
+                TreeNode treeNode = new TreeNode("Practitioners");
+                
+                int ct = 1;
+                var result = _todayList.GroupBy(cat => cat.UserID).Select(un => un.First());
+                foreach (Queue c in result)
                 {
-                    userDictionary.Add(u.Surname + " " + u.Lastname, u.Id);
+                    treeNode = new TreeNode(ct++ + "." + Global._users.First(s => s.Id.Contains(c.UserID)).Lastname+" "+ Global._users.First(s => s.Id.Contains(c.UserID)).Surname);
+                    myTreeView.Nodes.Add(treeNode);
+                    
+                    foreach (Queue d in _todayList.Where(b => b.UserID.Contains(c.UserID)))
+                    {
+                        TreeNode child = new TreeNode();
+                        child.Name = d.No;
+                        child.Tag = d.Id;
+                        child.Text = d.No +" "+ Global._patients.First(s => s.Id.Contains(d.PatientID)).Lastname +" "+ Global._patients.First(s => s.Id.Contains(d.PatientID)).Surname +" ";
+                        child.ImageIndex = 1;
+                        treeNode.Nodes.Add(child);
+                    }
                 }
-                practitionerCbx.Items.Add(u.Surname + " " + u.Lastname);
+                myTreeView.Nodes[0].TreeView.ImageList = imageList1;
             }
-            practitionerCbx.AutoCompleteMode = AutoCompleteMode.Suggest;
-            practitionerCbx.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            practitionerCbx.AutoCompleteCustomSource = AutoItem;
-
-        }
-
-        private void autocompleteWards()
-        {
-            AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
-            foreach (Room u in Global._rooms)
+            catch
             {
-                AutoItem.Add(u.Name);
-                roomDictionary.Add(u.Name, u.Id);
-                roomCbx.Items.Add(u.Name);
-            }
-            roomCbx.AutoCompleteMode = AutoCompleteMode.Suggest;
-            roomCbx.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            roomCbx.AutoCompleteCustomSource = AutoItem;
 
+
+            }
         }
+        public void LoadRoom()
+        {
+
+            //foreach (Queue d in Global._queues.Where(b => b.Id.Contains(c.Id)))
+            //{
+
+            //    Image img = Base64ToImage(Global._users.First(s => s.Id.Contains(d.UserID)).Image.ToString());
+            //    System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(img);
+            //    Bitmap bps = new Bitmap(bmp, 50, 50);
+
+            //    ImageList treeList = new ImageList();
+            //    treeList.Images.Add("imageKey", bps);
+            //    treeList.ImageSize = new Size(32, 32);
+            //}
+
+
+
+            try
+            {
+                TreeNode treeNode = new TreeNode("Rooms");
+
+                int ct = 1;
+                var result = _todayList.GroupBy(cat => cat.RoomID).Select(un => un.First());
+                foreach (Queue c in result)
+                {
+                    treeNode = new TreeNode(ct++ + "." + Global._rooms.First(s => s.Id.Contains(c.UserID)).Name);
+                    myTreeView.Nodes.Add(treeNode);
+
+                    foreach (Queue d in Global._queues.Where(b => b.RoomID.Contains(c.RoomID)))
+                    {
+                        TreeNode child = new TreeNode();
+
+                        child.Name = d.No;
+                        child.Tag = d.Id;
+                        child.Text = d.No + " " + Global._patients.First(s => s.Id.Contains(c.PatientID)).Lastname + " " + Global._patients.First(s => s.Id.Contains(c.PatientID)).Surname + " ";
+                        child.ImageIndex = 1;
+                        treeNode.Nodes.Add(child);
+                    }
+                }
+                myTreeView.Nodes[0].TreeView.ImageList = imageList1;
+            }
+            catch
+            {
+
+
+            }
+        }
+
+
 
 
         private void button3_Click(object sender, EventArgs e)
         {
             Close();
         }
-
-        private void practitionerTxt_Leave(object sender, EventArgs e)
-        {
-            try
-            {
-                userID = userDictionary[practitionerCbx.Text];
-                _todayList = Global._queues.Where(l => l.UserID.Contains(userID) && l.Dated.Contains(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy"))).ToList();
-                LoadData();
-            }
-            catch { }
-
-        }
-
-
         int follow;
-
         private void button5_Click(object sender, EventArgs e)
         {
 
@@ -218,12 +254,12 @@ namespace VHMIS
                 if (content != "Yes")
                 {
                     row.DefaultCellStyle.ForeColor = Color.Red;
-                    row.DefaultCellStyle.Font = new Font("Calibri", 16.5F, FontStyle.Bold, GraphicsUnit.Pixel);
+                    row.DefaultCellStyle.Font = new Font("Calibri", 12.5F, FontStyle.Bold, GraphicsUnit.Pixel);
                 }
                 else
                 {
                     row.DefaultCellStyle.ForeColor = Color.Green;
-                    row.DefaultCellStyle.Font = new Font("Calibri", 14.5F, FontStyle.Bold, GraphicsUnit.Pixel);
+                    row.DefaultCellStyle.Font = new Font("Calibri", 12.5F, FontStyle.Bold, GraphicsUnit.Pixel);
 
                 }
             }
@@ -241,10 +277,6 @@ namespace VHMIS
             dtGrid.Columns["docimage"].Visible = false;
             dtGrid.Columns["patientID"].Visible = false;
             dtGrid.Columns["practitionerID"].Visible = false;
-
-
-
-
         }
 
 
@@ -257,14 +289,7 @@ namespace VHMIS
             return image;
         }
 
-        private void roomCbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                wardID = wardDictionary[roomCbx.Text];
-            }
-            catch { }
-        }
+      
         string updateID;
 
         private void dtGrid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -366,13 +391,15 @@ namespace VHMIS
                 frm.Show();
 
             }
-            if (e.ColumnIndex == 23)
+            if (e.ColumnIndex == dtGrid.Columns["Remove"].Index && e.RowIndex >= 0)
             {
                 if (MessageBox.Show("YES or No?", "Remove Patient from Queue ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     DBConnect.Delete("queue", dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                    Global._queues.RemoveAll(w=>w.Id.Contains(dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString()));
                     MessageBox.Show("Information deleted");
                     LoadData();
+                    LoadItem();
                 }
             }
         }
@@ -401,22 +428,12 @@ namespace VHMIS
 
         }
 
-        private void roomCbx_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            try
-            {
-
-                _todayList = Queue.ListQueue(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy")).Where(l => l.RoomID.Contains(roomCbx.Text)).ToList();
-                LoadData();
-            }
-            catch { }
-
-        }
-
         private void openedDate_CloseUp(object sender, EventArgs e)
         {
             _todayList = Queue.ListQueue(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy")).ToList();
             LoadData();
+            LoadItem();
+           // LoadRoom();
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -444,6 +461,7 @@ namespace VHMIS
                     //MessageBox.Show(form.state);
                     _todayList = Queue.ListQueue(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy")).ToList(); ;
                     LoadData();
+                    LoadItem();
 
                 }
             }
@@ -463,6 +481,21 @@ namespace VHMIS
 
                 }
             }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtGrid_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

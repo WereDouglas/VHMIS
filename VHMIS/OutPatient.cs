@@ -46,26 +46,26 @@ namespace VHMIS
 
             autocompleteNumber();
             autocompleteID();
-           
-            
+
             if (!String.IsNullOrEmpty(QueueID))
             {
                 queueID = QueueID;
-                LoadServices(queueID);
-                LoadLabs(queueID);
+                LoadServices(Global._queues.First(y => y.Id.Contains(queueID)).No);
+
                 PatientID = patientID;
                 LoadPatient(patientID);
+                queueNo.Text = Global._queues.First(y => y.Id.Contains(queueID)).No;
             }
             else
             {
                 queueID = Guid.NewGuid().ToString();
             }
-           
-            
-          
+
+
+
         }
-       
-       
+
+
         private void autocompleteNumber()
         {
             AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
@@ -109,53 +109,31 @@ namespace VHMIS
             tb.Columns.Add("id");//2 
             tb.Columns.Add("Parameter");//2
             tb.Columns.Add("Name");//2
-            tb.Columns.Add("Department");//
-            tb.Columns.Add("Procedure");//
+            tb.Columns.Add("Department");//           
             tb.Columns.Add("Price");//
-            tb.Columns.Add("Code");//
-            tb.Columns.Add("status");//
             tb.Columns.Add("Quantity");//
-            tb.Columns.Add("Cost");//
+            tb.Columns.Add("Total");//
+            tb.Columns.Add("Paid");//
+            tb.Columns.Add("Notes");//
+            tb.Columns.Add("Status");// 
+            tb.Columns.Add("Results");//            
             tb.Columns.Add("Cancel");//
+            tb.Columns.Add("departmentID");//
 
             foreach (Services r in _services)
             {
-                tb.Rows.Add(new object[] { r.Id, r.Parameter, r.Name, r.DepartmentID, r.ProcedureID, r.Price, r.Code, r.Status, r.Qty, r.Total, "Cancel" });
+                tb.Rows.Add(new object[] { r.Id, r.Parameter, r.Name, Global._departments.First(e => e.Id.Contains(r.DepartmentID)).Name, r.Price, r.Qty, r.Total, r.Paid, r.Notes, r.Status, r.Results, "Cancel",r.DepartmentID });
 
-                
             }
             dtServices.DataSource = tb;
-            billGrid.DataSource = bb;
             dtServices.AllowUserToAddRows = false;
-            dtServices.Columns[10].DefaultCellStyle.BackColor = Color.OrangeRed;
-            dtServices.Columns[0].Visible = false;
-            dtServices.Columns[10].FillWeight = 80;
+            dtServices.Columns["Cancel"].DefaultCellStyle.BackColor = Color.OrangeRed;
+            dtServices.Columns["id"].Visible = false;
+            dtServices.Columns["departmentID"].Visible = false;
+            dtServices.Columns["Cancel"].FillWeight = 80;
+            totalLbl.Text = _services.Sum(f => Convert.ToDouble(f.Total)).ToString("n0");
         }
-        private void LoadLabs(string visitID)
-        {
 
-            _labs = Lab.ListLab(visitID);
-            tb = new DataTable();
-
-            tb.Columns.Add("id");//2 
-            tb.Columns.Add("Test");//2
-            tb.Columns.Add("Cost");//
-            tb.Columns.Add("Quantity");//
-            tb.Columns.Add("Total");//
-            tb.Columns.Add("Cancel");//
-            foreach (Lab r in _labs)
-            {
-                tb.Rows.Add(new object[] { r.Id, r.Test, r.Cost, r.Qty, r.Total, "Cancel" });
-            }
-            dtLab.DataSource = tb;
-
-            dtLab.AllowUserToAddRows = false;
-            dtLab.Columns[5].DefaultCellStyle.BackColor = Color.OrangeRed;
-            dtLab.Columns[0].Visible = false;
-            // dtLab.Columns[3].Width = 20;
-            dtLab.Columns[5].FillWeight = 20;
-
-        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -165,46 +143,26 @@ namespace VHMIS
         private List<Lab> _labs;
         private Diagnosis _diag;
         private List<Diagnosis> _diags;
-        private void button2_Click(object sender, EventArgs e)
+
+        private List<Services> _services;
+        private Services _service;
+        double serviceTotal = 0;
+        private void button18_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(queueNo.Text))
             {
                 MessageBox.Show("Please input the VISIT NO/ID");
                 return;
             }
-            using (LabDialog form = new LabDialog(PatientID, queueID, queueNo.Text))
+            using (RequestDialog form = new RequestDialog(PatientID, queueID, queueNo.Text))
             {
                 // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
                 DialogResult dr = form.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
                     //MessageBox.Show(form.state);
-                     
-                    LoadLabs(queueID);
 
-                }
-            }
-
-
-        }
-        private List<Services> _services;
-        private Services _service;
-        double serviceTotal = 0;
-        private void button18_Click(object sender, EventArgs e)
-        {
-            if(String.IsNullOrEmpty(queueNo.Text)){
-                MessageBox.Show("Please input the VISIT NO/ID");
-                return;
-            }
-            using (ServiceDialog form = new ServiceDialog(PatientID, queueID, queueNo.Text))
-            {
-                // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                    //MessageBox.Show(form.state);
-                  
-                    LoadServices(queueID);
+                    LoadServices(queueNo.Text);
 
                 }
             }
@@ -244,8 +202,8 @@ namespace VHMIS
             return image;
         }
         int follow;
-       
-       
+
+
 
         private void patientTxt_Leave_1(object sender, EventArgs e)
         {
@@ -266,7 +224,7 @@ namespace VHMIS
             frm.Show();
         }
 
-       
+
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -299,7 +257,7 @@ namespace VHMIS
         }
         string notify;
         Events _event;
-      
+
 
         private void groupBox4_Enter(object sender, EventArgs e)
         {
@@ -307,7 +265,7 @@ namespace VHMIS
         }
 
         double procsTotal = 0;
-       
+
         private void button7_Click(object sender, EventArgs e)
         {
 
@@ -315,21 +273,23 @@ namespace VHMIS
 
         private void queueNo_TextChanged(object sender, EventArgs e)
         {
-
+           
             try
             {
-                string QueueID = Global._queues.First(p => p.No.Contains(queueNo.Text)).Id;
-                string patientID = Global._queues.First(d => d.No.Contains(queueNo.Text)).PatientID;
-                if (!String.IsNullOrEmpty(QueueID))
-                {
-                    queueID = QueueID;
-                    LoadServices(queueID);
-                    LoadLabs(queueID);
-                    PatientID = patientID;
-                    LoadPatient(patientID);
-                }
+                
+                    string QueueID = Global._queues.First(p => p.No.Equals(queueNo.Text)).Id;
+                    string patientID = Global._queues.First(d => d.No.Equals(queueNo.Text)).PatientID;
+                    if (!String.IsNullOrEmpty(QueueID))
+                    {
+                        queueID = QueueID;
+                        LoadServices(queueNo.Text);
+                        PatientID = patientID;
+                        LoadPatient(patientID);
+                    }
+                
             }
             catch { }
+        
         }
 
         private void queueNo_Click(object sender, EventArgs e)
@@ -339,34 +299,19 @@ namespace VHMIS
 
         private void dtServices_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dtServices.Rows[e.RowIndex].Cells["Cancel"].Value.ToString() == "Cancel")
+            if (e.ColumnIndex == dtServices.Columns["Cancel"].Index && e.RowIndex >= 0)
             {
                 if (MessageBox.Show("YES or No?", "Cancel service ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     DBConnect.Delete("services", dtServices.Rows[e.RowIndex].Cells["id"].Value.ToString());
                     MessageBox.Show("Information deleted");
-                    LoadServices(queueID);
+                    LoadServices(queueNo.Text);
 
                 }
 
             }
         }
 
-        private void dtLab_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            if (dtLab.Rows[e.RowIndex].Cells["Cancel"].Value.ToString() == "Cancel")
-            {
-                if (MessageBox.Show("YES or No?", "Cancel this Lab request ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-                    DBConnect.Delete("lab", dtLab.Rows[e.RowIndex].Cells["id"].Value.ToString());
-                    MessageBox.Show("Information deleted");
-                    LoadLabs(queueID);
-
-                }
-
-            }
-        }
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -381,6 +326,96 @@ namespace VHMIS
 
                 }
             }
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            using (StatementDialog form = new StatementDialog(queueID))
+            {
+                // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+
+
+                }
+            }
+        }
+
+        private void dtServices_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (String.IsNullOrEmpty(dtServices.Rows[e.RowIndex].Cells["Quantity"].Value.ToString()) || String.IsNullOrEmpty(dtServices.Rows[e.RowIndex].Cells["Price"].Value.ToString()))
+            {
+
+                MessageBox.Show("Please input a value ");
+                return;
+
+            }
+            if (e.ColumnIndex == dtServices.Columns["Quantity"].Index || e.ColumnIndex == dtServices.Columns["Price"].Index)
+            {
+                try
+                {
+                    dtServices.Rows[e.RowIndex].Cells["Total"].Value = (Convert.ToDouble(dtServices.Rows[e.RowIndex].Cells["Quantity"].Value) * Convert.ToDouble(dtServices.Rows[e.RowIndex].Cells["Price"].Value));
+                }
+                catch
+                {
+
+
+                }
+
+            }
+            Services _c = new Services(dtServices.Rows[e.RowIndex].Cells["id"].Value.ToString(), dtServices.Rows[e.RowIndex].Cells["name"].Value.ToString(), queueNo.Text, queueID, dtServices.Rows[e.RowIndex].Cells["departmentID"].Value.ToString(), dtServices.Rows[e.RowIndex].Cells["name"].Value.ToString(), PatientID, Helper.userID, dtServices.Rows[e.RowIndex].Cells["price"].Value.ToString(), dtServices.Rows[e.RowIndex].Cells["parameter"].Value.ToString(), dtServices.Rows[e.RowIndex].Cells["status"].Value.ToString(), dtServices.Rows[e.RowIndex].Cells["Quantity"].Value.ToString(), dtServices.Rows[e.RowIndex].Cells["Total"].Value.ToString(), dtServices.Rows[e.RowIndex].Cells["Paid"].Value.ToString(), dtServices.Rows[e.RowIndex].Cells["notes"].Value.ToString(), dtServices.Rows[e.RowIndex].Cells["results"].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy"), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
+            DBConnect.Update(_c, dtServices.Rows[e.RowIndex].Cells["id"].Value.ToString());
+            try
+            {
+                LoadServices(queueNo.Text);
+            }
+            catch { }
+        }
+
+        private void dtServices_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (dtServices.Columns["Paid"].HeaderText.Equals("Paid"))
+            {
+                TextBox autoText = e.Control as TextBox;
+                if (autoText != null)
+                {
+                    autoText.AutoCompleteMode = AutoCompleteMode.Suggest;
+                    autoText.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                    AutoCompleteStringCollection DataCollection = new AutoCompleteStringCollection();
+                    addPaid(DataCollection);
+                    autoText.AutoCompleteCustomSource = DataCollection;
+                }
+            }
+
+            if (dtServices.Columns["Status"].HeaderText.Equals("Status"))
+            {
+                TextBox autoText = e.Control as TextBox;
+                if (autoText != null)
+                {
+                    autoText.AutoCompleteMode = AutoCompleteMode.Suggest;
+                    autoText.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                    AutoCompleteStringCollection DataCollection = new AutoCompleteStringCollection();
+                    addStatus(DataCollection);
+                    autoText.AutoCompleteCustomSource = DataCollection;
+                }
+            }
+            
+        }
+        public void addPaid(AutoCompleteStringCollection col)
+        {
+
+            col.Add("Yes");
+            col.Add("No");
+
+        }
+        public void addStatus(AutoCompleteStringCollection col)
+        {
+
+            col.Add("Complete");
+            col.Add("Incomplete");
+
         }
     }
 }

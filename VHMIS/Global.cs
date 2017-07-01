@@ -62,7 +62,7 @@ namespace VHMIS
             _stocks = new List<Stock>(Stock.ListStock());
             _dosages = new List<Dosage>(Dosage.ListDosage());
             _transactors = new List<Transactor>(Transactor.ListTransactors());
-            // _services = new List<Services>(Services.ListServices());
+           //  _services = new List<Services>(Services.ListServices());
             // _diagnosis = new List<Diagnosis>(Diagnosis.ListDiagnosis());
             _rooms = new List<Room>(Room.ListRoom());
             // _vitals = new List<Vitals>(Vitals.ListVitals());

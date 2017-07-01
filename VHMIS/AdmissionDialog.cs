@@ -40,9 +40,10 @@ namespace VHMIS
         int follow;
         Services _service;
         int next;
+        string QueueID;
         public AdmissionDialog()
         {
-
+            QueueID = Guid.NewGuid().ToString();
             _patientList = Global._patients;
             _userList = Global._users;
             InitializeComponent();
@@ -61,14 +62,8 @@ namespace VHMIS
             {
                 wardCbx.Items.Add(d.Name);
                 wardDictionary.Add(d.Name,d.Id);
-            }
-           
-            operationCbx.Items.Add("");
-            foreach (Operations t in Global._operations)//.Where(i=>i.DepartmentID))
-            {
-                operationCbx.Items.Add(t.Service);
-                operationCost.Add(t.Service, t.Cost);
-            }
+            }           
+         
             foreach (Departments d in Global._departments)
             {
                 departmentCbx.Items.Add(d.Name);
@@ -84,6 +79,40 @@ namespace VHMIS
                 next = follow + 1;
             }
             orderLbl.Text = "VHMIS-" + DateTime.Now.ToString("dd-MM-yyyy") + "/ADMIT/" + next;
+            LoadItem();
+        }
+        public void LoadItem()
+        {
+            try
+            {
+                TreeNode treeNode = new TreeNode("Departments");
+                //  myTreeView.Nodes.Add(treeNode);
+                // create and execute query  
+                int ct = 1;
+                var result = Global._operations.GroupBy(cat => cat.DepID).Select(un => un.First());
+                foreach (Operations c in result)
+                {
+                    treeNode = new TreeNode(ct++ + "." + Global._departments.First(s => s.Id.Contains(c.DepID)).Name);
+                    myTreeView.Nodes.Add(treeNode);
+
+                    foreach (Operations d in Global._operations.Where(b => b.DepID.Contains(c.DepID)))
+                    {
+                        TreeNode child = new TreeNode();
+
+                        child.Name = d.Name;
+                        child.Tag = d.Id;
+                        child.Text = d.Name;
+                        child.ImageIndex = 1;
+                        treeNode.Nodes.Add(child);
+                    }
+                }
+                myTreeView.Nodes[0].TreeView.ImageList = imageList1;
+            }
+            catch
+            {
+
+
+            }
         }
         private void autocompleteUsers()
         {
@@ -147,52 +176,7 @@ namespace VHMIS
             Close();
         }
         
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (patientID == "" || userID == "")
-            {
-                MessageBox.Show("Please input the input the patient OR the practitioner  ");
-                return;
-            }
-            string id = Guid.NewGuid().ToString();
-            string paid = "No";
-            string status = "Incomplete";
-            if (paidChk.Checked == true)
-            {
-                paid = "Yes";
-                status = "Complete";
-            }
-            Helper.orgID = "test";
-            Queue _queue = new Queue(id, next.ToString(), patientID, userID,wardCbx.Text,priorityCbx.Text, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), clinicCbx.Text,bedCbx.Text, paid, "", "", "", "", "", remarksTxt.Text, "", orderLbl.Text, Helper.orgID, "IP");
-            Global._queues.Add(_queue);
-            if (DBConnect.Insert(_queue) != "")
-            {
-                patientTxt.Text = "";
-                practitionerTxt.Text = "";
-               
-                if (!String.IsNullOrEmpty(operationCbx.Text))
-                {
-                    string ids = Guid.NewGuid().ToString();
-                    _service = new Services(ids, operationCbx.Text, id, "Dental", "procedureID", patientID, "userID", "code", "userID", opCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), operationCbx.Text, status, "1", opCostTxt.Text, paid, Helper.orgID,orderLbl.Text);
-                    DBConnect.Insert(_service);
-                }
-                if (!String.IsNullOrEmpty(costLbl.Text))
-                {
-                    string ids = Guid.NewGuid().ToString();
-                    _service = new Services(ids,"admission and Bed", id, departmentCbx.Text, orderLbl.Text, patientID,Helper.userID, "ADMIT",Helper.userName,costLbl.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),"Admission", "New", "1", costLbl.Text, paid, Helper.orgID, orderLbl.Text);
-                    DBConnect.Insert(_service);
-                }
-
-                MessageBox.Show("Information Saved");
-                this.DialogResult = DialogResult.OK;
-                this.Dispose();
-            }
-            else
-            {
-                return;
-
-            }
-        }
+       
 
         private void practitionerTxt_Leave(object sender, EventArgs e)
         {
@@ -214,17 +198,6 @@ namespace VHMIS
             catch { }
         }
 
-        private void operationCbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            try
-            {
-                opCostTxt.Text = operationCost[operationCbx.Text];
-                //serviceTotal = Convert.ToDouble(opCostTxt.Text) * Convert.ToDouble(opCostTxt.Text);
-                //serviceLbl.Text = serviceTotal.ToString("n0");
-            }
-            catch { }
-        }
         Dictionary<string, string> BedDictionary = new Dictionary<string, string>();
         private void wardCbx_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -239,6 +212,122 @@ namespace VHMIS
         private void bedCbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             costLbl.Text = BedDictionary[bedCbx.Text];
+        }
+
+        private void myTreeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            string paid = "No";
+            string status = "Incomplete";
+            if (paidChk.Checked == true)
+            {
+                paid = "Yes";
+                status = "Complete";
+            }
+            if (String.IsNullOrEmpty(patientID))
+            {
+                MessageBox.Show("Please input the input the patient  ");
+                return;
+            }
+            if (String.IsNullOrEmpty(userID))
+            {
+                MessageBox.Show("Please input the input the practitioner  ");
+                return;
+            }
+            if (Global._queues.Where(t => t.No.Contains(orderLbl.Text)).Count() < 1)
+            {
+                MessageBox.Show("Please save /Submit the visit information");
+                return;
+            }
+            string OpId = myTreeView.SelectedNode.Tag.ToString();
+
+            string id = "";
+            id = Guid.NewGuid().ToString();
+            if (!String.IsNullOrEmpty(OpId))
+            {
+                Services _service = new Services(id, myTreeView.SelectedNode.Name.ToString(), orderLbl.Text, QueueID, Global._operations.First(s => s.Id.Contains(OpId)).DepID, OpId, patientID, Helper.userID, Global._operations.First(s => s.Id.Contains(OpId)).Cost, Global._operations.First(s => s.Id.Contains(OpId)).Parameter, "Incomplete", "1", Global._operations.First(s => s.Id.Contains(OpId)).Cost, "No", "", "", DateTime.Now.ToString("dd-MM-yyyy"), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
+                DBConnect.Insert(_service);
+                // Global._services.Add(_service);
+                MessageBox.Show("Information added/Saved");
+
+
+            }
+            LoadServices(orderLbl.Text);
+        }
+        DataTable tb;
+        private void LoadServices(string visitID)
+        {
+
+            List<Services> _services = Services.ListServices(visitID);
+            tb = new DataTable();
+            // create and execute query 
+            tb.Columns.Add("id");//2 
+            tb.Columns.Add("Parameter");//2
+            tb.Columns.Add("Name");//2
+            tb.Columns.Add("Department");//           
+            tb.Columns.Add("Price");//
+            tb.Columns.Add("Quantity");//
+            tb.Columns.Add("Total");//
+            tb.Columns.Add("Paid");//
+            tb.Columns.Add("Notes");//
+            tb.Columns.Add("Status");//            
+            tb.Columns.Add("Cancel");//
+
+            foreach (Services r in _services)
+            {
+                tb.Rows.Add(new object[] { r.Id, r.Parameter, r.Name, Global._departments.First(e => e.Id.Contains(r.DepartmentID)).Name, r.Price, r.Qty, r.Total, r.Paid, r.Notes, r.Status, "Cancel" });
+
+            }
+            dtGrid.DataSource = tb;
+            dtGrid.AllowUserToAddRows = false;
+            dtGrid.Columns["Cancel"].DefaultCellStyle.BackColor = Color.OrangeRed;
+            dtGrid.Columns["id"].Visible = false;
+            dtGrid.Columns["Cancel"].FillWeight = 80;
+        }
+        private void button18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            string paid = "No";
+            string status = "Incomplete";
+            if (paidChk.Checked == true)
+            {
+                paid = "Yes";
+                status = "Complete";
+            }
+            if (Global._queues.Where(t => t.No.Contains(orderLbl.Text)).Count() > 0)
+            {
+                MessageBox.Show("Information already submitted  ");
+                return;
+            }
+            if (patientID == "" || userID == "")
+            {
+                MessageBox.Show("Please input the input the patient OR the practitioner  ");
+                return;
+            }
+
+            if (!String.IsNullOrEmpty(departmentCbx.Text))
+            {
+                Queue _q = new Queue(QueueID, next.ToString(), patientID, Helper.UserID, " ", "", Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy"), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), "", departmentCbx.Text, "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "", "", orderLbl.Text, Helper.orgID, departmentCbx.Text);
+                DBConnect.Insert(_q);
+                Global._queues.Add(_q);
+
+                Admission _a = new Admission(QueueID, orderLbl.Text, next.ToString(), patientID, Helper.UserID, departmentCbx.Text,wardCbx.Text,bedCbx.Text,priorityCbx.Text,remarksTxt.Text,Helper.orgID, Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy"), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),enrollCbx.Text,referralDocTxt.Text);
+                DBConnect.Insert(_a);
+                Global._admit.Add(_a);
+
+                MessageBox.Show("Information added/Saved");
+
+
+            }
+        }
+
+        private void departmentCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

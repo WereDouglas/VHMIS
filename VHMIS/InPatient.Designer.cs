@@ -28,836 +28,410 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.label67 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.kincontactTxt = new System.Windows.Forms.TextBox();
-            this.genderCbx = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.fileUrlTxtBx = new System.Windows.Forms.TextBox();
-            this.kinTxt = new System.Windows.Forms.TextBox();
-            this.dobTxt = new System.Windows.Forms.DateTimePicker();
-            this.patientTxt = new System.Windows.Forms.TextBox();
-            this.contactTxt = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.emailTxt = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.nationalityTxt = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.addressTxt = new System.Windows.Forms.TextBox();
-            this.lastnameTxt = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.surnametTxt = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.numberTxt = new System.Windows.Forms.TextBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.billGrid = new System.Windows.Forms.DataGridView();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label46 = new System.Windows.Forms.Label();
-            this.balanceTxt = new System.Windows.Forms.TextBox();
-            this.nameLbl = new System.Windows.Forms.Label();
-            this.addressLbl = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.vatTxt = new System.Windows.Forms.TextBox();
-            this.label58 = new System.Windows.Forms.Label();
-            this.wordsLbl = new System.Windows.Forms.Label();
-            this.amountTxt = new System.Windows.Forms.TextBox();
-            this.label60 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.noLbl = new System.Windows.Forms.Label();
-            this.label63 = new System.Windows.Forms.Label();
-            this.label64 = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.costLbl = new System.Windows.Forms.Label();
-            this.label66 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.enrollCbx = new System.Windows.Forms.ComboBox();
-            this.bedCbx = new System.Windows.Forms.ComboBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.remarksTxt = new System.Windows.Forms.TextBox();
-            this.refTxt = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.departmentCbx = new System.Windows.Forms.ComboBox();
-            this.referralDocTxt = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.enrollbyTxt = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.roomCbx = new System.Windows.Forms.ComboBox();
-            this.clinicCbx = new System.Windows.Forms.ComboBox();
-            this.billingCbx = new System.Windows.Forms.ComboBox();
-            this.openedDate = new System.Windows.Forms.DateTimePicker();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.priorityCbx = new System.Windows.Forms.ComboBox();
-            this.practitionerTxt = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label62 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.LabLbl = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.label50 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.methodCbx = new System.Windows.Forms.ComboBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.dtServices = new System.Windows.Forms.DataGridView();
-            this.dtLab = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
-            this.queueNo = new System.Windows.Forms.TextBox();
-            this.button18 = new System.Windows.Forms.Button();
-            this.label54 = new System.Windows.Forms.Label();
-            this.serviceLbl = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.imgCapture = new System.Windows.Forms.PictureBox();
-            this.logoBx = new System.Windows.Forms.PictureBox();
+            this.totalLbl = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.patientTxt = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.contactTxt = new System.Windows.Forms.TextBox();
+            this.refTxt = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.typeCbx = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.numberTxt = new System.Windows.Forms.TextBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.surnametTxt = new System.Windows.Forms.TextBox();
+            this.enrollbyTxt = new System.Windows.Forms.TextBox();
+            this.dtServices = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label66 = new System.Windows.Forms.Label();
+            this.costLbl = new System.Windows.Forms.Label();
+            this.bedCbx = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.wardCbx = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.priorityCbx = new System.Windows.Forms.ComboBox();
+            this.lastnameTxt = new System.Windows.Forms.TextBox();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.methodCbx = new System.Windows.Forms.ComboBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dobTxt = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.emailTxt = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.genderCbx = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.nationalityTxt = new System.Windows.Forms.TextBox();
+            this.remarksTxt = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.addressTxt = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.kinTxt = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.kincontactTxt = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.queueNo = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.button18 = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtServices)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.billGrid)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtServices)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtLab)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logoBx)).BeginInit();
             this.SuspendLayout();
             // 
-            // splitContainer1
+            // button1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(12, 12);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::VHMIS.Properties.Resources.Cancel_16;
+            this.button1.Location = new System.Drawing.Point(1092, 8);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(36, 21);
+            this.button1.TabIndex = 1;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // splitContainer1.Panel1
+            // imgCapture
             // 
-            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
-            this.splitContainer1.Panel1.Controls.Add(this.button8);
-            this.splitContainer1.Panel1.Controls.Add(this.queueNo);
-            this.splitContainer1.Panel1.Controls.Add(this.label67);
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
-            this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1.Controls.Add(this.button18);
-            this.splitContainer1.Panel1.Controls.Add(this.button3);
+            this.imgCapture.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.imgCapture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgCapture.Location = new System.Drawing.Point(3, 16);
+            this.imgCapture.Name = "imgCapture";
+            this.imgCapture.Size = new System.Drawing.Size(141, 111);
+            this.imgCapture.TabIndex = 161;
+            this.imgCapture.TabStop = false;
             // 
-            // splitContainer1.Panel2
+            // totalLbl
             // 
-            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Transparent;
-            this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer1.Size = new System.Drawing.Size(1477, 622);
-            this.splitContainer1.SplitterDistance = 30;
-            this.splitContainer1.TabIndex = 1;
+            this.totalLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.totalLbl.AutoSize = true;
+            this.totalLbl.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalLbl.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.totalLbl.Location = new System.Drawing.Point(941, 225);
+            this.totalLbl.Name = "totalLbl";
+            this.totalLbl.Size = new System.Drawing.Size(53, 26);
+            this.totalLbl.TabIndex = 246;
+            this.totalLbl.Text = "Total";
             // 
-            // label67
+            // label2
             // 
-            this.label67.AutoSize = true;
-            this.label67.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label67.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label67.Location = new System.Drawing.Point(159, 7);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(80, 15);
-            this.label67.TabIndex = 115;
-            this.label67.Text = "Admission ID ";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(149, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 171;
+            this.label2.Text = "Patient";
             // 
-            // label1
+            // textBox2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(17, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "In Patient";
+            this.textBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(672, 129);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(162, 19);
+            this.textBox2.TabIndex = 184;
             // 
-            // tableLayoutPanel1
+            // label48
             // 
-            this.tableLayoutPanel1.AutoScroll = true;
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.4898F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.5102F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 519F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 467F));
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel4, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox2, 2, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1477, 588);
-            this.tableLayoutPanel1.TabIndex = 162;
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(852, 20);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(99, 13);
+            this.label48.TabIndex = 183;
+            this.label48.Text = "Insurance company";
+            // 
+            // patientTxt
+            // 
+            this.patientTxt.BackColor = System.Drawing.SystemColors.Control;
+            this.patientTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.patientTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patientTxt.Location = new System.Drawing.Point(211, 9);
+            this.patientTxt.Name = "patientTxt";
+            this.patientTxt.Size = new System.Drawing.Size(139, 19);
+            this.patientTxt.TabIndex = 172;
+            // 
+            // button7
+            // 
+            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button7.BackColor = System.Drawing.Color.OrangeRed;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button7.Location = new System.Drawing.Point(1046, 254);
+            this.button7.Margin = new System.Windows.Forms.Padding(2);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(56, 29);
+            this.button7.TabIndex = 131;
+            this.button7.Text = "Validate";
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(149, 89);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(44, 13);
+            this.label12.TabIndex = 152;
+            this.label12.Text = "Contact";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Self",
+            "Other"});
+            this.comboBox1.Location = new System.Drawing.Point(959, 15);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(143, 21);
+            this.comboBox1.TabIndex = 182;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(852, 97);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(101, 13);
+            this.label49.TabIndex = 174;
+            this.label49.Text = "Enrolled/Referral by";
+            // 
+            // contactTxt
+            // 
+            this.contactTxt.BackColor = System.Drawing.SystemColors.Control;
+            this.contactTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.contactTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactTxt.Location = new System.Drawing.Point(211, 84);
+            this.contactTxt.Name = "contactTxt";
+            this.contactTxt.Size = new System.Drawing.Size(139, 19);
+            this.contactTxt.TabIndex = 153;
+            // 
+            // refTxt
+            // 
+            this.refTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.refTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.refTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refTxt.Location = new System.Drawing.Point(959, 122);
+            this.refTxt.Name = "refTxt";
+            this.refTxt.Size = new System.Drawing.Size(143, 19);
+            this.refTxt.TabIndex = 180;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(149, 113);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(59, 13);
+            this.label28.TabIndex = 145;
+            this.label28.Text = "Patient No.";
+            // 
+            // typeCbx
+            // 
+            this.typeCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.typeCbx.FormattingEnabled = true;
+            this.typeCbx.Items.AddRange(new object[] {
+            "Self",
+            "Other",
+            "Referral"});
+            this.typeCbx.Location = new System.Drawing.Point(959, 71);
+            this.typeCbx.Name = "typeCbx";
+            this.typeCbx.Size = new System.Drawing.Size(143, 21);
+            this.typeCbx.TabIndex = 181;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(17, -113);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(67, 13);
+            this.label16.TabIndex = 137;
+            this.label16.Text = "Practictioner";
+            // 
+            // numberTxt
+            // 
+            this.numberTxt.BackColor = System.Drawing.SystemColors.Control;
+            this.numberTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.numberTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberTxt.Location = new System.Drawing.Point(211, 109);
+            this.numberTxt.Name = "numberTxt";
+            this.numberTxt.Size = new System.Drawing.Size(139, 19);
+            this.numberTxt.TabIndex = 146;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(852, 126);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(62, 13);
+            this.label50.TabIndex = 179;
+            this.label50.Text = "Refferal No.";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(149, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.TabIndex = 162;
+            this.label5.Text = "Surname";
+            // 
+            // surnametTxt
+            // 
+            this.surnametTxt.BackColor = System.Drawing.SystemColors.Control;
+            this.surnametTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.surnametTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.surnametTxt.Location = new System.Drawing.Point(211, 34);
+            this.surnametTxt.Name = "surnametTxt";
+            this.surnametTxt.Size = new System.Drawing.Size(139, 19);
+            this.surnametTxt.TabIndex = 163;
+            // 
+            // enrollbyTxt
+            // 
+            this.enrollbyTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.enrollbyTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.enrollbyTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enrollbyTxt.Location = new System.Drawing.Point(959, 97);
+            this.enrollbyTxt.Name = "enrollbyTxt";
+            this.enrollbyTxt.Size = new System.Drawing.Size(143, 19);
+            this.enrollbyTxt.TabIndex = 178;
+            // 
+            // dtServices
+            // 
+            this.dtServices.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtServices.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtServices.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dtServices.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtServices.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtServices.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dtServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtServices.Location = new System.Drawing.Point(9, 319);
+            this.dtServices.Name = "dtServices";
+            this.dtServices.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtServices.Size = new System.Drawing.Size(1123, 236);
+            this.dtServices.TabIndex = 220;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(149, 61);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 13);
+            this.label6.TabIndex = 164;
+            this.label6.Text = "Last name";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(852, 47);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(75, 13);
+            this.label51.TabIndex = 175;
+            this.label51.Text = "Billing method";
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.AutoScroll = true;
-            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.button5);
+            this.panel1.Controls.Add(this.label66);
+            this.panel1.Controls.Add(this.costLbl);
+            this.panel1.Controls.Add(this.bedCbx);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox10);
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.kincontactTxt);
-            this.panel1.Controls.Add(this.genderCbx);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.fileUrlTxtBx);
-            this.panel1.Controls.Add(this.kinTxt);
-            this.panel1.Controls.Add(this.dobTxt);
-            this.panel1.Controls.Add(this.patientTxt);
-            this.panel1.Controls.Add(this.contactTxt);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.emailTxt);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.nationalityTxt);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.addressTxt);
-            this.panel1.Controls.Add(this.lastnameTxt);
+            this.panel1.Controls.Add(this.wardCbx);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label17);
+            this.panel1.Controls.Add(this.priorityCbx);
             this.panel1.Controls.Add(this.imgCapture);
+            this.panel1.Controls.Add(this.totalLbl);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.label48);
+            this.panel1.Controls.Add(this.patientTxt);
+            this.panel1.Controls.Add(this.button7);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.label49);
+            this.panel1.Controls.Add(this.contactTxt);
+            this.panel1.Controls.Add(this.refTxt);
+            this.panel1.Controls.Add(this.label28);
+            this.panel1.Controls.Add(this.typeCbx);
+            this.panel1.Controls.Add(this.numberTxt);
+            this.panel1.Controls.Add(this.label50);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.surnametTxt);
+            this.panel1.Controls.Add(this.enrollbyTxt);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label51);
+            this.panel1.Controls.Add(this.lastnameTxt);
+            this.panel1.Controls.Add(this.label53);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.methodCbx);
+            this.panel1.Controls.Add(this.textBox10);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.dobTxt);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.textBox6);
+            this.panel1.Controls.Add(this.emailTxt);
+            this.panel1.Controls.Add(this.label21);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label27);
-            this.panel1.Controls.Add(this.numberTxt);
-            this.panel1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.genderCbx);
+            this.panel1.Controls.Add(this.label20);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.nationalityTxt);
+            this.panel1.Controls.Add(this.remarksTxt);
+            this.panel1.Controls.Add(this.label19);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.addressTxt);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.kinTxt);
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.kincontactTxt);
+            this.panel1.Controls.Add(this.button5);
+            this.panel1.Location = new System.Drawing.Point(6, 20);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(212, 576);
-            this.panel1.TabIndex = 147;
+            this.panel1.Size = new System.Drawing.Size(1119, 293);
+            this.panel1.TabIndex = 247;
             // 
-            // button5
+            // label66
             // 
-            this.button5.BackColor = System.Drawing.Color.DarkOrange;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(82, 500);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(114, 27);
-            this.button5.TabIndex = 112;
-            this.button5.Text = "View profile";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(148, 3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Patient Bio";
-            // 
-            // textBox10
-            // 
-            this.textBox10.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox10.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(82, 256);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(116, 19);
-            this.textBox10.TabIndex = 10;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(8, 476);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(60, 13);
-            this.label15.TabIndex = 13;
-            this.label15.Text = "Kin contact";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(9, 318);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(33, 13);
-            this.label13.TabIndex = 9;
-            this.label13.Text = "Email";
-            // 
-            // kincontactTxt
-            // 
-            this.kincontactTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.kincontactTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.kincontactTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kincontactTxt.Location = new System.Drawing.Point(82, 472);
-            this.kincontactTxt.Name = "kincontactTxt";
-            this.kincontactTxt.Size = new System.Drawing.Size(114, 19);
-            this.kincontactTxt.TabIndex = 14;
-            // 
-            // genderCbx
-            // 
-            this.genderCbx.FormattingEnabled = true;
-            this.genderCbx.Items.AddRange(new object[] {
-            "Male",
-            "Female",
-            "Other"});
-            this.genderCbx.Location = new System.Drawing.Point(82, 342);
-            this.genderCbx.Name = "genderCbx";
-            this.genderCbx.Size = new System.Drawing.Size(114, 21);
-            this.genderCbx.TabIndex = 11;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(9, 448);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(56, 13);
-            this.label14.TabIndex = 11;
-            this.label14.Text = "Next of kin";
-            // 
-            // fileUrlTxtBx
-            // 
-            this.fileUrlTxtBx.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.fileUrlTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.fileUrlTxtBx.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fileUrlTxtBx.Location = new System.Drawing.Point(82, 536);
-            this.fileUrlTxtBx.Name = "fileUrlTxtBx";
-            this.fileUrlTxtBx.Size = new System.Drawing.Size(116, 19);
-            this.fileUrlTxtBx.TabIndex = 131;
-            // 
-            // kinTxt
-            // 
-            this.kinTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.kinTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.kinTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kinTxt.Location = new System.Drawing.Point(82, 444);
-            this.kinTxt.Name = "kinTxt";
-            this.kinTxt.Size = new System.Drawing.Size(114, 19);
-            this.kinTxt.TabIndex = 12;
-            // 
-            // dobTxt
-            // 
-            this.dobTxt.Location = new System.Drawing.Point(82, 284);
-            this.dobTxt.Name = "dobTxt";
-            this.dobTxt.Size = new System.Drawing.Size(116, 21);
-            this.dobTxt.TabIndex = 110;
-            // 
-            // patientTxt
-            // 
-            this.patientTxt.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.patientTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.patientTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientTxt.Location = new System.Drawing.Point(82, 22);
-            this.patientTxt.Name = "patientTxt";
-            this.patientTxt.Size = new System.Drawing.Size(114, 19);
-            this.patientTxt.TabIndex = 144;
-            // 
-            // contactTxt
-            // 
-            this.contactTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.contactTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.contactTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactTxt.Location = new System.Drawing.Point(82, 50);
-            this.contactTxt.Name = "contactTxt";
-            this.contactTxt.Size = new System.Drawing.Size(114, 19);
-            this.contactTxt.TabIndex = 8;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label66.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 143;
-            this.label2.Text = "Patient";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 54);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 13);
-            this.label12.TabIndex = 7;
-            this.label12.Text = "Contact";
-            // 
-            // emailTxt
-            // 
-            this.emailTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.emailTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.emailTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailTxt.Location = new System.Drawing.Point(82, 314);
-            this.emailTxt.Name = "emailTxt";
-            this.emailTxt.Size = new System.Drawing.Size(116, 19);
-            this.emailTxt.TabIndex = 109;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(13, 260);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(24, 13);
-            this.label10.TabIndex = 108;
-            this.label10.Text = "Age";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(10, 372);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(59, 13);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "Nationality";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 290);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 13);
-            this.label7.TabIndex = 106;
-            this.label7.Text = "Date of Birth";
-            // 
-            // nationalityTxt
-            // 
-            this.nationalityTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.nationalityTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nationalityTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nationalityTxt.Location = new System.Drawing.Point(82, 372);
-            this.nationalityTxt.Name = "nationalityTxt";
-            this.nationalityTxt.Size = new System.Drawing.Size(114, 19);
-            this.nationalityTxt.TabIndex = 6;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 228);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 13);
-            this.label6.TabIndex = 104;
-            this.label6.Text = "Last name";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 400);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(64, 13);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Full address";
-            // 
-            // addressTxt
-            // 
-            this.addressTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.addressTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.addressTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addressTxt.Location = new System.Drawing.Point(82, 400);
-            this.addressTxt.Multiline = true;
-            this.addressTxt.Name = "addressTxt";
-            this.addressTxt.Size = new System.Drawing.Size(114, 35);
-            this.addressTxt.TabIndex = 4;
-            // 
-            // lastnameTxt
-            // 
-            this.lastnameTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lastnameTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lastnameTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastnameTxt.Location = new System.Drawing.Point(82, 228);
-            this.lastnameTxt.Name = "lastnameTxt";
-            this.lastnameTxt.Size = new System.Drawing.Size(116, 19);
-            this.lastnameTxt.TabIndex = 105;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 202);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 13);
-            this.label5.TabIndex = 102;
-            this.label5.Text = "Surname";
-            // 
-            // surnametTxt
-            // 
-            this.surnametTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.surnametTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.surnametTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.surnametTxt.Location = new System.Drawing.Point(82, 200);
-            this.surnametTxt.Name = "surnametTxt";
-            this.surnametTxt.Size = new System.Drawing.Size(116, 19);
-            this.surnametTxt.TabIndex = 103;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 345);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 13);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "Gender";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(6, 80);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(59, 13);
-            this.label27.TabIndex = 0;
-            this.label27.Text = "Patient No.";
-            // 
-            // numberTxt
-            // 
-            this.numberTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.numberTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numberTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numberTxt.Location = new System.Drawing.Point(82, 78);
-            this.numberTxt.Name = "numberTxt";
-            this.numberTxt.Size = new System.Drawing.Size(114, 19);
-            this.numberTxt.TabIndex = 1;
-            // 
-            // panel4
-            // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel4.Controls.Add(this.billGrid);
-            this.panel4.Controls.Add(this.label44);
-            this.panel4.Controls.Add(this.label45);
-            this.panel4.Controls.Add(this.textBox8);
-            this.panel4.Controls.Add(this.textBox9);
-            this.panel4.Controls.Add(this.label46);
-            this.panel4.Controls.Add(this.balanceTxt);
-            this.panel4.Controls.Add(this.nameLbl);
-            this.panel4.Controls.Add(this.addressLbl);
-            this.panel4.Controls.Add(this.label47);
-            this.panel4.Controls.Add(this.label57);
-            this.panel4.Controls.Add(this.vatTxt);
-            this.panel4.Controls.Add(this.label58);
-            this.panel4.Controls.Add(this.wordsLbl);
-            this.panel4.Controls.Add(this.amountTxt);
-            this.panel4.Controls.Add(this.label60);
-            this.panel4.Controls.Add(this.label61);
-            this.panel4.Controls.Add(this.noLbl);
-            this.panel4.Controls.Add(this.label63);
-            this.panel4.Controls.Add(this.label64);
-            this.panel4.Controls.Add(this.label65);
-            this.panel4.Controls.Add(this.logoBx);
-            this.panel4.Location = new System.Drawing.Point(1012, 25);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(462, 537);
-            this.panel4.TabIndex = 223;
-            // 
-            // billGrid
-            // 
-            this.billGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.billGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.billGrid.BackgroundColor = System.Drawing.Color.MistyRose;
-            this.billGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.billGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.billGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.billGrid.Location = new System.Drawing.Point(7, 162);
-            this.billGrid.Name = "billGrid";
-            this.billGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.billGrid.RowHeadersVisible = false;
-            this.billGrid.Size = new System.Drawing.Size(452, 247);
-            this.billGrid.TabIndex = 237;
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(271, 443);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(25, 13);
-            this.label44.TabIndex = 221;
-            this.label44.Text = "info";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(205, 441);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(44, 13);
-            this.label45.TabIndex = 220;
-            this.label45.Text = "Method";
-            // 
-            // textBox8
-            // 
-            this.textBox8.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(304, 120);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(77, 20);
-            this.textBox8.TabIndex = 219;
-            // 
-            // textBox9
-            // 
-            this.textBox9.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(55, 122);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(161, 20);
-            this.textBox9.TabIndex = 218;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(204, 459);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(45, 13);
-            this.label46.TabIndex = 212;
-            this.label46.Text = "Balance";
-            // 
-            // balanceTxt
-            // 
-            this.balanceTxt.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.balanceTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.balanceTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.balanceTxt.Location = new System.Drawing.Point(274, 458);
-            this.balanceTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.balanceTxt.Name = "balanceTxt";
-            this.balanceTxt.Size = new System.Drawing.Size(92, 20);
-            this.balanceTxt.TabIndex = 211;
-            // 
-            // nameLbl
-            // 
-            this.nameLbl.AutoSize = true;
-            this.nameLbl.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLbl.Location = new System.Drawing.Point(117, 52);
-            this.nameLbl.Name = "nameLbl";
-            this.nameLbl.Size = new System.Drawing.Size(42, 19);
-            this.nameLbl.TabIndex = 208;
-            this.nameLbl.Text = "INFO";
-            // 
-            // addressLbl
-            // 
-            this.addressLbl.Location = new System.Drawing.Point(111, 9);
-            this.addressLbl.Name = "addressLbl";
-            this.addressLbl.Size = new System.Drawing.Size(160, 47);
-            this.addressLbl.TabIndex = 206;
-            this.addressLbl.Text = "Address";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(258, 126);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(46, 13);
-            this.label47.TabIndex = 205;
-            this.label47.Text = "Visit No.";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(205, 486);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(28, 13);
-            this.label57.TabIndex = 199;
-            this.label57.Text = "V.A.T";
-            // 
-            // vatTxt
-            // 
-            this.vatTxt.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.vatTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.vatTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vatTxt.Location = new System.Drawing.Point(274, 484);
-            this.vatTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.vatTxt.Name = "vatTxt";
-            this.vatTxt.Size = new System.Drawing.Size(97, 20);
-            this.vatTxt.TabIndex = 197;
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(202, 423);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(67, 13);
-            this.label58.TabIndex = 194;
-            this.label58.Text = "Amount paid";
-            // 
-            // wordsLbl
-            // 
-            this.wordsLbl.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.wordsLbl.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wordsLbl.Location = new System.Drawing.Point(7, 422);
-            this.wordsLbl.Name = "wordsLbl";
-            this.wordsLbl.Size = new System.Drawing.Size(192, 40);
-            this.wordsLbl.TabIndex = 193;
-            this.wordsLbl.Text = "words";
-            // 
-            // amountTxt
-            // 
-            this.amountTxt.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.amountTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.amountTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amountTxt.Location = new System.Drawing.Point(274, 422);
-            this.amountTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.amountTxt.Name = "amountTxt";
-            this.amountTxt.Size = new System.Drawing.Size(97, 20);
-            this.amountTxt.TabIndex = 162;
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(8, 126);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(41, 13);
-            this.label60.TabIndex = 160;
-            this.label60.Text = "Patient";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(258, 58);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(33, 13);
-            this.label61.TabIndex = 159;
-            this.label61.Text = "Date:";
-            // 
-            // noLbl
-            // 
-            this.noLbl.AutoSize = true;
-            this.noLbl.Location = new System.Drawing.Point(52, 102);
-            this.noLbl.Name = "noLbl";
-            this.noLbl.Size = new System.Drawing.Size(19, 13);
-            this.noLbl.TabIndex = 158;
-            this.noLbl.Text = "no";
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.BackColor = System.Drawing.Color.White;
-            this.label63.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label63.Location = new System.Drawing.Point(9, 102);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(23, 13);
-            this.label63.TabIndex = 157;
-            this.label63.Text = "No:";
-            // 
-            // label64
-            // 
-            this.label64.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label64.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label64.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label64.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label64.Location = new System.Drawing.Point(3, 75);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(384, 14);
-            this.label64.TabIndex = 3;
-            this.label64.Text = "RECEIPT";
-            this.label64.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label65
-            // 
-            this.label65.AutoEllipsis = true;
-            this.label65.Location = new System.Drawing.Point(111, 36);
-            this.label65.MaximumSize = new System.Drawing.Size(0, 54);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(0, 54);
-            this.label65.TabIndex = 2;
-            this.label65.Text = "Plot 516 and 844 Najjanankumbi-Entebbe Rd,Slightly Opposite FDC Offices,P.O.Box 7" +
-    "483 Kampala-Uganda";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.costLbl);
-            this.groupBox1.Controls.Add(this.label66);
-            this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Controls.Add(this.button6);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.label31);
-            this.groupBox1.Controls.Add(this.label21);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.label30);
-            this.groupBox1.Controls.Add(this.enrollCbx);
-            this.groupBox1.Controls.Add(this.bedCbx);
-            this.groupBox1.Controls.Add(this.label29);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.remarksTxt);
-            this.groupBox1.Controls.Add(this.refTxt);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label24);
-            this.groupBox1.Controls.Add(this.departmentCbx);
-            this.groupBox1.Controls.Add(this.referralDocTxt);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.enrollbyTxt);
-            this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.label22);
-            this.groupBox1.Controls.Add(this.roomCbx);
-            this.groupBox1.Controls.Add(this.clinicCbx);
-            this.groupBox1.Controls.Add(this.billingCbx);
-            this.groupBox1.Controls.Add(this.openedDate);
-            this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.label25);
-            this.groupBox1.Controls.Add(this.label26);
-            this.groupBox1.Controls.Add(this.priorityCbx);
-            this.groupBox1.Controls.Add(this.practitionerTxt);
-            this.groupBox1.Controls.Add(this.label28);
-            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(221, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(266, 582);
-            this.groupBox1.TabIndex = 145;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Admission";
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(586, 218);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(54, 13);
+            this.label66.TabIndex = 254;
+            this.label66.Text = "Cost/Rate";
             // 
             // costLbl
             // 
@@ -866,135 +440,11 @@
             this.costLbl.AutoSize = true;
             this.costLbl.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.costLbl.ForeColor = System.Drawing.Color.Brown;
-            this.costLbl.Location = new System.Drawing.Point(134, 168);
+            this.costLbl.Location = new System.Drawing.Point(676, 210);
             this.costLbl.Name = "costLbl";
             this.costLbl.Size = new System.Drawing.Size(19, 23);
-            this.costLbl.TabIndex = 179;
+            this.costLbl.TabIndex = 253;
             this.costLbl.Text = "#";
-            this.costLbl.Click += new System.EventHandler(this.costLbl_Click);
-            // 
-            // label66
-            // 
-            this.label66.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(15, 176);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(60, 15);
-            this.label66.TabIndex = 178;
-            this.label66.Text = "Cost/Rate";
-            // 
-            // label23
-            // 
-            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(15, 527);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(52, 15);
-            this.label23.TabIndex = 157;
-            this.label23.Text = "Priority:";
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.DarkOrange;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(138, 550);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(71, 27);
-            this.button6.TabIndex = 162;
-            this.button6.Text = "Discharge";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox2.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "High",
-            "Medium",
-            "Low"});
-            this.comboBox2.Location = new System.Drawing.Point(138, 519);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(80, 23);
-            this.comboBox2.TabIndex = 158;
-            // 
-            // label31
-            // 
-            this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(15, 18);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(32, 15);
-            this.label31.TabIndex = 177;
-            this.label31.Text = "Date";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(15, 336);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(115, 15);
-            this.label21.TabIndex = 134;
-            this.label21.Text = "Insurance company";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(138, 264);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(80, 27);
-            this.textBox1.TabIndex = 176;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Self",
-            "Other"});
-            this.comboBox3.Location = new System.Drawing.Point(138, 333);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(80, 23);
-            this.comboBox3.TabIndex = 133;
-            // 
-            // label30
-            // 
-            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(15, 265);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(41, 15);
-            this.label30.TabIndex = 175;
-            this.label30.Text = "Status";
-            // 
-            // enrollCbx
-            // 
-            this.enrollCbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.enrollCbx.FormattingEnabled = true;
-            this.enrollCbx.Items.AddRange(new object[] {
-            "Self",
-            "Other"});
-            this.enrollCbx.Location = new System.Drawing.Point(138, 391);
-            this.enrollCbx.Name = "enrollCbx";
-            this.enrollCbx.Size = new System.Drawing.Size(80, 23);
-            this.enrollCbx.TabIndex = 132;
             // 
             // bedCbx
             // 
@@ -1003,253 +453,57 @@
             this.bedCbx.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.bedCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bedCbx.FormattingEnabled = true;
-            this.bedCbx.Location = new System.Drawing.Point(138, 138);
+            this.bedCbx.Location = new System.Drawing.Point(672, 183);
             this.bedCbx.Margin = new System.Windows.Forms.Padding(4);
             this.bedCbx.Name = "bedCbx";
-            this.bedCbx.Size = new System.Drawing.Size(80, 23);
-            this.bedCbx.TabIndex = 174;
-            this.bedCbx.SelectedIndexChanged += new System.EventHandler(this.bedCbx_SelectedIndexChanged);
+            this.bedCbx.Size = new System.Drawing.Size(162, 21);
+            this.bedCbx.TabIndex = 252;
             // 
-            // label29
+            // label3
             // 
-            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(15, 142);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(27, 15);
-            this.label29.TabIndex = 173;
-            this.label29.Text = "Bed";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(586, 186);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(25, 13);
+            this.label3.TabIndex = 251;
+            this.label3.Text = "Bed";
             // 
-            // label17
+            // wardCbx
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(15, 425);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(69, 15);
-            this.label17.TabIndex = 114;
-            this.label17.Text = "Enrolled by";
-            // 
-            // remarksTxt
-            // 
-            this.remarksTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.wardCbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.remarksTxt.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.remarksTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.remarksTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.remarksTxt.Location = new System.Drawing.Point(138, 300);
-            this.remarksTxt.Multiline = true;
-            this.remarksTxt.Name = "remarksTxt";
-            this.remarksTxt.Size = new System.Drawing.Size(80, 27);
-            this.remarksTxt.TabIndex = 172;
-            // 
-            // refTxt
-            // 
-            this.refTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.refTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.refTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.refTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refTxt.Location = new System.Drawing.Point(138, 448);
-            this.refTxt.Name = "refTxt";
-            this.refTxt.Size = new System.Drawing.Size(80, 26);
-            this.refTxt.TabIndex = 128;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(213, 548);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 28);
-            this.button2.TabIndex = 154;
-            this.button2.Text = "Admit";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(15, 486);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(90, 15);
-            this.label18.TabIndex = 116;
-            this.label18.Text = "Refferal Doctor";
+            this.wardCbx.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.wardCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.wardCbx.FormattingEnabled = true;
+            this.wardCbx.Location = new System.Drawing.Point(672, 155);
+            this.wardCbx.Margin = new System.Windows.Forms.Padding(4);
+            this.wardCbx.Name = "wardCbx";
+            this.wardCbx.Size = new System.Drawing.Size(162, 21);
+            this.wardCbx.TabIndex = 250;
             // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 296);
+            this.label4.Location = new System.Drawing.Point(588, 158);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 15);
-            this.label4.TabIndex = 171;
-            this.label4.Text = "Remarks";
+            this.label4.Size = new System.Drawing.Size(33, 13);
+            this.label4.TabIndex = 249;
+            this.label4.Text = "Ward";
             // 
-            // label24
+            // label17
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(15, 452);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(71, 15);
-            this.label24.TabIndex = 127;
-            this.label24.Text = "Refferal No.";
-            // 
-            // departmentCbx
-            // 
-            this.departmentCbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.departmentCbx.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.departmentCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.departmentCbx.FormattingEnabled = true;
-            this.departmentCbx.Location = new System.Drawing.Point(138, 200);
-            this.departmentCbx.Margin = new System.Windows.Forms.Padding(4);
-            this.departmentCbx.Name = "departmentCbx";
-            this.departmentCbx.Size = new System.Drawing.Size(80, 23);
-            this.departmentCbx.TabIndex = 170;
-            this.departmentCbx.SelectedIndexChanged += new System.EventHandler(this.departmentCbx_SelectedIndexChanged);
-            // 
-            // referralDocTxt
-            // 
-            this.referralDocTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.referralDocTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.referralDocTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.referralDocTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.referralDocTxt.Location = new System.Drawing.Point(138, 486);
-            this.referralDocTxt.Name = "referralDocTxt";
-            this.referralDocTxt.Size = new System.Drawing.Size(80, 26);
-            this.referralDocTxt.TabIndex = 117;
-            this.referralDocTxt.TextChanged += new System.EventHandler(this.referralDocTxt_TextChanged);
-            // 
-            // label16
-            // 
-            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(15, 203);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(71, 15);
-            this.label16.TabIndex = 169;
-            this.label16.Text = "Department";
-            this.label16.Click += new System.EventHandler(this.label16_Click);
-            // 
-            // enrollbyTxt
-            // 
-            this.enrollbyTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.enrollbyTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.enrollbyTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.enrollbyTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enrollbyTxt.Location = new System.Drawing.Point(138, 421);
-            this.enrollbyTxt.Name = "enrollbyTxt";
-            this.enrollbyTxt.Size = new System.Drawing.Size(80, 26);
-            this.enrollbyTxt.TabIndex = 124;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(15, 365);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(69, 15);
-            this.label20.TabIndex = 119;
-            this.label20.Text = "Billing type";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(15, 400);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(67, 15);
-            this.label22.TabIndex = 123;
-            this.label22.Text = "Enrollment";
-            // 
-            // roomCbx
-            // 
-            this.roomCbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.roomCbx.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.roomCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roomCbx.FormattingEnabled = true;
-            this.roomCbx.Location = new System.Drawing.Point(138, 106);
-            this.roomCbx.Margin = new System.Windows.Forms.Padding(4);
-            this.roomCbx.Name = "roomCbx";
-            this.roomCbx.Size = new System.Drawing.Size(80, 23);
-            this.roomCbx.TabIndex = 168;
-            this.roomCbx.SelectedIndexChanged += new System.EventHandler(this.roomCbx_SelectedIndexChanged);
-            // 
-            // clinicCbx
-            // 
-            this.clinicCbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.clinicCbx.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.clinicCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clinicCbx.FormattingEnabled = true;
-            this.clinicCbx.Location = new System.Drawing.Point(138, 74);
-            this.clinicCbx.Margin = new System.Windows.Forms.Padding(4);
-            this.clinicCbx.Name = "clinicCbx";
-            this.clinicCbx.Size = new System.Drawing.Size(80, 23);
-            this.clinicCbx.TabIndex = 167;
-            // 
-            // billingCbx
-            // 
-            this.billingCbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.billingCbx.FormattingEnabled = true;
-            this.billingCbx.Items.AddRange(new object[] {
-            "Cash",
-            "Cheque",
-            "Insurance"});
-            this.billingCbx.Location = new System.Drawing.Point(138, 362);
-            this.billingCbx.Name = "billingCbx";
-            this.billingCbx.Size = new System.Drawing.Size(80, 23);
-            this.billingCbx.TabIndex = 120;
-            // 
-            // openedDate
-            // 
-            this.openedDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.openedDate.Location = new System.Drawing.Point(138, 14);
-            this.openedDate.Name = "openedDate";
-            this.openedDate.Size = new System.Drawing.Size(80, 23);
-            this.openedDate.TabIndex = 162;
-            // 
-            // label19
-            // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(15, 111);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(74, 15);
-            this.label19.TabIndex = 159;
-            this.label19.Text = "Room/Ward";
-            // 
-            // label25
-            // 
-            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(15, 80);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(39, 15);
-            this.label25.TabIndex = 157;
-            this.label25.Text = "Clinic";
-            // 
-            // label26
-            // 
-            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(15, 234);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(52, 15);
-            this.label26.TabIndex = 155;
-            this.label26.Text = "Priority:";
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(586, 245);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(45, 13);
+            this.label17.TabIndex = 247;
+            this.label17.Text = "Priority:";
             // 
             // priorityCbx
             // 
@@ -1262,201 +516,39 @@
             "High",
             "Medium",
             "Low"});
-            this.priorityCbx.Location = new System.Drawing.Point(138, 232);
+            this.priorityCbx.Location = new System.Drawing.Point(674, 237);
             this.priorityCbx.Margin = new System.Windows.Forms.Padding(4);
             this.priorityCbx.Name = "priorityCbx";
-            this.priorityCbx.Size = new System.Drawing.Size(80, 23);
-            this.priorityCbx.TabIndex = 156;
+            this.priorityCbx.Size = new System.Drawing.Size(162, 21);
+            this.priorityCbx.TabIndex = 248;
             // 
-            // practitionerTxt
+            // lastnameTxt
             // 
-            this.practitionerTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.practitionerTxt.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.practitionerTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.practitionerTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.practitionerTxt.Location = new System.Drawing.Point(138, 46);
-            this.practitionerTxt.Name = "practitionerTxt";
-            this.practitionerTxt.Size = new System.Drawing.Size(80, 19);
-            this.practitionerTxt.TabIndex = 142;
-            // 
-            // label28
-            // 
-            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(15, 49);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(77, 15);
-            this.label28.TabIndex = 141;
-            this.label28.Text = "Practictioner";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.label54);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.label62);
-            this.groupBox2.Controls.Add(this.label48);
-            this.groupBox2.Controls.Add(this.label59);
-            this.groupBox2.Controls.Add(this.comboBox4);
-            this.groupBox2.Controls.Add(this.LabLbl);
-            this.groupBox2.Controls.Add(this.label49);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.comboBox5);
-            this.groupBox2.Controls.Add(this.label50);
-            this.groupBox2.Controls.Add(this.serviceLbl);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.label51);
-            this.groupBox2.Controls.Add(this.label53);
-            this.groupBox2.Controls.Add(this.methodCbx);
-            this.groupBox2.Controls.Add(this.textBox6);
-            this.groupBox2.Controls.Add(this.label34);
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.label35);
-            this.groupBox2.Controls.Add(this.dtServices);
-            this.groupBox2.Controls.Add(this.dtLab);
-            this.groupBox2.Controls.Add(this.textBox7);
-            this.groupBox2.Controls.Add(this.label38);
-            this.groupBox2.Controls.Add(this.label42);
-            this.groupBox2.Controls.Add(this.button7);
-            this.groupBox2.Location = new System.Drawing.Point(493, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(513, 582);
-            this.groupBox2.TabIndex = 148;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Services";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(113, 392);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(128, 19);
-            this.textBox2.TabIndex = 184;
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label62.Location = new System.Drawing.Point(114, 448);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(45, 23);
-            this.label62.TabIndex = 235;
-            this.label62.Text = "total";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(251, 339);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(99, 13);
-            this.label48.TabIndex = 183;
-            this.label48.Text = "Insurance company";
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(12, 456);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(69, 13);
-            this.label59.TabIndex = 234;
-            this.label59.Text = "Total Amount";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "Self",
-            "Other"});
-            this.comboBox4.Location = new System.Drawing.Point(358, 334);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(138, 21);
-            this.comboBox4.TabIndex = 182;
-            // 
-            // LabLbl
-            // 
-            this.LabLbl.AutoSize = true;
-            this.LabLbl.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabLbl.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.LabLbl.Location = new System.Drawing.Point(461, 260);
-            this.LabLbl.Name = "LabLbl";
-            this.LabLbl.Size = new System.Drawing.Size(33, 15);
-            this.LabLbl.TabIndex = 233;
-            this.LabLbl.Text = "Total";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(251, 416);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(101, 13);
-            this.label49.TabIndex = 174;
-            this.label49.Text = "Enrolled/Referral by";
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(358, 441);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(138, 19);
-            this.textBox3.TabIndex = 180;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
-            "Self",
-            "Other",
-            "Referral"});
-            this.comboBox5.Location = new System.Drawing.Point(358, 390);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(138, 21);
-            this.comboBox5.TabIndex = 181;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(251, 443);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(62, 13);
-            this.label50.TabIndex = 179;
-            this.label50.Text = "Refferal No.";
-            // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(358, 416);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(138, 19);
-            this.textBox4.TabIndex = 178;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(251, 366);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(75, 13);
-            this.label51.TabIndex = 175;
-            this.label51.Text = "Billing method";
+            this.lastnameTxt.BackColor = System.Drawing.SystemColors.Control;
+            this.lastnameTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lastnameTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastnameTxt.Location = new System.Drawing.Point(211, 59);
+            this.lastnameTxt.Name = "lastnameTxt";
+            this.lastnameTxt.Size = new System.Drawing.Size(139, 19);
+            this.lastnameTxt.TabIndex = 165;
             // 
             // label53
             // 
             this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(251, 394);
+            this.label53.Location = new System.Drawing.Point(852, 74);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(59, 13);
             this.label53.TabIndex = 177;
             this.label53.Text = "Enrollment";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(152, 170);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(24, 13);
+            this.label10.TabIndex = 167;
+            this.label10.Text = "Age";
             // 
             // methodCbx
             // 
@@ -1469,235 +561,365 @@
             "NEFT/RTGS",
             "Insurance",
             "Other"});
-            this.methodCbx.Location = new System.Drawing.Point(358, 363);
+            this.methodCbx.Location = new System.Drawing.Point(959, 44);
             this.methodCbx.Name = "methodCbx";
-            this.methodCbx.Size = new System.Drawing.Size(138, 21);
+            this.methodCbx.Size = new System.Drawing.Size(143, 21);
             this.methodCbx.TabIndex = 176;
+            // 
+            // textBox10
+            // 
+            this.textBox10.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox10.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox10.Location = new System.Drawing.Point(208, 164);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(145, 19);
+            this.textBox10.TabIndex = 155;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(357, 67);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 13);
+            this.label7.TabIndex = 166;
+            this.label7.Text = "Date of Birth";
+            // 
+            // dobTxt
+            // 
+            this.dobTxt.Location = new System.Drawing.Point(436, 60);
+            this.dobTxt.Name = "dobTxt";
+            this.dobTxt.Size = new System.Drawing.Size(141, 21);
+            this.dobTxt.TabIndex = 169;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(152, 147);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(33, 13);
+            this.label13.TabIndex = 154;
+            this.label13.Text = "Email";
             // 
             // textBox6
             // 
             this.textBox6.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox6.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(113, 365);
+            this.textBox6.Location = new System.Drawing.Point(672, 102);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(128, 19);
+            this.textBox6.Size = new System.Drawing.Size(162, 19);
             this.textBox6.TabIndex = 225;
             // 
-            // label34
+            // emailTxt
             // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(12, 367);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(63, 13);
-            this.label34.TabIndex = 224;
-            this.label34.Text = "Patient cost";
+            this.emailTxt.BackColor = System.Drawing.SystemColors.Control;
+            this.emailTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.emailTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailTxt.Location = new System.Drawing.Point(208, 137);
+            this.emailTxt.Name = "emailTxt";
+            this.emailTxt.Size = new System.Drawing.Size(145, 19);
+            this.emailTxt.TabIndex = 168;
             // 
-            // textBox5
+            // label21
             // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(113, 339);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(128, 19);
-            this.textBox5.TabIndex = 223;
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(586, 108);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(63, 13);
+            this.label21.TabIndex = 224;
+            this.label21.Text = "Patient cost";
             // 
-            // label35
+            // label8
             // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(12, 340);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(83, 13);
-            this.label35.TabIndex = 222;
-            this.label35.Text = "Insurance Cover";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(357, 10);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(42, 13);
+            this.label8.TabIndex = 147;
+            this.label8.Text = "Gender";
             // 
-            // dtServices
+            // textBox3
             // 
-            this.dtServices.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBox3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(672, 76);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(162, 19);
+            this.textBox3.TabIndex = 223;
+            // 
+            // genderCbx
+            // 
+            this.genderCbx.BackColor = System.Drawing.SystemColors.Control;
+            this.genderCbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.genderCbx.FormattingEnabled = true;
+            this.genderCbx.Items.AddRange(new object[] {
+            "Male",
+            "Female",
+            "Other"});
+            this.genderCbx.Location = new System.Drawing.Point(432, 10);
+            this.genderCbx.Name = "genderCbx";
+            this.genderCbx.Size = new System.Drawing.Size(145, 21);
+            this.genderCbx.TabIndex = 156;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(585, 82);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(83, 13);
+            this.label20.TabIndex = 222;
+            this.label20.Text = "Insurance Cover";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(357, 38);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 13);
+            this.label11.TabIndex = 150;
+            this.label11.Text = "Nationality";
+            // 
+            // nationalityTxt
+            // 
+            this.nationalityTxt.BackColor = System.Drawing.SystemColors.Control;
+            this.nationalityTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nationalityTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nationalityTxt.Location = new System.Drawing.Point(432, 36);
+            this.nationalityTxt.Name = "nationalityTxt";
+            this.nationalityTxt.Size = new System.Drawing.Size(149, 19);
+            this.nationalityTxt.TabIndex = 151;
+            // 
+            // remarksTxt
+            // 
+            this.remarksTxt.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.remarksTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.remarksTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.remarksTxt.Location = new System.Drawing.Point(672, 10);
+            this.remarksTxt.Multiline = true;
+            this.remarksTxt.Name = "remarksTxt";
+            this.remarksTxt.Size = new System.Drawing.Size(162, 57);
+            this.remarksTxt.TabIndex = 144;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(586, 16);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(48, 13);
+            this.label19.TabIndex = 143;
+            this.label19.Text = "Remarks";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(359, 90);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(64, 13);
+            this.label9.TabIndex = 148;
+            this.label9.Text = "Full address";
+            // 
+            // addressTxt
+            // 
+            this.addressTxt.BackColor = System.Drawing.SystemColors.Control;
+            this.addressTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.addressTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addressTxt.Location = new System.Drawing.Point(432, 89);
+            this.addressTxt.Multiline = true;
+            this.addressTxt.Name = "addressTxt";
+            this.addressTxt.Size = new System.Drawing.Size(150, 43);
+            this.addressTxt.TabIndex = 149;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(359, 141);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(56, 13);
+            this.label14.TabIndex = 157;
+            this.label14.Text = "Next of kin";
+            // 
+            // kinTxt
+            // 
+            this.kinTxt.BackColor = System.Drawing.SystemColors.Control;
+            this.kinTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kinTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kinTxt.Location = new System.Drawing.Point(432, 138);
+            this.kinTxt.Name = "kinTxt";
+            this.kinTxt.Size = new System.Drawing.Size(150, 19);
+            this.kinTxt.TabIndex = 158;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(359, 160);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(60, 13);
+            this.label15.TabIndex = 159;
+            this.label15.Text = "Kin contact";
+            // 
+            // kincontactTxt
+            // 
+            this.kincontactTxt.BackColor = System.Drawing.SystemColors.Control;
+            this.kincontactTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kincontactTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kincontactTxt.Location = new System.Drawing.Point(432, 163);
+            this.kincontactTxt.Name = "kincontactTxt";
+            this.kincontactTxt.Size = new System.Drawing.Size(150, 19);
+            this.kincontactTxt.TabIndex = 160;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button5.Location = new System.Drawing.Point(360, 254);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(63, 25);
+            this.button5.TabIndex = 170;
+            this.button5.Text = "View profile";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Crimson;
+            this.label1.Location = new System.Drawing.Point(12, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "In Patient";
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtServices.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtServices.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dtServices.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtServices.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dtServices.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dtServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtServices.Location = new System.Drawing.Point(8, 23);
-            this.dtServices.Name = "dtServices";
-            this.dtServices.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dtServices.Size = new System.Drawing.Size(498, 89);
-            this.dtServices.TabIndex = 220;
+            this.splitContainer1.Location = new System.Drawing.Point(12, 12);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // dtLab
+            // splitContainer1.Panel1
             // 
-            this.dtLab.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtLab.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtLab.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dtLab.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtLab.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dtLab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtLab.Location = new System.Drawing.Point(9, 142);
-            this.dtLab.Name = "dtLab";
-            this.dtLab.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dtLab.RowHeadersVisible = false;
-            this.dtLab.Size = new System.Drawing.Size(499, 100);
-            this.dtLab.TabIndex = 219;
+            this.splitContainer1.Panel1.AutoScroll = true;
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+            this.splitContainer1.Panel1.Controls.Add(this.button2);
+            this.splitContainer1.Panel1.Controls.Add(this.button4);
+            this.splitContainer1.Panel1.Controls.Add(this.queueNo);
+            this.splitContainer1.Panel1.Controls.Add(this.label26);
+            this.splitContainer1.Panel1.Controls.Add(this.button1);
+            this.splitContainer1.Panel1.Controls.Add(this.label1);
+            this.splitContainer1.Panel1.Controls.Add(this.button18);
+            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
-            // button3
+            // splitContainer1.Panel2
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(945, 4);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(124, 26);
-            this.button3.TabIndex = 152;
-            this.button3.Text = "Request Lab";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Transparent;
+            this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
+            this.splitContainer1.Size = new System.Drawing.Size(1147, 611);
+            this.splitContainer1.SplitterDistance = 41;
+            this.splitContainer1.TabIndex = 3;
             // 
-            // textBox7
+            // button2
             // 
-            this.textBox7.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(113, 290);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(383, 38);
-            this.textBox7.TabIndex = 144;
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(824, 8);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(102, 26);
+            this.button2.TabIndex = 218;
+            this.button2.Text = "View statement";
+            this.button2.UseVisualStyleBackColor = false;
             // 
-            // label38
+            // button4
             // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(12, 294);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(48, 13);
-            this.label38.TabIndex = 143;
-            this.label38.Text = "Remarks";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(17, -113);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(67, 13);
-            this.label42.TabIndex = 137;
-            this.label42.Text = "Practictioner";
-            // 
-            // button7
-            // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.BackColor = System.Drawing.Color.OrangeRed;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button7.Location = new System.Drawing.Point(454, 463);
-            this.button7.Margin = new System.Windows.Forms.Padding(2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(55, 29);
-            this.button7.TabIndex = 131;
-            this.button7.Text = "Validate";
-            this.button7.UseVisualStyleBackColor = false;
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button4.Location = new System.Drawing.Point(689, 10);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(116, 26);
+            this.button4.TabIndex = 217;
+            this.button4.Text = "New appointment";
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // queueNo
             // 
             this.queueNo.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.queueNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.queueNo.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.queueNo.Location = new System.Drawing.Point(245, 7);
+            this.queueNo.Location = new System.Drawing.Point(371, 13);
             this.queueNo.Name = "queueNo";
+            this.queueNo.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.queueNo.Size = new System.Drawing.Size(175, 19);
-            this.queueNo.TabIndex = 114;
+            this.queueNo.TabIndex = 113;
             this.queueNo.Click += new System.EventHandler(this.queueNo_Click);
             this.queueNo.TextChanged += new System.EventHandler(this.queueNo_TextChanged);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label26.Location = new System.Drawing.Point(242, 15);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(91, 15);
+            this.label26.TabIndex = 113;
+            this.label26.Text = "Visit/Queue ID ";
             // 
             // button18
             // 
             this.button18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button18.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button18.FlatAppearance.BorderSize = 0;
+            this.button18.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button18.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button18.Location = new System.Drawing.Point(799, 5);
+            this.button18.Location = new System.Drawing.Point(583, 10);
             this.button18.Margin = new System.Windows.Forms.Padding(2);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(132, 21);
+            this.button18.Size = new System.Drawing.Size(102, 26);
             this.button18.TabIndex = 216;
-            this.button18.Text = "Add Service";
+            this.button18.Text = "Add service";
             this.button18.UseVisualStyleBackColor = false;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
-            // label54
+            // tableLayoutPanel1
             // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(12, 398);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(49, 13);
-            this.label54.TabIndex = 185;
-            this.label54.Text = "Fee/Cost";
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.46313F));
+            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1147, 566);
+            this.tableLayoutPanel1.TabIndex = 222;
             // 
-            // serviceLbl
+            // groupBox1
             // 
-            this.serviceLbl.AutoSize = true;
-            this.serviceLbl.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.serviceLbl.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.serviceLbl.Location = new System.Drawing.Point(457, 115);
-            this.serviceLbl.Name = "serviceLbl";
-            this.serviceLbl.Size = new System.Drawing.Size(33, 15);
-            this.serviceLbl.TabIndex = 232;
-            this.serviceLbl.Text = "Total";
-            // 
-            // button8
-            // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.BackgroundImage = global::VHMIS.Properties.Resources.Ignore_32;
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(1407, 8);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(17, 18);
-            this.button8.TabIndex = 222;
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::VHMIS.Properties.Resources.Cancel_16;
-            this.button1.Location = new System.Drawing.Point(1432, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(33, 24);
-            this.button1.TabIndex = 1;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // imgCapture
-            // 
-            this.imgCapture.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.imgCapture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgCapture.Location = new System.Drawing.Point(82, 106);
-            this.imgCapture.Name = "imgCapture";
-            this.imgCapture.Size = new System.Drawing.Size(116, 85);
-            this.imgCapture.TabIndex = 99;
-            this.imgCapture.TabStop = false;
-            // 
-            // logoBx
-            // 
-            this.logoBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.logoBx.InitialImage = null;
-            this.logoBx.Location = new System.Drawing.Point(10, 10);
-            this.logoBx.Name = "logoBx";
-            this.logoBx.Size = new System.Drawing.Size(78, 59);
-            this.logoBx.TabIndex = 0;
-            this.logoBx.TabStop = false;
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.panel1);
+            this.groupBox1.Controls.Add(this.dtServices);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1141, 560);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Services";
             // 
             // InPatient
             // 
@@ -1705,162 +927,97 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1218, 622);
+            this.ClientSize = new System.Drawing.Size(1171, 622);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InPatient";
             this.Text = "InPatient";
+            ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtServices)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.billGrid)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtServices)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtLab)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgCapture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logoBx)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox enrollCbx;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox refTxt;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox referralDocTxt;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox enrollbyTxt;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.ComboBox billingCbx;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox remarksTxt;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox departmentCbx;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox roomCbx;
-        private System.Windows.Forms.ComboBox clinicCbx;
-        private System.Windows.Forms.DateTimePicker openedDate;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.ComboBox priorityCbx;
-        private System.Windows.Forms.TextBox practitionerTxt;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox kincontactTxt;
-        private System.Windows.Forms.ComboBox genderCbx;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox fileUrlTxtBx;
-        private System.Windows.Forms.TextBox kinTxt;
-        private System.Windows.Forms.DateTimePicker dobTxt;
-        private System.Windows.Forms.TextBox patientTxt;
-        private System.Windows.Forms.TextBox contactTxt;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox emailTxt;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox nationalityTxt;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox addressTxt;
-        private System.Windows.Forms.TextBox lastnameTxt;
         private System.Windows.Forms.PictureBox imgCapture;
+        private System.Windows.Forms.Label totalLbl;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.TextBox patientTxt;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.TextBox contactTxt;
+        private System.Windows.Forms.TextBox refTxt;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.ComboBox typeCbx;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox numberTxt;
+        private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox surnametTxt;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox numberTxt;
-        private System.Windows.Forms.ComboBox bedCbx;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label62;
-        private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.Label label59;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label LabLbl;
-        private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.ComboBox methodCbx;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox enrollbyTxt;
         private System.Windows.Forms.DataGridView dtServices;
-        private System.Windows.Forms.DataGridView dtLab;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DataGridView billGrid;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.TextBox balanceTxt;
-        private System.Windows.Forms.Label nameLbl;
-        private System.Windows.Forms.Label addressLbl;
-        private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.TextBox vatTxt;
-        private System.Windows.Forms.Label label58;
-        private System.Windows.Forms.Label wordsLbl;
-        private System.Windows.Forms.TextBox amountTxt;
-        private System.Windows.Forms.Label label60;
-        private System.Windows.Forms.Label label61;
-        private System.Windows.Forms.Label noLbl;
-        private System.Windows.Forms.Label label63;
-        private System.Windows.Forms.Label label64;
-        private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.PictureBox logoBx;
-        private System.Windows.Forms.Label costLbl;
-        private System.Windows.Forms.Label label66;
-        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox lastnameTxt;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox methodCbx;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker dobTxt;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox emailTxt;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox genderCbx;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox nationalityTxt;
+        private System.Windows.Forms.TextBox remarksTxt;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox addressTxt;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox kinTxt;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox kincontactTxt;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox queueNo;
+        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.Label serviceLbl;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label costLbl;
+        private System.Windows.Forms.ComboBox bedCbx;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox wardCbx;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox priorityCbx;
     }
 }

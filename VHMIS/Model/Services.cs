@@ -12,22 +12,24 @@ namespace VHMIS.Model
     {
         private string id;
         private string name;
+        private string no;
         private string queueID;
         private string departmentID;
-        private string procedureID;
+        private string operationID;
         private string patientID;
         private string userID;
-        private string code;
-        private string doneBy;
         private string price;
-        private string created;
         private string parameter;
         private string status;
         private string qty;
         private string total;
         private string paid;
+        private string notes;
+        private string results;      
+        private string date;
+        private string created;
         private string orgID;
-        private string no;
+
         public string Id
         {
             get
@@ -51,6 +53,19 @@ namespace VHMIS.Model
             set
             {
                 name = value;
+            }
+        }
+
+        public string No
+        {
+            get
+            {
+                return no;
+            }
+
+            set
+            {
+                no = value;
             }
         }
 
@@ -80,16 +95,16 @@ namespace VHMIS.Model
             }
         }
 
-        public string ProcedureID
+        public string OperationID
         {
             get
             {
-                return procedureID;
+                return operationID;
             }
 
             set
             {
-                procedureID = value;
+                operationID = value;
             }
         }
 
@@ -119,32 +134,6 @@ namespace VHMIS.Model
             }
         }
 
-        public string Code
-        {
-            get
-            {
-                return code;
-            }
-
-            set
-            {
-                code = value;
-            }
-        }
-
-        public string DoneBy
-        {
-            get
-            {
-                return doneBy;
-            }
-
-            set
-            {
-                doneBy = value;
-            }
-        }
-
         public string Price
         {
             get
@@ -155,19 +144,6 @@ namespace VHMIS.Model
             set
             {
                 price = value;
-            }
-        }
-
-        public string Created
-        {
-            get
-            {
-                return created;
-            }
-
-            set
-            {
-                created = value;
             }
         }
 
@@ -236,6 +212,58 @@ namespace VHMIS.Model
             }
         }
 
+        public string Notes
+        {
+            get
+            {
+                return notes;
+            }
+
+            set
+            {
+                notes = value;
+            }
+        }
+
+        public string Results
+        {
+            get
+            {
+                return results;
+            }
+
+            set
+            {
+                results = value;
+            }
+        }
+
+        public string Date
+        {
+            get
+            {
+                return date;
+            }
+
+            set
+            {
+                date = value;
+            }
+        }
+
+        public string Created
+        {
+            get
+            {
+                return created;
+            }
+
+            set
+            {
+                created = value;
+            }
+        }
+
         public string OrgID
         {
             get
@@ -249,52 +277,42 @@ namespace VHMIS.Model
             }
         }
 
-        public string No
-        {
-            get
-            {
-                return no;
-            }
-
-            set
-            {
-                no = value;
-            }
-        }
         public Services() { }
-        public Services(string id, string name, string queueID, string departmentID, string procedureID, string patientID, string userID, string code, string doneBy, string price, string created, string parameter, string status, string qty, string total, string paid, string orgID, string no)
+
+        public Services(string id, string name, string no, string queueID, string departmentID, string operationID, string patientID, string userID, string price, string parameter, string status, string qty, string total, string paid, string notes, string results, string date, string created, string orgID)
         {
             this.Id = id;
             this.Name = name;
+            this.No = no;
             this.QueueID = queueID;
             this.DepartmentID = departmentID;
-            this.ProcedureID = procedureID;
+            this.OperationID = operationID;
             this.PatientID = patientID;
             this.UserID = userID;
-            this.Code = code;
-            this.DoneBy = doneBy;
             this.Price = price;
-            this.Created = created;
             this.Parameter = parameter;
             this.Status = status;
             this.Qty = qty;
             this.Total = total;
             this.Paid = paid;
+            this.Notes = notes;
+            this.Results = results;
+            this.Date = date;
+            this.Created = created;
             this.OrgID = orgID;
-            this.No = no;
         }
 
         public static List<Services> ListServices(string queueID)
         {
-            List<Services> patients = new List<Services>();
-            string SQL = "SELECT * FROM services WHERE queueID='" + queueID + "'";
+            List<Services> services = new List<Services>();
+            string SQL = "SELECT * FROM services WHERE no='" + queueID + "'";
             if (Helper.Type != "Lite")
             {
                 NpgsqlDataReader Reader = DBConnect.Reading(SQL);
                 while (Reader.Read())
                 {
-                    Services p = new Services(Reader["id"].ToString(), Reader["name"].ToString(), Reader["queueID"].ToString(), Reader["departmentID"].ToString(), Reader["procedureID"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["code"].ToString(), Reader["doneby"].ToString(), Reader["price"].ToString(), Reader["created"].ToString(), Reader["parameter"].ToString(), Reader["status"].ToString(), Reader["qty"].ToString(), Reader["total"].ToString(), Reader["paid"].ToString(), Reader["orgid"].ToString(), Reader["no"].ToString());
-                    patients.Add(p);
+                    Services p = new Services(Reader["id"].ToString(), Reader["name"].ToString(), Reader["no"].ToString(), Reader["queueID"].ToString(), Reader["departmentID"].ToString(), Reader["operationID"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["price"].ToString(), Reader["parameter"].ToString(), Reader["status"].ToString(), Reader["qty"].ToString(), Reader["total"].ToString(), Reader["paid"].ToString(), Reader["notes"].ToString(), Reader["results"].ToString(), Reader["date"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    services.Add(p);
                 }
                 DBConnect.CloseConn();
             }
@@ -303,13 +321,13 @@ namespace VHMIS.Model
                 SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
                 while (Reader.Read())
                 {
-                    Services p = new Services(Reader["id"].ToString(), Reader["name"].ToString(), Reader["queueID"].ToString(), Reader["departmentID"].ToString(), Reader["procedureID"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["code"].ToString(), Reader["doneby"].ToString(), Reader["price"].ToString(), Reader["created"].ToString(), Reader["parameter"].ToString(), Reader["status"].ToString(), Reader["qty"].ToString(), Reader["total"].ToString(), Reader["paid"].ToString(), Reader["orgid"].ToString(), Reader["no"].ToString());
-                    patients.Add(p);
+                    Services p = new Services(Reader["id"].ToString(), Reader["name"].ToString(), Reader["no"].ToString(), Reader["queueID"].ToString(), Reader["departmentID"].ToString(), Reader["operationID"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["price"].ToString(), Reader["parameter"].ToString(), Reader["status"].ToString(), Reader["qty"].ToString(), Reader["total"].ToString(), Reader["paid"].ToString(), Reader["notes"].ToString(), Reader["results"].ToString(), Reader["date"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString());
+                    services.Add(p);
                 }
                 Reader.Close();
 
             }
-            return patients;
+            return services;
 
         }
     }

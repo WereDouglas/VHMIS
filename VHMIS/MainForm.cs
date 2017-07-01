@@ -924,5 +924,40 @@ namespace VHMIS
             //frm.Dock = DockStyle.Fill;
             frm.Show();
         }
+
+        private void toolStripSplitButton4_ButtonClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripSplitButton11_ButtonClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dischargesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bookingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void billingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripDropDownButton5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

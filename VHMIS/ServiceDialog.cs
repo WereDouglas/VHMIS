@@ -27,8 +27,9 @@ namespace VHMIS
             operationCbx.Items.Add("");
             foreach (Operations t in Global._operations)//.Where(i=>i.DepartmentID))
             {
-                operationCbx.Items.Add(t.Service);
-                operationCost.Add(t.Service, t.Cost);
+                operationCbx.Items.Add(t.Name);
+
+                operationCost.Add(t.Name, t.Cost);
             }
         }
 
@@ -56,8 +57,8 @@ namespace VHMIS
             id = Guid.NewGuid().ToString();
             if (!String.IsNullOrEmpty(operationCbx.Text))
             {
-              Services  _service = new Services(id, operationCbx.Text, QueueID, "Dental", "procedureID", PatientID, "userID", "code", "userID", opCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), parameterTxt.Text, statusCbx.Text, serviceQty.Text, serviceTotal.ToString("n0"), "No", Helper.orgID, QueueNo);
-                DBConnect.Insert(_service);
+             // Services  _service = new Services(id, operationCbx.Text, QueueID, "Dental", "procedureID", PatientID, "userID", "code", "userID", opCostTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), parameterTxt.Text, statusCbx.Text, serviceQty.Text, serviceTotal.ToString("n0"), "No", Helper.orgID, QueueNo);
+               // DBConnect.Insert(_service);
                 MessageBox.Show("Information added/Saved");
                 this.DialogResult = DialogResult.OK;
                 this.Dispose();

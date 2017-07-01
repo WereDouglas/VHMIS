@@ -212,7 +212,7 @@ namespace VHMIS
         private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
 
-            updateID = dtGrid.Rows[e.RowIndex].Cells[3].Value.ToString();
+            updateID = dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString();
             _users = new Users(updateID, dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[8].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[9].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[6].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[7].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[10].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[11].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[12].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[13].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[14].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[27].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[18].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[28].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[15].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[17].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[21].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[22].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[29].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[20].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[23].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[24].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[25].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[26].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), dtGrid.Rows[e.RowIndex].Cells[31].Value.ToString(), Helper.orgID);
 
             DBConnect.Update(_users, updateID);

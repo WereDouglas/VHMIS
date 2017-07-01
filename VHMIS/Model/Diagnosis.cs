@@ -12,18 +12,16 @@ namespace VHMIS.Model
     {
         private string id;
         private string name;
+        private string no;
         private string queueID;
-        private string departmentID;
-        private string diagnosisID;
-        private string patientID;
-        private string userID;
-        private string code;
-        private string doneBy;
-        private string price;
-        private string note;
+        private string patientID;       
+        private string code;        
+        private string treatment;
+        private string notes;
         private string created;
         private string orgID;
-        private string no;
+        private string userID;
+
         public string Id
         {
             get
@@ -50,6 +48,19 @@ namespace VHMIS.Model
             }
         }
 
+        public string No
+        {
+            get
+            {
+                return no;
+            }
+
+            set
+            {
+                no = value;
+            }
+        }
+
         public string QueueID
         {
             get
@@ -60,32 +71,6 @@ namespace VHMIS.Model
             set
             {
                 queueID = value;
-            }
-        }
-
-        public string DepartmentID
-        {
-            get
-            {
-                return departmentID;
-            }
-
-            set
-            {
-                departmentID = value;
-            }
-        }
-
-        public string DiagnosisID
-        {
-            get
-            {
-                return diagnosisID;
-            }
-
-            set
-            {
-                diagnosisID = value;
             }
         }
 
@@ -102,19 +87,6 @@ namespace VHMIS.Model
             }
         }
 
-        public string UserID
-        {
-            get
-            {
-                return userID;
-            }
-
-            set
-            {
-                userID = value;
-            }
-        }
-
         public string Code
         {
             get
@@ -128,42 +100,29 @@ namespace VHMIS.Model
             }
         }
 
-        public string DoneBy
+        public string Treatment
         {
             get
             {
-                return doneBy;
+                return treatment;
             }
 
             set
             {
-                doneBy = value;
+                treatment = value;
             }
         }
 
-        public string Price
+        public string Notes
         {
             get
             {
-                return price;
+                return notes;
             }
 
             set
             {
-                price = value;
-            }
-        }
-
-        public string Note
-        {
-            get
-            {
-                return note;
-            }
-
-            set
-            {
-                note = value;
+                notes = value;
             }
         }
 
@@ -193,48 +152,47 @@ namespace VHMIS.Model
             }
         }
 
-        public string No
+        public string UserID
         {
             get
             {
-                return no;
+                return userID;
             }
 
             set
             {
-                no = value;
+                userID = value;
             }
         }
+
         public Diagnosis() { }
-        public Diagnosis(string id, string name, string queueID, string departmentID, string diagnosisID, string patientID, string userID, string code, string doneBy, string price, string note, string created, string orgID, string no)
+
+        public Diagnosis(string id, string name, string no, string queueID, string patientID, string code, string treatment, string notes, string created, string orgID, string userID)
         {
-            this.id = id;
-            this.name = name;
-            this.queueID = queueID;
-            this.departmentID = departmentID;
-            this.diagnosisID = diagnosisID;
-            this.patientID = patientID;
-            this.userID = userID;
-            this.code = code;
-            this.doneBy = doneBy;
-            this.price = price;
-            this.note = note;
-            this.created = created;
-            this.OrgID = orgID;
+            this.Id = id;
+            this.Name = name;
             this.No = no;
+            this.QueueID = queueID;
+            this.PatientID = patientID;
+            this.Code = code;
+            this.Treatment = treatment;
+            this.Notes = notes;
+            this.Created = created;
+            this.OrgID = orgID;
+            this.UserID = userID;
         }
 
         public static List<Diagnosis> ListDiagnosis(string queueID)
         {
-            List<Diagnosis> patients = new List<Diagnosis>();
-            string SQL = "SELECT * FROM diagnosis WHERE queueID='" + queueID + "'";
+            List<Diagnosis> diagnosis = new List<Diagnosis>();
+            string SQL = "SELECT * FROM diagnosis WHERE no ='" + queueID + "'";
             if (Helper.Type != "Lite")
             {              
                 NpgsqlDataReader Reader = DBConnect.Reading(SQL);
                 while (Reader.Read())
                 {
-                    Diagnosis p = new Diagnosis(Reader["id"].ToString(), Reader["name"].ToString(), Reader["queueID"].ToString(), Reader["departmentID"].ToString(), Reader["diagnosisID"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["code"].ToString(), Reader["doneby"].ToString(), Reader["price"].ToString(), Reader["note"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString(), Reader["no"].ToString());
-                    patients.Add(p);
+                    Diagnosis p = new Diagnosis(Reader["id"].ToString(), Reader["name"].ToString(), Reader["no"].ToString(), Reader["queueid"].ToString(), Reader["patientid"].ToString(), Reader["code"].ToString(), Reader["treatment"].ToString(), Reader["notes"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString(), Reader["userid"].ToString());
+                    diagnosis.Add(p);
                 }
                 Reader.Close();
                 DBConnect.CloseConn();
@@ -244,14 +202,14 @@ namespace VHMIS.Model
                 SQLiteDataReader Reader = DBConnect.ReadingLite(SQL);
                 while (Reader.Read())
                 {
-                    Diagnosis p = new Diagnosis(Reader["id"].ToString(), Reader["name"].ToString(), Reader["queueID"].ToString(), Reader["departmentID"].ToString(), Reader["diagnosisID"].ToString(), Reader["patientID"].ToString(), Reader["userID"].ToString(), Reader["code"].ToString(), Reader["doneby"].ToString(), Reader["price"].ToString(), Reader["note"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString(), Reader["no"].ToString());
-                    patients.Add(p);
+                    Diagnosis p = new Diagnosis(Reader["id"].ToString(), Reader["name"].ToString(), Reader["no"].ToString(), Reader["queueid"].ToString(), Reader["patientid"].ToString(), Reader["code"].ToString(), Reader["treatment"].ToString(), Reader["notes"].ToString(), Reader["created"].ToString(), Reader["orgid"].ToString(), Reader["userid"].ToString());
+                    diagnosis.Add(p);
                 }
                 Reader.Close();
 
             }
 
-            return patients;
+            return diagnosis;
 
         }
     }

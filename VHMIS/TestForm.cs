@@ -118,7 +118,7 @@ namespace VHMIS
             }
 
             string id = Guid.NewGuid().ToString();
-            _test = new Tests(id,specimenCbx.Text, typeCbx.Text,nameTxt.Text, upperTxt.Text,lowerTxt.Text,unitTxt.Text, desciplineCbx.Text,codeTxt.Text,genderCbx.Text, phraseTxt.Text,descriptionTxt.Text,commentTxt.Text,DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),costTxt.Text,departmentID, Helper.orgID);
+            _test = new Tests(id,specimenCbx.Text, typeCbx.Text,nameTxt.Text, upperTxt.Text,lowerTxt.Text,unitTxt.Text, desciplineCbx.Text,codeTxt.Text,genderCbx.Text, phraseTxt.Text,descriptionTxt.Text,commentTxt.Text,DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),costTxt.Text,departmentCbx.Text, Helper.orgID);
 
             if (DBConnect.Insert(_test) != "")
             {
@@ -240,13 +240,7 @@ namespace VHMIS
 
         private void departmentCbx_Leave(object sender, EventArgs e)
         {
-            try
-            {
-                departmentID = departmentDictionary[desciplineCbx.Text];
-            }
-            catch {
-
-            }
+            
         }
     }
 }

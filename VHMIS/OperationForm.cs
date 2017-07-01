@@ -22,62 +22,49 @@ namespace VHMIS
         {
             InitializeComponent();
             LoadData();
-            updateBtn.Visible = false;
 
-            btnDelete.Name = "btnDelete";
-            btnDelete.Text = "Delete";
-            btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Width = 30;
-            btnDelete.CellTemplate.Style.BackColor = Color.Wheat;
-            btnDelete.UseColumnTextForButtonValue = true;
-            btnDelete.HeaderText = "Delete";
-
-            btnEdit.Name = "btnEdit";
-            btnEdit.Text = "Edit";
-            btnEdit.FlatStyle = FlatStyle.Flat;
-            btnEdit.Width = 30;
-            btnEdit.CellTemplate.Style.BackColor = Color.Orange;
-            btnEdit.UseColumnTextForButtonValue = true;
-            btnEdit.HeaderText = "Edit";
-
-            foreach (Departments d in Global._departments)
-            {
-                departmentCbx.Items.Add(d.Name);
-            }
         }
         bool loaded = false;
         public void LoadData()
         {
 
-            _operations = Global._operations;
+
             t = new DataTable();
-            // create and execute query 
-            t.Columns.Add("id");//2 
-            t.Columns.Add(new DataColumn("Select", typeof(bool)));
+
+            t.Columns.Add("id");//2            
             t.Columns.Add("Department");//4
+            t.Columns.Add("depID");//4
             t.Columns.Add("Code");//5            
             t.Columns.Add("Service");//7
+            t.Columns.Add("Type");//7
+            t.Columns.Add("Category");//7
             t.Columns.Add("Cost");//7
-            t.Columns.Add("Other");//9
+            t.Columns.Add("Specimen");//7
+            t.Columns.Add("specimenID");//7
+            t.Columns.Add("Parameter");//7
+            t.Columns.Add("Upper limit");//7
+            t.Columns.Add("Lower limit");//7
+            t.Columns.Add("Unit");//7
+            t.Columns.Add("Discipline");//7
+            t.Columns.Add("disciplineID");//7
+            t.Columns.Add("Gender");//7
+            t.Columns.Add("Phrase");//7
+            t.Columns.Add("Max age");//7
+            t.Columns.Add("Min age");//7
             t.Columns.Add("Created");// 9
+            t.Columns.Add("Delete");//7
+            
 
             foreach (Operations r in Global._operations)
             {
-                t.Rows.Add(new object[] { r.Id, false, r.DepartmentID, r.Code, r.Service, r.Cost, r.Other, r.Created });
+                t.Rows.Add(new object[] { r.Id, Global._departments.First(y => y.Id.Contains(r.DepID)).Name, r.DepID, r.Code, r.Name, r.Type, r.Category, r.Cost, Global._specimens.First(y => y.Id.Contains(r.SpecimenID)).Name, r.SpecimenID, r.Parameter, r.Upper, r.Lower, r.Unit, Global._disciplines.First(y => y.Id.Contains(r.DisciplineID)).Name, r.DisciplineID, r.Gender, r.Phrase, r.Max, r.Min, r.Created, "Delete" });
 
             }
             dtGrid.DataSource = t;
             dtGrid.AllowUserToAddRows = false;
 
-            if (!loaded)
-            {
-                dtGrid.Columns.Add(btnEdit);
-                dtGrid.Columns.Add(btnDelete);
-                dtGrid.Columns[0].Visible = false;
-            }
-
             loaded = true;
-            // btnDelete.DisplayIndex = 1;
+
         }
 
 
@@ -86,33 +73,7 @@ namespace VHMIS
             Close();
         }
 
-        private void saveBtn_Click(object sender, EventArgs e)
-        {
-            if (serviceTxt.Text == "")
-            {
-                serviceTxt.BackColor = Color.Red;
-                return;
-            }
 
-            string id = Guid.NewGuid().ToString();
-            _operation = new Operations(id, departmentCbx.Text, codeTxt.Text, serviceTxt.Text, costTxt.Text, otherTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
-
-            if (DBConnect.Insert(_operation) != "")
-            {
-                Global._operations.Add(_operation);
-                serviceTxt.Text = "";
-                costTxt.Text = "";
-                otherTxt.Text = "";
-                MessageBox.Show("Information Saved");
-                LoadData();
-
-            }
-            else
-            {
-                return;
-
-            }
-        }
         List<string> fileIDs = new List<string>();
 
         public object CollectionViewSource { get; private set; }
@@ -152,58 +113,16 @@ namespace VHMIS
             }
             //}
             //catch { }
-            if (e.ColumnIndex == 0)
-            {
-                updateID = dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
 
-                serviceTxt.Text = _operations.First(k => k.Id.Contains(updateID)).Service;
-                costTxt.Text = _operations.First(k => k.Id.Contains(updateID)).Cost;
-                otherTxt.Text = _operations.First(k => k.Id.Contains(updateID)).Other;
-                saveBtn.Visible = false;
-                updateBtn.Visible = true;
-
-            }
 
         }
         string updateID;
 
-        private void updateBtn_Click(object sender, EventArgs e)
-        {
-            if (updateID == "") { return; }
-            if (MessageBox.Show("YES or No?", "Are you sure you want to update this information? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                _operation = new Operations(updateID, departmentCbx.Text, codeTxt.Text, serviceTxt.Text, costTxt.Text, otherTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
-
-                DBConnect.Update(_operation, updateID);
-                Global._operations.RemoveAll(x => x.Id == updateID);
-                Global._operations.Add(_operation);
-                // DBConnect.Execute(SQL);
-                MessageBox.Show("Information updated");
-                saveBtn.Visible = true;
-                updateBtn.Visible = false;
-                updateID = "";
-                serviceTxt.Text = "";
-                costTxt.Text = "";
-                otherTxt.Text = "";
-                LoadData();
-            }
-
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            serviceTxt.Text = "";
-            otherTxt.Text = "";
-            costTxt.Text = "";
-            saveBtn.Visible = true;
-            updateBtn.Visible = false;
-            updateID = "";
-        }
         TextBox editBox = null;
         private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            updateID = dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
-            _operation = new Operations(updateID, dtGrid.Rows[e.RowIndex].Cells[4].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[5].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[6].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[7].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells[8].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
+            updateID = dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString();
+            Operations _operation = new Operations(updateID, dtGrid.Rows[e.RowIndex].Cells["depID"].Value.ToString(),dtGrid.Rows[e.RowIndex].Cells["code"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["service"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["type"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["category"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["cost"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["specimenID"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["parameter"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["upper"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["lower"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["unit"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["disciplineID"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["gender"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["phrase"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["max"].Value.ToString(), dtGrid.Rows[e.RowIndex].Cells["min"].Value.ToString(), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
             //Operations(2, 4, 5,6,7, 8, string created)
             DBConnect.Update(_operation, updateID);
             Global._operations.RemoveAll(x => x.Id == updateID);
@@ -211,8 +130,16 @@ namespace VHMIS
 
         }
 
-        private void dtGrid_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
+            using (OperationDialog form = new OperationDialog())
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
 
         }
     }

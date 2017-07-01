@@ -28,102 +28,44 @@ namespace VHMIS
         List<Patient> _patientList = new List<Patient>();
         List<Users> _userList = new List<Users>();
         string patientID;
-        string userID;
-        string wardID;
-        string clinicID;
+       
         int follow;
-        double LabTotal = 0;
-        string notify;
-        Events _event;
+       
         List<Queue> _queues = new List<Queue>();
         List<Queue> _todayList = new List<Queue>();
-        Queue _queue;
-        DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
-        DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
-
-        bool loaded = false;
-        string today;
+       
         private List<Services> _services;
-        private Services _service;
 
-        private Lab _lab;
-        private List<Lab> _labs;
-        private Diagnosis _diag;
-        private List<Diagnosis> _diags;
-        double serviceTotal = 0;
-        double procsTotal = 0;
-    
+        string userID;
         string queueID;
         string PatientID;
         DataTable tb;
-        DataTable bb;
-      
+       
         public InPatient(string QueueID, string patientID, string UserID)
         {
             _patientList = Global._patients;
+            userID = UserID;
             _userList = Global._users;
             InitializeComponent();
+
             autocompleteNumber();
-
             autocompleteID();
-            autocompleteUsers();
-            autocompletePatient();
-            autocompleteClinics();
-            autocompleteWards();
-            openedDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
-            btnDelete.Name = "btnDelete";
-            btnDelete.Text = "Complete";
-            btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Width = 60;
-            btnDelete.CellTemplate.Style.BackColor = Color.Green;
-            btnDelete.UseColumnTextForButtonValue = true;
-            btnDelete.HeaderText = "Complete";
 
-            btnEdit.Name = "btnEdit";
-            btnEdit.Text = "Visit";
-            btnEdit.FlatStyle = FlatStyle.Flat;
-            btnEdit.Width = 60;
-            btnEdit.CellTemplate.Style.BackColor = Color.Orange;
-            btnEdit.UseColumnTextForButtonValue = true;
-            btnEdit.HeaderText = "Edit";
-            today = DateTime.Now.ToString("yyyy-MM-dd");
-            _queues = Global._queues;
-            _todayList = Global._queues;//.Where(r => r.Dated.Contains(today)).ToList();
-            
-            foreach (Clinics d in Global._clinics)
-            {
-                clinicCbx.Items.Add(d.Name);
-            }
-            foreach (Wards d in Global._wards)
-            {
-                roomCbx.Items.Add(d.Name);
-            }
-            openedDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
             if (!String.IsNullOrEmpty(QueueID))
             {
                 queueID = QueueID;
-                LoadServices(queueID);
-                LoadLabs(queueID);
+                LoadServices(Global._queues.First(y => y.Id.Contains(queueID)).No);
+
                 PatientID = patientID;
                 LoadPatient(patientID);
+                queueNo.Text = Global._queues.First(y => y.Id.Contains(queueID)).No;
+                LoadAdmission(queueNo.Text);
             }
             else
             {
                 queueID = Guid.NewGuid().ToString();
             }
-          
-            foreach (Clinics d in Global._clinics)
-            {
-                clinicCbx.Items.Add(d.Name);
-            }
-            foreach (Departments d in Global._departments)
-            {
-                departmentCbx.Items.Add(d.Name);
-            }
-            foreach (Wards d in Global._wards)
-            {
-                roomCbx.Items.Add(d.Name);
-            }
+
 
 
         }
@@ -136,93 +78,29 @@ namespace VHMIS
             tb.Columns.Add("id");//2 
             tb.Columns.Add("Parameter");//2
             tb.Columns.Add("Name");//2
-            tb.Columns.Add("Department");//
-            tb.Columns.Add("Procedure");//
+            tb.Columns.Add("Department");//           
             tb.Columns.Add("Price");//
-            tb.Columns.Add("Code");//
-            tb.Columns.Add("status");//
             tb.Columns.Add("Quantity");//
-            tb.Columns.Add("Cost");//
+            tb.Columns.Add("Total");//
+            tb.Columns.Add("Paid");//
+            tb.Columns.Add("Notes");//
+            tb.Columns.Add("Status");// 
+            tb.Columns.Add("Results");//            
             tb.Columns.Add("Cancel");//
+            tb.Columns.Add("departmentID");//
 
             foreach (Services r in _services)
             {
-                tb.Rows.Add(new object[] { r.Id, r.Parameter, r.Name, r.DepartmentID, r.ProcedureID, r.Price, r.Code, r.Status, r.Qty, r.Total, "Cancel" });
-
+                tb.Rows.Add(new object[] { r.Id, r.Parameter, r.Name, Global._departments.First(e => e.Id.Contains(r.DepartmentID)).Name, r.Price, r.Qty, r.Total, r.Paid, r.Notes, r.Status, r.Results, "Cancel", r.DepartmentID });
 
             }
             dtServices.DataSource = tb;
-            billGrid.DataSource = bb;
             dtServices.AllowUserToAddRows = false;
-            dtServices.Columns[10].DefaultCellStyle.BackColor = Color.OrangeRed;
-            dtServices.Columns[0].Visible = false;
-            dtServices.Columns[10].FillWeight = 80;
-        }
-        private void LoadLabs(string visitID)
-        {
-
-            _labs = Lab.ListLab(visitID);
-            tb = new DataTable();
-
-            tb.Columns.Add("id");//2 
-            tb.Columns.Add("Test");//2
-            tb.Columns.Add("Cost");//
-            tb.Columns.Add("Quantity");//
-            tb.Columns.Add("Total");//
-            tb.Columns.Add("Cancel");//
-            foreach (Lab r in _labs)
-            {
-                tb.Rows.Add(new object[] { r.Id, r.Test, r.Cost, r.Qty, r.Total, "Cancel" });
-            }
-            dtLab.DataSource = tb;
-
-            dtLab.AllowUserToAddRows = false;
-            dtLab.Columns[5].DefaultCellStyle.BackColor = Color.OrangeRed;
-            dtLab.Columns[0].Visible = false;
-            // dtLab.Columns[3].Width = 20;
-            dtLab.Columns[5].FillWeight = 20;
-
-        }
-        private void autocompleteUsers()
-        {
-            AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
-            foreach (Users u in Global._users)
-            {
-                if (!userDictionary.ContainsKey(u.Surname + " " + u.Lastname)) {
-                    userDictionary.Add(u.Surname + " " + u.Lastname, u.Id);
-                }
-                AutoItem.Add(u.Surname + " " + u.Lastname);              
-            }
-            practitionerTxt.AutoCompleteMode = AutoCompleteMode.Suggest;
-            practitionerTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            practitionerTxt.AutoCompleteCustomSource = AutoItem;
-
-        }
-        private void autocompleteClinics()
-        {
-            AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
-            foreach (Clinics u in Global._clinics)
-            {
-                AutoItem.Add(u.Name);
-                clinicDictionary.Add(u.Name, u.Id);
-            }
-            clinicCbx.AutoCompleteMode = AutoCompleteMode.Suggest;
-            clinicCbx.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            clinicCbx.AutoCompleteCustomSource = AutoItem;
-
-        }
-        private void autocompleteWards()
-        {
-            AutoCompleteStringCollection AutoItem = new AutoCompleteStringCollection();
-            foreach (Wards u in Global._wards)
-            {
-                AutoItem.Add(u.Name);
-                wardDictionary.Add(u.Name, u.Id);
-            }
-            roomCbx.AutoCompleteMode = AutoCompleteMode.Suggest;
-            roomCbx.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            roomCbx.AutoCompleteCustomSource = AutoItem;
-
+            dtServices.Columns["Cancel"].DefaultCellStyle.BackColor = Color.OrangeRed;
+            dtServices.Columns["id"].Visible = false;
+            dtServices.Columns["departmentID"].Visible = false;
+            dtServices.Columns["Cancel"].FillWeight = 80;
+            totalLbl.Text = _services.Sum(f => Convert.ToDouble(f.Total)).ToString("n0");
         }
         private void autocompletePatient()
         {
@@ -281,34 +159,6 @@ namespace VHMIS
         {
             Close();
         }
-        
-        private void contactTxt_Leave(object sender, EventArgs e)
-        {
-            if (contactTxt.Text != "")
-            {
-                try
-                {
-                    patientID = numberDictionary[contactTxt.Text];
-                }
-                catch { }
-            }
-            else if (numberTxt.Text != "")
-            {
-
-
-                try
-                {
-                    patientID = IdDictionary[numberTxt.Text];
-                }
-                catch { }
-            }
-            if (patientID != "")
-            {
-
-                LoadPatient(patientID);
-                
-            }
-        }
         private void LoadPatient(string patientID)
         {
 
@@ -322,6 +172,8 @@ namespace VHMIS
             kinTxt.Text = Global._patients.First(k => k.Id.Contains(patientID)).Kin;
             kincontactTxt.Text = Global._patients.First(k => k.Id.Contains(patientID)).Kincontact;
             addressTxt.Text = Global._patients.First(k => k.Id.Contains(patientID)).Address;
+            numberTxt.Text = Global._patients.First(k => k.Id.Contains(patientID)).PatientNo;
+            patientTxt.Text = surnametTxt.Text + " " + lastnameTxt.Text;
 
 
             Image img = Base64ToImage(Global._patients.First(k => k.Id.Contains(patientID)).Image);
@@ -329,6 +181,19 @@ namespace VHMIS
             //Bitmap bps = new Bitmap(bmp, 50, 50);
             imgCapture.Image = bmp;
             imgCapture.SizeMode = PictureBoxSizeMode.StretchImage;
+
+
+        }
+        private void LoadAdmission(string no)
+        {
+            wardCbx.Text = Global._admit.First(k => k.No.Contains(no)).Ward;
+            bedCbx.Text = Global._admit.First(k => k.No.Contains(no)).Bed;
+          
+            priorityCbx.Text = Global._admit.First(k => k.No.Contains(no)).Status;
+            typeCbx.Text = Global._admit.First(k => k.No.Contains(no)).Type;
+            enrollbyTxt.Text = Global._admit.First(k => k.No.Contains(no)).UserID;
+            refTxt.Text = Global._admit.First(k => k.No.Contains(no)).Referral;
+            remarksTxt.Text = Global._admit.First(k => k.No.Contains(no)).Remarks;
 
 
         }
@@ -341,167 +206,52 @@ namespace VHMIS
             return image;
         }
     
-        private void button2_Click(object sender, EventArgs e)
-        {
-            int next;
-            if (_todayList.Count() < 1)
-            {
-                next = 1;
-            }
-            else
-            {
-                follow = _todayList.Max(t => Convert.ToInt32(t.Follow));
-                next = follow + 1;
-            }
+      
 
-            if (patientID == "" || userID == "")
-            {
-                MessageBox.Show("Please input the input the patient OR the practitioner  ");
-                return;
-            }
-            string id = Guid.NewGuid().ToString();
+      
 
-            _queue = new Queue(id, next.ToString(), patientID, userID, roomCbx.Text, clinicCbx.Text, priorityCbx.Text, Convert.ToDateTime(this.openedDate.Text).ToString("yyyy-MM-dd"), DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"),departmentCbx.Text,"","","","","","","","","", Helper.orgID,"IP");
 
-            if (DBConnect.Insert(_queue) != "")
-            {
-                Global._queues.Add(_queue);
-                patientTxt.Text = "";
-                practitionerTxt.Text = "";
-                MessageBox.Show("Information Saved");
-               
 
-            }
-            else
-            {
-                return;
-
-            }
-        }
-
-        private void patientTxt_Leave(object sender, EventArgs e)
-        {
-            try
-            {
-                patientID = patientDictionary[patientTxt.Text];
-
-                LoadPatient(patientID);
-            }
-            catch { }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void label16_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void departmentCbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void referralDocTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button18_Click(object sender, EventArgs e)
-        {
-            using (ServiceDialog form = new ServiceDialog(PatientID, queueID, queueNo.Text))
-            {
-                // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                    //MessageBox.Show(form.state);
-                    _todayList = Queue.ListQueue(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy")).ToList(); ;
-                    LoadServices(queueID);
-
-                }
-            }
-        }
-        Dictionary<string, string> BedDictionary = new Dictionary<string, string>();
-        private void roomCbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            foreach (Beds item in Beds.ListBeds(roomCbx.Text)) {
-                bedCbx.Items.Add(item.No);
-                BedDictionary.Add(item.No,item.Rate);
-            }
-        }
-
-        private void bedCbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            costLbl.Text = BedDictionary[bedCbx.Text];
-        }
-
-        private void costLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            using (LabDialog form = new LabDialog(PatientID, queueID, queueNo.Text))
-            {
-                // DentalDialog form1 = new DentalDialog(item.Text, TransactorID);
-                DialogResult dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                    //MessageBox.Show(form.state);
-                    _todayList = Queue.ListQueue(Convert.ToDateTime(openedDate.Text).ToString("dd-MM-yyyy")).ToList(); ;
-
-                    LoadLabs(queueID);
-
-                }
-            }
+            Close();
         }
 
         private void queueNo_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                string QueueID = Global._queues.First(p => p.No.Contains(queueNo.Text)).Id;
-                string patientID = Global._queues.First(d => d.No.Contains(queueNo.Text)).PatientID;
-                if (!String.IsNullOrEmpty(QueueID))
+                
+                //string QueueID = Global._admit.First(p => p.No.Equals(queueNo.Text)).Id;
+                string patientID = Global._admit.First(d => d.No.Equals(queueNo.Text)).PatientID;
+                if (!String.IsNullOrEmpty(patientID))
                 {
-                    queueID = QueueID;
-                    LoadServices(queueID);
-                    LoadLabs(queueID);
                     PatientID = patientID;
                     LoadPatient(patientID);
+                    // queueID = QueueID;
+                    LoadServices(queueNo.Text);
+                    LoadAdmission(queueNo.Text);
+
+                   
                 }
+
             }
             catch { }
         }
 
         private void queueNo_Click(object sender, EventArgs e)
         {
-            queueNo.Text = "VHMIS-" + DateTime.Now.ToString("dd-MM-yyyy") + "/ADMIT/";
+            queueNo.Text = "VHMIS-" + DateTime.Now.ToString("dd-MM-yyyy") + "/ADMIT/" ;
         }
 
-        private void button4_Click_1(object sender, EventArgs e)
+        private void bedCbx_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

@@ -39,14 +39,14 @@ namespace VHMIS
             try
             {
                 LoadPatient(patientID);
-                LoadLabs(VisitID);
-                LoadDiagnosis(VisitID);
-                LoadServices(VisitID);
+                queueNo.Text = Global._queues.First(p => p.Id.Contains(VisitID)).No;// VisitID;
+                LoadServices(queueNo.Text);
             }
             catch
             {
 
             }
+           
         }
         private void LoadPatient(string PatientID)
         {
@@ -74,7 +74,7 @@ namespace VHMIS
         }
         private void FillChart()
         {
-            foreach (Services p in _services)
+            foreach (Services p in Services.ListServices(queueNo.Text))
             {
                 foreach (Control ctrl in panel1.Controls)
                 {
@@ -88,7 +88,7 @@ namespace VHMIS
                                 ctrl.ForeColor = Color.Red;
                             }
                               
-                                ctrl.Text =p.Parameter +" "+ p.Name.ToString();
+                                ctrl.Text =p.Parameter +" :"+ p.Name.ToString() +" :"+ p.Notes;
                             // ctrl.Fon = 8;
                             ctrl.Font = new Font("Calibri", 8, FontStyle.Italic);
                         }
@@ -244,7 +244,7 @@ namespace VHMIS
                     if (dr == DialogResult.OK)
                     {
                         MessageBox.Show(form.state);
-                        LoadLabs(VisitID);
+                       
                         LoadServices(VisitID);
                     }
                 }
@@ -256,77 +256,42 @@ namespace VHMIS
 
             }
         }
-        private void LoadLabs(string visitID)
-        {
-
-            _labs = Lab.ListLab(visitID);
-            tb = new DataTable();
-            // create and execute query 
-            tb.Columns.Add("id");//2 
-            tb.Columns.Add("Test");//2
-            tb.Columns.Add("Cost");//
-            tb.Columns.Add("Cancel");//
-
-
-            foreach (Lab r in _labs)
-            {
-                tb.Rows.Add(new object[] { r.Id, r.Test, r.Cost, "Cancel" });
-            }
-            dtLab.DataSource = tb;
-
-            dtLab.AllowUserToAddRows = false;
-            dtLab.Columns["Cancel"].DefaultCellStyle.BackColor = Color.OrangeRed;
-            dtLab.Columns["id"].Visible = false;
-            // dtLab.Columns[3].Width = 20;
-
-
-        }
-        private void LoadDiagnosis(string visitID)
-        {
-            _diags = Diagnosis.ListDiagnosis(visitID);
-            tb = new DataTable();
-            // create and execute query 
-            tb.Columns.Add("id");//2 
-            tb.Columns.Add("Diagnosis");//2
-            tb.Columns.Add("Cost");//
-            tb.Columns.Add("Notes");//
-            tb.Columns.Add("Cancel");//
-            foreach (Diagnosis r in _diags)
-            {
-                tb.Rows.Add(new object[] { r.Id, r.Name, r.Price, r.Note, "Cancel" });
-            }
-            dtDiag.DataSource = tb;
-
-            dtDiag.AllowUserToAddRows = false;
-            dtDiag.Columns["Cancel"].DefaultCellStyle.BackColor = Color.OrangeRed;
-            dtDiag.Columns["id"].Visible = false;
-        }
         private void LoadServices(string visitID)
         {
 
-            _services = Services.ListServices(visitID);
+            List<Services> _services = Services.ListServices(visitID);
             tb = new DataTable();
             // create and execute query 
             tb.Columns.Add("id");//2 
             tb.Columns.Add("Parameter");//2
             tb.Columns.Add("Name");//2
-            tb.Columns.Add("Department");//
-            tb.Columns.Add("Procedure");//
+            tb.Columns.Add("Department");//           
             tb.Columns.Add("Price");//
-            tb.Columns.Add("Code");//
-            tb.Columns.Add("status");//
+            tb.Columns.Add("Quantity");//
+            tb.Columns.Add("Total");//
+            tb.Columns.Add("Paid");//
+            tb.Columns.Add("Notes");//
+            tb.Columns.Add("Status");//    
+            tb.Columns.Add("Results");//            
             tb.Columns.Add("Cancel");//
-           
+
             foreach (Services r in _services)
             {
-                tb.Rows.Add(new object[] { r.Id,r.Parameter, r.Name,r.DepartmentID,r.ProcedureID, r.Price, r.Code,r.Status,"Cancel" });
-            }
-            dtServices.DataSource = tb;
+                tb.Rows.Add(new object[] { r.Id, r.Parameter, r.Name, Global._departments.First(e => e.Id.Contains(r.DepartmentID)).Name, r.Price, r.Qty, r.Total, r.Paid, r.Notes, r.Status,r.Results, "Cancel" });
 
-            dtServices.AllowUserToAddRows = false;
-            dtServices.Columns["Cancel"].DefaultCellStyle.BackColor = Color.OrangeRed;
-            dtServices.Columns["id"].Visible = false;
+           }
+            dtGrid.DataSource = tb;
+            dtGrid.AllowUserToAddRows = false;
+            dtGrid.Columns["Cancel"].DefaultCellStyle.BackColor = Color.OrangeRed;
+            dtGrid.Columns["id"].Visible = false;
+            dtGrid.Columns["Department"].Visible = false;
+            dtGrid.Columns["Price"].Visible = false;
+            dtGrid.Columns["Quantity"].Visible = false;
+            dtGrid.Columns["Total"].Visible = false;
+            dtGrid.Columns["Paid"].Visible = false;
+            dtGrid.Columns["Cancel"].FillWeight = 80;
         }
+
 
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
@@ -344,11 +309,11 @@ namespace VHMIS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 FillChart();
-            }
-            catch { }
+            //}
+            //catch { }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -361,7 +326,7 @@ namespace VHMIS
                 if (dr == DialogResult.OK)
                 {
                     MessageBox.Show(form.state);
-                    LoadLabs(VisitID);
+                   
                     LoadServices(VisitID);
                 }
             }
@@ -379,17 +344,14 @@ namespace VHMIS
 
         private void queueNo_TextChanged(object sender, EventArgs e)
         {
-
             try
             {
-                 VisitID = Global._queues.First(p => p.No.Contains(queueNo.Text)).Id;
-                PatientID = Global._queues.First(d => d.No.Contains(queueNo.Text)).PatientID;
+                VisitID = Global._queues.First(p => p.No.Equals(queueNo.Text)).Id;
+                PatientID = Global._queues.First(d => d.No.Equals(queueNo.Text)).PatientID;
                 if (!String.IsNullOrEmpty(VisitID))
                 {
-                    LoadPatient(PatientID);
-                    LoadLabs(VisitID);
-                    LoadDiagnosis(VisitID);
-                    LoadServices(VisitID);
+                    LoadPatient(PatientID);                   
+                    LoadServices(queueNo.Text);
                 }
             }
             catch { }
@@ -397,32 +359,32 @@ namespace VHMIS
 
         private void dtServices_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            if (dtLab.Rows[e.RowIndex].Cells["Cancel"].Value.ToString() == "Cancel")
+            if (dtGrid.Rows[e.RowIndex].Cells["Cancel"].Value.ToString() == "Cancel")
             {
-                if (MessageBox.Show("YES or No?", "Cancel this Lab request ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MessageBox.Show("YES or No?", "Cancel this service ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    DBConnect.Delete("lab", dtLab.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                    DBConnect.Delete("services", dtGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
                     MessageBox.Show("Information deleted");
-                    LoadLabs(VisitID);
+                    LoadServices(queueNo.Text);
 
                 }
 
             }
         }
 
-        private void dtLab_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void button5_Click_1(object sender, EventArgs e)
         {
-            if (dtLab.Rows[e.RowIndex].Cells["Cancel"].Value.ToString() == "Cancel")
+            using (DentalDialog form = new DentalDialog("Details", PatientID, VisitID, queueNo.Text))
             {
-                if (MessageBox.Show("YES or No?", "Cancel this Lab request ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+
+                // DentalDialog form1 = new DentalDialog(item.Text, PatientID);
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
                 {
-                    DBConnect.Delete("lab", dtLab.Rows[e.RowIndex].Cells["id"].Value.ToString());
-                    MessageBox.Show("Information deleted");
-                    LoadLabs(VisitID);
+                   //// MessageBox.Show(form.state);
 
+                    LoadServices(VisitID);
                 }
-
             }
         }
     }

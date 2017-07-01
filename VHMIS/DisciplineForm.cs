@@ -22,7 +22,7 @@ namespace VHMIS
         {
             InitializeComponent();
             LoadData();
-            updateBtn.Visible = false;
+          
 
             btnDelete.Name = "btnDelete";
             btnDelete.Text = "Delete";
@@ -80,120 +80,15 @@ namespace VHMIS
             Close();
         }
 
-        private void saveBtn_Click(object sender, EventArgs e)
-        {
-            if (nameTxt.Text == "")
-            {
-                nameTxt.BackColor = Color.Red;
-                return;
-            }
-
-            string id = Guid.NewGuid().ToString();
-            _discipline = new Discipline(id, nameTxt.Text, codeTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
-
-            if (DBConnect.Insert(_discipline) != "")
-            {
-                Global._disciplines.Add(_discipline);
-                nameTxt.Text = "";
-                codeTxt.Text = "";
-             
-                MessageBox.Show("Information Saved");
-                LoadData();
-
-            }
-            else
-            {
-                return;
-
-            }
-        }
         List<string> fileIDs = new List<string>();
 
         public object CollectionViewSource { get; private set; }
         public object UserFilter { get; private set; }
 
-        private void dtGrid_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var senderGrid = (DataGridView)sender;
-
-            if (e.ColumnIndex == dtGrid.Columns[0].Index && e.RowIndex >= 0)
-            {
-                if (fileIDs.Contains(dtGrid.Rows[e.RowIndex].Cells[0].Value.ToString()))
-                {
-                    fileIDs.Remove(dtGrid.Rows[e.RowIndex].Cells[0].Value.ToString());
-                    Console.WriteLine("REMOVED this id " + dtGrid.Rows[e.RowIndex].Cells[0].Value.ToString());
-
-                }
-                else
-                {
-                    fileIDs.Add(dtGrid.Rows[e.RowIndex].Cells[0].Value.ToString());
-                    Console.WriteLine("ADDED ITEM " + dtGrid.Rows[e.RowIndex].Cells[0].Value.ToString());
-                }
-            }
-
-            //try
-            //{
-            if (e.ColumnIndex == 1)
-            {
-                if (MessageBox.Show("YES or No?", "Are you sure you want to delete this information? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-                    DBConnect.Delete("disciplines", dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString());
-
-                    MessageBox.Show("Information deleted");
-                    LoadData();
-
-                }
-            }
-            //}
-            //catch { }
-            if (e.ColumnIndex == 0)
-            {
-                updateID = dtGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
-
-                nameTxt.Text = _disciplines.First(k => k.Id.Contains(updateID)).Name;
-                codeTxt.Text = _disciplines.First(k => k.Id.Contains(updateID)).Code;
-              
-                saveBtn.Visible = false;
-                updateBtn.Visible = true;
-
-            }
-
-        }
+  
         string updateID;
 
-        private void updateBtn_Click(object sender, EventArgs e)
-        {
-            if (updateID == "") { return; }
-            if (MessageBox.Show("YES or No?", "Are you sure you want to update this information? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                //string SQL = "UPDATE disciplines SET name = '" + nameTxt.Text + "',mins='" + minTxt.Text + "',maxs= '" + maxTxt.Text + "' WHERE id= '" + updateID + "'";
-                _discipline = new Discipline(updateID, nameTxt.Text, codeTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
-
-                DBConnect.Update(_discipline, updateID);
-                Global._disciplines.RemoveAll(x => x.Id == updateID);
-                Global._disciplines.Add(_discipline);
-                // DBConnect.Execute(SQL);
-                MessageBox.Show("Information updated");
-                saveBtn.Visible = true;
-                updateBtn.Visible = false;
-                updateID = "";
-                nameTxt.Text = "";
-                codeTxt.Text = "";
-              
-                LoadData();
-            }
-
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            nameTxt.Text = "";
-          
-            codeTxt.Text = "";
-            saveBtn.Visible = true;
-            updateBtn.Visible = false;
-            updateID = "";
-        }
+      
         TextBox editBox = null;
         private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -209,6 +104,18 @@ namespace VHMIS
         private void dtGrid_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            using (DisciplineDialog form = new DisciplineDialog())
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
         }
     }
 }

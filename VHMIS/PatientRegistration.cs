@@ -26,6 +26,9 @@ namespace VHMIS
             webcam = new WebCam();
             webcam.InitializeWebCam(ref imgVideo);
             autocomplete();
+            int follow = Global._patients.Count();
+          int  next = follow + 1;
+            patientNoTxt.Text = Helper.Code + "-" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + next;
         }
         private void autocomplete()
         {

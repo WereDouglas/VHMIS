@@ -22,8 +22,7 @@ namespace VHMIS
         {
             InitializeComponent();
             LoadData();
-            updateBtn.Visible = false;
-
+          
             btnDelete.Name = "btnDelete";
             btnDelete.Text = "Delete";
             btnDelete.FlatStyle = FlatStyle.Flat;
@@ -74,33 +73,6 @@ namespace VHMIS
             Close();
         }
 
-        private void saveBtn_Click(object sender, EventArgs e)
-        {
-            if (serviceTxt.Text == "")
-            {
-                serviceTxt.BackColor = Color.Red;
-                return;
-            }
-
-            string id = Guid.NewGuid().ToString();
-            _specimen = new Specimens(id, codeTxt.Text, nameTxt.Text, serviceTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
-
-            if (DBConnect.Insert(_specimen) != "")
-            {
-                Global._specimens.Add(_specimen);
-                serviceTxt.Text = "";
-                nameTxt.Text = "";
-                codeTxt.Text = "";
-                MessageBox.Show("Information Saved");
-                LoadData();
-
-            }
-            else
-            {
-                return;
-
-            }
-        }
         List<string> fileIDs = new List<string>();
 
         public object CollectionViewSource { get; private set; }
@@ -142,38 +114,7 @@ namespace VHMIS
         }
         string updateID;
 
-        private void updateBtn_Click(object sender, EventArgs e)
-        {
-            if (updateID == "") { return; }
-            if (MessageBox.Show("YES or No?", "Are you sure you want to update this information? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                _specimen = new Specimens(updateID, codeTxt.Text, nameTxt.Text, serviceTxt.Text, DateTime.Now.ToString("dd-MM-yyyy H:mm:ss"), Helper.orgID);
-
-                DBConnect.Update(_specimen, updateID);
-                Global._specimens.RemoveAll(x => x.Id == updateID);
-                Global._specimens.Add(_specimen);
-                // DBConnect.Execute(SQL);
-                MessageBox.Show("Information updated");
-                saveBtn.Visible = true;
-                updateBtn.Visible = false;
-                updateID = "";
-                serviceTxt.Text = "";
-                nameTxt.Text = "";
-                codeTxt.Text = "";
-                LoadData();
-            }
-
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            serviceTxt.Text = "";
-            codeTxt.Text = "";
-            nameTxt.Text = "";
-            saveBtn.Visible = true;
-            updateBtn.Visible = false;
-            updateID = "";
-        }
+      
        
         private void dtGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -189,6 +130,18 @@ namespace VHMIS
         private void dtGrid_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            using (SpecimenDialog form = new SpecimenDialog())
+            {
+                DialogResult dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
         }
     }
 }

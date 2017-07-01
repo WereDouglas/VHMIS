@@ -293,6 +293,16 @@ namespace VHMIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dental_48 {
+            get {
+                object obj = ResourceManager.GetObject("Dental-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Desktop_32 {
             get {
                 object obj = ResourceManager.GetObject("Desktop-32", resourceCulture);
@@ -316,6 +326,26 @@ namespace VHMIS.Properties {
         internal static System.Drawing.Bitmap Doctor_Nurse_32 {
             get {
                 object obj = ResourceManager.GetObject("Doctor-Nurse-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Document_48 {
+            get {
+                object obj = ResourceManager.GetObject("Document-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Document_Add_01_32 {
+            get {
+                object obj = ResourceManager.GetObject("Document-Add-01-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -353,9 +383,49 @@ namespace VHMIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap First_Aid_Kit_01_128 {
+            get {
+                object obj = ResourceManager.GetObject("First-Aid-Kit-01-128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap First_Aid_Kit_01_32 {
+            get {
+                object obj = ResourceManager.GetObject("First-Aid-Kit-01-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap First_Aid_Kit_01_48 {
+            get {
+                object obj = ResourceManager.GetObject("First-Aid-Kit-01-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Flow_Cart_32 {
             get {
                 object obj = ResourceManager.GetObject("Flow-Cart-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap For_This_Week_48 {
+            get {
+                object obj = ResourceManager.GetObject("For-This-Week-48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -376,6 +446,16 @@ namespace VHMIS.Properties {
         internal static System.Drawing.Bitmap Gear_24 {
             get {
                 object obj = ResourceManager.GetObject("Gear-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gear_32 {
+            get {
+                object obj = ResourceManager.GetObject("Gear-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -406,6 +486,36 @@ namespace VHMIS.Properties {
         internal static System.Drawing.Bitmap Heart_ECG_32__1_ {
             get {
                 object obj = ResourceManager.GetObject("Heart-ECG-32 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Heart_ECG_48__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Heart-ECG-48 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Heart_ECG_48__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("Heart-ECG-48 (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Heart_ECG_48__1_2 {
+            get {
+                object obj = ResourceManager.GetObject("Heart-ECG-48 (1)2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -513,6 +623,26 @@ namespace VHMIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Instrument_Microscope_48 {
+            get {
+                object obj = ResourceManager.GetObject("Instrument-Microscope-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Instrument_Microscope_48__2_ {
+            get {
+                object obj = ResourceManager.GetObject("Instrument-Microscope-48 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Insurance_Bill_24 {
             get {
                 object obj = ResourceManager.GetObject("Insurance-Bill-24", resourceCulture);
@@ -583,9 +713,39 @@ namespace VHMIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Medicine_48 {
+            get {
+                object obj = ResourceManager.GetObject("Medicine-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Microsoft_Excel_2013_01_48 {
+            get {
+                object obj = ResourceManager.GetObject("Microsoft-Excel-2013-01-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Navigation_Pane_32 {
             get {
                 object obj = ResourceManager.GetObject("Navigation-Pane-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap News_Add_24 {
+            get {
+                object obj = ResourceManager.GetObject("News-Add-24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -633,6 +793,16 @@ namespace VHMIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Sleep_01_128 {
+            get {
+                object obj = ResourceManager.GetObject("Sleep-01-128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Sleep_01_24 {
             get {
                 object obj = ResourceManager.GetObject("Sleep-01-24", resourceCulture);
@@ -646,6 +816,16 @@ namespace VHMIS.Properties {
         internal static System.Drawing.Bitmap Sleep_01_32 {
             get {
                 object obj = ResourceManager.GetObject("Sleep-01-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sleep_01_48 {
+            get {
+                object obj = ResourceManager.GetObject("Sleep-01-48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -723,6 +903,16 @@ namespace VHMIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap T_Shirt_2_48 {
+            get {
+                object obj = ResourceManager.GetObject("T-Shirt-2-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap temp {
             get {
                 object obj = ResourceManager.GetObject("temp", resourceCulture);
@@ -763,6 +953,16 @@ namespace VHMIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap User_Group_48__3_ {
+            get {
+                object obj = ResourceManager.GetObject("User-Group-48 (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap User_Lock_24 {
             get {
                 object obj = ResourceManager.GetObject("User-Lock-24", resourceCulture);
@@ -783,6 +983,16 @@ namespace VHMIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap vugaco {
+            get {
+                object obj = ResourceManager.GetObject("vugaco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Wheelchair_32 {
             get {
                 object obj = ResourceManager.GetObject("Wheelchair-32", resourceCulture);
@@ -796,6 +1006,16 @@ namespace VHMIS.Properties {
         internal static System.Drawing.Bitmap Wheelchair_32__1_ {
             get {
                 object obj = ResourceManager.GetObject("Wheelchair-32 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Wheelchair_48 {
+            get {
+                object obj = ResourceManager.GetObject("Wheelchair-48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
